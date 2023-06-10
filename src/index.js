@@ -11,6 +11,7 @@ import {
   RouterProvider,
 } from 'react-router-dom';
 import Navbar from './components/Navbar';
+import AllCategories from './components/AllCategories';
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
     path: '/profile',
     element: <ProfilePage />,
   },
+  {
+    path: '/allproducts',
+    element: <AllCategories />
+  }
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

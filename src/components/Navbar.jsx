@@ -46,9 +46,9 @@ const PAGES = [
 ];
 
 const CATEGORIES = [
+  { label: 'All', path: '/allproducts' },
   { label: 'Category 1', path: '/category1' },
   { label: 'Category 2', path: '/category2' },
-  { label: 'Category 3', path: '/category3' },
 ];
 
 const Navbar = () => {
@@ -73,7 +73,7 @@ const Navbar = () => {
     <ThemeProvider theme={theme}>
       <AppBar sx={{ background: '#FFFFFF' }}>
         <Toolbar>
-          <Typography sx={{ color: 'text.primary' }}>jUPETA</Typography>
+          <Typography sx={{ color: 'text.primary' }}>JUPETA</Typography>
           {isMatch ? (
             <>
               <DrawerComp />
