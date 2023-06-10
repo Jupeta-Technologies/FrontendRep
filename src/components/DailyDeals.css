@@ -1,0 +1,55 @@
+.carousel {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.slide {
+  background-color: #f2f2f2;
+  padding: 20px;
+  text-align: center;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  scroll-snap-align: start;
+}
+
+.slide img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.slide h3 {
+  font-size: 16px;
+  margin-bottom: 5px;
+
+}
+
+.slide p {
+  font-size: 14px;
+  color: #888888;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 24px;
+  color: #ffffff;
+  background-color: #333333;
+  padding: 8px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.arrow.prev {
+  left: 10px;
+}
+
+.arrow.next {
+  right: 10px;
+}
+
+.arrow:hover {
+  background-color: #555555;
+}
