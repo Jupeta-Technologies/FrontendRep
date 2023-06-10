@@ -4,11 +4,7 @@ import { Navbar, Footer, SignUp } from '../components';
 const FavoritesPage = () => {
   return (
     <div>
-      <Navbar />
-    
-      {/* Add your favorite page content here */}
-      <SignUp />
-      <Footer />
+      <h3>Favorites page....to be updated</h3>
     </div>
   );
 };

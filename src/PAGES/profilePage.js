@@ -3,10 +3,7 @@ import { Navbar, Footer,SignUp } from '../components';
 const ProfilePage = () => {
   return (
     <div>
-      <Navbar />
-      {/* Add your favorite page content here */}
-      <SignUp />
-      <Footer />
+      <h3>User Profile....to be updated</h3>
     </div>
   );
 }

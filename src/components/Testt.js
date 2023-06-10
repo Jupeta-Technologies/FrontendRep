@@ -1,45 +1,19 @@
-import React, { useEffect, useState } from 'react'
-import Navbar from './Navbar'
 import axios from 'axios'
+import React from 'react'
 
-const HomePage = () => {
-
-  useEffect(()=>{
-    getData();
-  }, [])
-
-
-  const [apiData, setApiData] = useState([]);
-  const [loading, setLoading] = useState(false);
-
-  const getData = async () => {
-    try {
-    const res = await axios.get('https://fakestoreapi.com/products');
-    setApiData(res.data);
-    setLoading(true);
-    } catch (err) {
-      alert(err.message);
+const ApiTest = () => {
+    const videoList = () => {
+        axios.get('https://ec2-44-197-193-3.compute-1.amazonaws.com/api/User/GetAllProducts').then((res)=>{
+            console.log(res)
+        }).catch((err) => {
+            console.log(err)
+        })
     }
-  }
-
   return (
     <div>
-      <Navbar />
-      <div>
-      {loading && 
-      apiData.map((dat) => 
-       (
-          <div>
-            <img src={dat.image}/><br />
-            {dat.title} <br/>
-            {dat.price}
-          </div>   
-        )
-      )}
-      </div>
-      
+        <button onClick={videoList}>Get Data</button>
     </div>
   )
 }
 
-export default HomePage
+export default ApiTest
