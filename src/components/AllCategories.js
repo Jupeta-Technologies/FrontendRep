@@ -20,7 +20,9 @@ const AllCategories = () => {
       alert(err.message);
     }
   }
-
+/*<img src={dat.image} width={20} height={20} />*/
+/*{dat.title}
+  <strong>GHC {dat.price.toFixed(2)}</strong> */
   return (
     <div className='productscontainer'>
         <div className='productspagetitle'>
@@ -30,17 +32,17 @@ const AllCategories = () => {
         {loading && 
       apiData.map((dat) => 
        (
-          <div className='productcontainer'>
-            <div>
-              <img src={dat.image} className='img' />
+          <div className='productbox'>
+              <div className='imagedisplay'>
+                <img src={dat.image} className='actimage' />   
+              </div>
               <div className='namesprice'>
-                {dat.title}<br/>
-                <strong>GHC {dat.price.toFixed(2)}</strong>
+                <h3>{dat.title}</h3>
+                <h3><strong>GHC {dat.price.toFixed(2)}</strong></h3>
               </div>
-              <div>
-                <button>Add to Cart</button>
+              <div className='addcartbtnsection'>
+                <button className='addcartbtn'>Add to Cart</button>
               </div>
-            </div>
           </div>   
         )
       )}
