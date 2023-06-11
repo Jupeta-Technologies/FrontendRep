@@ -47,8 +47,8 @@ const PAGES = [
 
 const CATEGORIES = [
   { label: 'All', path: '/allproducts' },
-  { label: 'Phones & Tablets', path: '/category1' },
-  { label: 'Fashion', path: '/category2' },
+  { label: 'Category 1', path: '/category1' },
+  { label: 'Category 2', path: '/category2' },
 ];
 
 const Navbar = () => {
