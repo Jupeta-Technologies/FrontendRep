@@ -7,7 +7,7 @@
  import ExploreBestSelling from "./ExploreBestSelling"
  import Hero from "./Hero";
  import Footer from "./Footer";
-
+ import SubNavbar from "./SubNavbar";
 
 
 
@@ -16,6 +16,7 @@
  
  export {
     Navbar,
+    SubNavbar,
     NewArrival,
     SignUp,
     WhatIsTrending,
