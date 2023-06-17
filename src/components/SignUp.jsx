@@ -1,4 +1,5 @@
 import { Box, Button } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 const SignUp = () => {
   return (
@@ -16,13 +17,15 @@ const SignUp = () => {
     >
       <h1 style={{ marginBottom: '16px' }}>SIGN UP AND GET 30% OFF YOUR FIRST PURCHASE</h1>
       <Box sx={{ display: 'flex', gap: '16px' }}>
-        <Button
-          variant="outlined"
-          sx={{ backgroundColor: 'transparent', color: 'black', borderColor: 'black' }}
-          size="large"
-        >
+        <Link to='/createanaccount'>
+          <Button
+            variant="outlined"
+            sx={{ backgroundColor: 'transparent', color: 'black', borderColor: 'black' }}
+            size="large"
+          >
           Sign Up
         </Button>
+        </Link>
       </Box>
     </Box>
   );
