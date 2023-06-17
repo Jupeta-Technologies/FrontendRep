@@ -8,7 +8,7 @@ import FavoritesPage from './PAGES/favoritesPage';
 import CartPage from './PAGES/cartPage';
 import ProfilePage from './PAGES/profilePage';
 import {
-  createBrowserRouter,
+  createBrowserRouter,BrowserRouter,
   RouterProvider,
 } from 'react-router-dom';
 import Navbar from './components/Navbar';
@@ -56,7 +56,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <RouterProvider router={router}>
-      <Navbar />
+      <App />
     </RouterProvider>
   </React.StrictMode>
 );
