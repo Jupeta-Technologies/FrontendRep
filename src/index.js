@@ -15,6 +15,7 @@ import Navbar from './components/Navbar';
 import AllCategories from './components/AllCategories';
 import SellPage from './PAGES/SellPage';
 import Location from './PAGES/Location';
+import SignUpPage from './PAGES/SignUpPage';
 
 const router = createBrowserRouter([
   {
@@ -44,6 +45,10 @@ const router = createBrowserRouter([
   {
     path: '/location',
     element: <Location />
+  },
+  {
+    path: '/createanaccount',
+    element: <SignUpPage />
   }
 ]);
 
