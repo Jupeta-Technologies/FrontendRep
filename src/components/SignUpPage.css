@@ -1,0 +1,42 @@
+.signupcontainer{
+    width: 100vw;
+    min-height: 100vh;
+    justify-content: center;
+    background-color: aqua;
+    display: flex;
+    padding: 0;
+    margin: 0;
+}
+
+.navcontainer{
+    margin-bottom: 5px;
+}
+
+.formcontainer{
+    display: block;
+}
+
+.formitems{
+    display: flex;
+}
+
+.fnameinput{
+    margin: 5px;
+    width: 250px;
+    height: 30px;
+    border-radius: 5px 5px 5px 5px;
+}
+
+.lnameinput{
+    margin: 5px;
+    width: 250px;
+    height: 30px;
+    border-radius: 5px 5px 5px 5px;
+}
+
+.signuppass{
+    margin: 5px;
+    width: 510px;
+    height: 30px;
+    border-radius: 5px 5px 5px 5px;
+}
