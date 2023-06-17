@@ -17,47 +17,13 @@ import SellPage from './PAGES/SellPage';
 import Location from './PAGES/Location';
 import SignUpPage from './PAGES/SignUpPage';
 
-const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <App />,
-  },
-  {
-    path: '/favorites',
-    element: <FavoritesPage />,
-  },
-  {
-    path: '/cart',
-    element: <CartPage />,
-  },
-  {
-    path: '/profile',
-    element: <ProfilePage />,
-  },
-  {
-    path: '/allproducts',
-    element: <AllCategories />
-  },
-  {
-    path: '/sell',
-    element: <SellPage />
-  },
-  {
-    path: '/location',
-    element: <Location />
-  },
-  {
-    path: '/createanaccount',
-    element: <SignUpPage />
-  }
-]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router}>
+    <BrowserRouter>
       <App />
-    </RouterProvider>
+    </BrowserRouter>
   </React.StrictMode>
 );
 

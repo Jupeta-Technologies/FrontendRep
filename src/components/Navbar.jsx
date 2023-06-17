@@ -20,6 +20,7 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { styled, ThemeProvider } from '@mui/system';
 import SearchIcon from '@mui/icons-material/Search';
 import DrawerComp from './DrawerComp';
+import ProfilePage from '../PAGES/profilePage';
 
 const SearchContainer = styled('div')(({ theme }) => ({
   position: 'relative',
