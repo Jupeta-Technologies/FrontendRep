@@ -1,40 +1,49 @@
 import React, { useState } from 'react';
-import { Hero, DailyDeals, ExploreBestSelling, Footer, NewArrival, SignUp, WhatIsTrending, HolidaySale, SubNavbar, Navbar } from './components';
 import './components/app.css';
+import {Routes, Route} from 'react-router-dom'
+import FavoritesPage from './PAGES/favoritesPage';
+import CartPage from './PAGES/cartPage';
+import ProfilePage from './PAGES/profilePage';
+import AllCategories from './components/AllCategories';
+import SellPage from './PAGES/SellPage';
+import SignUpPage from './PAGES/SignUpPage';
+import Location from './PAGES/Location';
+import HomePage from './PAGES/HomePage';
 
 function App() {
+
   const [cartItems, setCartItems] = useState([]);
+  const onAdd = (dat) => {
+    const exist = cartItems.find(x => x.id === dat.id);
+    if (exist){
+      setCartItems(cartItems.map(x => x.id === dat.id ? {...exist, qty: exist.qty + 1} : x))
+    } else {
+      setCartItems([...cartItems, {...dat, qty: 1}])
+    }
+  }
+
+  const onRemove = (dat) => {
+    const exist = cartItems.find(x => x.id === dat.id);
+    if (exist.qty === 1){
+      setCartItems(cartItems.filter((x) => x.id !== dat.id))
+    } else {
+      setCartItems(cartItems.map(x => x.id === dat.id ? {...exist, qty: exist.qty - 1} : x))
+    }
+  }
+
 
   return (
     <div>
-  <Navbar />
-  <div className="spacer"></div>
-  <SubNavbar />
-  <div className="bgPrimary paddingX flexStart">
-    <div className="boxWidth">
-      <div></div>
-        <Hero/>
-      </div>
-    </div>
-    <div className="bgPrimary paddingX flexStart">
-      <div className="boxWidth">
-        <ExploreBestSelling />
-        <HolidaySale />
-      </div>
-    </div>
-    <div className="bgPrimary paddingX flexStart">
-      <div className="boxWidth">
-        <WhatIsTrending />
-        <NewArrival />
-        <DailyDeals />
-        <SignUp />
-      </div>
-    </div>
-    <div className="bgPrimary flexStart">
-      <div className="boxWidth">
-        <Footer />
-      </div>
-    </div>
+      <Routes>
+        <Route path='/' element={<HomePage />}/>
+        <Route path='/favorites' element={<FavoritesPage />}/>
+        <Route path='/cart' element={<CartPage />}/>
+        <Route path='/profile' element={<ProfilePage />}/>
+        <Route path='/allproducts' element={<AllCategories onAdd={onAdd}/>}/>
+        <Route path='/sell' element={<SellPage />}/>
+        <Route path='/location' element={<Location />}/>
+        <Route path='/createanaccount' element={<SignUpPage />}/>
+      </Routes>
   </div>
   )
 };

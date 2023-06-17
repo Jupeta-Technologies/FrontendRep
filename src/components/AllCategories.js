@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import '../components/Allcategories.css'
 
-const AllCategories = () => {
+const AllCategories = (props) => {
+  const {onAdd} = props
 
   useEffect(() => {
     getData();
@@ -41,7 +42,7 @@ const AllCategories = () => {
                 <h3><strong>GHC {dat.price.toFixed(2)}</strong></h3>
               </div>
               <div className='addcartbtnsection'>
-                <button className='addcartbtn'>Add to Cart</button>
+                <button className='addcartbtn' onClick={() => onAdd(dat)}>Add to Cart</button>
               </div>
             </div>
           )
