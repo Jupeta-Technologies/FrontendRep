@@ -37,7 +37,7 @@ function App() {
       <Routes>
         <Route path='/' element={<HomePage />}/>
         <Route path='/favorites' element={<FavoritesPage />}/>
-        <Route path='/cart' element={<CartPage />}/>
+        <Route path='/cart' element={<CartPage cartItems={cartItems} onAdd={onAdd} onRemove={onRemove} setCartItems={setCartItems}/>}/>
         <Route path='/profile' element={<ProfilePage />}/>
         <Route path='/allproducts' element={<AllCategories onAdd={onAdd}/>}/>
         <Route path='/sell' element={<SellPage />}/>
