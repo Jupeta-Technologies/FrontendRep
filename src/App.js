@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Hero, DailyDeals, ExploreBestSelling, Footer, NewArrival, SignUp, WhatIsTrending, HolidaySale, SubNavbar, Navbar } from './components';
 import './components/app.css';
-const App = () => (
-  <div>
+
+function App() {
+  const [cartItems, setCartItems] = useState([]);
+
+  return (
+    <div>
   <Navbar />
   <div className="spacer"></div>
   <SubNavbar />
@@ -32,6 +36,7 @@ const App = () => (
       </div>
     </div>
   </div>
-);
+  )
+};
 
 export default App;
