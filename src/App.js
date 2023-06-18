@@ -1,6 +1,6 @@
 import React from 'react';
 import { Hero, DailyDeals, ExploreBestSelling, Footer, NewArrival, SignUp, WhatIsTrending, HolidaySale, SubNavbar, Navbar } from './components';
-import '/Users/ChristianA/Desktop/jup/FrontendRep/src/components/app.css';
+import './components/app.css';
 const App = () => (
   <div>
   <Navbar />
@@ -21,8 +21,8 @@ const App = () => (
     <div className="bgPrimary paddingX flexStart">
       <div className="boxWidth">
         <WhatIsTrending />
-        <NewArrival />
-        <DailyDeals />
+        {/*<NewArrival />
+        <DailyDeals />*/}
         <SignUp />
       </div>
     </div>
