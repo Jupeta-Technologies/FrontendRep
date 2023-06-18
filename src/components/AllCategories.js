@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import '../components/Allcategories.css';
-import { Navbar, Footer } from '../components';
+import React, { useEffect, useState } from 'react'
+import axios from 'axios'
+import '../components/Allcategories.css'
+import { Link } from 'react-router-dom';
+
 
 const AllCategories = (props) => {
   const { onAdd } = props;
@@ -21,43 +22,39 @@ const AllCategories = (props) => {
     } catch (err) {
       alert(err.message);
     }
-  };
-
+  }
+  /*<img src={dat.image} width={20} height={20} />*/
+  /*{dat.title}
+    <strong>GHC {dat.price.toFixed(2)}</strong>                             https://fakestoreapi.com/products*/
   return (
-    <>
-      <Navbar /> 
-      <div className="spacer"></div>
-      <div className="productscontainer">
-        <div className="productspagetitle">
-          <h1>
-            <strong>ALL PRODUCTS</strong>
-          </h1>
-        </div>
-        <div className="productssection">
-          {loading &&
-            apiData.map((dat) => (
-              <div className="productbox">
-                <div className="imagedisplay">
-                  <img src={dat.imageFileUrl} className="actimage" alt={dat.productName} />
+    <div className='productscontainer'>
+      <div className='productspagetitle'>
+        <h1><strong>ALL PRODUCTS</strong></h1>
+      </div>
+      <div className='productssection'>
+        {loading &&
+          apiData.map((dat) =>
+          (
+            <>
+              <div className='productbox'>
+                <div className='imagedisplay'>
+                  <img src={dat.imageFileUrl} className='actimage' />
                 </div>
-                <div className="namesprice">
+                <div className='namesprice'>
                   <h3>{dat.productName}</h3>
-                  <h3>
-                    <strong>GHC {dat.price.toFixed(2)}</strong>
-                  </h3>
+                  <h3><strong>GHC {dat.price.toFixed(2)}</strong></h3>
                 </div>
-                <div className="addcartbtnsection">
-                  <button className="addcartbtn" onClick={() => onAdd(dat)}>
-                    Add to Cart
-                  </button>
+                <div className='addcartbtnsection'>
+                  <button className='addcartbtn' onClick={() => onAdd(dat)}>Add to Cart</button>
                 </div>
               </div>
-            ))}
-        </div>
+            </>
+          )
+          )}
       </div>
-      <Footer /> 
-    </>
-  );
-};
+      <Link to='/cart'><button className='cartbttn'>View Cart</button></Link>
+    </div>
+  )
+}
 
-export default AllCategories;
+export default AllCategories

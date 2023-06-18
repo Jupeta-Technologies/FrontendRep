@@ -78,3 +78,14 @@
     width: 80%;
     border-radius: 25px;
 }
+
+.cartbttn{
+    background-color: red;
+    align-self: flex-end;
+    margin-left: 700px;
+    color: white;
+    margin-top: 20px;
+    font-size: large;
+    padding: 10px;
+    border-radius: 10px 10px 10px 10px;
+}
