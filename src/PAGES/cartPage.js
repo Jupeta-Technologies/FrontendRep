@@ -1,4 +1,6 @@
 import React from 'react'
+import '../components/CartPage.css'
+import { Navbar } from '../components';
 
 const CartPage = (props) => {
   const {cartItems, onAdd, onRemove, setCartItems} = props
@@ -10,6 +12,7 @@ const CartPage = (props) => {
   /*useEffect(()=>{
     alert('Thanks for buying from us')
   },[cartItems.length])*/
+  /*<img src={item.imageFileUrl} className='cartproductimg' />*/
 
 
   return (
@@ -19,23 +22,28 @@ const CartPage = (props) => {
         </div>
         <div className='cartcontainer'>
           {cartItems.map((item) => {
-            return <div key={item.id}>
-              <div>{item.name}</div>
-              <div>
-                <button onClick={() => onAdd(item)}>+</button>
-                <button onClick={() => onRemove(item)}>-</button>
+            return (<div>
+              <div key={item.id} className='cartproduct'>
+                <div className='cartproductimgcontainer'><img src={item.imageFileUrl} className='cartproductimg' /></div>
+                <div className='cartproductnamecontainer'>
+                  <div>{item.productName}</div>
+                  <div>
+                    <button onClick={() => onAdd(item)}>+</button>
+                    <button onClick={() => onRemove(item)}>-</button>
+                  </div>
+                </div> 
+                <div className='cartproductpricecontainer'>
+                  {item.qty} x GHC {item.price.toFixed(2)}
+                </div>
               </div>
-              <div>
-                {item.qty} x {item.price.toFixed(2)}
-              </div>
-            </div>
+            </div>)
           })}
           {cartItems.length !==0 && (
             <>
               <hr></hr>
-              <div><h1>FEE SUMMARY</h1></div>
+              <div><h1>ORDER SUMMARY</h1></div>
               <div>
-                <div><strong>Meal Price</strong></div>
+                <div><strong>Product Price</strong></div>
                 <div>GHC {itemsPrice.toFixed(2)}</div>
               </div>
               <div>
