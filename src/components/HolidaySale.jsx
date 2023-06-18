@@ -1,4 +1,4 @@
-import { Box, Button } from '@mui/material';
+import { Box,  } from '@mui/material';
 import trendyImage from '../images/desktop-layout.jpg';
 
 const HolidaySale = () => {
@@ -18,20 +18,7 @@ const HolidaySale = () => {
       }}
     >
       <Box sx={{ display: 'flex', gap: '16px' }}>
-        <Button
-          variant="outlined"
-          sx={{ backgroundColor: 'transparent', color: 'black',  borderColor: 'black', }}
-          size="large"
-        >
-          Shop Now
-        </Button>
-        <Button
-          variant="outlined"
-          sx={{ backgroundColor: 'transparent', color: 'black',  borderColor: 'black', }}
-          size="large"
-        >
-          Discover More
-        </Button>
+      
       </Box>
     </Box>
   );

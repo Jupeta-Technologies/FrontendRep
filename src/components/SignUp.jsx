@@ -5,8 +5,7 @@ const SignUp = () => {
   return (
     <Box
       sx={{
-        backgroundColor: `#E6E8F5`,
-        backgroundPosition: 'center',
+        background: '#E6E8F5',
         height: '17vh',
         width: '100%',
         display: 'flex',

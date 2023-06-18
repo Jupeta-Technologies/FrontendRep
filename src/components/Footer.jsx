@@ -1,32 +1,98 @@
-import styles from '../style';
-import { footerLinks } from '../constant';
+import React from 'react';
+import { Box, Typography, List, ListItem } from '@mui/material';
 
 const Footer = () => {
+  const footerLinks = [
+    {
+      title: 'Buy',
+      links: [
+        { name: 'Registration' },
+        { name: 'Money Back Guarantee' },
+        { name: 'Biding and Buying help' },
+        { name: 'Store' },
+      ],
+    },
+    {
+      title: 'Sell',
+      links: [
+        { name: 'Start selling' },
+        { name: 'Learn to sell' },
+        { name: 'Affiliates' },
+        { name: 'Stores' },
+      ],
+    },
+    {
+      title: 'Tools & Apps',
+      links: [
+        { name: 'Developers' },
+        { name: 'Security Center' },
+        { name: 'Site Map' },
+      ],
+    },
+    {
+      title: 'Stay connected',
+      links: [
+        { name: 'Twitter' },
+        { name: 'Instagram' },
+        { name: 'Facebook' },
+      ],
+    },
+    {
+      title: 'About Us',
+      links: [
+        { name: 'Company info' },
+        { name: 'News' },
+        { name: 'Investors' },
+        { name: 'Careers' },
+        { name: 'Advertise with us' },
+        { name: 'Policies' },
+      ],
+    },
+    {
+      title: 'Help & contact',
+      links: [
+        { name: 'Sellers Information Center' },
+        { name: 'Contact us' },
+      ],
+    },
+    {
+      title: 'Community',
+      links: [
+        { name: 'Announcement' },
+        { name: 'Discussion boards' },
+        { name: 'Giving works' },
+      ],
+    },
+  ];
+
   return (
-    <section className={`${styles.flexCenter} ${styles.paddingY} flex-col`}>
-        <div className="flex-[1.5] w-full flex flex-row justify-between flex-wrap md:mt-0 mt-10">
-          {footerLinks.map((footerLink) => (
-            <div
-              key={footerLink.title}
-              className="flex flex-col my-4 min-w-[150px]"
-            >
-              <h4 className="font-poppins font-medium text-[18px] leading-[27px] text-black">
-                {footerLink.title}
-              </h4>
-              <ul className="list-none mt-4">
-                {footerLink.links.map((link) => (
-                  <li
-                    key={link.name}
-                    className="font-poppins font-normal text-[16px] leading-[24px] text-dimBlack hover:text-secondary cursor-pointer mb-4"
-                  >
-                    {link.name}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+    <Box
+      display="flex"
+      justifyContent="space-between"
+      marginTop="1.5rem"
+      style={{ color: '', background: '#7E7B78' }}
+    >
+      {footerLinks.map((footerLink) => (
+        <div key={footerLink.title}>
+          <Typography variant="h4" fontWeight="medium" marginBottom="0.8rem" fontSize="1.2rem">
+            {footerLink.title}
+          </Typography>
+          <List>
+            {footerLink.links.map((link) => (
+              <ListItem
+                key={link.name}
+                component="li"
+                marginBottom="0.3rem"
+                cursor="pointer"
+                hover="text.secondary"
+              >
+                {link.name}
+              </ListItem>
+            ))}
+          </List>
         </div>
-    </section>
+      ))}
+    </Box>
   );
 };
 
