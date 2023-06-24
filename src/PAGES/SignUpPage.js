@@ -31,6 +31,22 @@ const SignUpPage = () => {
           <div className='formitems'>
             <input type='tel' placeholder='Phone Number' className='phoneinput' />
           </div>
+          <div className='formitems'>
+            <input type='email' placeholder='Email' className='emailinput' />
+          </div>
+          <div className='formitems'>
+            <input type='date' placeholder='Date of Birth' className='dobinput' />
+          </div>
+          <div>
+            <p>Get a jUPETA Member Reward on your birthday</p>
+          </div>
+          <div className='checkboxitems'>
+            <input type='checkbox' />
+            <p>I agree to jUPETA's Privacy Policy and Terms of Use</p>
+          </div>
+          <div className='signupbtncontainer'>
+            <button type='submit' className='signupbtn'>Create account</button>
+          </div>
         </form>
       </div>
     </div>

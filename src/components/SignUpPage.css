@@ -2,7 +2,6 @@
     width: 100vw;
     min-height: 100vh;
     justify-content: center;
-    background-color: aqua;
     display: flex;
     padding: 0;
     margin: 0;
@@ -18,32 +17,71 @@
 
 .formitems{
     display: flex;
+    margin-bottom: 20px;
 }
 
 .fnameinput{
     margin: 5px;
     width: 250px;
-    height: 30px;
+    height: 45px;
     border-radius: 5px 5px 5px 5px;
+    border: 2px solid black;
 }
 
 .lnameinput{
     margin: 5px;
     width: 250px;
-    height: 30px;
+    height: 45px;
     border-radius: 5px 5px 5px 5px;
+    border: 2px solid black;
 }
 
 .signuppass{
     margin: 5px;
     width: 510px;
-    height: 30px;
+    height: 45px;
     border-radius: 5px 5px 5px 5px;
+    border: 2px solid black;
 }
 
 .phoneinput{
     width: 510px;
-    height: 30px;
+    height: 45px;
     margin: 5px;
     border-radius: 5px 5px 5px 5px;
+    border: 2px solid black;
+}
+
+.emailinput{
+    width: 510px;
+    height: 45px;
+    margin: 5px;
+    border-radius: 5px 5px 5px 5px;
+    border: 2px solid black;
+}
+
+.dobinput{
+    width: 510px;
+    height: 45px;
+    margin: 5px;
+    border-radius: 5px 5px 5px 5px;
+    border: 2px solid black;
+}
+
+.checkboxitems{
+    display: flex;
+    margin: 15px;
+    gap: 5px;
+}
+
+.signupbtncontainer{
+    float: right;
+}
+
+.signupbtn{
+    background-color: black;
+    color: white;
+    font-size: large;
+    padding: 10px;
+    border-radius: 25px 25px 25px 25px;
 }
