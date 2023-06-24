@@ -40,3 +40,10 @@
     height: 30px;
     border-radius: 5px 5px 5px 5px;
 }
+
+.phoneinput{
+    width: 510px;
+    height: 30px;
+    margin: 5px;
+    border-radius: 5px 5px 5px 5px;
+}

@@ -1,6 +1,8 @@
 import React from 'react';
 import '../components/SignUpPage.css';
-import { Navbar, Footer } from '../components';
+import { Navbar } from '../components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faX } from '@fortawesome/free-solid-svg-icons';
 
 const SignUpPage = () => {
   return (
@@ -20,9 +22,17 @@ const SignUpPage = () => {
           <div className='formitems'>
             <input type='password' placeholder='Password' className='signuppass' />
           </div>
+          <div>
+            <p><FontAwesomeIcon icon={faX} size='sm'></FontAwesomeIcon> Minimum of 8 characters</p>
+          </div>
+          <div>
+            <p><FontAwesomeIcon icon={faX}></FontAwesomeIcon> Uppercase letters, lowercase letters and a number</p>
+          </div>
+          <div className='formitems'>
+            <input type='tel' placeholder='Phone Number' className='phoneinput' />
+          </div>
         </form>
       </div>
-      <Footer />
     </div>
   );
 };
