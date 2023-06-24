@@ -22,11 +22,13 @@ const SignUpPage = () => {
           <div className='formitems'>
             <input type='password' placeholder='Password' className='signuppass' />
           </div>
-          <div>
-            <p><FontAwesomeIcon icon={faX} size='sm'></FontAwesomeIcon> Minimum of 8 characters</p>
-          </div>
-          <div>
-            <p><FontAwesomeIcon icon={faX}></FontAwesomeIcon> Uppercase letters, lowercase letters and a number</p>
+          <div className='passwordhintcontainer'>
+            <div>
+              <p><FontAwesomeIcon icon={faX} size='sm'></FontAwesomeIcon> Minimum of 8 characters</p>
+            </div>
+            <div>
+              <p><FontAwesomeIcon icon={faX}></FontAwesomeIcon> Uppercase letters, lowercase letters and a number</p>
+            </div>
           </div>
           <div className='formitems'>
             <input type='tel' placeholder='Phone Number' className='phoneinput' />

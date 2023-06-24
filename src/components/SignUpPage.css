@@ -44,6 +44,11 @@
     border: 2px solid black;
 }
 
+.passwordhintcontainer{
+    display: block;
+    margin-bottom: 20px;
+}
+
 .phoneinput{
     width: 510px;
     height: 45px;
