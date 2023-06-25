@@ -1,37 +1,56 @@
-import React from 'react';
-import { Hero, DailyDeals, ExploreBestSelling, Footer, NewArrival, SignUp, WhatIsTrending, HolidaySale, SubNavbar, Navbar } from './components';
+import React, { useState } from 'react';
 import './components/app.css';
-const App = () => (
-  <div>
-  <Navbar />
-  <div className="spacer"></div>
-  <SubNavbar />
-  <div className="bgPrimary paddingX flexStart">
-    <div className="boxWidth">
-      <div></div>
-        <Hero/>
-      </div>
+import { Routes, Route } from 'react-router-dom';
+import FavoritesPage from './PAGES/favoritesPage';
+import CartPage from './PAGES/cartPage';
+import ProfilePage from './PAGES/profilePage';
+import AllCategories from './components/AllCategories';
+import { SignUp } from './components';
+import SellPage from './PAGES/SellPage';
+import SignUpPage from './PAGES/SignUpPage';
+import Location from './PAGES/Location';
+import HomePage from './PAGES/HomePage';
+import ProductDetailPage from './PAGES/ProductDetailPage';
+import CompTester from './componentPreview';
+
+function App() {
+  const [cartItems, setCartItems] = useState([]);
+
+  const onAdd = (dat) => {
+    const exist = cartItems.find(x => x.id === dat.id);
+    if (exist) {
+      setCartItems(cartItems.map(x => x.id === dat.id ? { ...exist, qty: exist.qty + 1 } : x));
+    } else {
+      setCartItems([...cartItems, { ...dat, qty: 1 }]);
+    }
+  };
+
+  const onRemove = (dat) => {
+    const exist = cartItems.find(x => x.id === dat.id);
+    if (exist.qty === 1) {
+      setCartItems(cartItems.filter((x) => x.id !== dat.id));
+    } else {
+      setCartItems(cartItems.map(x => x.id === dat.id ? { ...exist, qty: exist.qty - 1 } : x));
+    }
+  };
+
+  return (
+    <div>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/favorites" element={<FavoritesPage />} />
+        <Route path="/cart" element={<CartPage cartItems={cartItems} onAdd={onAdd} onRemove={onRemove} setCartItems={setCartItems} />} />
+        <Route path="/profile" element={<ProfilePage />} />
+        <Route path="/allproducts" element={<AllCategories onAdd={onAdd} />} />
+        <Route path="/sell" element={<SellPage />} />
+        <Route path="/location" element={<Location />} />
+        <Route path="/createanaccount" element={<SignUpPage />} />
+        <Route path="/signup" element={<SignUp />} />
+        <Route exact path="/product-detail" element={<ProductDetailPage />} />
+        <Route path="/compTester" element={<CompTester />} />
+      </Routes>
     </div>
-    <div className="bgPrimary paddingX flexStart">
-      <div className="boxWidth">
-        <ExploreBestSelling />
-        <HolidaySale />
-      </div>
-    </div>
-    <div className="bgPrimary paddingX flexStart">
-      <div className="boxWidth">
-        <WhatIsTrending />
-        <NewArrival />
-        <DailyDeals />
-        <SignUp />
-      </div>
-    </div>
-    <div className="bgPrimary flexStart">
-      <div className="boxWidth">
-        <Footer />
-      </div>
-    </div>
-  </div>
-);
+  );
+}
 
 export default App;

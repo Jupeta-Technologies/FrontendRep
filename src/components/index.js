@@ -7,10 +7,13 @@
  import ExploreBestSelling from "./ExploreBestSelling"
  import Hero from "./Hero";
  import Footer from "./Footer";
- import SubNavbar from "./SubNavbar";
-
-
-
+ import SubNavbar from "./SubNavbar"; 
+ import BecomeMember from "./BecomeMember";
+ import Favorites from "./Favorites";
+import Recommendation from "./Recommendation";
+import RecentlyViewed from "./RecentlyViewed";
+import ProductColor from "./ProductColor";
+import ProductDetailsThumb from "./ProductDetailsThumb";
 
 
  
@@ -25,4 +28,10 @@
     Hero,
     Footer,
     HolidaySale,
+    BecomeMember,
+    Favorites,
+    Recommendation,
+    RecentlyViewed,
+    ProductColor,
+    ProductDetailsThumb,
  };

@@ -1,63 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import './index.css';
-import './components/Allcategories.css'
+import './components/Allcategories.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import FavoritesPage from './PAGES/favoritesPage';
-import CartPage from './PAGES/cartPage';
-import ProfilePage from './PAGES/profilePage';
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from 'react-router-dom';
-import Navbar from './components/Navbar';
-import AllCategories from './components/AllCategories';
-import SellPage from './PAGES/SellPage';
-import Location from './PAGES/Location';
-import CompTester from './componentPreview';
+import {BrowserRouter} from 'react-router-dom';
 
-const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <App />,
-  },
-  {
-    path: '/favorites',
-    element: <FavoritesPage />,
-  },
-  {
-    path: '/cart',
-    element: <CartPage />,
-  },
-  {
-    path: '/profile',
-    element: <ProfilePage />,
-  },
-  {
-    path: '/allproducts',
-    element: <AllCategories />
-  },
-  {
-    path: '/sell',
-    element: <SellPage />
-  },
-  {
-    path: '/location',
-    element: <Location />
-  },
-  {
-    path: '/testcomponent',
-    element: <CompTester />
-  }
-]);
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router}>
-      <Navbar />
-    </RouterProvider>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </React.StrictMode>
 );
 

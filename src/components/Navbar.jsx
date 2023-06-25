@@ -20,13 +20,14 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { styled, ThemeProvider } from '@mui/system';
 import SearchIcon from '@mui/icons-material/Search';
 import DrawerComp from './DrawerComp';
+import ProfilePage from '../PAGES/profilePage';
 
 const SearchContainer = styled('div')(({ theme }) => ({
   position: 'relative',
   display: 'flex',
   alignItems: 'center',
   borderRadius: theme.shape.borderRadius,
-  backgroundColor: '#FFFFFF',
+  backgroundColor: '#A8A39F',
   marginLeft: theme.spacing(2),
   marginRight: theme.spacing(2),
   [theme.breakpoints.down('md')]: {
@@ -72,7 +73,7 @@ const Navbar = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <AppBar sx={{ background: '#FFFFFF' }}>
+      <AppBar sx={{ background: '#A8A39F' }}>
         <Toolbar>
           <Typography sx={{ color: 'text.primary' }}>jUPETA</Typography>
           {isMatch ? (
@@ -86,8 +87,8 @@ const Navbar = () => {
                   <Tab key={index} label={page.label} sx={page.sx} component={Link} to={page.path} />
                 ))}
               </Tabs>
-
-              <Tabs sx={{ marginLeft: 'auto' }} textColor="#000000">
+              <div style={{ flexGrow: 1 }} /> 
+              <Tabs sx={{ marginLeft: 'auto', background: 'transparent' }} textColor="#000000">
                 <SearchContainer>
                   {searchExpanded && (
                     <Tab
