@@ -21,8 +21,8 @@ const App = () => (
     <div className="bgPrimary paddingX flexStart">
       <div className="boxWidth">
         <WhatIsTrending />
-        {/*<NewArrival />
-        <DailyDeals />*/}
+        <NewArrival />
+        <DailyDeals />
         <SignUp />
       </div>
     </div>
