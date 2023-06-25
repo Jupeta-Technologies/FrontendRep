@@ -1,6 +1,6 @@
 import React from 'react'
 import '../components/CartPage.css'
-import { Navbar } from '../components';
+import { Navbar,Footer } from '../components';
 
 const CartPage = (props) => {
   const {cartItems, onAdd, onRemove, setCartItems} = props
@@ -17,6 +17,7 @@ const CartPage = (props) => {
 
   return (
     <div>
+            <Navbar />
         <div>
           {cartItems.length === 0 && <div>Cart is Empty</div>}
         </div>
@@ -65,6 +66,7 @@ const CartPage = (props) => {
             <button style={{backgroundColor: "lightpink"}}>Place Order</button>
           </div>
         </div> 
+        <Footer />
     </div>
   )
 }
