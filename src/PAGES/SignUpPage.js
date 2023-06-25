@@ -3,7 +3,7 @@ import '../components/SignUpPage.css';
 import { Navbar } from '../components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faX } from '@fortawesome/free-solid-svg-icons';
-import {useHistory} from 'react-router-dom'
+import {useNavigate} from 'react-router-dom'
 
 const SignUpPage = () => {
   const [firstName, setFirstName] = useState("");
@@ -12,7 +12,7 @@ const SignUpPage = () => {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [userEmail, setUserEmail] = useState("");
   const [birthDate, setBirthDate] = useState("");
-  const history = useHistory();
+  const history = useNavigate();
 
   const signUpResult = async() => {
     let userInfo = {firstName, lastName, password, phoneNumber, userEmail, birthDate};
