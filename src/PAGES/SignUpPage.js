@@ -1,10 +1,23 @@
-import React from 'react';
+import React,{useState} from 'react';
 import '../components/SignUpPage.css';
 import { Navbar } from '../components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faX } from '@fortawesome/free-solid-svg-icons';
 
 const SignUpPage = () => {
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [password, setPassword] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [userEmail, setUserEmail] = useState("");
+  const [birthDate, setBirthDate] = useState("");
+
+  const signUpResult = () => {
+    let userInfo = {firstName, lastName, password, phoneNumber, userEmail, birthDate};
+    console.log(userInfo)
+  }
+
+
   return (
     <div>
       <Navbar />
@@ -16,11 +29,11 @@ const SignUpPage = () => {
       <div className='signupcontainer'>
         <form className='formcontainer'>
           <div className='formitems'>
-            <input type='text' placeholder='First Name' className='fnameinput' />
-            <input type='text' placeholder='Last Name' className='lnameinput' />
+            <input type='text' placeholder='First Name' className='fnameinput' onChange={(e) => setFirstName(e.target.value)} value={firstName} />
+            <input type='text' placeholder='Last Name' className='lnameinput' onChange={(e) => setLastName(e.target.value)} value={lastName} />
           </div>
           <div className='formitems'>
-            <input type='password' placeholder='Password' className='signuppass' />
+            <input type='password' placeholder='Password' className='signuppass' onChange={(e) => setPassword(e.target.value)} value={password} />
           </div>
           <div className='passwordhintcontainer'>
             <div>
@@ -31,13 +44,13 @@ const SignUpPage = () => {
             </div>
           </div>
           <div className='formitems'>
-            <input type='tel' placeholder='Phone Number' className='phoneinput' />
+            <input type='tel' placeholder='Phone Number' className='phoneinput' onChange={(e) => setPhoneNumber(e.target.value)} value={phoneNumber} />
           </div>
           <div className='formitems'>
-            <input type='email' placeholder='Email' className='emailinput' />
+            <input type='email' placeholder='Email' className='emailinput' onChange={(e) => setUserEmail(e.target.value)} value={userEmail} />
           </div>
           <div className='formitems'>
-            <input type='date' placeholder='Date of Birth' className='dobinput' />
+            <input type='date' placeholder='Date of Birth' className='dobinput' onChange={(e) => setBirthDate(e.target.value)} value={birthDate} />
           </div>
           <div>
             <p>Get a jUPETA Member Reward on your birthday</p>
@@ -47,7 +60,7 @@ const SignUpPage = () => {
             <p>I agree to jUPETA's Privacy Policy and Terms of Use</p>
           </div>
           <div className='signupbtncontainer'>
-            <button type='submit' className='signupbtn'>Create account</button>
+            <button type='submit' className='signupbtn' onClick={signUpResult}>Create account</button>
           </div>
         </form>
       </div>
