@@ -3,6 +3,7 @@ import '../components/SignUpPage.css';
 import { Navbar } from '../components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faX } from '@fortawesome/free-solid-svg-icons';
+import {useHistory} from 'react-router-dom'
 
 const SignUpPage = () => {
   const [firstName, setFirstName] = useState("");
@@ -11,10 +12,22 @@ const SignUpPage = () => {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [userEmail, setUserEmail] = useState("");
   const [birthDate, setBirthDate] = useState("");
+  const history = useHistory();
 
-  const signUpResult = () => {
+  const signUpResult = async() => {
     let userInfo = {firstName, lastName, password, phoneNumber, userEmail, birthDate};
-    console.log(userInfo)
+    console.warn(userInfo)
+    let userResult = await fetch("https://ec2-44-197-193-3.compute-1.amazonaws.com/api/User/AddUser",{
+      method: 'POST',
+      body: JSON.stringify(userInfo),
+      headers: {
+        "Content-Type": 'application/json',
+        "Accept": 'application/json' 
+      }
+    })
+    userResult = await userResult.json()
+    localStorage.setItem("user-info", JSON.stringify(userResult))
+    history.push("/")
   }
 
 
