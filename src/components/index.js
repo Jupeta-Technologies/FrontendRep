@@ -11,6 +11,9 @@
  import BecomeMember from "./BecomeMember";
  import Favorites from "./Favorites";
 import Recommendation from "./Recommendation";
+import RecentlyViewed from "./RecentlyViewed";
+import ProductColor from "./ProductColor";
+import ProductDetailsThumb from "./ProductDetailsThumb";
 
 
  
@@ -28,4 +31,7 @@ import Recommendation from "./Recommendation";
     BecomeMember,
     Favorites,
     Recommendation,
+    RecentlyViewed,
+    ProductColor,
+    ProductDetailsThumb,
  };

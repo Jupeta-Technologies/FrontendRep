@@ -10,6 +10,7 @@ import SellPage from './PAGES/SellPage';
 import SignUpPage from './PAGES/SignUpPage';
 import Location from './PAGES/Location';
 import HomePage from './PAGES/HomePage';
+import ProductDetailPage from './PAGES/ProductDetailPage';
 
 function App() {
   const [cartItems, setCartItems] = useState([]);
@@ -44,6 +45,7 @@ function App() {
         <Route path="/location" element={<Location />} />
         <Route path="/createanaccount" element={<SignUpPage />} />
         <Route path="/signup" element={<SignUp />} />
+        <Route exact path="/product-detail" element={<ProductDetailPage />} />
       </Routes>
     </div>
   );
