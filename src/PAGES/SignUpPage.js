@@ -3,7 +3,10 @@ import '../components/SignUpPage.css';
 import { Navbar } from '../components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faX } from '@fortawesome/free-solid-svg-icons';
-import {useNavigate} from 'react-router-dom'
+import {useNavigate} from 'react-router-dom';
+import {toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const SignUpPage = () => {
   const [firstName, setFirstName] = useState("");
@@ -12,22 +15,22 @@ const SignUpPage = () => {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [userEmail, setUserEmail] = useState("");
   const [birthDate, setBirthDate] = useState("");
-  const history = useNavigate();
+  const navigate = useNavigate();
 
-  const signUpResult = async() => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     let userInfo = {firstName, lastName, password, phoneNumber, userEmail, birthDate};
     console.warn(userInfo)
-    let userResult = await fetch("https://ec2-44-197-193-3.compute-1.amazonaws.com/api/User/AddUser",{
+    fetch("https://ec2-44-197-193-3.compute-1.amazonaws.com/api/User/AddUser",{
       method: 'POST',
-      body: JSON.stringify(userInfo),
-      headers: {
-        "Content-Type": 'application/json',
-        "Accept": 'application/json' 
-      }
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(userInfo)
+    }).then((res) => {
+      toast.success('Registered successfully')
+      navigate("/")
+    }).catch((err) => {
+      toast.error('Failed: ' + err.message)
     })
-    userResult = await userResult.json()
-    localStorage.setItem("user-info", JSON.stringify(userResult))
-    history.push("/")
   }
 
 
@@ -73,7 +76,7 @@ const SignUpPage = () => {
             <p>I agree to jUPETA's Privacy Policy and Terms of Use</p>
           </div>
           <div className='signupbtncontainer'>
-            <button type='submit' className='signupbtn' onClick={signUpResult}>Create account</button>
+            <button type='submit' className='signupbtn' onClick={handleSubmit}>Create account</button>
           </div>
         </form>
       </div>
