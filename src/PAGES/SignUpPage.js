@@ -6,6 +6,7 @@ import { faX } from '@fortawesome/free-solid-svg-icons';
 import {useNavigate} from 'react-router-dom';
 import {toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import axios from 'axios';
 
 
 const SignUpPage = () => {
@@ -19,17 +20,18 @@ const SignUpPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    let userInfo = {firstName, lastName, password, phoneNumber, userEmail, birthDate};
-    console.warn(userInfo)
-    fetch("https://ec2-44-197-193-3.compute-1.amazonaws.com/api/User/AddUser",{
-      method: 'POST',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify(userInfo)
+    //let userInfo = {firstName, lastName, password, phoneNumber, userEmail, birthDate};
+    axios.post("https://ec2-44-197-193-3.compute-1.amazonaws.com/api/User/AddUser", {
+      firstName,
+      lastName,
+      email: userEmail,
+      passwordHash: password,
+      phoneNumber,
+      dateOfBirth: birthDate
     }).then((res) => {
-      toast.success('Registered successfully')
-      navigate("/")
+      console.log('Posting data: ', res)
     }).catch((err) => {
-      toast.error('Failed: ' + err.message)
+      console.log(err)
     })
   }
 
