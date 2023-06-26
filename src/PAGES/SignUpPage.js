@@ -25,9 +25,11 @@ const SignUpPage = () => {
       firstName,
       lastName,
       email: userEmail,
-      passwordHash: password,
+      password,
       phoneNumber,
       dateOfBirth: birthDate
+    }, {
+      headers:{"Content-Type":"application/json"}
     }).then((res) => {
       console.log('Posting data: ', res)
     }).catch((err) => {
@@ -68,7 +70,7 @@ const SignUpPage = () => {
             <input type='email' placeholder='Email' className='emailinput' onChange={(e) => setUserEmail(e.target.value)} value={userEmail} />
           </div>
           <div className='formitems'>
-            <input type='date' placeholder='Date of Birth' className='dobinput' onChange={(e) => setBirthDate(e.target.value)} value={birthDate} />
+            <input type='text' placeholder='Date of Birth' className='dobinput' onChange={(e) => setBirthDate(e.target.value)} value={birthDate} />
           </div>
           <div>
             <p>Get a jUPETA Member Reward on your birthday</p>
