@@ -23,9 +23,7 @@ const AllCategories = (props) => {
       alert(err.message);
     }
   }
-  /*<img src={dat.image} width={20} height={20} />*/
-  /*{dat.title}
-    <strong>GHC {dat.price.toFixed(2)}</strong>                             https://fakestoreapi.com/products*/
+  
   return (
     <div className='productscontainer'>
       <div className='productspagetitle'>
