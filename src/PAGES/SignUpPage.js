@@ -45,7 +45,7 @@ const SignUpPage = () => {
       <div className="spacer"></div>
       <div className="spacer"></div>
       <div className="spacer"></div>
-      <h1 style={{ marginBottom: '16px', textAlign: 'center' }}>Now let’s make you a jUPETA member.</h1>
+      <strong><h1 style={{ marginBottom: '16px', textAlign: 'center' }}>Now let’s make you a jUPETA member.</h1></strong>
       <div className='signupcontainer'>
         <form className='formcontainer'>
           <div className='formitems'>
