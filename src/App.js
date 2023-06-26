@@ -12,6 +12,7 @@ import Location from './PAGES/Location';
 import HomePage from './PAGES/HomePage';
 import ProductDetailPage from './PAGES/ProductDetailPage';
 import CompTester from './componentPreview';
+import LoginPage from './PAGES/LoginPage';
 
 function App() {
   const [cartItems, setCartItems] = useState([]);
@@ -48,6 +49,7 @@ function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route exact path="/product-detail" element={<ProductDetailPage />} />
         <Route path="/compTester" element={<CompTester />} />
+        <Route path='/login' element={<LoginPage />} />
       </Routes>
     </div>
   );
