@@ -15,8 +15,8 @@ const DailyDeals = () => {
 
   const getData = async () => {
     try {
-      const res = await axios.get('https://fakestoreapi.com/products');
-      setApiData(res.data);
+      const res = await axios.get('https://ec2-44-197-193-3.compute-1.amazonaws.com/api/User/GetAllProducts');
+      setApiData(res.data.responseData);
       setLoading(true);
     } catch (err) {
       alert(err.message);
@@ -39,10 +39,10 @@ const DailyDeals = () => {
         <Slider {...settings} className="carousel">
           {apiData.map(dat => (
             <div key={dat.id} className="slide">
-              <img src={dat.image} alt={dat.title} />
+              <img src={dat.imageFileUrl} alt={dat.productName} />
               <br />
-              {dat.title} <br />
-              {dat.price}
+              {dat.productName} <br />
+              <h3>GHC {dat.price}</h3>
             </div>
           ))}
         </Slider>
