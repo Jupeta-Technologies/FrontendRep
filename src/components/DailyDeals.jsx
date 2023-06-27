@@ -39,9 +39,12 @@ const DailyDeals = () => {
         <Slider {...settings} className="carousel">
           {apiData.map(dat => (
             <div key={dat.id} className="slide">
-              <img src={dat.imageFileUrl} alt={dat.productName} />
+              <div className='slideimg'>
+                <img src={dat.imageFileUrl} alt={dat.productName} />
+              </div>
+              
               <br />
-              {dat.productName} <br />
+              <h3><strong>{dat.productName} <br /></strong></h3>
               <h3>GHC {dat.price}</h3>
             </div>
           ))}
