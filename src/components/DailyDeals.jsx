@@ -48,6 +48,9 @@ const DailyDeals = () => {
               <h3>GHC {dat.price}</h3>
             </div>
           ))}
+          <div>
+            <p>DAILY DEALS</p>
+          </div>
         </Slider>
       ) : (
         <p>Loading...</p>
