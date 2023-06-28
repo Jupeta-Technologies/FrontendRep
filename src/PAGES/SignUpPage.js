@@ -4,7 +4,6 @@ import { Navbar } from '../components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faX } from '@fortawesome/free-solid-svg-icons';
 import {useNavigate} from 'react-router-dom';
-import {toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
 

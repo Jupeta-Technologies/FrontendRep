@@ -7,7 +7,7 @@ const LoginPage = () => {
         <body>
             <div className="container">
                 <h1>Login</h1>
-                <form id="loginForm" action="#">
+                <form id="loginForm" action="#" className='loginForm'>
                 <div className="form-control">
                     <label for="email">Email</label>
                     <input type="email" id="email" placeholder="Enter Email" required />
