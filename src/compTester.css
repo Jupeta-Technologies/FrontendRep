@@ -12,8 +12,9 @@ background-color: #F9F9F9;}
     flex-direction: column;
     align-content: center;
     justify-items: center;
+    overflow: hidden;
     }
-.cardContainer:hover{transform: scale(1.01);}
+.cardContainer:hover{transform: scale(1.01); cursor: pointer;}
 .cardContainer p{text-align: center;}
 .cardContainer .itemName{font-weight: 500;margin-top: 15px; font-size: 13px;}
 .cardContainer .itemBriefDscr{font-size:x-small;color: #696663;}
@@ -24,17 +25,20 @@ background-color: #F9F9F9;}
 }
 .itemIMG{
     padding: 0;
-    height:200px;
-    width:100%;
-    background-size: contain;
+    width: 100%;
+    height: 230px;
+    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     cursor: pointer;
+    transition: ease-in 0.5s;
+   
 }
+.itemIMG:hover{transform: scale(0.9);}
 .cardContainer .itemPrice{
     width:100%; 
     position: absolute; 
-    bottom: 100px; 
+    bottom: 80px; 
     font-size: 16px; 
     font-weight: 600; 
 }
@@ -45,7 +49,7 @@ background-color: #F9F9F9;}
     border-radius: 20px;
     background-color: #44423f;
     color: #FFF;
-    font-size: x-small;
+    font-size: 0.8rem;
     text-align: center;
     cursor: pointer;
     position: absolute;
@@ -88,4 +92,14 @@ background-color: #F9F9F9;}
     right: 0;
     border-radius: 20px 0px 0px 20px;
     cursor: pointer;
+}
+
+/* Navigation Bar/ Header styling */
+
+.navBarv0{ 
+    height: 50px; 
+    width: 100%; 
+    background: linear-gradient(to right,#000,0.001%, transparent 20%), 
+                linear-gradient(to left,red,0.001%,transparent 20%);
+            
 }

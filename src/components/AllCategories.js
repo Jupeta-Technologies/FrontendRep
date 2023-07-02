@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import '../components/Allcategories.css'
 import { Link } from 'react-router-dom';
-
+import ItemCardglobal from '../itemCard';
 
 const AllCategories = (props) => {
   const { onAdd } = props;
@@ -11,13 +11,15 @@ const AllCategories = (props) => {
     getData();
   }, []);
 
+
   const [apiData, setApiData] = useState([]);
   const [loading, setLoading] = useState(false);
 
   const getData = async () => {
     try {
-      const res = await axios.get('https://ec2-44-197-193-3.compute-1.amazonaws.com/api/User/GetAllProducts');
-      setApiData(res.data.responseData);
+      const res = await fetch('https://ec2-44-197-193-3.compute-1.amazonaws.com/api/User/GetAllProducts');
+      const data = await res.json();
+      setApiData(data.responseData);
       setLoading(true);
     } catch (err) {
       alert(err.message);
@@ -31,24 +33,15 @@ const AllCategories = (props) => {
       </div>
       <div className='productssection'>
         {loading &&
-          apiData.map((dat) =>
+          apiData.map((data) =>
           (
+            
             <>
-              <div className='productbox'>
-                <div className='imagedisplay'>
-                  <img src={dat.imageFileUrl} className='actimage' />
-                </div>
-                <div className='namesprice'>
-                  <h3>{dat.productName}</h3>
-                  <h3><strong>GHC {dat.price.toFixed(2)}</strong></h3>
-                </div>
-                <div className='addcartbtnsection'>
-                  <button className='addcartbtn' onClick={() => onAdd(dat)}>Add to Cart</button>
-                </div>
-              </div>
+              {/*<ItemCardglobal itemPrice = {data.price} itemName ={data.productName} itemImage={data.imageFileUrl} key={data.id}/> */}
+              <ItemCardglobal {...data} key={data.id} />
             </>
           )
-          )}
+          ) }
       </div>
       <Link to='/cart'><button className='cartbttn'>View Cart</button></Link>
     </div>

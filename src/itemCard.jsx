@@ -1,28 +1,30 @@
-import React from 'react';
+import React,{Component} from 'react';
 import './compTester.css';
 import {AiFillHeart,AiOutlineShoppingCart,AiOutlineEye} from "react-icons/ai"
 import beats from './images/beats.jpg';
 import ItemIMG from './components/cardcomponents/itemIMG';
 import BuyBidbutton from './components/cardcomponents/buybidButton';
-const ItemCardglobal= () => {
-    const item =[{id:'001', itemName:'Beats Studio Buds', itemTag:['USED','BUY NOW'], price:100.99}]
+
+
+const ItemCardglobal = (data) => {
+    const {price,productName,imageFileUrl,sellingType,condition} = data;
+    const item =[{itemTag:['USED','BID NOW']}]
     const date = new Date();
     const addcart = <AiOutlineShoppingCart className='shoppingcartIcon' />;
     const watchlist = <AiOutlineEye className='shoppingcartIcon' />;
-    console.log(item[0]);
     return ( 
-   
-            <div className='cardContainer gShadow'>
-                <p className='itemConditionTag'>{item[0].itemTag[0]}</p>
+
+            <div className='cardContainer gShadow' key={data.id}>
+                <p className='itemConditionTag'>{condition}</p>
                 <p className='auctionTime'>{date.toLocaleString()}</p>
                 <AiFillHeart  className='favoriteIcon'/>
-                <ItemIMG src={beats}/>
-                <p className='itemName'>{item[0].itemName}</p>
+                <ItemIMG src={imageFileUrl}/>
+                <p className='itemName'>{productName}</p>
                 <p className='itemBriefDscr'>True Wireless Noise Cancelling Earbuds</p>
-                <p className='itemPrice'>GHC {item[0].price}</p>
+                <p className='itemPrice'>GHC {price}</p>
                 
-                <BuyBidbutton tag={item[0].itemTag[1]}/>
-                {item[0].itemTag[1] === 'BUY NOW'?addcart:watchlist}
+                <BuyBidbutton tag={sellingType === 'BuyNow'?'Buy Now': 'Bid Now'}/>
+                {sellingType === 'BuyNow'?addcart:watchlist}
                 
 
 
