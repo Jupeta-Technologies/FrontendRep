@@ -20,6 +20,7 @@ const AllCategories = (props) => {
       const res = await fetch('https://ec2-44-197-193-3.compute-1.amazonaws.com/api/User/GetAllProducts');
       const data = await res.json();
       setApiData(data.responseData);
+      console.log(data.responseData);
       setLoading(true);
     } catch (err) {
       alert(err.message);
@@ -33,12 +34,11 @@ const AllCategories = (props) => {
       </div>
       <div className='productssection'>
         {loading &&
-          apiData.map((data) =>
+          apiData.map((productdata) =>
           (
-            
             <>
               {/*<ItemCardglobal itemPrice = {data.price} itemName ={data.productName} itemImage={data.imageFileUrl} key={data.id}/> */}
-              <ItemCardglobal {...data} key={data.id} />
+              <ItemCardglobal {...productdata} key={productdata.id} productdata={productdata} onAdd={onAdd}/>
             </>
           )
           ) }

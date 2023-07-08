@@ -1,9 +1,10 @@
 import React from 'react';
 
-function BuyBidbutton(props) {
-    const tag = props.tag;
+function BuyBidbutton({tag, onAdd, productdata}) {
+    //const tag = props.tag;
     return ( 
-        <div className="buybidButton">{tag}</div>
+        <div className="buybidButton" onClick={() => onAdd(productdata)}>{tag}</div>
+        //<button>Add</button>
     );
 }
 
