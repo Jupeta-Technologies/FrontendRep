@@ -17,21 +17,21 @@ import LoginPage from './PAGES/LoginPage';
 function App() {
   const [cartItems, setCartItems] = useState([]);
 
-  const onAdd = (dat) => {
-    const exist = cartItems.find(x => x.id === dat.id);
+  const onAdd = (productdata) => {
+    const exist = cartItems.find(x => x.id === productdata.id);
     if (exist) {
-      setCartItems(cartItems.map(x => x.id === dat.id ? { ...exist, qty: exist.qty + 1 } : x));
+      setCartItems(cartItems.map(x => x.id === productdata.id ? { ...exist, qty: exist.qty + 1 } : x));
     } else {
-      setCartItems([...cartItems, { ...dat, qty: 1 }]);
+      setCartItems([...cartItems, { ...productdata, qty: 1 }]);
     }
   };
 
-  const onRemove = (dat) => {
-    const exist = cartItems.find(x => x.id === dat.id);
+  const onRemove = (productdata) => {
+    const exist = cartItems.find(x => x.id === productdata.id);
     if (exist.qty === 1) {
-      setCartItems(cartItems.filter((x) => x.id !== dat.id));
+      setCartItems(cartItems.filter((x) => x.id !== productdata.id));
     } else {
-      setCartItems(cartItems.map(x => x.id === dat.id ? { ...exist, qty: exist.qty - 1 } : x));
+      setCartItems(cartItems.map(x => x.id === productdata.id ? { ...exist, qty: exist.qty - 1 } : x));
     }
   };
 

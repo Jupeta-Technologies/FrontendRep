@@ -9,11 +9,6 @@ const CartPage = (props) => {
   const deliveryPrice = itemsPrice > 200 ? 0 : 15;
   const totalPrice = itemsPrice + taxPrice + deliveryPrice;
 
-  /*useEffect(()=>{
-    alert('Thanks for buying from us')
-  },[cartItems.length])*/
-  /*<img src={item.imageFileUrl} className='cartproductimg' />*/
-
 
   return (
     <div>
