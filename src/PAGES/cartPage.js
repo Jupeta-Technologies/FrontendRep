@@ -73,7 +73,7 @@ const CartPage = (props) => {
                   <h1><strong>Order Total:</strong></h1>
                   <div>GHC {totalPrice.toFixed(2)}</div>
                 </div>
-                <button style={{border: "1px solid", padding:"5px", width:"80%", borderRadius: "50px", background:"black", color:"white", marginBottom:"40px"}}>Checkout</button>
+                <button style={{border: "1px solid", padding:"15px", width:"70%", borderRadius: "50px", background:"black", color:"white", marginBottom:"40px"}}>Checkout</button>
                 <div className='paymentmethods'>
                   <h1>ACCEPTED PAYMENT METHODS</h1>
                   {paymentMethods.map((paymentMethod) => <FontAwesomeIcon icon={paymentMethod} size='2x'></FontAwesomeIcon>)}
