@@ -11,12 +11,10 @@ const CartPage = (props) => {
 
 
   return (
-    <div>
-            <Navbar />
-        <div>
-          {cartItems.length === 0 && <div>Cart is Empty</div>}
-        </div>
+    <>
+    <div className='cartpage'>
         <div className='cartcontainer'>
+          {cartItems.length === 0 && <div>Cart is Empty</div>}
           {cartItems.map((item) => {
             return (<div>
               <div key={item.id} className='cartproduct'>
@@ -25,6 +23,7 @@ const CartPage = (props) => {
                   <div>{item.productName}</div>
                   <div>
                     <button onClick={() => onAdd(item)}>+</button>
+                    <h3>{item.qty}</h3>
                     <button onClick={() => onRemove(item)}>-</button>
                   </div>
                 </div> 
@@ -34,17 +33,23 @@ const CartPage = (props) => {
               </div>
             </div>)
           })}
+          <div>
+            <button style={{backgroundColor: "greenyellow"}} onClick={()=>setCartItems([])}>Clear Cart</button>
+            <button style={{backgroundColor: "lightpink"}}>Place Order</button>
+          </div>
+        </div> 
+        <div className='cartinfo'>
           {cartItems.length !==0 && (
-            <>
-              <hr></hr>
-              <div><h1>ORDER SUMMARY</h1></div>
-              <div>
-                <div><strong>Product Price</strong></div>
-                <div>GHC {itemsPrice.toFixed(2)}</div>
+              <>
+                <hr></hr>
+                <div><h1>ORDER SUMMARY</h1></div>
+                <div>
+                  <div><strong>Product Price</strong></div>
+                  <div>GHC {itemsPrice.toFixed(2)}</div>
               </div>
               <div>
-                <div><strong>VAT Fee</strong></div>
-                <div>GHC {taxPrice.toFixed(2)}</div>
+                  <div><strong>VAT Fee</strong></div>
+                  <div>GHC {taxPrice.toFixed(2)}</div>
               </div>
               <div>
                 <div><strong>Delivery Fee</strong></div>
@@ -56,13 +61,10 @@ const CartPage = (props) => {
               </div>
             </>
           )}
-          <div>
-            <button style={{backgroundColor: "greenyellow"}} onClick={()=>setCartItems([])}>Clear Cart</button>
-            <button style={{backgroundColor: "lightpink"}}>Place Order</button>
-          </div>
-        </div> 
-        <Footer />
+        </div>
     </div>
+    <Footer />
+    </>
   )
 }
 
