@@ -5,9 +5,10 @@ import { Navbar,Footer } from '../components';
 const CartPage = (props) => {
   const {cartItems, onAdd, onRemove, setCartItems} = props
   const itemsPrice = cartItems.reduce((a,c) => a + c.price * c.qty, 0);
-  const taxPrice = itemsPrice * 0.17;
-  const deliveryPrice = itemsPrice > 200 ? 0 : 15;
-  const totalPrice = itemsPrice + taxPrice + deliveryPrice;
+  //const taxPrice = itemsPrice * 0.17;
+  //const deliveryPrice = itemsPrice > 200 ? 0 : 15;
+  //const totalPrice = itemsPrice + taxPrice + deliveryPrice;
+  const totalPrice = itemsPrice;
 
 
   return (
@@ -20,7 +21,7 @@ const CartPage = (props) => {
               <div key={item.id} className='cartproduct'>
                 <div className='cartproductimgcontainer'><img src={item.imageFileUrl} className='cartproductimg' /></div>
                 <div className='cartproductnamecontainer'>
-                  <div>{item.productName}</div>
+                  <div><h2><strong>{item.productName}</strong></h2></div>
                   <div>
                     <button onClick={() => onAdd(item)}>+</button>
                     <h3>{item.qty}</h3>
@@ -28,38 +29,42 @@ const CartPage = (props) => {
                   </div>
                 </div> 
                 <div className='cartproductpricecontainer'>
-                  {item.qty} x GHC {item.price.toFixed(2)}
+                  <h2><strong> GHS {item.price.toFixed(2)}</strong></h2>
                 </div>
               </div>
             </div>)
           })}
-          <div>
-            <button style={{backgroundColor: "greenyellow"}} onClick={()=>setCartItems([])}>Clear Cart</button>
-            <button style={{backgroundColor: "lightpink"}}>Place Order</button>
+          <div className='cartsubmit'>
+            <button style={{backgroundColor: "greenyellow", border: "2px solid", fontSize:"20px", padding: "5px"}} onClick={()=>setCartItems([])}>Clear Cart</button>
+            <button style={{backgroundColor: "lightpink", border: "2px solid", fontSize:"20px", padding: "5px"}}>Place Order</button>
           </div>
         </div> 
         <div className='cartinfo'>
           {cartItems.length !==0 && (
               <>
                 <hr></hr>
-                <div><h1>ORDER SUMMARY</h1></div>
-                <div>
-                  <div><strong>Product Price</strong></div>
-                  <div>GHC {itemsPrice.toFixed(2)}</div>
-              </div>
-              <div>
-                  <div><strong>VAT Fee</strong></div>
-                  <div>GHC {taxPrice.toFixed(2)}</div>
-              </div>
-              <div>
-                <div><strong>Delivery Fee</strong></div>
-                <div>GHC {deliveryPrice.toFixed(2)}</div>
-              </div>
-              <div>
-                <div><strong>Sum Total to be paid:</strong></div>
-                <div>GHC {totalPrice.toFixed(2)}</div>
-              </div>
-            </>
+                <div className='ordersummary'><h1><strong>Order Summary</strong></h1></div>
+                <div className='promocode'>
+                  <div><strong><h2>Do you have a promo code? </h2></strong></div>
+                </div>
+                <div className='subtotal'>
+                  <h3><strong>Subtotal</strong></h3>
+                  <h3>GHC {itemsPrice.toFixed(2)}</h3>
+                </div>
+                <div className='subtotal'>
+                  <h3><strong>Estimated Shipping/Delivery</strong></h3>
+                  <h3>FREE</h3>
+                </div>
+                <div className='subtotal'>
+                  <h3><strong>Estimated Tax</strong></h3>
+                  <h3>-</h3>
+                </div>
+                <hr style={{border: "1px solid", width:"100%"}} />
+                <div className='ordertotal'>
+                  <h1><strong>Order Total:</strong></h1>
+                  <div>GHC {totalPrice.toFixed(2)}</div>
+                </div>
+              </>
           )}
         </div>
     </div>
