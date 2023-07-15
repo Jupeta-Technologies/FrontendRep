@@ -6,7 +6,6 @@ import NewnavBar from './components/NewnavBar';
 const CompTester = () => {
     return (<>
             <NewnavBar />
-            <ItemCardglobal />
             <SellButton />
 
             </>

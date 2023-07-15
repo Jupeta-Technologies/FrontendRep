@@ -6,9 +6,8 @@ import ItemIMG from './components/cardcomponents/itemIMG';
 import BuyBidbutton from './components/cardcomponents/buybidButton';
 
 
-const ItemCardglobal = (productsdata) => {
-    const {price,productName,imageFileUrl,sellingType,condition, onAdd, productdata} = productsdata;
-    const item =[{itemTag:['USED','BID NOW']}]
+const ItemCardglobal = (data) => {
+    const {price,productName,imageFileUrl,sellingType,condition} = data;
     const date = new Date();
     const addcart = <AiOutlineShoppingCart className='shoppingcartIcon' />;
     const watchlist = <AiOutlineEye className='shoppingcartIcon' />;

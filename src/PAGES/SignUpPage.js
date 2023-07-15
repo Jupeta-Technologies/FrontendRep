@@ -21,12 +21,12 @@ const SignUpPage = () => {
     e.preventDefault();
     //let userInfo = {firstName, lastName, password, phoneNumber, userEmail, birthDate};
     axios.post("https://ec2-44-197-193-3.compute-1.amazonaws.com/api/User/AddUser", {
-      firstName,
-      lastName,
+      firstName:firstName,
+      lastName:lastName,
       email: userEmail,
-      password,
-      phoneNumber,
-      dateOfBirth: birthDate
+      password:password,
+      phoneNumber:phoneNumber,
+      dateOfBirth: birthDate.toString()
     }, {
       headers:{"Content-Type":"application/json"}
     }).then((res) => {
@@ -39,7 +39,7 @@ const SignUpPage = () => {
 
   return (
     <div>
-      <Navbar />
+
       <div className="spacer"></div>
       <div className="spacer"></div>
       <div className="spacer"></div>
@@ -69,7 +69,7 @@ const SignUpPage = () => {
             <input type='email' placeholder='Email' className='emailinput' onChange={(e) => setUserEmail(e.target.value)} value={userEmail} />
           </div>
           <div className='formitems'>
-            <input type='text' placeholder='Date of Birth' className='dobinput' onChange={(e) => setBirthDate(e.target.value)} value={birthDate} />
+            <input type='date' placeholder='Date of Birth' className='dobinput' onChange={(e) => setBirthDate(e.target.value)} value={birthDate} />
           </div>
           <div>
             <p>Get a jUPETA Member Reward on your birthday</p>

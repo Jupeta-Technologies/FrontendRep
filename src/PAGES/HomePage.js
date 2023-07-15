@@ -1,17 +1,36 @@
 import React from 'react'
 import {Hero, DailyDeals, ExploreBestSelling, Footer, NewArrival, SignUp, WhatIsTrending, HolidaySale, SubNavbar, Navbar } from '../components';
-
+import NewnavBar from '../components/NewnavBar';
+import SellButton from '../components/SellButton';
+import AllCategories from '../components/AllCategories';
+import { Chip } from '@mui/joy/';
 
 const HomePage = () => {
   return (
     <div>
-        <Navbar />
-  <div className="spacer"></div>
-  <SubNavbar />
+      <NewnavBar />
+      <Hero/>
+      <SubNavbar />
+      <SellButton />
+      <div className="bgPrimary paddingX flexStart">
+      <div className="boxWidth">
+        <WhatIsTrending />
+        <NewArrival />
+        <DailyDeals />
+        <SignUp />
+      </div>
+      </div>
+      <div className="bgPrimary flexStart">
+      <div className="boxWidth">
+        <Footer />
+      </div>
+    </div>
+        {/*<Navbar 
+  
   <div className="bgPrimary paddingX flexStart">
     <div className="boxWidth">
       <div></div>
-        <Hero/>
+        
       </div>
     </div>
     <div className="bgPrimary paddingX flexStart">
@@ -28,11 +47,7 @@ const HomePage = () => {
         <SignUp />
       </div>
     </div>
-    <div className="bgPrimary flexStart">
-      <div className="boxWidth">
-        <Footer />
-      </div>
-    </div>
+   />*/}
     </div>
   )
 }

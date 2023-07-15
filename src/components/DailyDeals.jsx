@@ -4,6 +4,7 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import './DailyDeals.css'; 
+import FeatureditemLarge from './FeatureditemLarge';
 
 const DailyDeals = () => {
   useEffect(() => {
@@ -38,15 +39,7 @@ const DailyDeals = () => {
       {loading ? (
         <Slider {...settings} className="carousel">
           {apiData.map(dat => (
-            <div key={dat.id} className="slide">
-              <div className='slideimg'>
-                <img src={dat.imageFileUrl} alt={dat.productName} />
-              </div>
-              
-              <br />
-              <h3><strong>{dat.productName} <br /></strong></h3>
-              <h3>GHC {dat.price}</h3>
-            </div>
+            <FeatureditemLarge {...dat} />
           ))}
           <div>
             <p>DAILY DEALS</p>
