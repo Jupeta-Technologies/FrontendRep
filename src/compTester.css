@@ -14,7 +14,8 @@ background-color: #F9F9F9;}
     justify-items: center;
     overflow: hidden;
     }
-.cardContainer:hover{transform: scale(1.01); cursor: pointer;}
+.cardContainer:hover{transform: scale(1.01);}
+.cardContainer:hover .buybidButton{opacity: 1;}
 .cardContainer p{text-align: center;}
 .cardContainer .itemName{font-weight: 500;margin-top: 15px; font-size: 13px;}
 .cardContainer .itemBriefDscr{font-size:x-small;color: #696663;}
@@ -31,10 +32,10 @@ background-color: #F9F9F9;}
     background-position: center;
     background-repeat: no-repeat;
     cursor: pointer;
-    transition: ease-in 0.5s;
    
 }
-.itemIMG:hover{transform: scale(0.9);}
+
+
 .cardContainer .itemPrice{
     width:100%; 
     position: absolute; 
@@ -55,6 +56,8 @@ background-color: #F9F9F9;}
     position: absolute;
     align-self: center;
     bottom: 40px;
+    opacity: 0;
+    transition-timing-function: ease-in;
     
 }
 .buybidButton:hover{background-color:#696663;}
@@ -99,7 +102,100 @@ background-color: #F9F9F9;}
 .navBarv0{ 
     height: 50px; 
     width: 100%; 
-    background: linear-gradient(to right,#000,0.001%, transparent 20%), 
-                linear-gradient(to left,red,0.001%,transparent 20%);
-            
+    background: linear-gradient(to right,#e3e3e3,15%, transparent 20%), 
+                linear-gradient(to left,#e3e3e3,15%,transparent 20%);
+    display: flex;
+    position: fixed;
+    top: 0;
+    z-index: 99;
 }
+.navBarv0 .left{height: 50px;width: 250px; line-height:50px; padding-left: 40px;font-weight: bolder; font-size: x-large; font-family:sans-serif;display:flex; align-items: center; justify-content: space-between;}
+.navBarv0 .center{width: 40%; position: relative; align-self: center; margin: 0 auto;}
+.navBarv0 .right{height: 50px;position: relative; right: 0; padding-right:5px; display: flex;justify-content:space-evenly;width: 250px;align-items:center;font-size:1.5rem ; text-align: center;}
+.navBarv0 .right .navicon:hover{cursor: pointer}
+.navBarv0 .right ul{display: flex; justify-content: space-between; align-items: center;}
+.navBarv0 .right ul li{margin-left: 10px;}
+.navBarv0 .right ul li ul{font-size:small; display: none; text-align: left;}
+.navBarv0 .right ul li ul li{margin: 0; cursor: pointer; line-height: 40px; padding: 4px;}
+.navBarv0 .right ul li ul li:hover{background-color: rgb(227, 227, 227);color: #e1520f;}
+.navBarv0 .right ul li:hover ul{display: block;}
+.navBarv0 .right .userIcon{cursor: pointer;}
+
+/* Featured itemCard Large and Small  -- cC:cardContainer */
+.cC-fLarge{
+    width: 250px; 
+    height: 400px;
+    padding: 0;
+    background-color:#FFF;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-items: center;
+    overflow: hidden;
+    }
+
+    .FtitemIMGL{
+        padding: 0;
+        width: 100%;
+        height: 300px;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        cursor: pointer;
+       
+    }
+  .cC-fLarge  .itemPrice{
+        width:100%; 
+        position: absolute; 
+        bottom: 30px; 
+        font-size: 16px; 
+        font-weight: 600; 
+    }
+    .cC-fLarge p{text-align: center;}
+    .cC-fLarge .itemName{font-weight: 500;margin-top: 15px; font-size: 13px;}
+    .cC-fLarge .favoriteIcon{position: absolute;right:1px;top:1px; font-size: 20px;background-color: #D9D9D9;color: #FFF; border-radius: 50%; width: 25px;height: 25px; padding:3px; cursor: pointer;}
+    .cC-fLarge .itemConditionTag{position: absolute;top: 35px; background-color: #dfd9d3;width: 60px; border-radius: 0 10px 10px 0px;font-size:small; font-weight: 200;}
+    .cC-fLarge .shoppingcartIcon{position: absolute;bottom:-5px;right:-5px; font-size: 20px;background-color: #D9D9D9;color: #FFF; border-radius: 50%; width: 45px;height: 45px; padding:9px;cursor: pointer;}
+.cC-fSmall{
+        width: 150px; 
+        height: 200px;
+        padding: 0;
+        background-color:#FFF;
+        overflow: hidden;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        justify-items: center;
+        overflow: hidden;
+        }
+
+/* userMenu styling */
+.navBarv0 .right ul li .userMenu{width: 200px; height: auto; background:white; color:red;position:absolute;top:45px;right: 0; z-index: 99; display:flex; flex-direction: column;align-items:center; display: none;}
+.navBarv0 .right ul li .userMenu li:hover{cursor: pointer;background-color: rgb(227, 227, 227);color: #44423f;}
+.navBarv0 .right ul li .userMenu li{width:100%;line-height: 40px;vertical-align: middle;align-content:center; padding-left: 20px;}
+.navBarv0 .right ul li .userMenu li span{display: inline-block;font-size: small; margin-left: 5px;}
+.navBarv0 .right ul li .userMenu li #uMicon{display: inline-block;font-size: large;}
+.navBarv0 .right ul li .userMenu li:nth-child(5) span{margin-left: 8.5px; margin-right:0px; color:black}
+.showMenu{display: block;}
+
+/* NavBar Cart  Quick listview */
+.cartQview, .favQview{width:300px; min-height: 100px; position:absolute;right:5px;top:45px;background-color: #FFF; border-radius: 2px;z-index: 98; display: none; }
+
+
+/* Search bar styling */
+.navSearchBar{ width:100%;height: 30px; padding: 3px 10px; font-size: medium; border-radius:20px; background-color: #FFF; display: flex; flex-direction: row; overflow: hidden;opacity: 0;}
+.navSearchBar .sBarleft{position:relative; align-self: center;}
+.navSearchBar .sBarcenter{position: relative;align-self: center; padding-left: 20px;}
+.navSearchBar .sBarright{align-self:center;position: absolute; right: 1px;}
+.navSearchBar .sBarright .MuiButton-root{background-color:#44423f; height: 20px; border-radius: 20px;font-weight: 300; min-height: 28px;}
+.sBarcenter input:focus{outline: none;}
+
+.searchResult{width:95%;background-color: #FFF; height: auto; position:absolute; margin: 2px 2.5%; padding: 10px; display: none; border-radius: 2px 2px 2px 2px;}
+.sBarColor{background-color:#D9D9D9;}
+
+.showDiv{display: block;}
+.showOpacity{opacity: 1;}
+.navBarv0 .right .MuiIconButton-root{border-radius: 50%; font-size: 1.5rem; color: #000;}

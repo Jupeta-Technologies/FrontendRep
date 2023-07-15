@@ -79,3 +79,12 @@
     gap: 20px;
     margin-top: 20px;
 }
+
+.paymentmethods{
+    display: block;
+}
+
+.addsubtract{
+    display: flex;
+    gap: 10px;
+}

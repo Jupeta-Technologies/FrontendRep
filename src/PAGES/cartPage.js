@@ -1,6 +1,12 @@
 import React from 'react'
 import '../components/CartPage.css'
 import { Navbar,Footer } from '../components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCcVisa } from '@fortawesome/free-brands-svg-icons';
+import { faCcMastercard } from '@fortawesome/free-brands-svg-icons';
+import { faCcDiscover } from '@fortawesome/free-brands-svg-icons';
+import { faCcPaypal } from '@fortawesome/free-brands-svg-icons';
+import { faApplePay } from '@fortawesome/free-brands-svg-icons';
 
 const CartPage = (props) => {
   const {cartItems, onAdd, onRemove, setCartItems} = props
@@ -9,6 +15,8 @@ const CartPage = (props) => {
   //const deliveryPrice = itemsPrice > 200 ? 0 : 15;
   //const totalPrice = itemsPrice + taxPrice + deliveryPrice;
   const totalPrice = itemsPrice;
+
+  const paymentMethods = [faCcVisa,faCcMastercard,faCcDiscover,faCcPaypal,faApplePay]
 
 
   return (
@@ -22,7 +30,7 @@ const CartPage = (props) => {
                 <div className='cartproductimgcontainer'><img src={item.imageFileUrl} className='cartproductimg' /></div>
                 <div className='cartproductnamecontainer'>
                   <div><h2><strong>{item.productName}</strong></h2></div>
-                  <div>
+                  <div className='addsubtract'>
                     <button onClick={() => onAdd(item)}>+</button>
                     <h3>{item.qty}</h3>
                     <button onClick={() => onRemove(item)}>-</button>
@@ -32,6 +40,7 @@ const CartPage = (props) => {
                   <h2><strong> GHS {item.price.toFixed(2)}</strong></h2>
                 </div>
               </div>
+              <hr style={{border: "1px solid", width:"100%"}} />
             </div>)
           })}
           <div className='cartsubmit'>
@@ -64,9 +73,10 @@ const CartPage = (props) => {
                   <h1><strong>Order Total:</strong></h1>
                   <div>GHC {totalPrice.toFixed(2)}</div>
                 </div>
-                <button style={{border: "1px solid", padding:"5px", width:"80%", borderRadius: "50px", background:"black", color:"white", marginBottom:"40px"}}>Checkout</button>
-                <div>
+                <button style={{border: "1px solid", padding:"15px", width:"70%", borderRadius: "50px", background:"black", color:"white", marginBottom:"40px"}}>Checkout</button>
+                <div className='paymentmethods'>
                   <h1>ACCEPTED PAYMENT METHODS</h1>
+                  {paymentMethods.map((paymentMethod) => <FontAwesomeIcon icon={paymentMethod} size='2x'></FontAwesomeIcon>)}
                 </div>
               </>
           )}
