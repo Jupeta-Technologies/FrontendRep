@@ -31,9 +31,9 @@ const CartPage = (props) => {
                 <div className='cartproductnamecontainer'>
                   <div><h2><strong>{item.productName}</strong></h2></div>
                   <div className='addsubtract'>
-                    <button onClick={() => onAdd(item)}>+</button>
-                    <h3>{item.qty}</h3>
                     <button onClick={() => onRemove(item)}>-</button>
+                    <h3>{item.qty}</h3>
+                    <button onClick={() => onAdd(item)}>+</button>
                   </div>
                 </div> 
                 <div className='cartproductpricecontainer'>

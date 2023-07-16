@@ -87,4 +87,8 @@
 .addsubtract{
     display: flex;
     gap: 10px;
+    width: 70px;
+    justify-content: center;
+    border: 1px solid black;
+    border-radius: 25px;
 }
