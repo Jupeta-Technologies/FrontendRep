@@ -7,6 +7,7 @@ import { faCcMastercard } from '@fortawesome/free-brands-svg-icons';
 import { faCcDiscover } from '@fortawesome/free-brands-svg-icons';
 import { faCcPaypal } from '@fortawesome/free-brands-svg-icons';
 import { faApplePay } from '@fortawesome/free-brands-svg-icons';
+import brandicons from '../images/brandicons.png'
 
 const CartPage = (props) => {
   const {cartItems, onAdd, onRemove, setCartItems} = props
@@ -82,7 +83,7 @@ const CartPage = (props) => {
                 <button style={{border: "1px solid", padding:"15px", width:"70%", borderRadius: "50px", background:"black", color:"white", marginBottom:"40px"}}>Checkout</button>
                 <div className='paymentmethods'>
                   <h1>ACCEPTED PAYMENT METHODS</h1>
-                  {paymentMethods.map((paymentMethod) => <FontAwesomeIcon icon={paymentMethod} size='2x'></FontAwesomeIcon>)}
+                  <img src={brandicons} alt='brand icons' />
                 </div>
               </>
           )}
