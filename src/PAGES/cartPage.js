@@ -46,7 +46,7 @@ const CartPage = (props) => {
                   </div>
                 </div>
               </div>
-              <hr style={{border: "1px solid", width:"100%"}} />
+              <hr style={{border: "1px solid", width:"90%", opacity:'0.2', marginLeft:'40px'}} />
             </div>)
           })}
           <div className='cartsubmit'>
@@ -74,7 +74,7 @@ const CartPage = (props) => {
                   <h3><strong>Estimated Tax</strong></h3>
                   <h3>-</h3>
                 </div>
-                <hr style={{border: "1px solid", width:"100%"}} />
+                <hr style={{border: "1px solid", width:"80%", opacity:'0.2'}} />
                 <div className='ordertotal'>
                   <h1><strong>Order Total:</strong></h1>
                   <div>GHC {totalPrice.toFixed(2)}</div>
