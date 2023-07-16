@@ -3,6 +3,7 @@ import { AiOutlineShoppingCart,AiOutlineSearch,AiOutlineUser, AiOutlineHeart,AiO
 import {MdOutlineSell,MdOutlineManageAccounts} from 'react-icons/md';
 import {CiLocationOff,CiReceipt,CiCircleChevDown} from 'react-icons/ci';
 import { Badge, Typography,Avatar,Input,Button,Select,Option,selectClasses,IconButton } from '@mui/joy';
+import CartListitem from './CartListitem';
 
 
 class NewnavBar extends Component {
@@ -79,8 +80,8 @@ class NewnavBar extends Component {
                         <li><IconButton variant='plain' color='neutral'><AiOutlineSearch className='navicon' onClick={this.handleSearchicon}/></IconButton></li>
                         <li> <IconButton variant='plain' color='neutral' onClick={this.handleCartclick}><Badge badgeContent={'11'} color='danger' size='sm' variant='plain' badgeInset="5%" max={'9'} ><Typography fontSize="1.5rem"><AiOutlineShoppingCart className='navicon' /></Typography></Badge></IconButton>
                             <ul className={this.state.cartevent?"cartQview showDiv":"cartQview"}>
-                            <li>Cart item 1</li>
-                            <li>Cart item 1</li>
+                            <CartListitem />
+                            <Button>Got to cart</Button>
                             </ul>
                         </li>
                         <li><IconButton variant='plain' color='neutral'><AiOutlineHeart className='navicon fav' onClick={this.handleFavclick}/></IconButton>
