@@ -29,15 +29,21 @@ const CartPage = (props) => {
               <div key={item.id} className='cartproduct'>
                 <div className='cartproductimgcontainer'><img src={item.imageFileUrl} className='cartproductimg' /></div>
                 <div className='cartproductnamecontainer'>
-                  <div><h2><strong>{item.productName}</strong></h2></div>
+                  <div className='productnamesection'><h2><strong>{item.productName}</strong></h2></div>
                   <div className='addsubtract'>
                     <button onClick={() => onRemove(item)}>-</button>
                     <h3>{item.qty}</h3>
                     <button onClick={() => onAdd(item)}>+</button>
                   </div>
+                  <div className='removesection'>
+                    <button>Remove</button>
+                  </div>
                 </div> 
                 <div className='cartproductpricecontainer'>
                   <h2><strong> GHS {item.price.toFixed(2)}</strong></h2>
+                  <div className='wishlistsection'>
+                    <button>Save to wishlist</button>
+                  </div>
                 </div>
               </div>
               <hr style={{border: "1px solid", width:"100%"}} />
