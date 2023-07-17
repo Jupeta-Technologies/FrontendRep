@@ -23,7 +23,7 @@
     min-height: 190px;
     display: flex;
     padding: 5px;
-    gap: 20px;
+    gap: 0;
 }
 
 .cartproductimgcontainer{
@@ -44,6 +44,12 @@
     margin-left: 10px;
     display: block;
     text-align: center;
+}
+
+.productnamesection{
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 40px;
 }
 
 .cartproductpricecontainer{
@@ -87,4 +93,21 @@
 .addsubtract{
     display: flex;
     gap: 10px;
+    width: 70px;
+    justify-content: center;
+    border: 1px solid black;
+    border-radius: 25px;
+}
+
+.removesection{
+    margin-top: 30px;
+    display: flex;
+    justify-content: end;
+    margin-right: 15px;
+}
+
+.wishlistsection{
+    display: flex;
+    gap: 15px;
+    margin-top: 95px;
 }

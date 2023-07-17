@@ -6,14 +6,14 @@ import ItemIMG from './components/cardcomponents/itemIMG';
 import BuyBidbutton from './components/cardcomponents/buybidButton';
 
 
-const ItemCardglobal = (productdata) => {
-    const {price,productName,imageFileUrl,sellingType,condition} = productdata;
+const ItemCardglobal = (productsdata) => {
+    const {price,productName,imageFileUrl,sellingType,condition, onAdd, productdata} = productsdata;
     const date = new Date();
     const addcart = <AiOutlineShoppingCart className='shoppingcartIcon' />;
     const watchlist = <AiOutlineEye className='shoppingcartIcon' />;
     return ( 
 
-            <div className='cardContainer gShadow' key={productdata.id}>
+            <div className='cardContainer gShadow' key={productsdata.id}>
                 <p className='itemConditionTag'>{condition}</p>
                 <p className='auctionTime'>{date.toLocaleString()}</p>
                 <AiFillHeart  className='favoriteIcon'/>
@@ -22,7 +22,7 @@ const ItemCardglobal = (productdata) => {
                 <p className='itemBriefDscr'>True Wireless Noise Cancelling Earbuds</p>
                 <p className='itemPrice'>GHC {price}</p>
                 
-                <BuyBidbutton tag={sellingType === 'BuyNow'?'Buy Now': 'Bid Now'}  productdata={productdata}/>
+                <BuyBidbutton tag={sellingType === 'BuyNow'?'Buy Now': 'Bid Now'} onAdd={onAdd}  productdata={productdata}/>
                 {sellingType === 'BuyNow'?addcart:watchlist}
             </div>
      );

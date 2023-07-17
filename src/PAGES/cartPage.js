@@ -7,6 +7,7 @@ import { faCcMastercard } from '@fortawesome/free-brands-svg-icons';
 import { faCcDiscover } from '@fortawesome/free-brands-svg-icons';
 import { faCcPaypal } from '@fortawesome/free-brands-svg-icons';
 import { faApplePay } from '@fortawesome/free-brands-svg-icons';
+import brandicons from '../images/brandicons.png'
 
 const CartPage = (props) => {
   const {cartItems, onAdd, onRemove, setCartItems} = props
@@ -29,18 +30,24 @@ const CartPage = (props) => {
               <div key={item.id} className='cartproduct'>
                 <div className='cartproductimgcontainer'><img src={item.imageFileUrl} className='cartproductimg' /></div>
                 <div className='cartproductnamecontainer'>
-                  <div><h2><strong>{item.productName}</strong></h2></div>
+                  <div className='productnamesection'><h2><strong>{item.productName}</strong></h2></div>
                   <div className='addsubtract'>
-                    <button onClick={() => onAdd(item)}>+</button>
-                    <h3>{item.qty}</h3>
                     <button onClick={() => onRemove(item)}>-</button>
+                    <h3>{item.qty}</h3>
+                    <button onClick={() => onAdd(item)}>+</button>
+                  </div>
+                  <div className='removesection'>
+                    <button>Remove</button>
                   </div>
                 </div> 
                 <div className='cartproductpricecontainer'>
                   <h2><strong> GHS {item.price.toFixed(2)}</strong></h2>
+                  <div className='wishlistsection'>
+                    <button>Save to wishlist</button>
+                  </div>
                 </div>
               </div>
-              <hr style={{border: "1px solid", width:"100%"}} />
+              <hr style={{border: "1px solid", width:"90%", opacity:'0.2', marginLeft:'40px'}} />
             </div>)
           })}
           <div className='cartsubmit'>
@@ -68,7 +75,7 @@ const CartPage = (props) => {
                   <h3><strong>Estimated Tax</strong></h3>
                   <h3>-</h3>
                 </div>
-                <hr style={{border: "1px solid", width:"100%"}} />
+                <hr style={{border: "1px solid", width:"80%", opacity:'0.2'}} />
                 <div className='ordertotal'>
                   <h1><strong>Order Total:</strong></h1>
                   <div>GHC {totalPrice.toFixed(2)}</div>
@@ -76,7 +83,7 @@ const CartPage = (props) => {
                 <button style={{border: "1px solid", padding:"15px", width:"70%", borderRadius: "50px", background:"black", color:"white", marginBottom:"40px"}}>Checkout</button>
                 <div className='paymentmethods'>
                   <h1>ACCEPTED PAYMENT METHODS</h1>
-                  {paymentMethods.map((paymentMethod) => <FontAwesomeIcon icon={paymentMethod} size='2x'></FontAwesomeIcon>)}
+                  <img src={brandicons} alt='brand icons' />
                 </div>
               </>
           )}
