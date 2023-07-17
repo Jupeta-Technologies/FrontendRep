@@ -2,8 +2,11 @@ import React, { Component, Text, View} from 'react';
 import { AiOutlineShoppingCart,AiOutlineSearch,AiOutlineUser, AiOutlineHeart,AiOutlineEye, AiOutlineLogout,AiOutlineLogin } from 'react-icons/ai';
 import {MdOutlineSell,MdOutlineManageAccounts} from 'react-icons/md';
 import {CiLocationOff,CiReceipt,CiCircleChevDown} from 'react-icons/ci';
-import { Badge, Typography,Avatar,Input,Button,Select,Option,selectClasses,IconButton } from '@mui/joy';
+import { Badge, Typography,Avatar,Input,Button,Option,IconButton } from '@mui/joy';
 import CartListitem from './CartListitem';
+import beats from '../images/beats.jpg';
+import nikeVapor from '../images/nikeVapor.png';
+import { jupetaSEO } from './SEOApi';
 
 
 class NewnavBar extends Component {
@@ -13,7 +16,9 @@ class NewnavBar extends Component {
         searchFocused:false,
         cartevent:false,
         favIconevet:false,
-        searchActive:false
+        searchActive:false,
+        searchKey:'',
+        searchCatg:'0'
       };
     handMenuIconClick = (x)=>{
        !this.state.active?this.setState({active:true}):this.setState({active:false});
@@ -37,6 +42,28 @@ class NewnavBar extends Component {
         !this.state.favIconevet?this.setState({favIconevet:true}):this.setState({favIconevet:false});
     }
 
+    handleSearchCat = (event) =>{
+        this.setState({searchCatg:(event.target.value)});
+        console.log(this.state.searchCatg);
+    }
+    handleSearchInput = (e) =>{
+        this.setState({searchKey:e.target.value});
+        console.log(this.state.searchKey);
+    }
+    handelSEO = () => {
+        jupetaSEO({
+            keyword:this.state.searchKey,
+            PageNumber:1,
+            PageSize:10,
+            isDescending:true
+
+        }).then((responds) => {
+            if(responds.status === 200){
+                console.log(responds.data);
+            }else{console.log("User not found");}
+        }).catch(err => {console.error(err); console.log("User not found");});
+    }
+
     render() { 
         return (
             <>
@@ -49,22 +76,14 @@ class NewnavBar extends Component {
                 <div className="center">
                     <div className={this.state.searchActive?"navSearchBar showOpacity":"navSearchBar"}>
                         <div className="sBarleft">
-                        <Select placeholder="Select a Category" indicator={<CiCircleChevDown />} sx={{
-                                width:160,
-                                fontSize:'xs',
-                                [`& .${selectClasses.indicator}`]: {
-                                transition: '0.2s',
-                                [`&.${selectClasses.expanded}`]: {
-                                    transform: 'rotate(-180deg)',
-                                },
-                                },
-                            }}>
-                            <Option value='0'>All Categories</Option>
-                            <Option value='1'>Consumer Electronic</Option>
-                        </Select>
+                        <select placeholder="Select a Category"  value={this.state.searchCatg} onChange={this.handleSearchCat}>
+                            <option value="0">Select a Category</option>
+                            <option value='1'>All Categories</option>
+                            <option value='2'>Consumer Electronic</option>
+                        </select>
                         </div>
-                        <div className="sBarcenter"><input type="text" name="search"  placeholder='Search for product..' onClick={this.handleSearch}/></div>
-                        <div className="sBarright"><Button>Search</Button></div>
+                        <div className="sBarcenter"><input type="text" name="search"  placeholder='Search for product..' onClick={this.handleSearch} onChange={this.handleSearchInput}/></div>
+                        <div className="sBarright"><Button onClick={this.handelSEO}>Search</Button></div>
                     </div>
                     
                     <div className={this.state.searchFocused?"searchResult showDiv":"searchResult"}>
@@ -80,7 +99,8 @@ class NewnavBar extends Component {
                         <li><IconButton variant='plain' color='neutral'><AiOutlineSearch className='navicon' onClick={this.handleSearchicon}/></IconButton></li>
                         <li> <IconButton variant='plain' color='neutral' onClick={this.handleCartclick}><Badge badgeContent={'11'} color='danger' size='sm' variant='plain' badgeInset="5%" max={'9'} ><Typography fontSize="1.5rem"><AiOutlineShoppingCart className='navicon' /></Typography></Badge></IconButton>
                             <ul className={this.state.cartevent?"cartQview showDiv":"cartQview"}>
-                            <CartListitem />
+                            <CartListitem imgsrc={beats} itemName="Beats by dre Studio pods" />
+                            <CartListitem imgsrc={nikeVapor} itemName="Nike Air VaporMax 2023 Flyknit"/>
                             <Button>Got to cart</Button>
                             </ul>
                         </li>
