@@ -102,8 +102,8 @@ background-color: #F9F9F9;}
 .navBarv0{ 
     height: 50px; 
     width: 100%; 
-    background: linear-gradient(to right,#e3e3e3,15%, transparent 20%), 
-                linear-gradient(to left,#e3e3e3,15%,transparent 20%);
+    background: linear-gradient(to right,#eeeeee,15%, transparent 20%), 
+                linear-gradient(to left,#eeeeee,15%,transparent 20%);
     display: flex;
     position: fixed;
     top: 0;
@@ -194,7 +194,7 @@ background-color: #F9F9F9;}
 .sBarcenter input:focus{outline: none;}
 
 .searchResult{width:95%;background-color: #FFF; height: auto; position:absolute; margin: 2px 2.5%; padding: 10px; display: none; border-radius: 2px 2px 2px 2px;}
-.sBarColor{background-color:#D9D9D9;}
+.sBarColor{background-color:#eeeeee;}
 
 .showDiv{display: block;}
 .showOpacity{opacity: 1;visibility: visible;}

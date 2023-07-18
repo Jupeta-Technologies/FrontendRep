@@ -75,6 +75,8 @@ class NewnavBar extends Component {
         }).catch(err => {console.error(err); console.log("User not found");});
     }
 
+    SearchKeyIndexes =['Apple', 'Samsung', 'Macbook', 'Laptop'];
+
     render() { 
         return (
             <>
@@ -97,13 +99,12 @@ class NewnavBar extends Component {
                         <div className="sBarright"><Button onClick={this.handelSEO}>Search</Button></div>
                     </div>
                     
-                    <div className={this.state.searchFocused?"searchResult showDiv":"searchResult"}>
+                    {this.state.searchKey !== '' && <div className="searchResult showDiv">
                         <ul>
-                            <li>Result 1</li>
-                            <li>Result 2</li>
-                            <li>Result 3</li>
+                            {this.SearchKeyIndexes.map((keyword,index)=>{return this.state.searchKey === keyword &&<li key={index}>{keyword}</li>})}
                         </ul>
-                    </div>
+                    </div>}
+                    
                 </div>
                 <div className="right">
                     <ul>
