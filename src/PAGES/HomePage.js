@@ -14,7 +14,6 @@ const HomePage = () => {
       <SellButton />
       <div className="bgPrimary paddingX flexStart">
       <div className="boxWidth">
-        <WhatIsTrending />
         <NewArrival />
         <DailyDeals />
         <SignUp />

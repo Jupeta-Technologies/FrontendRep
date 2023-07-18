@@ -1,4 +1,4 @@
-import React, { Component, Text, View} from 'react';
+import React, { Component, Text, View, useEffect} from 'react';
 import { AiOutlineShoppingCart,AiOutlineSearch,AiOutlineUser, AiOutlineHeart,AiOutlineEye, AiOutlineLogout,AiOutlineLogin } from 'react-icons/ai';
 import {MdOutlineSell,MdOutlineManageAccounts} from 'react-icons/md';
 import {CiLocationOff,CiReceipt,CiCircleChevDown} from 'react-icons/ci';
@@ -7,6 +7,8 @@ import CartListitem from './CartListitem';
 import beats from '../images/beats.jpg';
 import nikeVapor from '../images/nikeVapor.png';
 import { jupetaSEO } from './SEOApi';
+import { Link } from 'react-router-dom';
+
 
 
 class NewnavBar extends Component {
@@ -18,13 +20,22 @@ class NewnavBar extends Component {
         favIconevet:false,
         searchActive:false,
         searchKey:'',
-        searchCatg:'0'
+        searchCatg:'0',
+        unicart:[{}]
       };
+
+      componentDidMount(){
+        console.log("useeffect mounted: "+ this.state.searchCatg +"@"+Date());
+        window.localStorage.setItem("CART_ITEMS",JSON.stringify({searchTAG:this.state.searchKey}));
+      }
+      componentDidUpdate(){
+        console.log("useeffect updated: "+this.state.searchCatg +"@"+Date());
+        window.localStorage.setItem("CART_ITEMS",JSON.stringify({searchTAG:this.state.searchCatg}));
+      }
+
     handMenuIconClick = (x)=>{
        !this.state.active?this.setState({active:true}):this.setState({active:false});
-        //console.log(this.state.active);
-        
-
+        console.log(this.state.active);
       }
     handleSigninClick = () => {
         !this.state.loggedin?this.setState({loggedin:true}):this.setState({loggedin:false});
@@ -117,7 +128,7 @@ class NewnavBar extends Component {
                             <li><AiOutlineEye id='uMicon'/> <span>Watch List</span></li>
                             <li><CiReceipt id='uMicon'/> <span>Orders</span></li>
                             <li><MdOutlineManageAccounts id='uMicon'/> <span>My account</span></li>
-                            {this.state.loggedin?<li><AiOutlineLogout id="uMicon"/><span>Sign out </span></li>:<li onClick={this.handleSigninClick}><AiOutlineLogin id="uMicon"/><span>Sign in </span></li>}
+                            {this.state.loggedin?<li><Link to={'/login'}><AiOutlineLogout id="uMicon"/><span>Sign out </span></Link></li>:<li onClick={this.handleSigninClick}><Link to={'/login'}><AiOutlineLogin id="uMicon"/><span>Sign in </span></Link></li>}
                         </ul>
                         </li>
                     </ul>

@@ -190,6 +190,7 @@ background-color: #F9F9F9;}
 .navSearchBar .sBarcenter{position: relative;align-self: center; padding-left: 20px;}
 .navSearchBar .sBarright{align-self:center;position: absolute; right: 1px;}
 .navSearchBar .sBarright .MuiButton-root{background-color:#44423f; height: 20px; border-radius: 20px;font-weight: 300; min-height: 28px;}
+.navSearchBar .sBarright .MuiButton-root:hover{background-color: #696663;}
 .sBarcenter input:focus{outline: none;}
 
 .searchResult{width:95%;background-color: #FFF; height: auto; position:absolute; margin: 2px 2.5%; padding: 10px; display: none; border-radius: 2px 2px 2px 2px;}
