@@ -47,12 +47,11 @@ const CartPage = (props) => {
                   </div>
                 </div>
               </div>
-              <hr style={{border: "1px solid", width:"90%", opacity:'0.2', marginLeft:'40px'}} />
             </div>)
           })}
           <div className='cartsubmit'>
-            <button style={{backgroundColor: "greenyellow", border: "2px solid", fontSize:"20px", padding: "5px"}} onClick={()=>setCartItems([])}>Clear Cart</button>
-            <button style={{backgroundColor: "lightpink", border: "2px solid", fontSize:"20px", padding: "5px"}}>Place Order</button>
+            <button style={{backgroundColor: "#000",color:'#FFF', border: "2px solid", fontSize:"small", padding: "0px 10px 0px 10px", borderRadius:'25px', height:'35px'}} onClick={()=>setCartItems([])}>Clear Cart</button>
+            <button style={{backgroundColor: "#000", color:'#FFF', border: "2px solid", fontSize:"small", padding: "0px 10px 0px 10px", borderRadius:'25px', height:'35px'}}>Place Order</button>
           </div>
         </div> 
         <div className='cartinfo'>
