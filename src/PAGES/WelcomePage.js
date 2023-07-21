@@ -23,9 +23,15 @@ const WelcomePage = () => {
                 </section>
             </Row>
             <Row className='midsect'>
-                <Col>
-                    <h3>Hello world!</h3>
-                </Col>
+                <h1 style={{fontSize:'2rem', textAlign: 'center'}}>Featured Benefits</h1>
+                <div className='imagesection'>
+                    <Col style={{width: '50vw', height: '600px', backgroundColor: 'red'}}>
+                        <h3>Hey there</h3>
+                    </Col>
+                    <Col style={{width: '50vw', height: '300px'}}>
+                        <h3>Hi there</h3>
+                    </Col>
+                </div>
             </Row>
         </Container>
     </div>
