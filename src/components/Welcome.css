@@ -1,0 +1,55 @@
+.welpage{
+    margin: 0;
+    padding: 0;
+}
+
+.welcomepage{
+    margin-top: 0;
+    padding: 0;
+}
+
+.introsect{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 400px;
+    margin: 0;
+    padding: 0;
+}
+
+.introsect h1{
+    padding: 0;
+    margin: 0; 
+    font-size: 3rem;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.signuptext{
+    text-align: center;
+    font-size: 1.1rem;
+    margin-top: 30px;
+}
+
+.buttonsection{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    gap: 40px;
+}
+
+.buttonsection button{
+    border: 1px solid;
+    padding: 6px;
+    width: 120px;
+    border-radius: 50px;
+    background-color: black;
+    color: white;
+}
+
+.midsect{
+    margin: 0;
+    padding: 0;
+    background-color: yellow;
+}
+
