@@ -1,0 +1,19 @@
+.signupin{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    height: 90%;
+    border: 3px solid black;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.overviewbody{
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+}
