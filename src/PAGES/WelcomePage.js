@@ -51,20 +51,20 @@ const WelcomePage = () => {
                     </Col>
                 </div>
             </Row>
-            <Row style={{display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', width: '70%', height: '290px', marginTop: '20px', padding: '0'}}>
+            <Row style={{display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', width: '70%', marginTop: '20px', padding: '5px'}}>
                 <h1 style={{fontSize: '1.5rem'}}><strong>JOIN jUPETA. GET A 30% DISCOUNT</strong></h1>
-                <section style={{padding: '0', gap: '0', margin: '0' }}>
-                    <p>As a jUPETA member, you get rewarded with what you love. Sign up today and receive</p>
-                    <p>immediate access to these level 1 benefits: </p>
+                <section className='discounttext'>
+                    <h5 style={{margin: '0',fontSize: '1rem'}}>As a jUPETA member, you get rewarded with what you love. Sign up today and receive</h5>
+                    <h5 style={{margin: '0',fontSize: '1rem'}}>immediate access to these level 1 benefits: </h5>
                 </section>
                 <section style={{marginTop:'10px'}}>
-                    <h3><FontAwesomeIcon icon={faCheck}></FontAwesomeIcon> Free shipping on your first 5 purchases</h3>
-                    <h3><FontAwesomeIcon icon={faCheck}></FontAwesomeIcon> A 30% off voucher for your first purchase</h3>
-                    <h3><FontAwesomeIcon icon={faCheck}></FontAwesomeIcon> Access to members-only products and sales</h3>
-                    <h3><FontAwesomeIcon icon={faCheck}></FontAwesomeIcon> Special offers and promotions</h3>
+                    <h5 style={{fontSize: '1rem'}}><FontAwesomeIcon icon={faCheck}></FontAwesomeIcon> Free shipping on your first 5 purchases</h5>
+                    <h5 style={{fontSize: '1rem'}}><FontAwesomeIcon icon={faCheck}></FontAwesomeIcon> A 30% off voucher for your first purchase</h5>
+                    <h5 style={{fontSize: '1rem'}}><FontAwesomeIcon icon={faCheck}></FontAwesomeIcon> Access to members-only products and sales</h5>
+                    <h5 style={{fontSize: '1rem'}}><FontAwesomeIcon icon={faCheck}></FontAwesomeIcon> Special offers and promotions</h5>
                 </section>
                 <section style={{marginTop:'10px'}}>
-                    <h3>Join now to start earning points, reach new levels and unlock rewards and benefits from jUPETA</h3>
+                    <h5 style={{fontSize: '1rem'}}>Join now to start earning points, reach new levels and unlock rewards and benefits from jUPETA</h5>
                 </section>
             </Row>
             <Row style={{display: 'flex', flexDirection: 'column', justifyContent: 'left', width: '70%', height: '450px', marginTop: '20px', padding: '0', gap: '0'}}>
@@ -73,9 +73,9 @@ const WelcomePage = () => {
                     <p>Get free shipping, discount vouchers and members-only products with jUPETA</p>
                 </section>
                 <section style={{marginTop: '15px'}}>
-                    <h3><strong>Log in or sign up (it's free)</strong></h3>
+                    <h6><strong>Log in or sign up (it's free)</strong></h6>
                 </section>
-                <section style={{marginTop: '15px', display: 'flex', gap: '10px'}}>
+                <section style={{marginTop: '15px', display: 'flex', gap: '10px',marginBottom:'20px'}}>
                     {
                         accountbrandicons.map((accountbrandicon) => {
                             return <div style={{width: '40px', height: '40px', display: 'flex', justifyContent: 'center', alignItems: 'center', border: '1px solid'}}>
@@ -88,10 +88,10 @@ const WelcomePage = () => {
                     <input type='email' placeholder='Email' />
                 </section>
                 <section style={{marginTop: '15px'}}>
-                    <h3>By continuing, I agree to jUPETA's <Link>Privacy Policy</Link> and <Link>Terms of Use</Link></h3>
+                    <h5>By continuing, I agree to jUPETA's <Link>Privacy Policy</Link> and <Link>Terms of Use</Link></h5>
                 </section>
                 <section style={{marginTop: '15px'}}>
-                    <label>
+                    <label style={{fontSize: '1.2rem'}}>
                         <input type='checkbox' /> Keep me logged in.
                     </label>
                 </section>
