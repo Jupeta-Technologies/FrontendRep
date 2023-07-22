@@ -6,6 +6,8 @@ import '../components/Welcome.css'
 import featuredbuy from '../images/featuredbuy.png'
 import featuredsell from '../images/featuredsell.png'
 import featuredben from '../images/featuredben.png'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCheck } from '@fortawesome/free-solid-svg-icons'
 
 const WelcomePage = () => {
   return (
@@ -42,6 +44,22 @@ const WelcomePage = () => {
                         </div>
                     </Col>
                 </div>
+            </Row>
+            <Row style={{display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', width: '70%', height: '450px', marginTop: '20px', padding: '0'}}>
+                <h1 style={{fontSize: '1.5rem'}}><strong>JOIN jUPETA. GET A 30% DISCOUNT</strong></h1>
+                <section style={{padding: '0', gap: '0', margin: '0' }}>
+                    <p>As a jUPETA member, you get rewarded with what you love. Sign up today and receive</p>
+                    <p>immediate access to these level 1 benefits: </p>
+                </section>
+                <section style={{marginTop:'10px'}}>
+                    <h3><FontAwesomeIcon icon={faCheck}></FontAwesomeIcon> Free shipping on your first 5 purchases</h3>
+                    <h3><FontAwesomeIcon icon={faCheck}></FontAwesomeIcon> A 30% off voucher for your first purchase</h3>
+                    <h3><FontAwesomeIcon icon={faCheck}></FontAwesomeIcon> Access to members-only products and sales</h3>
+                    <h3><FontAwesomeIcon icon={faCheck}></FontAwesomeIcon> Special offers and promotions</h3>
+                </section>
+                <section style={{marginTop:'10px'}}>
+                    <h3>Join now to start earning points, reach new levels and unlock rewards and benefits from jUPETA</h3>
+                </section>
             </Row>
         </Container>
     </div>
