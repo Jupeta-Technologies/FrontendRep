@@ -60,3 +60,13 @@
     display: flex;
 }
 
+.featuredemail{
+    margin-top: 20px;
+}
+
+.featuredemail input{
+    height: 40px;
+    width: 50%;
+    border-radius: 8px;
+    border: 1px solid black;
+}
