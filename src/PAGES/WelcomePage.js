@@ -3,6 +3,9 @@ import React from 'react'
 import NewnavBar from '../components/NewnavBar'
 import { Container, Row, Col } from 'react-bootstrap'
 import '../components/Welcome.css'
+import featuredbuy from '../images/featuredbuy.png'
+import featuredsell from '../images/featuredsell.png'
+import featuredben from '../images/featuredben.png'
 
 const WelcomePage = () => {
   return (
@@ -25,11 +28,18 @@ const WelcomePage = () => {
             <Row className='midsect'>
                 <h1 style={{fontSize:'2rem', textAlign: 'center'}}>Featured Benefits</h1>
                 <div className='imagesection'>
-                    <Col style={{width: '50vw', height: '600px', backgroundColor: 'red'}}>
-                        <h3>Hey there</h3>
+                    <Col style={{width: '50vw', height: '600px', display: 'flex', flexDirection: 'column', gap: '20px', padding: '10px'}}>
+                        <div>
+                            <img src={featuredbuy} alt='' style={{width: '70%', height:'270px', objectFit: 'fill', float: 'right'}} />
+                        </div>
+                        <div>
+                            <img src={featuredsell} style={{width: '70%', height:'270px', objectFit: 'fill', float: 'right'}} />
+                        </div>
                     </Col>
-                    <Col style={{width: '50vw', height: '300px'}}>
-                        <h3>Hi there</h3>
+                    <Col style={{width: '50vw', height: '600px'}}>
+                        <div>
+                            <img src={featuredben} style={{width: '40%', height:'560px', objectFit: 'fill', marginTop: '10px', marginLeft: '30px'}} />
+                        </div>
                     </Col>
                 </div>
             </Row>
