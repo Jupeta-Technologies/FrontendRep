@@ -27,7 +27,7 @@ const SearchContainer = styled('div')(({ theme }) => ({
   display: 'flex',
   alignItems: 'center',
   borderRadius: theme.shape.borderRadius,
-  backgroundColor: '#A8A39F',
+  backgroundColor: 'transparent',
   marginLeft: theme.spacing(2),
   marginRight: theme.spacing(2),
   [theme.breakpoints.down('md')]: {
@@ -73,8 +73,13 @@ const Navbar = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <AppBar sx={{ background: '#A8A39F' }}>
-        <Toolbar>
+ <AppBar
+        sx={{
+          background: 'linear-gradient(to right, #000, 0.001%, transparent 20%), linear-gradient(to left, red, 0.001%, transparent 20%)',
+          height: '50px',
+          width: '100%',
+        }}
+      >        <Toolbar>
           <Typography sx={{ color: 'text.primary' }}>jUPETA</Typography>
           {isMatch ? (
             <>
