@@ -1,69 +1,89 @@
-.carousel {
+.productscontainer{
   width: 100%;
-  height: 500px;
-  margin: 0 auto;
+  min-height: 50vh;
+  margin: 0;
 }
 
-.slide {
+.productspagetitle{
+  width: 100%;
+  height: 50px;
   background-color: white;
-  display: flex;
-  height: 400px;
-  padding: 20px;
-  text-align: center;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  scroll-snap-align: start;
   justify-content: center;
-}
-
-.slideimg{
-  width: 400px;
-  height: 250px;
   display: flex;
-  justify-content: center;
-  background-color: green;
-  padding: 0;
-  margin-right: 5px;
-}
-
-.slide img {
-  width: 100%;
-  height: 250px;
+  align-items: baseline;
+  font-size: x-large;
+  padding-top: 0.5%;
   margin-bottom: 10px;
 }
 
-.slide h3 {
-  font-size: 16px;
-  margin-bottom: 5px;
-
+.productssection{
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 15px;
+  padding-left: 40px;
 }
 
-.slide p {
-  font-size: 14px;
-  color: #888888;
+.productbox{
+  width: 300px;
+  height: 300px;
+  margin: 0.5%;
+  border-radius: 20px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+  background: white;
+  text-align: center;
+  justify-content: center;
+  display: block;
+  padding: 10px;
 }
 
-.arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 24px;
-  color: #ffffff;
-  background-color: #333333;
-  padding: 8px;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+.imagedisplay{
+ width: 100%;
+ height: 50%;
+ justify-content: center;
+ align-items: center;
 }
 
-.arrow.prev {
-  left: 10px;
+.actimage{
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
 }
 
-.arrow.next {
-  right: 10px;
+.namesprice{
+  text-align: center;
+  width: 100%;
+  height: 35%;
+  margin-top: 5%;
+  font-size: medium;
+  display: grid;
+  align-items: center;
+  justify-content: center;
 }
 
-.arrow:hover {
-  background-color: #555555;
+.addcartbtnsection{
+  width: 100%;
+  margin-top: 1%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.addcartbtn{
+  background-color: blueviolet;
+  font-size: larger;
+  width: 80%;
+  border-radius: 25px;
+}
+
+.cartbttn{
+  background-color: red;
+  align-self: flex-end;
+  margin-left: 700px;
+  color: white;
+  margin-top: 20px;
+  font-size: large;
+  padding: 10px;
+  border-radius: 10px 10px 10px 10px;
 }
