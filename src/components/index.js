@@ -14,6 +14,7 @@ import Recommendation from "./Recommendation";
 import RecentlyViewed from "./RecentlyViewed";
 import ProductColor from "./ProductColor";
 import ProductDetailsThumb from "./ProductDetailsThumb";
+import Tiles from "./Tiles";
 
 
  
@@ -34,4 +35,5 @@ import ProductDetailsThumb from "./ProductDetailsThumb";
     RecentlyViewed,
     ProductColor,
     ProductDetailsThumb,
+    Tiles,
  };

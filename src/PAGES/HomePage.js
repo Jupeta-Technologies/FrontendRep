@@ -3,7 +3,6 @@ import {Hero, DailyDeals, ExploreBestSelling, Footer, NewArrival, SignUp, WhatIs
 import NewnavBar from '../components/NewnavBar';
 import SellButton from '../components/SellButton';
 import AllCategories from '../components/AllCategories';
-import { Chip } from '@mui/joy/';
 
 const HomePage = () => {
   return (

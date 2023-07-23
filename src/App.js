@@ -13,6 +13,8 @@ import HomePage from './PAGES/HomePage';
 import ProductDetailPage from './PAGES/ProductDetailPage';
 import CompTester from './componentPreview';
 import LoginPage from './PAGES/LoginPage';
+import WelcomePage from './PAGES/WelcomePage';
+import Overview from './PAGES/Overview';
 
 function App() {
   const [cartItems, setCartItems] = useState([]);
@@ -50,6 +52,8 @@ function App() {
         <Route exact path="/product-detail" element={<ProductDetailPage />} />
         <Route path="/compTester" element={<CompTester />} />
         <Route path='/login' element={<LoginPage />} />
+        <Route path='/welcome' element={<WelcomePage />} />
+        <Route path='/overview' element={<Overview />} />
       </Routes>
     </div>
   );
