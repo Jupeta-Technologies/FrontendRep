@@ -2,7 +2,8 @@ import React, { Component, Text, View, useEffect} from 'react';
 import { AiOutlineShoppingCart,AiOutlineSearch,AiOutlineUser, AiOutlineHeart,AiOutlineEye, AiOutlineLogout,AiOutlineLogin } from 'react-icons/ai';
 import {MdOutlineSell,MdOutlineManageAccounts} from 'react-icons/md';
 import {CiLocationOff,CiReceipt,CiCircleChevDown} from 'react-icons/ci';
-import { Badge, Typography,Avatar,Input,Button,Option,IconButton } from '@mui/joy';
+import {Typography,Avatar,Input,Button,Option,IconButton } from '@mui/joy';
+import { Badge } from '@mui/material';
 import CartListitem from './CartListitem';
 import beats from '../images/beats.jpg';
 import nikeVapor from '../images/nikeVapor.png';
@@ -109,7 +110,7 @@ class NewnavBar extends Component {
                 <div className="right">
                     <ul>
                         <li><IconButton variant='plain' color='neutral'><AiOutlineSearch className='navicon' onClick={this.handleSearchicon}/></IconButton></li>
-                        <li> <IconButton variant='plain' color='neutral' onClick={this.handleCartclick}><Badge badgeContent={'11'} color='danger' size='sm' variant='plain' badgeInset="5%" max={'9'} ><Typography fontSize="1.5rem"><AiOutlineShoppingCart className='navicon' /></Typography></Badge></IconButton>
+                        <li> <IconButton variant='plain' color='neutral' onClick={this.handleCartclick}><Badge badgeContent={'11'}  color='primary' size='sm' variant='plain' badgeInset="8%" max={'9'} ><AiOutlineShoppingCart className='navicon' /></Badge></IconButton>
                             <ul className={this.state.cartevent?"cartQview showDiv":"cartQview"}>
                             <CartListitem imgsrc={beats} itemName="Beats by dre Studio pods" />
                             <CartListitem imgsrc={nikeVapor} itemName="Nike Air VaporMax 2023 Flyknit"/>

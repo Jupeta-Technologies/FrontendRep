@@ -85,7 +85,7 @@ background-color: #F9F9F9;}
 
 .sellButton{
     text-align: center;
-    background-color: #44423f;
+    background-color: #0d9a37;
     width: 80px;
     height: 30px;
     line-height: 30px;
@@ -111,15 +111,56 @@ background-color: #F9F9F9;}
 }
 .navBarv0 .left{height: 50px;width: 250px; line-height:50px; padding-left: 40px;font-weight: bolder; font-size: x-large; font-family:sans-serif;display:flex; align-items: center; justify-content: space-between;}
 .navBarv0 .center{width: 40%; position: relative; align-self: center; margin: 0 auto;}
-.navBarv0 .right{height: 50px;position: relative; right: 0; padding-right:5px; display: flex;justify-content:space-evenly;width: 250px;align-items:center;font-size:1.5rem ; text-align: center;}
-.navBarv0 .right .navicon:hover{cursor: pointer}
-.navBarv0 .right ul{display: flex; justify-content: space-between; align-items: center;}
-.navBarv0 .right ul li{margin-left: 10px;}
-.navBarv0 .right ul li ul{font-size:small; display:none; text-align: left;}
+.navBarv0 .right{display: flex;justify-content:space-evenly;padding-right: 20px;}
+.navBarv0 .right .navicon:hover{cursor: pointer;}
+.navBarv0 .right ul{display: flex;column-gap: 10px; justify-content: center;align-items: center; margin-bottom: 0;}
+.navBarv0 .right ul li{margin-left: 1px; width: 100%; margin: 0;}
+.navBarv0 .right ul li ul{font-size:small; display:block; text-align: left; line-height: 20px;}
 .navBarv0 .right ul li ul li{margin: 0; cursor: pointer;padding:10px;}
 .navBarv0 .right ul li ul li:hover{background-color: rgba(240, 240, 240, 0.693);}
 .navBarv0 .right ul li:hover ul{display: block;}
 .navBarv0 .right .userIcon{cursor: pointer;}
+
+/* Navbar userMenu styling */
+.navBarv0 .right ul li .userMenu{width: 200px; height:auto;background:white;position:absolute;top:50px;right: 0; z-index: 99; display:flex; flex-direction: column;align-items:center; display: none;}
+.navBarv0 .right ul li .userMenu li:hover{cursor: pointer;background-color: rgb(227, 227, 227);color: #44423f;}
+.navBarv0 .right ul li .userMenu li{width:100%;line-height: 20px;vertical-align: middle;align-content:center; padding-left: 10px;}
+.navBarv0 .right ul li .userMenu li span{display: inline-block;font-size: small; margin-left: 5px;}
+.navBarv0 .right ul li .userMenu li #uMicon{display: inline-block;font-size: large;}
+.navBarv0 .right ul li .userMenu li:nth-child(5) span{margin-left: 8.5px; margin-right:0px; color:black}
+.showMenu{display: block;}
+
+/* NavBar Cart  Quick listview */
+.cartQview, .favQview{width:300px; min-height: 100px; position:absolute;right:5px;top:50px;background-color: #FFF; border-radius: 2px;z-index: 98;display: none; padding-bottom:20px; padding-left: 0;}
+
+/* Search bar styling */
+.navSearchBar{ width:100%;height: 30px; padding: 3px 10px; font-size: medium; border-radius:20px; background-color: #FFF; display: flex; flex-direction: row; overflow: hidden;visibility: hidden;}
+.navSearchBar .sBarleft{position:relative; align-self: center;}
+.navSearchBar .sBarcenter{position: relative;align-self: center; padding-left: 20px;}
+.navSearchBar .sBarright{align-self:center;position: absolute; right: 1px;}
+.navSearchBar .sBarright .MuiButton-root{background-color:#44423f; height: 20px; border-radius: 20px;font-weight: 300; min-height: 28px;}
+.navSearchBar .sBarright .MuiButton-root:hover{background-color: #696663;}
+.sBarcenter input:focus{outline: none;}
+
+.searchResult{width:95%;background-color: #FFF; height: auto; position:absolute; margin: 2px 2.5%; padding: 10px; display: none; border-radius: 2px 2px 2px 2px;}
+.searchResult ul li:hover{cursor: pointer; background-color: #696663; color: #000;}
+.sBarColor{background-color:#eeeeee;}
+
+.showDiv{display: block;}
+.showOpacity{opacity: 1;visibility: visible;}
+.navBarv0 .right .MuiIconButton-root{border-radius: 50%; font-size: 1.5rem; color: #000;}
+
+/* Cart item list styling */
+.cartQVLitem{display: flex;flex-direction: row;justify-content:space-evenly;justify-items: center; height: 80px;}
+.cartQVLitem .cqVLImg{vertical-align: middle; align-self: center;}
+.cartQVLitem .citVNamePrice{line-height:12px; margin-top: 0; vertical-align: middle; align-self: center; padding: 0px 10px 0px 10px;}
+.cartQVLitem .citVNamePrice #citN{font-weight:510; font-size:0.75rem;}
+.cartQVLitem .citVDelete{vertical-align: middle; align-self: center; cursor: pointer; font-size: x-large;visibility: hidden;}
+.cartQVLitem:hover{border-bottom:0.5px solid grey;}
+.cartQVLitem:hover .citVDelete{visibility: visible;}
+.cartQVLitem .citVDelete:hover{color: red;}
+.cartQview .cartQVLitem .cqVLImg{width:80px;height:100%;display: block;background-repeat: no-repeat; background-size: contain;}
+.cartQview button{border-radius: 20px; font-size: small;font-weight: 300; color:#FFF; background-color: #000;height:15px; width: 100px; line-height: 12px; margin-top: 20px; margin-left: 190px; align-self:center;}
 
 /* Featured itemCard Large and Small  -- cC:cardContainer */
 .cC-fLarge{
@@ -172,42 +213,3 @@ background-color: #F9F9F9;}
         overflow: hidden;
         }
 
-/* userMenu styling */
-.navBarv0 .right ul li .userMenu{width: 200px; height:auto;background:white;position:absolute;top:45px;right: 0; z-index: 99; display:flex; flex-direction: column;align-items:center; display: none;}
-.navBarv0 .right ul li .userMenu li:hover{cursor: pointer;background-color: rgb(227, 227, 227);color: #44423f;}
-.navBarv0 .right ul li .userMenu li{width:100%;line-height: 20px;vertical-align: middle;align-content:center; padding-left: 20px;}
-.navBarv0 .right ul li .userMenu li span{display: inline-block;font-size: small; margin-left: 5px;}
-.navBarv0 .right ul li .userMenu li #uMicon{display: inline-block;font-size: large;}
-.navBarv0 .right ul li .userMenu li:nth-child(5) span{margin-left: 8.5px; margin-right:0px; color:black}
-.showMenu{display: block;}
-
-/* NavBar Cart  Quick listview */
-.cartQview, .favQview{width:300px; min-height: 100px; position:absolute;right:5px;top:45px;background-color: #FFF; border-radius: 2px;z-index: 98;display: none; padding-bottom:20px}
-
-/* Search bar styling */
-.navSearchBar{ width:100%;height: 30px; padding: 3px 10px; font-size: medium; border-radius:20px; background-color: #FFF; display: flex; flex-direction: row; overflow: hidden;visibility: hidden;}
-.navSearchBar .sBarleft{position:relative; align-self: center;}
-.navSearchBar .sBarcenter{position: relative;align-self: center; padding-left: 20px;}
-.navSearchBar .sBarright{align-self:center;position: absolute; right: 1px;}
-.navSearchBar .sBarright .MuiButton-root{background-color:#44423f; height: 20px; border-radius: 20px;font-weight: 300; min-height: 28px;}
-.navSearchBar .sBarright .MuiButton-root:hover{background-color: #696663;}
-.sBarcenter input:focus{outline: none;}
-
-.searchResult{width:95%;background-color: #FFF; height: auto; position:absolute; margin: 2px 2.5%; padding: 10px; display: none; border-radius: 2px 2px 2px 2px;}
-.sBarColor{background-color:#eeeeee;}
-
-.showDiv{display: block;}
-.showOpacity{opacity: 1;visibility: visible;}
-.navBarv0 .right .MuiIconButton-root{border-radius: 50%; font-size: 1.5rem; color: #000;}
-
-/* Cart item list styling */
-.cartQVLitem{display: flex;flex-direction: row;justify-content:space-evenly;justify-items: center; height: 80px;}
-.cartQVLitem .cqVLImg{vertical-align: middle; align-self: center;}
-.cartQVLitem .citVNamePrice{line-height:12px; margin-top: 0; vertical-align: middle; align-self: center; padding: 0px 10px 0px 10px;}
-.cartQVLitem .citVNamePrice #citN{font-weight:510; font-size:0.75rem;}
-.cartQVLitem .citVDelete{vertical-align: middle; align-self: center; cursor: pointer; font-size: x-large;visibility: hidden;}
-.cartQVLitem:hover{border-bottom:0.5px solid grey;}
-.cartQVLitem:hover .citVDelete{visibility: visible;}
-.cartQVLitem .citVDelete:hover{color: red;}
-.cartQview .cartQVLitem .cqVLImg{width:80px;height:100%;display: block;background-repeat: no-repeat; background-size: contain;}
-.cartQview button{border-radius: 20px; font-size: small;font-weight: 300; color:#FFF; background-color: #000;height:15px; width: 100px; line-height: 12px; margin-top: 20px; margin-left: 190px; align-self:center;}
