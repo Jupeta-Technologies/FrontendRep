@@ -32,7 +32,7 @@ const LoginPage = () => {
   return (
     <>
     <div className="login-body" style={{backgroundImage:`url(${loginbg})`}}>
-     <div class="container" >
+     <div class="container-login" >
       <div class="head-label">
         <label>Sign in</label>
         <button class="btns">Register</button>

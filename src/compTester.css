@@ -115,7 +115,7 @@ background-color: #F9F9F9;}
 .navBarv0 .right .navicon:hover{cursor: pointer;}
 .navBarv0 .right ul{display: flex;column-gap: 10px; justify-content: center;align-items: center; margin-bottom: 0;}
 .navBarv0 .right ul li{margin-left: 1px; width: 100%; margin: 0;}
-.navBarv0 .right ul li ul{font-size:small; display:block; text-align: left; line-height: 20px;}
+.navBarv0 .right ul li ul{font-size:small; display:none; text-align: left; line-height: 20px;}
 .navBarv0 .right ul li ul li{margin: 0; cursor: pointer;padding:10px;}
 .navBarv0 .right ul li ul li:hover{background-color: rgba(240, 240, 240, 0.693);}
 .navBarv0 .right ul li:hover ul{display: block;}
