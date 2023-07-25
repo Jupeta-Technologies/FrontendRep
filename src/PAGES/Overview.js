@@ -36,7 +36,7 @@ const Overview = () => {
         </Row>
         <Row>
             <Col style={{width: '700px', height: '350px', display: 'flex', justifyContent: 'center', alignItems:'center'}}>
-                <div className='signupin'>
+                <div className='signupout'>
                     <h1>3</h1>
                     <h1>Set the price</h1>
                 </div>

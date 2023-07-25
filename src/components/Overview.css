@@ -1,7 +1,18 @@
 .signupin{
     display: flex;
     flex-direction: column;
-    width: 90%;
+    width: 70%;
+    height: 90%;
+    border: 3px solid black;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.signupout{
+    display: flex;
+    flex-direction: column;
+    width: 35%;
     height: 90%;
     border: 3px solid black;
     justify-content: center;
