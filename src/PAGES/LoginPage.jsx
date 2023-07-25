@@ -85,20 +85,5 @@ const LoginPage = () => {
   
 }
 
-/*
-<form id="loginForm" action="#" className='loginForm'>
-                <div className="form-control">
-                    <label htmlFor="email">Email</label>
-                    <input type="email" id="email" name='useremail' placeholder="Enter Email" required value={inputEmail} onChange={handleInputEmail}/>
-                </div>
-                <div className="form-control">
-                    <label htmlFor="password">Password</label>
-                <   input type="password" id="password" name='userpass' placeholder="Enter Password" required value={inputPassword} onChange={handleInputPassword}/>
-                </div>
-                <button type="submit" className="loginbtn" onClick={LoginHandler}>Login</button>
-                </form>
-
-*/
-
 
 export default LoginPage
