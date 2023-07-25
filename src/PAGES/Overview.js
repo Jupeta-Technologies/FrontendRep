@@ -2,6 +2,7 @@ import React from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
 import jupater from '../images/jupater.png'
 import '../components/Overview.css'
+import readyauction from '../images/readyauction.png'
 
 const Overview = () => {
   return (
@@ -40,6 +41,26 @@ const Overview = () => {
                     <h1>3</h1>
                     <h1>Set the price</h1>
                 </div>
+            </Col>
+        </Row>
+        <Row style={{marginTop: '20px'}}>
+            <Col style={{display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center'}}>
+                <section>
+                    <img src={readyauction} alt='' />
+                </section>
+                <section>
+                    <h3><strong>Ready, Set, Auction !</strong></h3>
+                </section>
+                <section style={{display: 'flex', flexDirection: 'column', padding: '0', gap: '0'}}>
+                    <p style={{margin: '0', opacity: '0.6'}}>Welcome to AuctionFrenzy, where you can</p>
+                    <p style={{margin: '0', opacity: '0.6'}}>sell and auction your items for fabulous</p>
+                    <p style={{margin: '0', opacity: '0.6'}}>profits! Unleash your inner auctioneer and</p>
+                    <p style={{margin: '0', opacity: '0.6'}}>discover the thrill of outbidding others. You</p>
+                    <p style={{margin: '0', opacity: '0.6'}}>ain't seen a marketplace this exciting!</p>
+                </section>
+                <section style={{marginTop: '15px'}}>
+                    <button style={{width: '150px', backgroundColor: 'black', color: 'white', padding: '10px', borderRadius: '7px'}}>Start selling</button>
+                </section>
             </Col>
         </Row>
     </Container>
