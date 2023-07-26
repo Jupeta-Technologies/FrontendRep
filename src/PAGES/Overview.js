@@ -63,6 +63,35 @@ const Overview = () => {
                 </section>
             </Col>
         </Row>
+        <Row style={{marginTop: '70px'}}>
+            <Col style={{display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center'}}>
+                <section style={{marginBottom: '30px'}}><h1><strong>Simple, Transparent, Secure</strong></h1></section>
+                <section style={{display: 'flex', marginBottom: '20px'}}>
+                    <img />
+                    <div style={{display: 'flex', flexDirection: 'column'}}>
+                        <h5><strong>GHS 2.00 Listing Fee</strong></h5>
+                        <h6>Listings are active for four months, or until they sell.</h6>
+                    </div>
+                </section>
+                <section style={{display: 'flex', marginBottom: '20px'}}>
+                    <img />
+                    <div style={{display: 'flex', flexDirection: 'column'}}>
+                        <h5><strong>6.5% Transaction fee, MOMO Fee</strong></h5>
+                        <h6>Once purchased, there is a small commission fee and a</h6>
+                        <h6>standard MOMO payment processing fee.</h6>
+                    </div>
+                </section>
+                <section style={{display: 'flex'}}>
+                    <img />
+                    <div style={{display: 'flex', flexDirection: 'column'}}>
+                        <h5><strong>15% Offsite Ads Fee*</strong></h5>
+                        <h6>Jupeta pays to advertise your items across the web</h6>
+                        <h6>through Offsite Ads. You only pay a fee when you make a</h6>
+                        <h6>sale from one of those ads.</h6>
+                    </div>
+                </section>
+            </Col>
+        </Row>
     </Container>
     </div>
   )
