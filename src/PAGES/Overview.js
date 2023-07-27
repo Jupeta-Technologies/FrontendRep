@@ -108,6 +108,25 @@ const Overview = () => {
                 </div>
             </Col>
         </Row>
+        <Row style={{marginTop: '80px', marginBottom: '80px'}}>
+            <section style={{ display: 'flex', justifyContent: 'center'}}>
+                <h1><strong>Quick Answers to Common Questions</strong></h1>
+            </section>
+            <Col style={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
+                <h3>How do I list an item?</h3>
+                <h6 style={{opacity: '0.5'}}>Simply snap some photos, write a</h6>
+                <h6 style={{opacity: '0.5'}}>catchy description, set the price</h6>
+                <h6 style={{opacity: '0.5'}}>or auction details and voila! Your</h6>
+                <h6 style={{opacity: '0.5'}}>item is ready for the world to see</h6>
+            </Col>
+            <Col style={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
+                <h3>Can I track my sales?</h3>
+                <h6 style={{opacity: '0.5'}}>Absolutely! Our platform provides</h6>
+                <h6 style={{opacity: '0.5'}}>real-time sales monitoring, notifications</h6>
+                <h6 style={{opacity: '0.5'}}>and detailed analytics to keep</h6>
+                <h6 style={{opacity: '0.5'}}>you in the loop</h6>
+            </Col>
+        </Row>
     </Container>
     </div>
   )
