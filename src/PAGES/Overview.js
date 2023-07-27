@@ -3,6 +3,7 @@ import { Container, Row, Col } from 'react-bootstrap'
 import jupater from '../images/jupater.png'
 import '../components/Overview.css'
 import readyauction from '../images/readyauction.png'
+import simpletools from '../images/simpletools.png'
 
 const Overview = () => {
   return (
@@ -90,6 +91,21 @@ const Overview = () => {
                         <h6>sale from one of those ads.</h6>
                     </div>
                 </section>
+            </Col>
+        </Row>
+        <Row style={{marginTop: '100px'}}>
+            <Col style={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
+                <h5><strong>Simple, powerful tools</strong></h5>
+                <h6>Spend less time managing your shop and</h6>
+                <h6>more time on the fun stuff. We have tools</h6>
+                <h6>to help you whether you're just getting</h6>
+                <h6>started or about to make your ten-</h6>
+                <h6>thousandth sale.</h6>
+            </Col>
+            <Col style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+                <div style={{width: '45%', height: '80%'}}>
+                    <img src={simpletools} alt='' style={{width: '100%', height: '100%', objectFit: 'fill'}} />
+                </div>
             </Col>
         </Row>
     </Container>
