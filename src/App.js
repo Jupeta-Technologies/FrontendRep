@@ -16,7 +16,7 @@ import LoginPage from './PAGES/LoginPage';
 import WelcomePage from './PAGES/WelcomePage';
 import Overview from './PAGES/Overview';
 import ProductListing from './PAGES/ProductListing';
-
+import Cart from './PAGES/Cart';
 function App() {
   const [cartItems, setCartItems] = useState([]);
 
@@ -56,6 +56,7 @@ function App() {
         <Route path='/welcome' element={<WelcomePage />} />
         <Route path='/overview' element={<Overview />} />
         <Route path='/productlisting' element={<ProductListing />} />
+        <Route path='/cartpage' element={<Cart />} />
       </Routes>
     </div>
   );
