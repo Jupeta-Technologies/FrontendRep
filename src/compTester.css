@@ -39,7 +39,7 @@ background-color: #F9F9F9;}
 .cardContainer .itemPrice{
     width:100%; 
     position: absolute; 
-    bottom: 80px; 
+    bottom: 60px; 
     font-size: 16px; 
     font-weight: 600; 
 }
