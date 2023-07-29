@@ -44,7 +44,7 @@ const DailyDeals = () => {
 
   return (
     <div>
-      <h1 style={{ marginBottom: '16px' }}>DAILY DEALS</h1>
+      <h1 style={{ marginBottom: '16px', textAlign: 'center' }}>DAILY DEALS</h1>
       <div className='productscontainer'>
         <Carousel responsive={responsive}>
         {loading &&
