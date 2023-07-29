@@ -36,20 +36,22 @@ const CartPage = (props) => {
                     {cartItems.map((item) => {
                       return(
                         <>
-                          <section style={{marginTop: '40px', display: 'flex', height: '230px', alignItems: 'center', padding: '15px', gap:'10px',borderBottom: '1px solid', backgroundColor: 'red' }}>
+                          <section style={{marginTop: '40px', display: 'flex', height: '230px', alignItems: 'center', padding: '15px', gap:'10px',borderBottom: '1px solid' }}>
                             <div className='cartproductimage'>
                               <img src={item.imageFileUrl} style={{width: '100%', height: '100%', objectFit: 'fill'}} />
                             </div>
                             <div className='cartproductname'>
-                              <h5>{item.productName}</h5>
+                              <h5 style={{marginTop: '15px'}}>{item.productName}</h5>
                               <div className='addsubtract'>
                                 <button onClick={() => onRemove(item)}>-</button>
                                 <h5>{item.qty}</h5>
                                 <button onClick={() => onAdd(item)}>+</button>
                               </div>
+                              <button style={{marginTop: '15px', textAlign: 'end'}}>Remove</button>
                             </div>
                             <div className='cartproductprice'>
-                              <h5>GHS {item.price}</h5>
+                              <h5 style={{marginTop: '15px'}}>GHS {item.price}</h5>
+                              <button style={{marginTop: '128px', textAlign: 'start', marginLeft: '20px'}}>Save to wishlist</button>
                             </div>
                           </section>
                         </>
@@ -57,8 +59,35 @@ const CartPage = (props) => {
                     })}
                     
                 </Col>
-                <Col xs={5} style={{backgroundColor: 'blueviolet', minHeight: '1000px'}}>
-                    <h3>Order summary here</h3>
+                <Col xs={5} style={{ minHeight: '1000px', padding: '50px'}}>
+                    {cartItems.length !== 0 && (
+                      <div className='cartinfo'>
+                        <h3 style={{marginTop: '100px'}}><strong>Order Summary</strong></h3>
+                        <h4>Do you have a promo code?</h4>
+                        <section style={{display: 'flex', justifyContent: 'space-between', marginTop: '20px', marginRight: '30px'}}>
+                          <h5>Subtotal [ ]</h5>
+                          <h5>GHS {itemsPrice.toFixed(2)}</h5>
+                        </section>
+                        <section style={{display: 'flex', justifyContent: 'space-between', marginTop: '5px', marginRight: '30px'}}>
+                          <h5>Estimated Shipping/Delivery</h5>
+                          <h5>FREE</h5>
+                        </section>
+                        <section style={{display: 'flex', justifyContent: 'space-between', marginTop: '5px', marginRight: '30px'}}>
+                          <h5>Estimated Tax</h5>
+                          <h5>-</h5>
+                        </section>
+                        <hr style={{marginTop: '30px'}} />
+                        <section style={{display: 'flex', justifyContent: 'space-between', marginTop: '10px', marginRight: '30px'}}>
+                          <h5>Order Total</h5>
+                          <h5>GHS {totalPrice.toFixed(2)}</h5>
+                        </section>
+                        <button style={{border: "1px solid", padding:"15px", width:"100%", borderRadius: "50px", background:"black", color:"white", marginTop:"20px"}}>Checkout</button>
+                        <section style={{marginTop: '60px', display: 'flex', flexDirection: 'column'}}>
+                          <h4>ACCEPTED PAYMENT METHODS</h4>
+                          <img src={brandicons} alt='brand icons' />
+                        </section>
+                      </div>
+                    )}
                 </Col>
             </Row>
         </Container>
