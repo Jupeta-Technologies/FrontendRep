@@ -7,6 +7,7 @@ import { faCcMastercard } from '@fortawesome/free-brands-svg-icons';
 import { faCcDiscover } from '@fortawesome/free-brands-svg-icons';
 import { faCcPaypal } from '@fortawesome/free-brands-svg-icons';
 import { faApplePay } from '@fortawesome/free-brands-svg-icons';
+import { faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import brandicons from '../images/brandicons.png'
 import NewnavBar from '../components/NewnavBar';
 import { Container, Row, Col } from 'react-bootstrap'
@@ -38,7 +39,7 @@ const CartPage = (props) => {
                         <>
                           <section style={{marginTop: '40px', display: 'flex', height: '230px', alignItems: 'center', padding: '15px', gap:'10px',borderRadius: '15px', backgroundColor: 'whitesmoke' }}>
                             <div className='cartproductimage'>
-                              <img src={item.imageFileUrl} style={{width: '100%', height: '100%', objectFit: 'fill'}} />
+                              <img src={item.imageFileUrl} style={{width: '100%', height: '100%', objectFit: 'fill', mixBlendMode: 'multiply'}} alt={item.productName}/>
                             </div>
                             <div className='cartproductname'>
                               <h6>Item number: 31450</h6>
@@ -47,6 +48,11 @@ const CartPage = (props) => {
                               <h6 style={{marginTop: '15px'}}><strong>GHS {item.price}</strong></h6>
                             </div>
                             <div className='cartproductprice'>
+                              <div style={{display:'flex', width: '100%', justifyContent: 'right'}}>
+                                <section style={{padding: '5px', backgroundColor: 'lightpink',width: '30px',display: 'flex', justifyContent: 'center',borderRadius: '50%'}}>
+                                  <FontAwesomeIcon icon={faTrashCan} color='red'></FontAwesomeIcon>
+                                </section>
+                              </div>
                               <div className='addsubtract'>
                                 <button onClick={() => onRemove(item)}>-</button>
                                 <h5>{item.qty}</h5>
