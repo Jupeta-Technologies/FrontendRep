@@ -3,6 +3,7 @@ import axios from 'axios'
 import '../components/Allcategories.css'
 import { Link } from 'react-router-dom';
 import ItemCardglobal from '../itemCard';
+import NewnavBar from './NewnavBar';
 
 const AllCategories = (props) => {
   const { onAdd } = props;
@@ -27,7 +28,8 @@ const AllCategories = (props) => {
     }
   }
   
-  return (
+  return (<>
+    <NewnavBar />
     <div className='productscontainer'>
       <div className='productspagetitle'>
         <h1><strong>ALL PRODUCTS</strong></h1>
@@ -45,6 +47,7 @@ const AllCategories = (props) => {
       </div>
       <Link to='/cart'><button className='cartbttn'>View Cart</button></Link>
     </div>
+    </>
   )
 }
 

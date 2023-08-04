@@ -13,7 +13,7 @@ const ItemCardglobal = (productsdata) => {
     const watchlist = <AiOutlineEye className='shoppingcartIcon' />;
     return ( 
 
-            <div className='cardContainer gShadow' key={productsdata.id}>
+            <div className='cardContainer' key={productsdata.id}>
                 <p className='itemConditionTag'>{condition}</p>
                 <p className='auctionTime'>{date.toLocaleString()}</p>
                 <AiFillHeart  className='favoriteIcon'/>
