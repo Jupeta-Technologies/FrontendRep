@@ -25,7 +25,6 @@ const  NewnavBar = () => {
         unicart:[{}]
       }; */
       const [loggedin,setLoggedin] = useState(false);
-      const [searchFocused,setSearchFocused] = useState(false);
       const [searchKey,setSearchKey] = useState('');
       const [searchCatg,setSearchCatg] = useState('0');
       const [searchActive,setSearchActive] = useState(false);
@@ -37,25 +36,19 @@ const  NewnavBar = () => {
         console.log(this.state.active);
       }
     const handleSigninClick = () => {
-        !this.state.loggedin?this.setState({loggedin:true}):this.setState({loggedin:false});
-    }
-    const handleSearch = () =>{
-        setSearchFocused(true);
+        !loggedin?setLoggedin(true):setLoggedin(false);
     }
     const handleSearchicon = () =>{
         !searchActive?setSearchActive(true):setSearchActive(false);
     }
-    const handleFavclick = () =>{
-        !this.state.favIconevet?this.setState({favIconevet:true}):this.setState({favIconevet:false});
-    }
 
     const handleSearchCat = (event) =>{
         setSearchCatg(event.target.value);
-        console.log(this.state.searchCatg);
+        console.log(searchCatg);
     }
     const handleSearchInput = (e) =>{
         setSearchKey(e.target.value);
-        console.log(this.state.searchKey);
+        console.log(searchKey);
     }
     const handelSEO = () => {
         jupetaSEO({
@@ -75,14 +68,14 @@ const  NewnavBar = () => {
 
         return (
             <>
-            <div className={this.state.searchActive?'navBarv0 sBarColor':'navBarv0'} >
+            <div className={searchActive?'navBarv0 sBarColor':'navBarv0'} >
                 <div className="left">
                     
                     <Link to={'/'} style={{textDecoration:'none', color:'#000'}}><Typography fontSize={'xl'} color='#000'>jUPETA</Typography></Link>
                     <CiLocationOff />
                 </div>
                 <div className="center">
-                    <div className={this.state.searchActive?"navSearchBar showOpacity":"navSearchBar"}>
+                    <div className={searchActive?"navSearchBar showOpacity":"navSearchBar"}>
                         <div className="sBarleft">
                         <select placeholder="Select a Category"  value={searchCatg} onChange={handleSearchCat}>
                             <option value="0">Select a Category</option>
@@ -90,13 +83,13 @@ const  NewnavBar = () => {
                             <option value='2'>Consumer Electronic</option>
                         </select>
                         </div>
-                        <div className="sBarcenter"><input type="text" name="search"  placeholder='Search for product..' onClick={handleSearch} onChange={handleSearchInput}/></div>
+                        <div className="sBarcenter"><input type="text" name="search"  placeholder='Search for product..' onChange={handleSearchInput}/></div>
                         <div className="sBarright"><Button onClick={handelSEO}>Search</Button></div>
                     </div>
                     
-                    {this.state.searchKey !== '' && <div className="searchResult showDiv">
+                    {searchKey !== '' && <div className="searchResult showDiv">
                         <ul>
-                            {SearchKeyIndexes.map((keyword,index)=>{return  keyword.toLowerCase().includes(this.state.searchKey.toLowerCase()) &&<li key={index}>{keyword}</li>})}
+                            {SearchKeyIndexes.map((keyword,index)=>{return  keyword.toLowerCase().includes(searchKey.toLowerCase()) &&<li key={index}>{keyword}</li>})}
                         </ul>
                     </div>}
                     
@@ -105,26 +98,26 @@ const  NewnavBar = () => {
                     <ul>
                         <li><IconButton variant='plain' color='neutral'><AiOutlineSearch className='navicon' onClick={handleSearchicon}/></IconButton></li>
                         <li> <IconButton variant='plain' color='neutral' ><Badge badgeContent={'11'}  color='primary' size='sm' variant='plain' badgeInset="8%" max={'9'} ><AiOutlineShoppingCart className='navicon' /></Badge></IconButton>
-                            <ul className={this.state.cartevent?"cartQview showDiv":"cartQview"}>
+                            <ul className={"cartQview"}>
                             <CartListitem imgsrc={beats} itemName="Beats by dre Studio pods" />
                             <CartListitem imgsrc={nikeVapor} itemName="Nike Air VaporMax 2023 Flyknit"/>
                             <Button>Got to cart</Button>
                             </ul>
                         </li>
-                        <li><IconButton variant='plain' color='neutral'><AiOutlineHeart className='navicon fav' onClick={handleFavclick}/></IconButton>
-                        <ul className={this.state.favIconevet?"favQview showDiv":"favQview"}>
+                        <li><IconButton variant='plain' color='neutral'><AiOutlineHeart className='navicon fav'/></IconButton>
+                        <ul className={"favQview"}>
                             <li>Favorite item 1</li>
                             <li>Favorite item 2</li>
                             <li>Favorite item 3</li>
                         </ul>
                         </li>
-                        <li>{this.state.loggedin?<Avatar onClick={this.handMenuIconClick} className='userIcon'>{'J'}</Avatar>:<IconButton variant='plain' color='neutral'><AiOutlineUser className='navicon userIcon' onClick={handMenuIconClick}/></IconButton>}
-                        <ul className={!this.state.active?"userMenu":"userMenu showMenu"}>
+                        <li>{loggedin?<Avatar onClick={handMenuIconClick} className='userIcon'>{'J'}</Avatar>:<IconButton variant='plain' color='neutral'><AiOutlineUser className='navicon userIcon' onClick={handMenuIconClick}/></IconButton>}
+                        <ul className={"userMenu showMenu"}>
                             <li><MdOutlineSell id='uMicon'/> <span>Sell</span></li>
                             <li><AiOutlineEye id='uMicon'/> <span>Watch List</span></li>
                             <li><CiReceipt id='uMicon'/> <span>Orders</span></li>
                             <li><MdOutlineManageAccounts id='uMicon'/> <span>My account</span></li>
-                            {this.state.loggedin?<li><Link to={'/login'}><AiOutlineLogout id="uMicon"/><span>Sign out </span></Link></li>:<li onClick={handleSigninClick}><Link to={'/login'}><AiOutlineLogin id="uMicon"/><span>Sign in </span></Link></li>}
+                            {loggedin?<li><Link to={'/login'}><AiOutlineLogout id="uMicon"/><span>Sign out </span></Link></li>:<li onClick={handleSigninClick}><Link to={'/login'}><AiOutlineLogin id="uMicon"/><span>Sign in </span></Link></li>}
                         </ul>
                         </li>
                     </ul>
