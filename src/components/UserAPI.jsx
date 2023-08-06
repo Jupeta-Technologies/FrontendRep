@@ -10,6 +10,6 @@ export const UserLogin = async (data) =>{
         });
         return responds;
     } catch (error) {
-        return error.responds.respondsData;
+        return error.responseData;
     }
 }
