@@ -1,5 +1,4 @@
 import React,{Component} from 'react';
-import './compTester.css';
 import {AiFillHeart,AiOutlineShoppingCart,AiOutlineEye} from "react-icons/ai"
 import beats from './images/beats.jpg';
 import ItemIMG from './components/cardcomponents/itemIMG';

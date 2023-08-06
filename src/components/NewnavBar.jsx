@@ -9,21 +9,12 @@ import beats from '../images/beats.jpg';
 import nikeVapor from '../images/nikeVapor.png';
 import { jupetaSEO } from './SEOApi';
 import { Link } from 'react-router-dom';
+import { Translate } from '@mui/icons-material';
 
 
 
 const  NewnavBar = () => {
-    /* state = {
-        active: false,
-        loggedin:false,
-        searchFocused:false,
-        cartevent:false,
-        favIconevet:false,
-        searchActive:false,
-        searchKey:'',
-        searchCatg:'0',
-        unicart:[{}]
-      }; */
+   
       const [loggedin,setLoggedin] = useState(false);
       const [searchKey,setSearchKey] = useState('');
       const [searchCatg,setSearchCatg] = useState('0');
@@ -31,10 +22,6 @@ const  NewnavBar = () => {
 
 
 
-    const handMenuIconClick = (x)=>{
-       !this.state.active?this.setState({active:true}):this.setState({active:false});
-        console.log(this.state.active);
-      }
     const handleSigninClick = () => {
         !loggedin?setLoggedin(true):setLoggedin(false);
     }
@@ -59,7 +46,7 @@ const  NewnavBar = () => {
 
         }).then((responds) => {
             if(responds.status === 200){
-                console.log(responds.data);
+                console.log(responds.respondsData);
             }else{console.log("Item not found");}
         }).catch(err => {console.error(err); console.log("Item not found");});
     }
@@ -96,28 +83,28 @@ const  NewnavBar = () => {
                 </div>
                 <div className="right">
                     <ul>
-                        <li><IconButton variant='plain' color='neutral'><AiOutlineSearch className='navicon' onClick={handleSearchicon}/></IconButton></li>
-                        <li> <IconButton variant='plain' color='neutral' ><Badge badgeContent={'11'}  color='primary' size='sm' variant='plain' badgeInset="8%" max={'9'} ><AiOutlineShoppingCart className='navicon' /></Badge></IconButton>
+                        <li style={{color:'red', cursor:'pointer'}}><AiOutlineSearch onClick={handleSearchicon} id='navSicon'/></li>
+                        <li ><AiOutlineShoppingCart id='navicon'/>
                             <ul className={"cartQview"}>
                             <CartListitem imgsrc={beats} itemName="Beats by dre Studio pods" />
                             <CartListitem imgsrc={nikeVapor} itemName="Nike Air VaporMax 2023 Flyknit"/>
                             <Button>Got to cart</Button>
                             </ul>
                         </li>
-                        <li><IconButton variant='plain' color='neutral'><AiOutlineHeart className='navicon fav'/></IconButton>
+                        <li className='fav'><AiOutlineHeart id='navicon'/>
                         <ul className={"favQview"}>
                             <li>Favorite item 1</li>
                             <li>Favorite item 2</li>
                             <li>Favorite item 3</li>
                         </ul>
                         </li>
-                        <li>{loggedin?<Avatar onClick={handMenuIconClick} className='userIcon'>{'J'}</Avatar>:<IconButton variant='plain' color='neutral'><AiOutlineUser className='navicon userIcon' onClick={handMenuIconClick}/></IconButton>}
+                        <li className='userIcon'>{loggedin?<Avatar className='userIcon' id='navicon'>{'J'}</Avatar>:<AiOutlineUser id='navicon'/>}
                         <ul className={"userMenu showMenu"}>
                             <li><MdOutlineSell id='uMicon'/> <span>Sell</span></li>
                             <li><AiOutlineEye id='uMicon'/> <span>Watch List</span></li>
                             <li><CiReceipt id='uMicon'/> <span>Orders</span></li>
                             <li><MdOutlineManageAccounts id='uMicon'/> <span>My account</span></li>
-                            {loggedin?<li><Link to={'/login'}><AiOutlineLogout id="uMicon"/><span>Sign out </span></Link></li>:<li onClick={handleSigninClick}><Link to={'/login'}><AiOutlineLogin id="uMicon"/><span>Sign in </span></Link></li>}
+                            {loggedin?<li><Link to={'/login'}><AiOutlineLogout id="uMicon"/><span>Sign out </span></Link></li>:<li><Link to={'/login'}><AiOutlineLogin id="uMicon"/><span>Sign in </span></Link></li>}
                         </ul>
                         </li>
                     </ul>

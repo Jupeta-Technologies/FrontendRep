@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './components/app.css';
+import './compTester.global.css';
 import { Routes, Route } from 'react-router-dom';
 import FavoritesPage from './PAGES/favoritesPage';
 import CartPage from './PAGES/cartPage';

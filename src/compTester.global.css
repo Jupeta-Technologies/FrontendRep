@@ -112,19 +112,20 @@ background-color: #FFF;}
 }
 .navBarv0 .left{height: 50px;width: 250px; line-height:50px; padding-left: 40px;font-weight: bolder; font-size: x-large; font-family:sans-serif;display:flex; align-items: center; justify-content: space-between;}
 .navBarv0 .center{width: 40%; position: relative; align-self: center; margin: 0 auto;}
-.navBarv0 .right{display: flex;justify-content:space-evenly;padding-right: 20px;}
-.navBarv0 .right ul{display: flex;column-gap: 30px; justify-content: center;align-items: center; margin-bottom: 0; font-size: 1.5rem;}
-.navBarv0 .right ul .navicon{width:30px;height: 30px;}
-.navBarv0 .right > ul .navicon:hover{cursor: pointer; color: red;z-index: 99; background-color: #D9D9D9; border-radius: 50%;}
-
-.navBarv0 .right ul li ul{font-size:small; display:none; text-align: left; line-height: 20px;z-index: -1; overflow: hidden; padding-top: 10px;}
+.navBarv0 .right{width: 250px; display: flex;justify-content:space-evenly;padding-right: 20px;}
+.navBarv0 .right > ul{display: flex;column-gap: 10px; justify-content: center;align-items: center; margin-bottom: 0; font-size: 1.5rem;}
+.navBarv0 .right >ul > li{display:flex;width:50px; height: 100%;vertical-align: middle; justify-items: center; justify-content: center; flex-direction: column;}
+.navBarv0 .right >ul > li #navicon{padding: 10px; font-size: 2.8rem;}
+.navBarv0 .right >ul > li:hover #navicon{cursor: pointer;z-index: 99; background-color: #D9D9D9; border-radius: 50%; padding: 10px; font-size: 3.1rem; transform: translateY(10px);}
+.navBarv0 .right >ul > li #navSicon:hover{background-color:#D9D9D9; padding: 10px; font-size:2rem; border-radius: 50%;}
+.navBarv0 .right > ul >li > ul{font-size:small; display:none; text-align: left; line-height: 20px;z-index: -1; overflow: hidden; padding-top: 10px;}
 .navBarv0 .right ul li ul li{margin: 0; cursor: pointer;padding:10px;}
 .navBarv0 .right ul li ul li:hover{background-color: rgba(240, 240, 240, 0.693);}
 .navBarv0 .right ul li:hover ul{display: block;}
 .navBarv0 .right .userIcon{cursor: pointer;}
 
 /* Navbar userMenu styling */
-.navBarv0 .right ul li .userMenu{width: 200px; height:auto;background:#F9F9F9;position:absolute;top:50px;right: 2px; z-index:-1; display:flex; flex-direction: column;align-items:center; display: none; border-radius: 20px;}
+.navBarv0 .right ul li .userMenu{width: 200px; height:auto;background:#F9F9F9;position:absolute;top:51px;right: 2px; z-index:-1; display:flex; flex-direction: column;align-items:center; display: none; border-radius: 20px;}
 .navBarv0 .right ul li .userMenu li:hover{cursor: pointer;background-color: rgb(227, 227, 227);color: #44423f;}
 .navBarv0 .right ul li .userMenu li{width:100%;line-height: 20px;vertical-align: middle;align-content:center; padding-left: 10px;}
 .navBarv0 .right ul li .userMenu li span{display: inline-block;font-size: small; margin-left: 5px;}
@@ -133,7 +134,7 @@ background-color: #FFF;}
 .showMenu{display: block;}
 
 /* NavBar Cart  Quick listview */
-.cartQview, .favQview{width:300px; min-height: 100px; position:absolute;right:5px;top:50px;background-color: #F9F9F9;display: none; padding-bottom:20px; padding-left: 0;border-radius: 20px;}
+.cartQview, .favQview{width:300px; min-height: 100px; position:absolute;right:5px;top:51px;background-color: #F9F9F9;display: none; padding-bottom:20px; padding-left: 0;border-radius: 20px;}
 
 /* Search bar styling */
 .navSearchBar{ width:100%;height: 30px; padding: 3px 10px; font-size: medium; border-radius:20px; background-color: #F9F9F9; display: flex; flex-direction: row; overflow: hidden;visibility: hidden;}
