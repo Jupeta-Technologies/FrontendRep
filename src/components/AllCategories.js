@@ -20,9 +20,11 @@ const AllCategories = (props) => {
 
   const getData = async () => {
     try {
-      const data = GetAllProdAPI();
-      setApiData(data.responseData);
-      console.log(data.responseData);
+      GetAllProdAPI().then((data =>{ setApiData(data.responseData);
+        console.log(data.responseData);
+      } )).catch(err => {console.error(err);});
+      
+      
       setLoading(true);
     } catch (err) {
       alert(err.message);

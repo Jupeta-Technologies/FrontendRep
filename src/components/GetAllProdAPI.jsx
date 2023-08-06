@@ -9,6 +9,6 @@ export const GetAllProdAPI = async () =>{
         });
         return responds;
     } catch (error) {
-        return error.responds.respondsData;
+        return error.responds.responseData;
     }
 }

@@ -28,11 +28,11 @@ const LoginPage = () => {
         UserLogin({
             email:inputEmail.toLocaleLowerCase(),
             passwordHash:inputPassword
-        }).then((responds) => {
-            if(responds.status === 200){
+        }).then((response) => {
+            if(response.status === 200){
                 setuserHasAuth(true);
                 nav("/");
-                console.log(responds.responseData);
+                console.log(response.responseData);
             }else{console.log("User not found");}
         }).catch(err => {console.error(err); console.log("User not found");});
     }
