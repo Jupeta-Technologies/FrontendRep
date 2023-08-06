@@ -4,6 +4,8 @@ import '../components/Allcategories.css'
 import { Link } from 'react-router-dom';
 import ItemCardglobal from '../itemCard';
 import NewnavBar from './NewnavBar';
+import { GetAllProdAPI } from './GetAllProdAPI';
+import { responsivePropType } from 'react-bootstrap/esm/createUtilityClasses';
 
 const AllCategories = (props) => {
   const { onAdd } = props;
@@ -18,8 +20,7 @@ const AllCategories = (props) => {
 
   const getData = async () => {
     try {
-      const res = await fetch('https://ec2-44-197-193-3.compute-1.amazonaws.com/api/User/GetAllProducts');
-      const data = await res.json();
+      const data = GetAllProdAPI();
       setApiData(data.responseData);
       console.log(data.responseData);
       setLoading(true);
