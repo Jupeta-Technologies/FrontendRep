@@ -12,7 +12,7 @@ const HomePage = () => {
       <SellButton />
       <div className="bgPrimary paddingX flexStart">
       <div className="boxWidth">
-        <DailyDeals />
+        {/* <DailyDeals /> */}
       </div>
       </div>
       <div className="bgPrimary flexStart">
