@@ -6,7 +6,8 @@ export const UserLogin = async (data) =>{
         const responds = await APIManager('/User/Login',{
             method:"POST",
             headers:{'Content-Type':'application/json'},
-            data:data
+            data:data,
+            withCredentials:false
         });
         return responds;
     } catch (error) {

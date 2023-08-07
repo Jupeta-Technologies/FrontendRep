@@ -122,12 +122,13 @@ background-color: #FFF;}
 .navBarv0 .right ul li ul li{margin: 0; cursor: pointer;padding:10px;}
 .navBarv0 .right ul li ul li:hover{background-color: rgba(240, 240, 240, 0.693);}
 .navBarv0 .right ul li:hover ul{display: block;}
-.navBarv0 .right .userIcon{cursor: pointer;}
+.navBarv0 .right >ul >li #userIcon{cursor: pointer; font-size: 1.2rem;}
+.navBarv0 .right >ul >li:hover #userIcon{transform: translateY(10px);}
 
 /* Navbar userMenu styling */
-.navBarv0 .right ul li .userMenu{width: 200px; height:auto;background:#F9F9F9;position:absolute;top:51px;right: 2px; z-index:-1; display:flex; flex-direction: column;align-items:center; display: none; border-radius: 20px;}
+.navBarv0 .right ul li .userMenu{width: 200px; height:auto;background:#F9F9F9;position:absolute;top:51px;right: 2px; z-index:-1; display:flex; flex-direction: column;align-items:center; display: none; border-radius: 20px; padding-left: 0;}
 .navBarv0 .right ul li .userMenu li:hover{cursor: pointer;background-color: rgb(227, 227, 227);color: #44423f;}
-.navBarv0 .right ul li .userMenu li{width:100%;line-height: 20px;vertical-align: middle;align-content:center; padding-left: 10px;}
+.navBarv0 .right ul li .userMenu li{width:100%;line-height: 20px;vertical-align: middle;align-content:center; padding-left:0px;}
 .navBarv0 .right ul li .userMenu li span{display: inline-block;font-size: small; margin-left: 5px;}
 .navBarv0 .right ul li .userMenu li #uMicon{display: inline-block;font-size: large;}
 .navBarv0 .right ul li .userMenu li:nth-child(5) span{margin-left: 8.5px; margin-right:0px; color:black}
@@ -145,7 +146,7 @@ background-color: #FFF;}
 .navSearchBar .sBarright .MuiButton-root:hover{background-color: #696663;}
 .sBarcenter input:focus{outline: none;}
 
-.searchResult{width:95%;background-color: #FFF; height: auto; position:absolute; margin: 2px 2.5%; padding: 10px; display: none; border-radius: 2px 2px 2px 2px; border-radius: 20px;}
+.searchResult{width:95%;background-color: #FFF; height: auto; position:absolute; margin: 2px 2.5%; padding: 10px; display: none; border-radius: 2px 2px 2px 2px; border-radius: 20px; padding-left: 0;}
 .searchResult ul li:hover{cursor: pointer; background-color: #696663; color: #000;}
 .sBarColor{background-color:#FFF;}
 

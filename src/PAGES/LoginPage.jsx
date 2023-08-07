@@ -2,15 +2,17 @@ import React,{useState,useEffect} from 'react';
 import '../components/Loginpage.css';
 import { UserLogin } from '../components/UserAPI';
 import loginbg from '../images/sneaker.jpg';
-import { useNavigate } from "react-router-dom";
+import { GetAllProdAPI } from '../components/GetAllProdAPI';
+import { useNavigate } from 'react-router-dom';
 
 const LoginPage = () => {
 
     const [inputEmail, setInputEmail] = useState('');
     const [inputPassword,setInputPassword] = useState('');
-    const [userHasAuth,setuserHasAuth] = useState(false);
-
+    const [userHasAuth,setuserHasAuth] = useState(JSON.parse(localStorage.getItem("AuthStatus")));
+    
     const nav = useNavigate();
+   
 
     const handleInputEmail = (e)=>{
         e.preventDefault();
@@ -28,24 +30,33 @@ const LoginPage = () => {
         UserLogin({
             email:inputEmail.toLocaleLowerCase(),
             passwordHash:inputPassword
-        }).then((response) => {
-            if(response.status === 200){
+        }).then((data) => {
+            if(data.status === 200){
                 setuserHasAuth(true);
-                nav("/");
-                console.log(response.responseData);
+                localStorage.setItem("AuthStatus",JSON.stringify(true));
+                console.log(userHasAuth);
+                nav('/');
+                
+                console.log(data.data.responseData);
+                
             }else{console.log("User not found");}
         }).catch(err => {console.error(err); console.log("User not found");});
     }
+
+    useEffect(() =>{
+      console.log(userHasAuth);
+      
+    },[]);
   return (
     <>
     <div className="login-body" style={{backgroundImage:`url(${loginbg})`}}>
      <div className="container-login" >
       <div className="head-label">
         <label>Sign in</label>
-        <button classname="btns">Register</button>
+        <button className="btns">Register</button>
       </div>
       <form id="loginForm" action="#">
-        <div class="form-control">
+        <div className="form-control">
           <label htmlFor="email">Email</label>
           <input type="email" id="email" placeholder="Enter Email" required value={inputEmail} onChange={handleInputEmail}/>
         </div>

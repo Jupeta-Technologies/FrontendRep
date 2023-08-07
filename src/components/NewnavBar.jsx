@@ -10,15 +10,19 @@ import nikeVapor from '../images/nikeVapor.png';
 import { jupetaSEO } from './SEOApi';
 import { Link } from 'react-router-dom';
 import { Translate } from '@mui/icons-material';
+import { useNavigate } from "react-router-dom";
 
 
 
 const  NewnavBar = () => {
-   
+
       const [loggedin,setLoggedin] = useState(false);
       const [searchKey,setSearchKey] = useState('');
       const [searchCatg,setSearchCatg] = useState('0');
       const [searchActive,setSearchActive] = useState(false);
+      const [isAuth,setisAuth] = useState(false);
+
+      const nav = useNavigate();
 
 
 
@@ -45,12 +49,17 @@ const  NewnavBar = () => {
             isDescending:true
 
         }).then((responds) => {
-            if(responds.status === 200){
+            
+            if(responds.data.status === 200){
                 console.log(responds.respondsData);
             }else{console.log("Item not found");}
         }).catch(err => {console.error(err); console.log("Item not found");});
     }
-
+    useEffect(()=>{
+        setLoggedin(true);
+        console.log(isAuth);
+        setisAuth(JSON.parse(localStorage.getItem("AuthStatus")));
+    },[loggedin,isAuth]);
     const SearchKeyIndexes =['Apple', 'Samsung', 'Macbook', 'Laptop'];
 
         return (
@@ -98,13 +107,13 @@ const  NewnavBar = () => {
                             <li>Favorite item 3</li>
                         </ul>
                         </li>
-                        <li className='userIcon'>{loggedin?<Avatar className='userIcon' id='navicon'>{'J'}</Avatar>:<AiOutlineUser id='navicon'/>}
+                        <li>{isAuth?<Avatar id='userIcon'>E</Avatar>:<AiOutlineUser id='navicon'/>}
                         <ul className={"userMenu showMenu"}>
                             <li><MdOutlineSell id='uMicon'/> <span>Sell</span></li>
                             <li><AiOutlineEye id='uMicon'/> <span>Watch List</span></li>
                             <li><CiReceipt id='uMicon'/> <span>Orders</span></li>
                             <li><MdOutlineManageAccounts id='uMicon'/> <span>My account</span></li>
-                            {loggedin?<li><Link to={'/login'}><AiOutlineLogout id="uMicon"/><span>Sign out </span></Link></li>:<li><Link to={'/login'}><AiOutlineLogin id="uMicon"/><span>Sign in </span></Link></li>}
+                            {isAuth?<li onClick={()=>{localStorage.setItem("AuthStatus",false)}}><Link to={'/login'}><AiOutlineLogout id="uMicon"/><span>Sign out </span></Link></li>:<li><Link to={'/login'}><AiOutlineLogin id="uMicon"/><span>Sign in </span></Link></li>}
                         </ul>
                         </li>
                     </ul>

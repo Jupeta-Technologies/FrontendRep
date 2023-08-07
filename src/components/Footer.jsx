@@ -82,7 +82,7 @@ const Footer = () => {
               <ListItem
                 key={link.name}
                 component="li"
-                marginBottom="0.3rem"
+                marginbottom="0.3rem"
                 cursor="pointer"
                 hover="text.secondary"
               >

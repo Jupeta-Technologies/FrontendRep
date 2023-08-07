@@ -10,18 +10,18 @@ import { responsivePropType } from 'react-bootstrap/esm/createUtilityClasses';
 const AllCategories = (props) => {
   const { onAdd } = props;
 
-  useEffect(() => {
-    getData();
-  }, []);
+  
 
 
   const [apiData, setApiData] = useState([]);
   const [loading, setLoading] = useState(false);
 
+  
+
   const getData = async () => {
     try {
-      GetAllProdAPI().then((data =>{ setApiData(data.responseData);
-        console.log(data.responseData);
+      GetAllProdAPI().then((data => { setApiData([]);
+        console.log(data);
       } )).catch(err => {console.error(err);});
       
       
@@ -30,7 +30,6 @@ const AllCategories = (props) => {
       alert(err.message);
     }
   }
-  
   return (<>
     <NewnavBar />
     <div className='productscontainer'>
