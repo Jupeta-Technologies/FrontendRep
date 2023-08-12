@@ -16,10 +16,20 @@ const Tiles = () => {
         </section>
         <section style={{width: '40%', height: '100%', backgroundColor: 'green', display: 'flex', flexDirection: 'column'}}>
           <section style={{width: '100%', height: '50%', backgroundColor: 'burlywood', padding: '2px', gap: '5px', display: 'flex'}}>
-            <h4>Jon</h4>
+            <div style={{width: '50%'}}>
+              <img src={beats} alt='' style={{width: '100%', height: '100%', objectFit: 'fill', borderRadius: '7px'}}/>
+            </div>
+            <div style={{width: '50%'}}>
+              <img src={beats} alt='' style={{width: '100%', height: '100%', objectFit: 'fill', borderRadius: '7px'}}/>
+            </div>
           </section>
           <section style={{width: '100%', height: '50%', backgroundColor: 'brown', padding: '2px', gap: '5px', display: 'flex'}}>
-            <h4>Apuu</h4>
+            <div style={{width: '50%'}}>
+              <img src={beats} alt='' style={{width: '100%', height: '100%', objectFit: 'fill', borderRadius: '7px'}}/>
+            </div>
+            <div style={{width: '50%'}}>
+              <img src={beats} alt='' style={{width: '100%', height: '100%', objectFit: 'fill', borderRadius: '7px'}}/>
+            </div>
           </section>
         </section>
       </div>
