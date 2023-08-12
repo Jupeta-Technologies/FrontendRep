@@ -1,0 +1,19 @@
+.tilecontainer{
+    width: 100vw;
+    height: 400px;
+    padding: 20px;
+}
+
+.innertilecontainer{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    gap: 10px;
+}
+
+.firstsection{
+    width: 40%;
+    height: 100%;
+}
+
+
