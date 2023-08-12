@@ -3,12 +3,13 @@ import { Container, Row, Col } from 'react-bootstrap'
 import fben from '../images/featuredben.png'
 import j from '../images/featuredbuy.png'
 import beats from '../images/beats.jpg'
+import '../components/TileStyles.css'
 
 const Tiles = () => {
   return (
-    <div style={{width: '100vw', height: '400px', padding: '20px'}}>
-      <div style={{width: '100%', height: '100%', display: 'flex', gap: '10px'}}>
-        <section style={{width: '40%', height: '100%'}}>
+    <div className='tilecontainer'>
+      <div className='innertilecontainer'>
+        <section className='firstsection'>
           <img src={fben} style={{width: '100%', height: '100%', objectFit: 'fill', borderRadius: '7px'}} alt='' />
         </section>
         <section style={{width: '20%', height: '100%'}}>
