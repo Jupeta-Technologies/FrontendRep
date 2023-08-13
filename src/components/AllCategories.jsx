@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import axios from 'axios'
 import '../components/Allcategories.css'
 import { Link } from 'react-router-dom';
 import ItemCardglobal from '../itemCard';
@@ -16,20 +15,17 @@ const AllCategories = (props) => {
   const [apiData, setApiData] = useState([]);
   const [loading, setLoading] = useState(false);
 
+  useEffect(()=>{
+    GetAllProdAPI().then((data => { 
+    setApiData(data.data.responseData);
+    })).catch(err =>{console.error(err)});
+    
+  },[]);
+
   
 
-  const getData = async () => {
-    try {
-      GetAllProdAPI().then((data => { setApiData([]);
-        console.log(data);
-      } )).catch(err => {console.error(err);});
       
       
-      setLoading(true);
-    } catch (err) {
-      alert(err.message);
-    }
-  }
   return (<>
     <NewnavBar />
     <div className='productscontainer'>
@@ -37,15 +33,10 @@ const AllCategories = (props) => {
         <h1><strong>ALL PRODUCTS</strong></h1>
       </div>
       <div className='productssection'>
-        {loading &&
-          apiData.map((productdata) =>
-          (
-            <>
-              {/*<ItemCardglobal itemPrice = {data.price} itemName ={data.productName} itemImage={data.imageFileUrl} key={data.id}/> */}
-              <ItemCardglobal {...productdata} key={productdata.id} productdata={productdata} onAdd={onAdd}/>
-            </>
-          )
-          ) }
+      {
+       apiData.map((prodData) =>{return (<ItemCardglobal {...prodData} key={prodData.id} onAdd={onAdd}/> ); })
+    
+      }
       </div>
       <Link to='/cart'><button className='cartbttn'>View Cart</button></Link>
     </div>

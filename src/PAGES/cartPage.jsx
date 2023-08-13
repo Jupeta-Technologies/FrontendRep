@@ -31,7 +31,7 @@ const CartPage = (props) => {
                 <Col xs={7} style={{ minHeight: '1000px', display: 'flex', flexDirection: 'column'}}>
                     <section>
                         <h3><strong>YOUR BAG</strong></h3>
-                        <h4>Total: [ Items]</h4>
+                        <h4>Total: {'[ '+ cartItems.length +' ]'}</h4>
                     </section>
                     {cartItems.length === 0 && <div>Cart is Empty</div>}
                     {cartItems.map((item) => {
@@ -49,7 +49,7 @@ const CartPage = (props) => {
                             </div>
                             <div className='cartproductprice'>
                               <div style={{display:'flex', width: '100%', justifyContent: 'right'}}>
-                                <section style={{padding: '5px', backgroundColor: 'lightpink',width: '30px',display: 'flex', justifyContent: 'center',borderRadius: '50%'}}>
+                                <section style={{backgroundColor: 'lightpink',width: '30px',height:'30px',display: 'flex', justifyContent: 'center',alignItems:'center',borderRadius: '50%'}}>
                                   <FontAwesomeIcon icon={faTrashCan} color='red'></FontAwesomeIcon>
                                 </section>
                               </div>

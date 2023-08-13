@@ -2,9 +2,11 @@ import React from 'react';
 import { MdDelete } from 'react-icons/md';
 
 
-function CartListitem(data) {
+function CartListitem(cart) {
+  const {price,productName,imageFileUrl,sellingType,condition, onAdd, productdata,id} = cart;
+
     return (
-        <li className='cartQVLitem'><span className='cqVLImg' style={{backgroundImage:`url(${data.imgsrc})`}}></span><span className='citVNamePrice'><p id='citN'>{data.itemName}</p><br/><p id='citP'>GHC 100.00</p></span><span className='citVDelete'><MdDelete /></span></li>
+        <li className='cartQVLitem'><span className='cqVLImg' style={{backgroundImage:`url(${imageFileUrl})`}}></span><span className='citVNamePrice'><p id='citN'>{productName}</p><br/><p id='citP'>¢{price}</p></span><span className='citVDelete'><MdDelete /></span></li>
 
       );
 }

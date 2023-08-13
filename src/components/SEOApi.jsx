@@ -5,7 +5,7 @@ export const jupetaSEO = async (data) =>{
         const responds = await APIManager('/User/SearchSort',{
             method:"GET",
             headers:{'Content-Type':'application/json'},
-            data:data,
+            params:data,
             withCredentials:false
         });
         return responds;

@@ -5,8 +5,6 @@ import {CiLocationOff,CiReceipt,CiCircleChevDown} from 'react-icons/ci';
 import {Typography,Avatar,Input,Button,Option,IconButton } from '@mui/joy';
 import { Badge } from '@mui/material';
 import CartListitem from './CartListitem';
-import beats from '../images/beats.jpg';
-import nikeVapor from '../images/nikeVapor.png';
 import { jupetaSEO } from './SEOApi';
 import { Link } from 'react-router-dom';
 import { Translate } from '@mui/icons-material';
@@ -14,13 +12,19 @@ import { useNavigate } from "react-router-dom";
 
 
 
-const  NewnavBar = () => {
+const  NewnavBar = (props) => {
 
+        
+      const {cartItems, onAdd, onRemove, setCartItems} = props
       const [loggedin,setLoggedin] = useState(false);
       const [searchKey,setSearchKey] = useState('');
       const [searchCatg,setSearchCatg] = useState('0');
       const [searchActive,setSearchActive] = useState(false);
       const [isAuth,setisAuth] = useState(false);
+      const [cart,setCart] = useState([]);
+
+      var citems = localStorage.getItem("Cart"); 
+      
 
       const nav = useNavigate();
 
@@ -43,23 +47,28 @@ const  NewnavBar = () => {
     }
     const handelSEO = () => {
         jupetaSEO({
-            keyword:searchKey,
-            PageNumber:1,
-            PageSize:10,
-            isDescending:true
+            keyword:searchKey
+            //PageNumber:1,
+            //PageSize:10,
+            //isDescending:true
 
         }).then((responds) => {
+        
+            responds.status === 200 && console.log(responds.data.responseData);
             
-            if(responds.data.status === 200){
-                console.log(responds.respondsData);
-            }else{console.log("Item not found");}
         }).catch(err => {console.error(err); console.log("Item not found");});
     }
     useEffect(()=>{
         setLoggedin(true);
-        console.log(isAuth);
         setisAuth(JSON.parse(localStorage.getItem("AuthStatus")));
-    },[loggedin,isAuth]);
+    },[loggedin]);
+
+    
+    useEffect(()=>{
+        console.log("changed");
+        setCart(JSON.parse(localStorage.getItem("Cart")));
+    },[citems])
+    
     const SearchKeyIndexes =['Apple', 'Samsung', 'Macbook', 'Laptop'];
 
         return (
@@ -95,9 +104,13 @@ const  NewnavBar = () => {
                         <li style={{color:'red', cursor:'pointer'}}><AiOutlineSearch onClick={handleSearchicon} id='navSicon'/></li>
                         <li ><AiOutlineShoppingCart id='navicon'/>
                             <ul className={"cartQview"}>
-                            <CartListitem imgsrc={beats} itemName="Beats by dre Studio pods" />
-                            <CartListitem imgsrc={nikeVapor} itemName="Nike Air VaporMax 2023 Flyknit"/>
-                            <Button>Got to cart</Button>
+                            {
+                                cart !== null && cart.map((cartData,id) =>{ 
+                                    return (
+                                    <CartListitem  {...cartData} key={id}/>);
+                                })
+                            }
+                            <Button onClick={()=>{nav('/cart')}}>Got to cart</Button>
                             </ul>
                         </li>
                         <li className='fav'><AiOutlineHeart id='navicon'/>

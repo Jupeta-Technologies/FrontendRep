@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './components/app.css';
 import './compTester.global.css';
 import { Routes, Route } from 'react-router-dom';
@@ -20,7 +20,17 @@ import ProductListing from './PAGES/ProductListing';
 import Tiles from './components/Tiles';
 
 function App() {
-  const [cartItems, setCartItems] = useState([]);
+
+  
+  useEffect(()=>{
+    const emcart = [];
+    localStorage.setItem("Cart",JSON.stringify(emcart));
+    
+  },[])
+
+  const initCart = JSON.parse(localStorage.getItem("Cart"));
+  const [cartItems, setCartItems] = useState(initCart);
+  
 
   const onAdd = (productdata) => {
     const exist = cartItems.find(x => x.id === productdata.id);
@@ -39,6 +49,16 @@ function App() {
       setCartItems(cartItems.map(x => x.id === productdata.id ? { ...exist, qty: exist.qty - 1 } : x));
     }
   };
+  
+  useEffect(()=>{
+    const data = JSON.parse(localStorage.getItem("Cart"));
+    localStorage.setItem("Cart",JSON.stringify(data));
+    initCart == null && setCartItems(data);
+  },[])
+
+  useEffect(()=>{
+    localStorage.setItem("Cart",JSON.stringify(cartItems));
+  },[cartItems])
 
   return (
     <div>
