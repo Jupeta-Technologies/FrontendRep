@@ -2,10 +2,13 @@
     width: 100vw;
     height: 400px;
     padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .innertilecontainer{
-    width: 100%;
+    max-width: 1200px;
     height: 100%;
     display: flex;
     gap: 10px;

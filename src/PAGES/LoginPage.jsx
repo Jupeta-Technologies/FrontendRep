@@ -1,9 +1,10 @@
 import React,{useState,useEffect} from 'react';
 import '../components/Loginpage.css';
 import { UserLogin } from '../components/UserAPI';
-import loginbg from '../images/sneaker.jpg';
-import { GetAllProdAPI } from '../components/GetAllProdAPI';
+import loginbg from '../images/login_bg.jpg';
 import { useNavigate } from 'react-router-dom';
+import {FcGoogle} from "react-icons/fc";
+import {FaFacebookF,FaApple} from "react-icons/fa"
 
 const LoginPage = () => {
 
@@ -44,7 +45,7 @@ const LoginPage = () => {
     }
 
     useEffect(() =>{
-      console.log(userHasAuth);
+      //console.log(userHasAuth);
       
     },[]);
   return (
@@ -52,20 +53,20 @@ const LoginPage = () => {
     <div className="login-body" style={{backgroundImage:`url(${loginbg})`}}>
      <div className="container-login" >
       <div className="head-label">
-        <label>Sign in</label>
+        <button className="btns">Sign in</button>
         <button className="btns">Register</button>
       </div>
       <form id="loginForm" action="#">
-        <div className="form-control">
-          <label htmlFor="email">Email</label>
-          <input type="email" id="email" placeholder="Enter Email" required value={inputEmail} onChange={handleInputEmail}/>
+        <div className="form-ctrl">
+          <label htmlFor="email" style={inputEmail !== ""?{color:'#000',transform:'translate(5px,-10px )',backgroundColor:'#FFF',lineHeight:'15px', padding:'0px 5px'}:null}>Email</label>
+          <input type="email" id="email" placeholder="" required value={inputEmail} onChange={handleInputEmail}/>
         </div>
-        <div className="form-control">
-          <label htmlFor="password">Password</label>
+        <div className="form-ctrl">
+          <label htmlFor="password" style={inputPassword !== ""?{color:'#000',transform:'translate(5px,-10px )',backgroundColor:'#FFF',lineHeight:'15px', padding:'0px 5px'}:null}>Password</label>
           <input
             type="password"
             id="password"
-            placeholder="Enter Password"
+            placeholder=""
             required  value={inputPassword} onChange={handleInputPassword}/>
         </div>
       </form>
@@ -79,15 +80,15 @@ const LoginPage = () => {
           <a href="#">Forget your password?</a>
         </div>
       </div>
-      <button type="submit" className="btn" onClick={LoginHandler}>Sign in</button>
-      <a className="trob" href="#">Trouble signing in?</a><br/><br/>
+      <div className='signin-trob'><button type="submit" className="signin-btn" onClick={LoginHandler}>Sign in</button>
+      <a className="trob" href="#">Trouble signing in?</a></div>
 
       <div className="hr">
         <p>OR</p>
       </div><br/>
-      <button type="submit" className="btns">Sign in with Google</button>
-      <button type="submit" className="btns">Sign in with Facebook</button>
-      <button type="submit" className="btns">Sign in with Apple</button>
+      <button type="submit" className="btns"><span><FcGoogle /></span>Sign in with Google</button>
+      <button type="submit" className="btns"><span style={{color:'#3B5998'}}><FaFacebookF /></span> Sign in with Facebook</button>
+      <button type="submit" className="btns"><span><FaApple /></span>Sign in with Apple</button>
       <p className="terms">
         By clicking the submit button below, I hereby agree to and accept the
         following <a href="#">terms and conditions</a> governing my use of the

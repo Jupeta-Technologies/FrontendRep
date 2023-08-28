@@ -27,32 +27,41 @@
   .container-login {
     position: absolute;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    align-content: center;
     width:350px;
     height:600px;
     padding: 30px;
     padding-bottom: 15px;
     border-radius: 20px;
-    background-color: rgba(255, 255, 255, 0.979);
+    background-color:#FFF;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
   }
   
   .head-label {
     display: flex;
-    width: 100%;
-    justify-content: space-between;
+    width:50%;
     align-items: center;
     font-weight: bold;
     font-size: large;
+    position:absolute;
+    top: -20px;
   }
   
-  .head-label .btns {
+  .head-label .btns:nth-child(1) {
     padding: 10px 10px;
     width: fit-content;
-    border-radius: 25px;
-    border: 2px solid #000;
+    border-radius: 10px 0px 0px 10px;
+    outline: none;
+    background-color: #fff;
+    color: #000;
+    cursor: pointer;
+    font-size: small;
+    font-weight: bold;
+  }
+  .head-label .btns:nth-child(2) {
+    padding: 10px 10px;
+    width: fit-content;
+    border-radius: 0px 10px 10px 0px;
     outline: none;
     background-color: #fff;
     color: #000;
@@ -68,39 +77,47 @@
     justify-content: center;
     width: 100%;
     border-radius: 20px;
+    margin-top: 40px;
   }
   
-  .form-control {
+  .form-ctrl {
     width: 100%;
     margin-bottom: 1rem;
+    border: none;
+    padding: 0px;
   }
   
-  .form-control label {
+  .form-ctrl label {
     display: block;
     margin-bottom: 5px;
-    font-size: small;
+    font-size: 12px;
     font-weight: bold;
+    position: absolute;
+    line-height: 31px;
+    z-index:1;
+    color: #959292;
+    transition:all ease 0.5s;
+    padding-left: 5px;
   }
   
-  .form-control input {
+  .form-ctrl input {
     width: 100%;
-    padding: 11px;
+    padding: 5px;
     border-radius: 5px;
-    border: 2px solid #d5d2d2d3;
-    font-size: 13px;
-    font-weight: bold;
+    border: 1px solid #d5d2d2d3;
+    font-size: 12px;
     margin-bottom: 5px;
-    background-color: rgba(255, 255, 255, 0.86);
+    background-color: transparent;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   }
-  
-  .btn {
-    padding: 13px 20px;
-    width: 100%;
+ 
+  .signin-btn{
+    padding: 10px 15px;
+    width: 40%;
     border-radius: 25px;
     border: none;
     outline: none;
-    background-color: #131313;
+    background-color: #000;
     color: #fff;
     cursor: pointer;
     font-weight: 500;
@@ -109,29 +126,29 @@
   }
   
   .btns {
-    padding: 12px 20px;
-    width: 100%;
+    padding: 5px 5px;
+    width: 60%;
     border-radius: 25px;
-    border: 2px solid #000;
+    border: 1px solid #d9d9d9;
     outline: none;
     background-color: #fff;
     color: #000;
     cursor: pointer;
     font-size: small;
-    font-weight: 600;
+    font-weight: 400;
     margin-bottom: 10px;
   }
   
   .btn:hover {
     background-color: #fffdfd;
     color: #000000;
-    border: 2px solid #000;
+    border: 1px solid #000;
   }
   
   .btns:hover {
     background-color: #000000;
     color: #ffffff;
-    border: 2px solid #000;
+    border: 1px solid #000;
   }
   
   /* Button animation */
@@ -174,12 +191,17 @@
     align-content: center;
   }
   
-  .trob {
+  .signin-trob {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
+  }
+  .signin-trob .trob {
     font-size: 11px;
     color: black;
-    display: block;
     width: fit-content;
-    margin: auto;
   }
   
   .hr {

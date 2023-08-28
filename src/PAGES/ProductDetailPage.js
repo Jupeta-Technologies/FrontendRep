@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Navbar, Footer, Recommendation, RecentlyViewed, SignUp, ProductColor, ProductDetailsThumb, Tiles } from '../components';
 import { Box, Button } from '@mui/material';
+import NewnavBar from '../components/NewnavBar';
 
 const ProductDetailPage = () => {
   const [products, setProducts] = useState([
@@ -8,10 +9,10 @@ const ProductDetailPage = () => {
       "_id": "1",
       "title": "product name",
       "src": [
-        "https://www.upsieutoc.com/images/2020/06/27/img1.jpg",
-        "https://www.upsieutoc.com/images/2020/06/27/img2.jpg",
-        "https://www.upsieutoc.com/images/2020/06/27/img3.jpg",
-        "https://www.upsieutoc.com/images/2020/06/27/img4.jpg"
+        "https://picsum.photos/id/26/200",
+        "https://picsum.photos/id/41/200",
+        "https://picsum.photos/id/48/200",
+        "https://picsum.photos/id/119/200"
       ],
       "name": "Product name",
       "description": "product description",
@@ -40,7 +41,7 @@ const ProductDetailPage = () => {
 
   return (
     <div>
-      <Navbar />
+      <NewnavBar />
 
       <Box
         sx={{
@@ -50,7 +51,7 @@ const ProductDetailPage = () => {
       >
         <Box
           sx={{
-            flexBasis: '50%',
+            flexBasis: '60%',
             backgroundSize: 'cover',
           }}
         >
@@ -67,14 +68,14 @@ const ProductDetailPage = () => {
         </Box>
         <Box
           sx={{
-            flexBasis: '50%',
+            flexBasis: '40%',
             backgroundSize: 'cover',
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'space-between', 
           }}
         >
-          <div className="box">
+          <div className="box" style={{paddingLeft:'20px'}}>
             {products.map((item) => (
               <div key={item._id}>
                 <div className="row">

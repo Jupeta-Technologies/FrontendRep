@@ -10,7 +10,8 @@
   max-width: 1200px;
   width: 100%;
   margin: 100px auto;
-  box-shadow: 0 0 5px #ccc;
+  /* box-shadow: 0 0 5px #ccc; */
+  border-right: 1px solid #ccc;
 }
 
 .details {
@@ -38,7 +39,7 @@
   max-width: 1200px;
   width: 100%;
   margin: 100px auto;
-  box-shadow: 0 0 5px #ccc;
+  /* box-shadow: 0 0 5px #ccc; */
 }
 
 .details .box {
