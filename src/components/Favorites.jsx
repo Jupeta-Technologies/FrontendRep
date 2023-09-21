@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
-import axios from 'axios';
 import './DailyDeals.css';
 import ItemCardglobal from '../itemCard';
+import axios from 'axios';
 
 const Favorites = (props) => {
   useEffect(() => {

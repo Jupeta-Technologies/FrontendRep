@@ -110,6 +110,7 @@
     background-color: transparent;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   }
+  .form-ctrl input:focus{outline: none;}
  
   .signin-btn{
     padding: 10px 15px;

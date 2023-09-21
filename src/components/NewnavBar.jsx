@@ -54,9 +54,9 @@ const  NewnavBar = (props) => {
 
         }).then((responds) => {
         
-            responds.status === 200 && console.log(responds.data.responseData);
+            responds.status === 200 && localStorage.setItem("SearchResult",JSON.stringify(responds.data.responseData));
             
-        }).catch(err => {console.error(err); console.log("Item not found");});
+        }).then(()=>{nav('/srchResult')}).catch(err => {console.error(err); console.log("Item not found");});
     }
     useEffect(()=>{
         setLoggedin(true);

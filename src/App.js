@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './components/app.css';
 import './compTester.global.css';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import FavoritesPage from './PAGES/favoritesPage';
 import CartPage from './PAGES/cartPage';
 import ProfilePage from './PAGES/profilePage';
@@ -18,6 +18,7 @@ import WelcomePage from './PAGES/WelcomePage';
 import Overview from './PAGES/Overview';
 import ProductListing from './PAGES/ProductListing';
 import Tiles from './components/Tiles';
+import SearchResult from './components/SearchResult';
 
 function App() {
 
@@ -62,6 +63,7 @@ function App() {
 
   return (
     <div>
+    
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/favorites" element={<FavoritesPage />} />
@@ -79,7 +81,9 @@ function App() {
         <Route path='/overview' element={<Overview />} />
         <Route path='/productlisting' element={<ProductListing />} />
         <Route path='/tiles' element={<Tiles />} />
+        <Route path='/srchResult' element={<SearchResult onAdd={onAdd} />} />
       </Routes>
+      {/* <a>Learn React</a>  this is need to run Jest remove during production*/}
     </div>
   );
 }

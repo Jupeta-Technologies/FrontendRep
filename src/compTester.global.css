@@ -142,13 +142,14 @@ background-color: #FFF;}
 /* Search bar styling */
 .navSearchBar{ width:100%;height: 30px; padding: 3px 10px; font-size: medium; border-radius:20px; background-color: #F9F9F9; display: flex; flex-direction: row; overflow: hidden;visibility: hidden;}
 .navSearchBar .sBarleft{position:relative; align-self: center;}
-.navSearchBar .sBarcenter{position: relative;align-self: center; padding-left: 20px;}
+.navSearchBar .sBarcenter{width: calc(100% - 225px); position: relative;align-self: center; padding-left: 20px;}
 .navSearchBar .sBarright{align-self:center;position: absolute; right: 1px;}
 .navSearchBar .sBarright .MuiButton-root{background-color:#44423f; height: 20px; border-radius: 20px;font-weight: 300; min-height: 28px;}
 .navSearchBar .sBarright .MuiButton-root:hover{background-color: #696663;}
+.sBarcenter input{width: 100%; border: none;}
 .sBarcenter input:focus{outline: none;}
 
-.searchResult{width:95%;background-color: #FFF; height: auto; position:absolute; margin: 2px 2.5%; padding-top: 10px; display: none;border-radius: 20px; overflow-x: hidden;}
+.searchResult{width:95%; min-height:100px; background-color: #FFF; height: auto; position:absolute; margin: 2px 2.5%; padding-top: 10px; display: none;border-radius: 20px; overflow-x: hidden;}
 .searchResult ul{padding-left: 0;}
 .searchResult ul li{list-style: none; width: 100%; padding-left: 20px;}
 .searchResult ul li:hover{cursor: pointer; background-color: #c9c9c9; color: #000;}
