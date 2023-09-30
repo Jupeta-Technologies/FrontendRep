@@ -9,7 +9,7 @@ import { faCcPaypal } from '@fortawesome/free-brands-svg-icons';
 import { faApplePay } from '@fortawesome/free-brands-svg-icons';
 import { faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import brandicons from '../images/brandicons.png'
-import NewnavBar from '../components/NewnavBar';
+import NewnavBar from '../components/JupetaECnavBar';
 import { Container, Row, Col } from 'react-bootstrap'
 
 const CartPage = (props) => {

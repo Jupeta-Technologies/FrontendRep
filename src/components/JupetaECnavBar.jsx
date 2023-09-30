@@ -9,10 +9,11 @@ import { jupetaSEO } from './SEOApi';
 import { Link } from 'react-router-dom';
 import { Translate } from '@mui/icons-material';
 import { useNavigate } from "react-router-dom";
+import GenCatMenu from './GenCatMenu';
 
 
 
-const  NewnavBar = (props) => {
+const  JupetaECnavBar = (props) => {
 
         
       const {cartItems, onAdd, onRemove, setCartItems} = props
@@ -22,13 +23,13 @@ const  NewnavBar = (props) => {
       const [searchActive,setSearchActive] = useState(false);
       const [isAuth,setisAuth] = useState(false);
       const [cart,setCart] = useState([]);
+      const [srchUpdt,setSrchUpdt] = useState(false);
 
       var citems = localStorage.getItem("Cart"); 
       
+      
 
       const nav = useNavigate();
-
-
 
     const handleSigninClick = () => {
         !loggedin?setLoggedin(true):setLoggedin(false);
@@ -43,7 +44,6 @@ const  NewnavBar = (props) => {
     }
     const handleSearchInput = (e) =>{
         setSearchKey(e.target.value);
-        console.log(searchKey);
     }
     const handelSEO = () => {
         jupetaSEO({
@@ -54,10 +54,17 @@ const  NewnavBar = (props) => {
 
         }).then((responds) => {
         
-            responds.status === 200 && localStorage.setItem("SearchResult",JSON.stringify(responds.data.responseData));
+            responds.status === 200 && nav('/srchResult',{ state: responds.data.responseData});
             
-        }).then(()=>{nav('/srchResult')}).catch(err => {console.error(err); console.log("Item not found");});
+            //localStorage.setItem("SearchResult",JSON.stringify(responds.data.responseData));
+            
+        }).then(()=>{}).catch(err => {console.error(err); console.log("Item not found");});
     }
+
+    useEffect(()=>{
+        console.log('re-rendered');
+        localStorage.setItem("srchUpdt",JSON.stringify(srchUpdt));
+    },[srchUpdt])
     useEffect(()=>{
         setLoggedin(true);
         setisAuth(JSON.parse(localStorage.getItem("AuthStatus")));
@@ -89,7 +96,7 @@ const  NewnavBar = (props) => {
                         </select>
                         </div>
                         <div className="sBarcenter"><input type="text" name="search"  placeholder='Search for product..' onChange={handleSearchInput}/></div>
-                        <div className="sBarright"><Button onClick={handelSEO}>Search</Button></div>
+                        <div className="sBarright"><Button onClick={()=>{handelSEO(); setSrchUpdt(!srchUpdt)}}>Search</Button></div>
                     </div>
                     
                     {searchKey !== '' && <div className="searchResult showDiv">
@@ -101,7 +108,7 @@ const  NewnavBar = (props) => {
                 </div>
                 <div className="right">
                     <ul>
-                        <li style={{color:'red', cursor:'pointer'}}><AiOutlineSearch onClick={handleSearchicon} id='navSicon'/></li>
+                        <li style={{cursor:'pointer'}}><AiOutlineSearch onClick={handleSearchicon} id='navSicon'/></li>
                         <li ><AiOutlineShoppingCart id='navicon'/>
                             <ul className={"cartQview"}>
                             {
@@ -109,15 +116,14 @@ const  NewnavBar = (props) => {
                                     return (
                                     <CartListitem  {...cartData} key={id}/>);
                                 })
+                                
                             }
-                            <Button onClick={()=>{nav('/cart')}}>Got to cart</Button>
+                            {cart.length == 0?<p style={{width:"100%", textAlign:"center"}}>Cart is empty</p>:<Button onClick={()=>{nav('/cart')}}>Got to cart</Button>}
                             </ul>
                         </li>
                         <li className='fav'><AiOutlineHeart id='navicon'/>
                         <ul className={"favQview"}>
-                            <li>Favorite item 1</li>
-                            <li>Favorite item 2</li>
-                            <li>Favorite item 3</li>
+                            
                         </ul>
                         </li>
                         <li>{isAuth?<Avatar id='userIcon'>E</Avatar>:<AiOutlineUser id='navicon'/>}
@@ -136,12 +142,10 @@ const  NewnavBar = (props) => {
                     
                 </div>
             </div>
-            <div >
-                
-            </div>
+            <GenCatMenu /> {/* logic needed to hide the categories menu with respect to the page the user is currently interacting with */}
             </>
         );
     }
 
  
-export default NewnavBar;
+export default JupetaECnavBar;

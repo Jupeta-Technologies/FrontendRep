@@ -1,6 +1,6 @@
 import React from 'react'
 import {Hero, DailyDeals, ExploreBestSelling, Footer, NewArrival, SignUp, WhatIsTrending, HolidaySale, SubNavbar, Navbar,Tiles } from '../components';
-import NewnavBar from '../components/NewnavBar';
+import NewnavBar from '../components/JupetaECnavBar';
 import SellButton from '../components/SellButton';
 import AllCategories from '../components/AllCategories';
 
@@ -9,6 +9,7 @@ const HomePage = () => {
     <div>
       <NewnavBar />
       <Hero/>
+      
       <Tiles />
       <SellButton />
       <div className="bgPrimary paddingX flexStart">

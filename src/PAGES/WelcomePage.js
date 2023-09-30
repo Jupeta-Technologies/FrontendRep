@@ -1,6 +1,6 @@
 import React from 'react'
 //import { Navbar } from '../components'
-import NewnavBar from '../components/NewnavBar'
+import NewnavBar from '../components/JupetaECnavBar'
 import { Container, Row, Col } from 'react-bootstrap'
 import '../components/Welcome.css'
 import featuredbuy from '../images/featuredbuy.png'

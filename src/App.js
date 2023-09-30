@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './components/app.css';
-import './compTester.global.css';
+import './jupeta-ec.global.css';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import FavoritesPage from './PAGES/favoritesPage';
 import CartPage from './PAGES/cartPage';

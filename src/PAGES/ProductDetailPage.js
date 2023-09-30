@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Navbar, Footer, Recommendation, RecentlyViewed, SignUp, ProductColor, ProductDetailsThumb, Tiles } from '../components';
 import { Box, Button } from '@mui/material';
-import NewnavBar from '../components/NewnavBar';
+import NewnavBar from '../components/JupetaECnavBar';
 
 const ProductDetailPage = () => {
   const [products, setProducts] = useState([

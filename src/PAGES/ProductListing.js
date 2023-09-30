@@ -1,5 +1,5 @@
 import React from 'react'
-import NewnavBar from '../components/NewnavBar'
+import NewnavBar from '../components/JupetaECnavBar'
 import { Col, Container, Row } from 'react-bootstrap'
 
 
