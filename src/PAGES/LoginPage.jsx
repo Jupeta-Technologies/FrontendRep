@@ -86,7 +86,7 @@ const LoginPage = () => {
     <div className="login-body" style={{backgroundImage:`url(${loginbg})`}}>
      <div className="container-login" >
       <div className="head-label">
-        <button onClick={handleToggle} className={isLogin ? 'active' : ''} style={{
+        <button onClick={handleToggle} className={isLogin ? 'sIN-active' : ''} style={{
           padding: '5px 5px',
           width: '60%',
           borderRadius: '5px',
@@ -98,7 +98,7 @@ const LoginPage = () => {
           fontSize: 'small',
           fontWeight: '400',
           marginBottom: '10px'}}>Sign in</button>
-        <button onClick={handleToggle} className={isLogin ? '' : 'active'} style={{
+        <button onClick={handleToggle} className={isLogin ? '' : 'sUP-active'} style={{
           padding: '5px 5px',
           width: '60%',
           borderRadius: '5px',
