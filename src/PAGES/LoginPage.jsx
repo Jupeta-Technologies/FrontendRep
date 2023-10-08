@@ -13,7 +13,7 @@ const LoginPage = () => {
 
     const [inputEmail, setInputEmail] = useState('');
     const [inputPassword,setInputPassword] = useState('');
-    const [isLogin, setIsLogin] = useState(false);
+    const [isLogin, setIsLogin] = useState(true);
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [password, setPassword] = useState("");
@@ -86,30 +86,17 @@ const LoginPage = () => {
     <div className="login-body" style={{backgroundImage:`url(${loginbg})`}}>
      <div className="container-login" >
       <div className="head-label">
-        <button onClick={handleToggle} className={isLogin ? 'sIN-active' : ''} style={{
+        <span onClick={handleToggle} className={isLogin ? 'sIN-active' : 'LS-sIN'}>Sign in</span>
+        <span onClick={handleToggle} className={isLogin ? 'sUP' : 'sUP-active'} style={{
           padding: '5px 5px',
           width: '60%',
-          borderRadius: '5px',
-          border: '1px solid #d9d9d9',
-          outline: 'none',
+          borderRadius: '0',
           backgroundColor: '#fff',
           color: '#000',
           cursor: 'pointer',
           fontSize: 'small',
           fontWeight: '400',
-          marginBottom: '10px'}}>Sign in</button>
-        <button onClick={handleToggle} className={isLogin ? '' : 'sUP-active'} style={{
-          padding: '5px 5px',
-          width: '60%',
-          borderRadius: '5px',
-          border: '1px solid #d9d9d9',
-          outline: 'none',
-          backgroundColor: '#fff',
-          color: '#000',
-          cursor: 'pointer',
-          fontSize: 'small',
-          fontWeight: '400',
-          marginBottom: '10px'}}>Register</button>
+          marginBottom: '10px',textAlign:'center'}}>Register</span>
       </div>
       {isLogin ? (
         <>
