@@ -22,26 +22,29 @@
 
 .fnameinput{
     margin: 5px;
-    width: 250px;
+    width: 150px;
     height: 45px;
     border-radius: 5px 5px 5px 5px;
     border: 2px solid black;
+    padding-left: 5px;
 }
 
 .lnameinput{
     margin: 5px;
-    width: 250px;
+    width: 150px;
     height: 45px;
     border-radius: 5px 5px 5px 5px;
     border: 2px solid black;
+    padding-left: 5px;
 }
 
 .signuppass{
     margin: 5px;
-    width: 510px;
+    width: 300px;
     height: 45px;
     border-radius: 5px 5px 5px 5px;
     border: 2px solid black;
+    padding-left: 5px;
 }
 
 .passwordhintcontainer{
@@ -50,27 +53,30 @@
 }
 
 .phoneinput{
-    width: 510px;
+    width: 300px;
     height: 45px;
     margin: 5px;
     border-radius: 5px 5px 5px 5px;
     border: 2px solid black;
+    padding-left: 5px;
 }
 
 .emailinput{
-    width: 510px;
+    width: 300px;
     height: 45px;
     margin: 5px;
     border-radius: 5px 5px 5px 5px;
     border: 2px solid black;
+    padding-left: 5px;
 }
 
 .dobinput{
-    width: 510px;
+    width: 300px;
     height: 45px;
     margin: 5px;
     border-radius: 5px 5px 5px 5px;
     border: 2px solid black;
+    padding-left: 5px;
 }
 
 .checkboxitems{

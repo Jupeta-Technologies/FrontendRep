@@ -19,7 +19,7 @@ import Overview from './PAGES/Overview';
 import ProductListing from './PAGES/ProductListing';
 import Tiles from './components/Tiles';
 import SearchResult from './components/SearchResult';
-import TogglePage from './PAGES/TogglePage';
+
 
 function App() {
 
@@ -82,7 +82,6 @@ function App() {
         <Route path='/overview' element={<Overview />} />
         <Route path='/productlisting' element={<ProductListing />} />
         <Route path='/tiles' element={<Tiles />} />
-        <Route path='/togglepage' element={<TogglePage />} />
         <Route path='/srchResult' element={<SearchResult onAdd={onAdd} />} />
       </Routes>
       {/* <a>Learn React</a>  this is need to run Jest remove during production*/}
