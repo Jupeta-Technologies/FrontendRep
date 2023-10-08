@@ -153,7 +153,7 @@ background-color: #FFF;}
 .sBarcenter input{width: 100%; border: none;}
 .sBarcenter input:focus{outline: none;}
 
-.searchResult{width:95%; min-height:100px; background-color: #FFF; height: auto; position:absolute; margin: 2px 2.5%; padding-top: 10px; display: none;border-radius: 20px; overflow-x: hidden; box-shadow: 0px 4px 4px rgba(0,0,0,0.1);}
+.searchResult{width:95%; min-height:100px; background-color: #F9F9F9; height: auto; position:absolute; margin: 2px 2.5%; padding-top: 10px; display: none;border-radius: 20px; overflow-x: hidden;}
 .searchResult ul{padding-left: 0;}
 .searchResult ul li{list-style: none; width: 100%; padding-left: 20px;}
 .searchResult ul li:hover{cursor: pointer; background-color: #c9c9c9; color: #000;}
@@ -228,9 +228,9 @@ background-color: #FFF;}
 
 
 /* General Categories Styling */
-.GCMenu_Container {position:absolute; top: 50px; width: 100%; height:100px;display: flex;}
+.GCMenu_Container {position:relative; top: 60px; width: 100%; height:100px;display: flex;}
 .GCMenu_Container ul{width: 100%; height: 100%; display: flex; align-content: center; align-items: center; gap: 20px; position:relative;}
-.GCMenu_Container ul li{ list-style: none; width:80px; height:60px; background-color: #FFF; border-radius: 10px; text-align: center; cursor: pointer; position: relative;} /* height will be adjusted to 80px to accomodate background image */
+.GCMenu_Container ul li{ list-style: none; width:80px; height:80px; background-color: #FFF; border-radius:50%; text-align: center; cursor: pointer; position: relative;} /* height will be adjusted to 80px to accomodate background image */
 .GCMenu_Container ul li:hover{transform: scale(1.02);box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.25);}
 .GCMenu_Container ul li .CatgName{position: relative; top: 10px; font-size: small; }
 .GCMenu_Container ul li .CatgIcon{font-size: 50px;}

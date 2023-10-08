@@ -10,7 +10,7 @@ const GenCatMenu = () =>{
             <ul>
                 <li><AiFillCamera  className='CatgIcon'/><span className='CatgName'>Electronic</span>
                     <ul>
-                        <li>sub 1</li>
+                        <li className='text-3xl'>sub 1</li>
                         <li>sub 2</li>
                         <li>sub 3</li>
                     </ul>
