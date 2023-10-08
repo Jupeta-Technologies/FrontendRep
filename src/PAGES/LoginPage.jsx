@@ -13,7 +13,8 @@ const LoginPage = () => {
 
     const [inputEmail, setInputEmail] = useState('');
     const [inputPassword,setInputPassword] = useState('');
-    const [isLogin, setIsLogin] = useState(true);
+    const [isLogin, setIsLogin] = useState(false);
+    const [isSignUp, setIsSignUp] = useState(false);
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [password, setPassword] = useState("");
@@ -24,8 +25,14 @@ const LoginPage = () => {
     
     const nav = useNavigate();
 
-    const handleToggle = () => {
-      setIsLogin(!isLogin);
+    const handleLoginToggle = () => {
+      setIsLogin(true);
+      setIsSignUp(false);
+    };
+
+    const handleSignUpToggle = () => {
+      setIsSignUp(true);
+      setIsLogin(false);
     };
 
     const handleSubmit = (e) => {
@@ -86,7 +93,7 @@ const LoginPage = () => {
     <div className="login-body" style={{backgroundImage:`url(${loginbg})`}}>
      <div className="container-login" >
       <div className="head-label">
-        <button onClick={handleToggle} className={isLogin ? 'active' : ''} style={{
+        <button onClick={handleLoginToggle} className={isLogin ? 'active' : ''} style={{
           padding: '5px 5px',
           width: '60%',
           borderRadius: '5px',
@@ -98,7 +105,7 @@ const LoginPage = () => {
           fontSize: 'small',
           fontWeight: '400',
           marginBottom: '10px'}}>Sign in</button>
-        <button onClick={handleToggle} className={isLogin ? '' : 'active'} style={{
+        <button onClick={handleSignUpToggle} className={isLogin ? '' : 'active'} style={{
           padding: '5px 5px',
           width: '60%',
           borderRadius: '5px',
