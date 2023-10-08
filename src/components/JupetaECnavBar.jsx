@@ -120,7 +120,7 @@ const  JupetaECnavBar = (props) => {
                                     <CartListitem  {...cartData} key={id}/>);
                                 }) 
                             }
-                            {cart.length === null?<p style={{width:"100%", textAlign:"center"}}>Cart is empty</p>:<Button onClick={()=>{nav('/cart')}}>Got to cart</Button>}
+                            {cart.length === 0?<p style={{width:"100%", textAlign:"center"}}>Cart is empty</p>:<Button onClick={()=>{nav('/cart')}}>Got to cart</Button>}
                             </ul>
                         </li>
                         <li className='fav'><AiOutlineHeart id='navicon'/>
