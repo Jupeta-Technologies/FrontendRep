@@ -61,8 +61,11 @@ const  JupetaECnavBar = (props) => {
         }).then(()=>{}).catch(err => {console.error(err); console.log("Item not found");});
     }
 
+
     useEffect(()=>{
         console.log('re-rendered');
+        const emcart = [];
+        localStorage.setItem("Cart",JSON.stringify(emcart));
         localStorage.setItem("srchUpdt",JSON.stringify(srchUpdt));
     },[srchUpdt])
     useEffect(()=>{
@@ -117,7 +120,7 @@ const  JupetaECnavBar = (props) => {
                                     <CartListitem  {...cartData} key={id}/>);
                                 }) 
                             }
-                            {cart.length == 0?<p style={{width:"100%", textAlign:"center"}}>Cart is empty</p>:<Button onClick={()=>{nav('/cart')}}>Got to cart</Button>}
+                            {cart.length === null?<p style={{width:"100%", textAlign:"center"}}>Cart is empty</p>:<Button onClick={()=>{nav('/cart')}}>Got to cart</Button>}
                             </ul>
                         </li>
                         <li className='fav'><AiOutlineHeart id='navicon'/>

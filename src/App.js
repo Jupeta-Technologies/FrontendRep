@@ -23,12 +23,6 @@ import SearchResult from './components/SearchResult';
 
 function App() {
 
-  
-  useEffect(()=>{
-    const emcart = [];
-    localStorage.setItem("Cart",JSON.stringify(emcart));
-    
-  },[])
 
   const initCart = JSON.parse(localStorage.getItem("Cart"));
   const [cartItems, setCartItems] = useState(initCart);
