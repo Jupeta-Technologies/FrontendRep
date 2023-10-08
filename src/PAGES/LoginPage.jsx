@@ -86,8 +86,30 @@ const LoginPage = () => {
     <div className="login-body" style={{backgroundImage:`url(${loginbg})`}}>
      <div className="container-login" >
       <div className="head-label">
-        <button onClick={handleToggle} className={isLogin ? 'active' : ''} style={{color: 'white'}}>Sign in</button>
-        <button onClick={handleToggle} className={isLogin ? '' : 'active'} style={{color: 'white'}}>Register</button>
+        <button onClick={handleToggle} className={isLogin ? 'active' : ''} style={{
+          padding: '5px 5px',
+          width: '60%',
+          borderRadius: '5px',
+          border: '1px solid #d9d9d9',
+          outline: 'none',
+          backgroundColor: '#fff',
+          color: '#000',
+          cursor: 'pointer',
+          fontSize: 'small',
+          fontWeight: '400',
+          marginBottom: '10px'}}>Sign in</button>
+        <button onClick={handleToggle} className={isLogin ? '' : 'active'} style={{
+          padding: '5px 5px',
+          width: '60%',
+          borderRadius: '5px',
+          border: '1px solid #d9d9d9',
+          outline: 'none',
+          backgroundColor: '#fff',
+          color: '#000',
+          cursor: 'pointer',
+          fontSize: 'small',
+          fontWeight: '400',
+          marginBottom: '10px'}}>Register</button>
       </div>
       {isLogin ? (
         <>
@@ -147,10 +169,10 @@ const LoginPage = () => {
               </div>
               <div className='passwordhintcontainer'>
                 <div>
-                  <p><FontAwesomeIcon icon={faX} size='sm'></FontAwesomeIcon> Minimum of 8 characters</p>
+                  <p style={{fontSize: '0.9rem'}}><FontAwesomeIcon icon={faX} size='sm'></FontAwesomeIcon> Minimum of 8 characters</p>
                 </div>
                 <div>
-                  <p><FontAwesomeIcon icon={faX}></FontAwesomeIcon> Uppercase letters, lowercase letters and a number</p>
+                  <p style={{fontSize: '0.9rem'}}><FontAwesomeIcon icon={faX}></FontAwesomeIcon> Uppercase letters, lowercase letters and a number</p>
                 </div>
               </div>
               <div className='formitems'>
@@ -163,13 +185,13 @@ const LoginPage = () => {
                 <input type='date' placeholder='Date of Birth' className='dobinput' onChange={(e) => setBirthDate(e.target.value)} value={birthDate} />
               </div>
               <div>
-                <p>Get a jUPETA Member Reward on your birthday</p>
+                <p style={{fontSize: '0.9rem'}}>Get a jUPETA Member Reward on your birthday</p>
               </div>
               <div className='checkboxitems'>
                 <input type='checkbox' />
-                <p>I agree to jUPETA's Privacy Policy and Terms of Use</p>
+                <p style={{fontSize: '0.9rem'}}>I agree to jUPETA's Privacy Policy and Terms of Use</p>
               </div>
-              <div className='signupbtncontainer'>
+              <div style={{paddingLeft: '100px'}}>
                 <button type='submit' className='signupbtn' onClick={handleSubmit}>Create account</button>
               </div>
             </form>
