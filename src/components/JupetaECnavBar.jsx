@@ -112,11 +112,10 @@ const  JupetaECnavBar = (props) => {
                         <li ><AiOutlineShoppingCart id='navicon'/>
                             <ul className={"cartQview"}>
                             {
-                                cart !== null && cart.map((cartData,id) =>{ 
+                                cart !== null && cart.length > 0 && cart.map((cartData,id) =>{ 
                                     return (
                                     <CartListitem  {...cartData} key={id}/>);
-                                })
-                                
+                                }) 
                             }
                             {cart.length == 0?<p style={{width:"100%", textAlign:"center"}}>Cart is empty</p>:<Button onClick={()=>{nav('/cart')}}>Got to cart</Button>}
                             </ul>
