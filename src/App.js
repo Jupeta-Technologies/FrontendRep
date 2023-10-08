@@ -20,6 +20,7 @@ import ProductListing from './PAGES/ProductListing';
 import Tiles from './components/Tiles';
 import SearchResult from './components/SearchResult';
 
+
 function App() {
 
   
