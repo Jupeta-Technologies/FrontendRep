@@ -13,7 +13,8 @@ const LoginPage = () => {
 
     const [inputEmail, setInputEmail] = useState('');
     const [inputPassword,setInputPassword] = useState('');
-    const [isLogin, setIsLogin] = useState(true);
+    const [isLogin, setIsLogin] = useState(false);
+    const [isSignUp, setIsSignUp] = useState(false);
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [password, setPassword] = useState("");
@@ -24,8 +25,14 @@ const LoginPage = () => {
     
     const nav = useNavigate();
 
-    const handleToggle = () => {
-      setIsLogin(!isLogin);
+    const handleLoginToggle = () => {
+      setIsLogin(true);
+      setIsSignUp(false);
+    };
+
+    const handleSignUpToggle = () => {
+      setIsSignUp(true);
+      setIsLogin(false);
     };
 
     const handleSubmit = (e) => {
@@ -86,8 +93,7 @@ const LoginPage = () => {
     <div className="login-body" style={{backgroundImage:`url(${loginbg})`}}>
      <div className="container-login" >
       <div className="head-label">
-        <span onClick={handleToggle} className={isLogin ? 'sIN-active' : 'LS-sIN'}>Sign in</span>
-        <span onClick={handleToggle} className={isLogin ? 'sUP' : 'sUP-active'} style={{
+        <button onClick={handleToggle} className={isLogin ? 'sIN-active' : ''} style={{
           padding: '5px 5px',
           width: '60%',
           borderRadius: '0',
@@ -96,7 +102,19 @@ const LoginPage = () => {
           cursor: 'pointer',
           fontSize: 'small',
           fontWeight: '400',
-          marginBottom: '10px',textAlign:'center'}}>Register</span>
+          marginBottom: '10px'}}>Sign in</button>
+        <button onClick={handleToggle} className={isLogin ? '' : 'sUP-active'} style={{
+          padding: '5px 5px',
+          width: '60%',
+          borderRadius: '5px',
+          border: '1px solid #d9d9d9',
+          outline: 'none',
+          backgroundColor: '#fff',
+          color: '#000',
+          cursor: 'pointer',
+          fontSize: 'small',
+          fontWeight: '400',
+          marginBottom: '10px'}}>Register</button>
       </div>
       {isLogin ? (
         <>
