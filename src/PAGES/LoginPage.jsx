@@ -13,7 +13,7 @@ const LoginPage = () => {
 
     const [inputEmail, setInputEmail] = useState('');
     const [inputPassword,setInputPassword] = useState('');
-    const [isLogin, setIsLogin] = useState(false);
+    const [isLogin, setIsLogin] = useState(true);
     const [isSignUp, setIsSignUp] = useState(false);
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
@@ -93,28 +93,8 @@ const LoginPage = () => {
     <div className="login-body" style={{backgroundImage:`url(${loginbg})`}}>
      <div className="container-login" >
       <div className="head-label">
-        <button onClick={handleToggle} className={isLogin ? 'sIN-active' : ''} style={{
-          padding: '5px 5px',
-          width: '60%',
-          borderRadius: '0',
-          backgroundColor: '#fff',
-          color: '#000',
-          cursor: 'pointer',
-          fontSize: 'small',
-          fontWeight: '400',
-          marginBottom: '10px'}}>Sign in</button>
-        <button onClick={handleToggle} className={isLogin ? '' : 'sUP-active'} style={{
-          padding: '5px 5px',
-          width: '60%',
-          borderRadius: '5px',
-          border: '1px solid #d9d9d9',
-          outline: 'none',
-          backgroundColor: '#fff',
-          color: '#000',
-          cursor: 'pointer',
-          fontSize: 'small',
-          fontWeight: '400',
-          marginBottom: '10px'}}>Register</button>
+        <span onClick={handleLoginToggle} className={isLogin ? 'sIN-active' : 'LS-sIN'} >Sign in</span>
+        <span onClick={handleSignUpToggle} className={isSignUp ? 'sUP-active':'LS-sUP' } >Register</span>
       </div>
       {isLogin ? (
         <>
@@ -163,22 +143,19 @@ const LoginPage = () => {
         </>
       ):(
         <>
-          <div className='signupcontainer'>
+          <h5>Create account</h5>
             <form className='formcontainer'>
               <div className='formitems'>
                 <input type='text' placeholder='First Name' className='fnameinput' onChange={(e) => setFirstName(e.target.value)} value={firstName} />
+              </div>
+              <div className='formitems'>
                 <input type='text' placeholder='Last Name' className='lnameinput' onChange={(e) => setLastName(e.target.value)} value={lastName} />
               </div>
               <div className='formitems'>
                 <input type='password' placeholder='Password' className='signuppass' onChange={(e) => setPassword(e.target.value)} value={password} />
               </div>
               <div className='passwordhintcontainer'>
-                <div>
                   <p style={{fontSize: '0.9rem'}}><FontAwesomeIcon icon={faX} size='sm'></FontAwesomeIcon> Minimum of 8 characters</p>
-                </div>
-                <div>
-                  <p style={{fontSize: '0.9rem'}}><FontAwesomeIcon icon={faX}></FontAwesomeIcon> Uppercase letters, lowercase letters and a number</p>
-                </div>
               </div>
               <div className='formitems'>
                 <input type='tel' placeholder='Phone Number' className='phoneinput' onChange={(e) => setPhoneNumber(e.target.value)} value={phoneNumber} />
@@ -196,11 +173,10 @@ const LoginPage = () => {
                 <input type='checkbox' />
                 <p style={{fontSize: '0.9rem'}}>I agree to jUPETA's Privacy Policy and Terms of Use</p>
               </div>
-              <div style={{paddingLeft: '100px'}}>
-                <button type='submit' className='signupbtn' onClick={handleSubmit}>Create account</button>
-              </div>
+              
+                
             </form>
-      </div>
+            <button type='submit' className='signupbtn' onClick={handleSubmit}>Create account</button>
         </>
       )}
     </div>

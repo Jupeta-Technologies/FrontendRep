@@ -17,65 +17,67 @@
 
 .formitems{
     display: flex;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .fnameinput{
     margin: 5px;
-    width: 150px;
-    height: 45px;
+    width: 100%;
+    height: 30px;
     border-radius: 5px 5px 5px 5px;
-    border: 2px solid black;
+    border: 1px solid #d5d2d2d3;
     padding-left: 5px;
 }
 
 .lnameinput{
     margin: 5px;
-    width: 150px;
-    height: 45px;
+    width: 100%;
+    height: 30px;
     border-radius: 5px 5px 5px 5px;
-    border: 2px solid black;
+    border: 1px solid #d5d2d2d3;
     padding-left: 5px;
 }
 
 .signuppass{
     margin: 5px;
-    width: 300px;
-    height: 45px;
+    width: 100%;
+    height: 30px;
     border-radius: 5px 5px 5px 5px;
-    border: 2px solid black;
+    border: 1px solid #d5d2d2d3;
     padding-left: 5px;
 }
 
 .passwordhintcontainer{
     display: block;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+    display: none;
+
 }
 
 .phoneinput{
-    width: 300px;
-    height: 45px;
+    width: 100%;
+    height: 30px;
     margin: 5px;
     border-radius: 5px 5px 5px 5px;
-    border: 2px solid black;
+    border: 1px solid #d5d2d2d3;
     padding-left: 5px;
 }
 
 .emailinput{
-    width: 300px;
-    height: 45px;
+    width: 100%;
+    height: 30px;
     margin: 5px;
     border-radius: 5px 5px 5px 5px;
-    border: 2px solid black;
+    border: 1px solid #d5d2d2d3;
     padding-left: 5px;
 }
 
 .dobinput{
-    width: 300px;
-    height: 45px;
+    width: 100%;
+    height: 30px;
     margin: 5px;
     border-radius: 5px 5px 5px 5px;
-    border: 2px solid black;
+    border: 1px solid #d5d2d2d3;
     padding-left: 5px;
 }
 
@@ -90,9 +92,13 @@
 }
 
 .signupbtn{
-    background-color: black;
-    color: white;
-    font-size: large;
-    padding: 10px;
-    border-radius: 25px 25px 25px 25px;
+    padding: 10px 15px;
+    width: 50%;
+    border-radius: 25px;
+    border: none;
+    outline: none;
+    background-color: #000;
+    color: #fff;
+    font-weight: 500;
+    font-size: small;
 }
