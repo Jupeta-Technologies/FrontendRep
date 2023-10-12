@@ -4,10 +4,13 @@ import { UserLogin } from '../components/UserAPI';
 import loginbg from '../images/login_bg.jpg';
 import { useNavigate } from 'react-router-dom';
 import {FcGoogle} from "react-icons/fc";
-import {FaFacebookF,FaApple} from "react-icons/fa"
+import {FaFacebookF,FaApple} from "react-icons/fa";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {BsCheck2Circle,BsFillEyeFill} from "react-icons/bs";
+
 import { faX } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
+
 
 const LoginPage = () => {
 
@@ -18,10 +21,15 @@ const LoginPage = () => {
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [password, setPassword] = useState("");
+    const [confPassword, setconfPassword] = useState("");
     const [phoneNumber, setPhoneNumber] = useState("");
     const [userEmail, setUserEmail] = useState("");
     const [birthDate, setBirthDate] = useState("");
     const [userHasAuth,setuserHasAuth] = useState(JSON.parse(localStorage.getItem("AuthStatus")));
+    const [sUPEmail,setsUPEmail] = useState("");
+    const [emailVerified,setemailVerified] = useState(false);
+    const [emailValid,setemailValid] = useState(false);
+    const [emailVericode,setemalVericode] = useState("");
     
     const nav = useNavigate();
 
@@ -54,17 +62,37 @@ const LoginPage = () => {
       })
     }
    
+    
+    const validateEmail = (email) => {
+      return email.match(
+        /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+      );
+    };
+
+    const handlesUPemail = (e) =>{
+      e.preventDefault();
+      const email = e.target.value;
+      setsUPEmail(email);
+      setUserEmail(email);
+      validateEmail(sUPEmail)?setTimeout(()=>{setemailValid(true)},1000):setemailValid(false);
+    
+    }
+
+    const handleEVeriCode = (e) =>{
+      e.preventDefault();
+      const veriCode = e.target.value;
+      setemalVericode(veriCode);
+      veriCode.length == 6?setemailVerified(true):setemailVerified(false);
+    }
 
     const handleInputEmail = (e)=>{
         e.preventDefault();
         setInputEmail(e.target.value);
-        console.log(inputEmail);
         
     };
     const handleInputPassword = (e)=>{
         e.preventDefault();
         setInputPassword(e.target.value);
-        console.log(inputPassword)
     };
     const LoginHandler = () => {
 
@@ -134,49 +162,63 @@ const LoginPage = () => {
           <button type="submit" className="btns"><span style={{color:'#3B5998'}}><FaFacebookF /></span> Sign in with Facebook</button>
           <button type="submit" className="btns"><span><FaApple /></span>Sign in with Apple</button>
           <p className="terms">
-            By clicking the submit button below, I hereby agree to and accept the
+            By clicking the submit button, I hereby agree to and accept the
             following <a href="#">terms and conditions</a> governing my use of the
-            Jupeta™ website. I further reaffirm my acceptance of the general
-            <a href="#">Privacy Policy</a>
-            governing my use of any Jupeta™ website.
+            Jupeta™ website. I further reaffirm my acceptance of the general <a href="#">Privacy Policy</a> governing my use of any Jupeta™ website.
           </p>
         </>
       ):(
         <>
           <h5>Create account</h5>
+          {!emailValid?(
+            <>
+            <span><b>Now let’s make you a jUPETA member.</b></span>
+            <p style={{textAlign:'left'}}>Please enter your email address to create account</p>
+            <div className="form-ctrl">
+            <input type="email" id="email" placeholder="Enter email address" required value={sUPEmail} onInput={handlesUPemail}/>
+            </div>
+          </>):
+            
+              !emailVerified?(<>
+                              <span>We've sent a verification code to</span>
+                              <p><b>{sUPEmail}</b></p>
+                              <div className="form-ctrl">
+                              <input type='text' minLength={6} maxLength={6} value={emailVericode} onInput={handleEVeriCode} required/>
+                              </div>
+                              </>):
+            (
+              <>
+              <span>Email address verified</span>
+            <p><b>{sUPEmail}</b> <span style={{color:"green", fontSize:'30px',position:'absolute'}}><BsCheck2Circle /></span></p>
             <form className='formcontainer'>
-              <div className='formitems'>
-                <input type='text' placeholder='First Name' className='fnameinput' onChange={(e) => setFirstName(e.target.value)} value={firstName} />
-              </div>
-              <div className='formitems'>
-                <input type='text' placeholder='Last Name' className='lnameinput' onChange={(e) => setLastName(e.target.value)} value={lastName} />
-              </div>
-              <div className='formitems'>
-                <input type='password' placeholder='Password' className='signuppass' onChange={(e) => setPassword(e.target.value)} value={password} />
-              </div>
+              <div className='form-ctrl'>
+                <input type='text' placeholder='First Name'  onChange={(e) => setFirstName(e.target.value)} value={firstName} required/>
+                <input type='text' placeholder='Last Name'  onChange={(e) => setLastName(e.target.value)} value={lastName} required/>
+                <input type='password' placeholder='Password'  onChange={(e) => setPassword(e.target.value)} value={password} required/><span style={{position:'absolute', right:'40px', cursor:'pointer',marginTop:'12px',fontSize:'18px'}}><BsFillEyeFill /></span>
               <div className='passwordhintcontainer'>
                   <p style={{fontSize: '0.9rem'}}><FontAwesomeIcon icon={faX} size='sm'></FontAwesomeIcon> Minimum of 8 characters</p>
               </div>
-              <div className='formitems'>
-                <input type='tel' placeholder='Phone Number' className='phoneinput' onChange={(e) => setPhoneNumber(e.target.value)} value={phoneNumber} />
-              </div>
-              <div className='formitems'>
-                <input type='email' placeholder='Email' className='emailinput' onChange={(e) => setUserEmail(e.target.value)} value={userEmail} />
-              </div>
-              <div className='formitems'>
-                <input type='date' placeholder='Date of Birth' className='dobinput' onChange={(e) => setBirthDate(e.target.value)} value={birthDate} />
+              
+                <input type='password' placeholder='Confirm password' onChange={(e) => setconfPassword(e.target.value)} value={confPassword}  required/><span style={{position:'absolute', right:'40px', cursor:'pointer',marginTop:'12px',fontSize:'18px'}}><BsFillEyeFill /></span>
+                <input type='tel' placeholder='Phone Number' onChange={(e) => setPhoneNumber(e.target.value)} value={phoneNumber} required/>
+
+                <input type='date' placeholder='Date of Birth'  onChange={(e) => setBirthDate(e.target.value)} value={birthDate} required/>
               </div>
               <div>
                 <p style={{fontSize: '0.9rem'}}>Get a jUPETA Member Reward on your birthday</p>
               </div>
               <div className='checkboxitems'>
-                <input type='checkbox' />
+                <input type='checkbox' required/>
                 <p style={{fontSize: '0.9rem'}}>I agree to jUPETA's Privacy Policy and Terms of Use</p>
               </div>
               
                 
             </form>
             <button type='submit' className='signupbtn' onClick={handleSubmit}>Create account</button>
+            </>)
+            
+          }
+          
         </>
       )}
     </div>
