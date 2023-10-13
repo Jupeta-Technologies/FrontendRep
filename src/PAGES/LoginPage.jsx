@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import {FcGoogle} from "react-icons/fc";
 import {FaFacebookF,FaApple} from "react-icons/fa";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {BsCheck2Circle,BsFillEyeFill} from "react-icons/bs";
+import {BsCheck2Circle,BsFillEyeFill,BsFillEyeSlashFill} from "react-icons/bs";
 
 import { faX } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
@@ -21,7 +21,9 @@ const LoginPage = () => {
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [password, setPassword] = useState("");
-    const [confPassword, setconfPassword] = useState("");
+    const [confPassword,setconfPassword] = useState("");
+    const [showsUPPass, setsUPShowP] = useState(false);
+    const [showConfPass, setsUPShowCP] = useState(false);
     const [phoneNumber, setPhoneNumber] = useState("");
     const [userEmail, setUserEmail] = useState("");
     const [birthDate, setBirthDate] = useState("");
@@ -68,6 +70,13 @@ const LoginPage = () => {
         /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
       );
     };
+
+    const handlesUPPASSvis = () =>{
+      setsUPShowP(!showsUPPass);
+    }
+    const handlesUPConfPvis = () =>{
+      setsUPShowCP(!showConfPass);
+    }
 
     const handlesUPemail = (e) =>{
       e.preventDefault();
@@ -194,12 +203,12 @@ const LoginPage = () => {
               <div className='form-ctrl'>
                 <input type='text' placeholder='First Name'  onChange={(e) => setFirstName(e.target.value)} value={firstName} required/>
                 <input type='text' placeholder='Last Name'  onChange={(e) => setLastName(e.target.value)} value={lastName} required/>
-                <input type='password' placeholder='Password'  onChange={(e) => setPassword(e.target.value)} value={password} required/><span style={{position:'absolute', right:'40px', cursor:'pointer',marginTop:'12px',fontSize:'18px'}}><BsFillEyeFill /></span>
+                <input type={!showsUPPass?'password':'text'} placeholder='Password'  onChange={(e) => setPassword(e.target.value)} value={password} required style={{paddingRight:'50px'}}/><span style={{position:'absolute', right:'40px', cursor:'pointer',marginTop:'12px',fontSize:'18px'}}><BsFillEyeSlashFill onClick={handlesUPPASSvis} /></span>
               <div className='passwordhintcontainer'>
                   <p style={{fontSize: '0.9rem'}}><FontAwesomeIcon icon={faX} size='sm'></FontAwesomeIcon> Minimum of 8 characters</p>
               </div>
               
-                <input type='password' placeholder='Confirm password' onChange={(e) => setconfPassword(e.target.value)} value={confPassword}  required/><span style={{position:'absolute', right:'40px', cursor:'pointer',marginTop:'12px',fontSize:'18px'}}><BsFillEyeFill /></span>
+                <input type={!showConfPass?'password':'text'} placeholder='Confirm password' onChange={(e) => setconfPassword(e.target.value)} value={confPassword}  required/><span style={{position:'absolute', right:'40px', cursor:'pointer',marginTop:'12px',fontSize:'18px'}}>{!showConfPass?<BsFillEyeSlashFill onClick={handlesUPConfPvis} />:<BsFillEyeFill onClick={handlesUPConfPvis} />}</span>
                 <input type='tel' placeholder='Phone Number' onChange={(e) => setPhoneNumber(e.target.value)} value={phoneNumber} required/>
 
                 <input type='date' placeholder='Date of Birth'  onChange={(e) => setBirthDate(e.target.value)} value={birthDate} required/>
