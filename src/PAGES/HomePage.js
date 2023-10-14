@@ -6,23 +6,22 @@ import AllCategories from '../components/AllCategories';
 
 const HomePage = () => {
   return (
-    <div>
-      <NewnavBar />
+    <>
       <Hero/>
+      <NewnavBar />
+      
       
       <Tiles />
       <SellButton />
-      <div className="bgPrimary paddingX flexStart">
+      {/* <div className="bgPrimary paddingX flexStart">
       <div className="boxWidth">
-        {/* <DailyDeals /> */}
+         <DailyDeals />
       </div>
-      </div>
+      </div> 
       <div className="bgPrimary flexStart">
-      <div className="boxWidth">
+      <div className="boxWidth">*/}
         <Footer />
-      </div>
-    </div>
-    </div>
+    </>
   )
 }
 

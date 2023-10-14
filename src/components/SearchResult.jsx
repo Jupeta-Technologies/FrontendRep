@@ -22,22 +22,19 @@ const SearchResult = (props) => {
   const [loading, setLoading] = useState(false);
   var srchResultData = JSON.parse(localStorage.getItem("SearchResult"));
   var srchupt = JSON.parse(localStorage.getItem("srchUpdt"));
-  const [srchupd,setsrchupd] = useState(false);
   
-  useEffect(()=>{
-    
-    setApiData(data);
+
+
+ /*  useEffect(()=>{
     console.log(data);
-  },[data,srchupt]);
+    setApiData(data);
+  },[data]); */
 
   useEffect(()=>{
     setApiData(data);
-    setsrchupd(srchupt);
-    console.log("rendered");
-  },[srchupd,srchupt])
+  },[srchupt,data]) // this checks for state changes to data and srchupt boolean
 
   
-
       
       
   return (<>
@@ -47,7 +44,7 @@ const SearchResult = (props) => {
       </div>
       <div className='productssection'>
       {
-      srchupd&&
+
        apiData.map((prodData) =>{return (<ItemCardglobal {...prodData} key={prodData.id} onAdd={onAdd}/> ); })
     
       }

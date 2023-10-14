@@ -58,7 +58,8 @@ const LoginPage = () => {
       }, {
         headers:{"Content-Type":"application/json"}
       }).then((res) => {
-        console.log('Posting data: ', res)
+        console.log('Posting data: ', res);
+        handleLoginToggle();
       }).catch((err) => {
         console.log(err)
       })
@@ -138,7 +139,7 @@ const LoginPage = () => {
           <form id="loginForm" action="#">
           <div className="form-ctrl">
             <label htmlFor="email" style={inputEmail !== ""?{color:'#000',transform:'translate(5px,-10px )',backgroundColor:'#FFF',lineHeight:'15px', padding:'0px 5px'}:null}>Email</label>
-            <input type="email" id="email" placeholder="" required value={inputEmail} onChange={handleInputEmail}/>
+            <input type="email" id="email" placeholder="" required value={inputEmail} onChange={handleInputEmail} autoComplete='email'/>
           </div>
           <div className="form-ctrl">
             <label htmlFor="password" style={inputPassword !== ""?{color:'#000',transform:'translate(5px,-10px )',backgroundColor:'#FFF',lineHeight:'15px', padding:'0px 5px'}:null}>Password</label>
@@ -146,7 +147,7 @@ const LoginPage = () => {
               type="password"
               id="password"
               placeholder=""
-              required  value={inputPassword} onChange={handleInputPassword}/>
+              required autoComplete='current-password' value={inputPassword} onChange={handleInputPassword} />
           </div>
           </form>
 

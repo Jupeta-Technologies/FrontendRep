@@ -22,14 +22,16 @@ const  JupetaECnavBar = (props) => {
       const [searchCatg,setSearchCatg] = useState('0');
       const [searchActive,setSearchActive] = useState(false);
       const [isAuth,setisAuth] = useState(false);
+      const citems = []; 
       const [cart,setCart] = useState([]);
       const [srchUpdt,setSrchUpdt] = useState(false);
+      var cartQty = 0; 
 
-      var citems = localStorage.getItem("Cart"); 
       
       
+      
 
-      const nav = useNavigate();
+    const nav = useNavigate();
 
     const handleSigninClick = () => {
         !loggedin?setLoggedin(true):setLoggedin(false);
@@ -67,7 +69,8 @@ const  JupetaECnavBar = (props) => {
         const emcart = [];
         localStorage.setItem("Cart",JSON.stringify(emcart));
         localStorage.setItem("srchUpdt",JSON.stringify(srchUpdt));
-    },[srchUpdt])
+    },[])
+    
     useEffect(()=>{
         setLoggedin(true);
         setisAuth(JSON.parse(localStorage.getItem("AuthStatus")));
@@ -75,9 +78,9 @@ const  JupetaECnavBar = (props) => {
 
     
     useEffect(()=>{
-        console.log("changed");
         setCart(JSON.parse(localStorage.getItem("Cart")));
-    },[citems])
+        console.log(cartQty);
+    },[cartQty]);
     
     const SearchKeyIndexes =['Apple', 'Samsung', 'Macbook', 'Laptop'];
 
@@ -99,7 +102,7 @@ const  JupetaECnavBar = (props) => {
                         </select>
                         </div>
                         <div className="sBarcenter"><input type="text" name="search"  placeholder='Search for product..' onChange={handleSearchInput}/></div>
-                        <div className="sBarright"><Button onClick={()=>{handelSEO(); setSrchUpdt(!srchUpdt)}}>Search</Button></div>
+                        <div className="sBarright"><Button onClick={()=>{handelSEO(); setSrchUpdt(!srchUpdt);}}>Search</Button></div>
                     </div>
                     
                     {searchKey !== '' && <div className="searchResult showDiv">
@@ -115,10 +118,10 @@ const  JupetaECnavBar = (props) => {
                         <li ><AiOutlineShoppingCart id='navicon'/>
                             <ul className={"cartQview"}>
                             {
-                                cart !== null && cart.length > 0 && cart.map((cartData,id) =>{ 
+                                cart !== null && cart.length > 0 ? cart.map((cartData,id) =>{ 
                                     return (
                                     <CartListitem  {...cartData} key={id}/>);
-                                }) 
+                                }):null
                             }
                             {cart.length === 0?<p style={{width:"100%", textAlign:"center"}}>Cart is empty</p>:<Button onClick={()=>{nav('/cart')}}>Got to cart</Button>}
                             </ul>
@@ -144,7 +147,7 @@ const  JupetaECnavBar = (props) => {
                     
                 </div>
             </div>
-            <GenCatMenu /> {/* logic needed to hide the categories menu with respect to the page the user is currently interacting with */}
+            <GenCatMenu sx={{marginTop:'50px'}}/> {/* logic needed to hide the categories menu with respect to the page the user is currently interacting with */}
             </>
         );
     }

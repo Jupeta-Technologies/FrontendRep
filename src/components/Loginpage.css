@@ -71,7 +71,7 @@
     justify-content: center;
     width: 100%;
     border-radius: 20px;
-    margin-top: 40px;
+    margin-top: 20px;
   }
   
   .form-ctrl {
@@ -98,7 +98,7 @@
     padding: 10px;
     border-radius: 10px;
     border: 1px solid #d5d2d2d3;
-    font-size: 12px;
+    font-size: 1rem;
     margin-bottom: 5px;
     background-color: transparent;
   }

@@ -1,12 +1,15 @@
 import React from 'react';
 import {AiFillBook,AiFillCamera, AiFillCar, AiFillHome } from 'react-icons/ai';
+import { useLocation } from 'react-router-dom';
 
 
-const GenCatMenu = () =>{
+const GenCatMenu = (props) =>{
     //General Categories Menu : Higher Category name and subcategories -> obj
 
+    const currLoc = window.location;
+
     return (<>
-            <div className="GCMenu_Container">
+            <div className="GCMenu_Container" style={currLoc.pathname =='/'?{marginTop:"0px"}:props.sx}>
             <ul>
                 <li><AiFillCamera  className='CatgIcon'/><span className='CatgName'>Electronic</span>
                     <ul>

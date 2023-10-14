@@ -25,7 +25,7 @@ function App() {
 
 
   const initCart = JSON.parse(localStorage.getItem("Cart"));
-  const [cartItems, setCartItems] = useState(initCart);
+  const [cartItems, setCartItems] = useState([]);
   
 
   const onAdd = (productdata) => {
@@ -46,18 +46,19 @@ function App() {
     }
   };
   
-  useEffect(()=>{
+ useEffect(()=>{
     const data = JSON.parse(localStorage.getItem("Cart"));
     localStorage.setItem("Cart",JSON.stringify(data));
     initCart == null && setCartItems(data);
-  },[])
+  },[initCart]);
 
   useEffect(()=>{
     localStorage.setItem("Cart",JSON.stringify(cartItems));
+    console.log("Item added to cart");
   },[cartItems])
-
+/* <a>Learn React</a>  this is need to run Jest remove during production*/
   return (
-    <div>
+    
     
       <Routes>
         <Route path="/" element={<HomePage />} />
@@ -78,8 +79,8 @@ function App() {
         <Route path='/tiles' element={<Tiles />} />
         <Route path='/srchResult' element={<SearchResult onAdd={onAdd} />} />
       </Routes>
-      {/* <a>Learn React</a>  this is need to run Jest remove during production*/}
-    </div>
+      
+
   );
 }
 
