@@ -28,13 +28,13 @@ const SearchResult = (props) => {
     
     setApiData(data);
     console.log(data);
-  },[data,srchupt]);
+  },[]);
 
   useEffect(()=>{
     setApiData(data);
     setsrchupd(srchupt);
     console.log("rendered");
-  },[srchupd,srchupt])
+  },[])
 
   
 
