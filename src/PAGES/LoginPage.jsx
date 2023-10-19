@@ -6,10 +6,12 @@ import { useNavigate } from 'react-router-dom';
 import {FcGoogle} from "react-icons/fc";
 import {FaFacebookF,FaApple} from "react-icons/fa";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {BsCheck2Circle,BsFillEyeFill,BsFillEyeSlashFill} from "react-icons/bs";
+import {BsCheck2Circle,BsFillEyeFill,BsFillEyeSlashFill,BsFillArrowRightCircleFill,BsFillCheckCircleFill} from "react-icons/bs";
+import {PiWarningCircleFill} from 'react-icons/pi';
 
 import { faX } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
+import { green } from '@mui/material/colors';
 
 
 const LoginPage = () => {
@@ -32,6 +34,8 @@ const LoginPage = () => {
     const [emailVerified,setemailVerified] = useState(false);
     const [emailValid,setemailValid] = useState(false);
     const [emailVericode,setemalVericode] = useState("");
+    const [inputEC,setinputEC] = useState(false);
+    const [regCompleted, setregCompleted] = useState(false);
     
     const nav = useNavigate();
 
@@ -45,6 +49,7 @@ const LoginPage = () => {
       setIsLogin(false);
     };
 
+    //Account registration submission 
     const handleSubmit = (e) => {
       e.preventDefault();
       //let userInfo = {firstName, lastName, password, phoneNumber, userEmail, birthDate};
@@ -59,7 +64,8 @@ const LoginPage = () => {
         headers:{"Content-Type":"application/json"}
       }).then((res) => {
         console.log('Posting data: ', res);
-        handleLoginToggle();
+        //handleLoginToggle();
+        setregCompleted(true);
       }).catch((err) => {
         console.log(err)
       })
@@ -68,9 +74,14 @@ const LoginPage = () => {
     
     const validateEmail = (email) => {
       return email.match(
-        /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+        // /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+        /^([a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+(?:[A-Z]{2}|com|org|net|gov|info|edu)\b)$/
       );
     };
+
+    const confirmPasswd = (cpasswd) =>{
+      return cpasswd.match(password);
+    }
 
     const handlesUPPASSvis = () =>{
       setsUPShowP(!showsUPPass);
@@ -84,10 +95,17 @@ const LoginPage = () => {
       const email = e.target.value;
       setsUPEmail(email);
       setUserEmail(email);
-      validateEmail(sUPEmail)?setTimeout(()=>{setemailValid(true)},1000):setemailValid(false);
-    
+      validateEmail(email)?setinputEC(true):setinputEC(false);
+    }
+    const checkEmail = ()=>{
+      setTimeout(()=>{setemailValid(true)},5000)
     }
 
+    ///inputEC&&checkEmail(); automatically move to next step in account creation
+    //Check sign-up email is a valid email format on button click
+    const checksUPemail = ()=>{
+      validateEmail(sUPEmail)?checkEmail():validateEmail(sUPEmail);
+    }
     const handleEVeriCode = (e) =>{
       e.preventDefault();
       const veriCode = e.target.value;
@@ -120,6 +138,10 @@ const LoginPage = () => {
                 
             }else{console.log("User not found");}
         }).catch(err => {console.error(err); console.log("User not found");});
+    }
+
+    const dummyReg =()=>{
+      setregCompleted(true);
     }
 
     useEffect(() =>{
@@ -177,25 +199,28 @@ const LoginPage = () => {
             Jupeta™ website. I further reaffirm my acceptance of the general <a href="#">Privacy Policy</a> governing my use of any Jupeta™ website.
           </p>
         </>
-      ):(
+      ):isSignUp?(
         <>
-          <h5>Create account</h5>
+          {!regCompleted&&<h5>Create account</h5>}
           {!emailValid?(
             <>
-            <span><b>Now let’s make you a jUPETA member.</b></span>
-            <p style={{textAlign:'left'}}>Please enter your email address to create account</p>
+            <span style={{fontSize:'0.9rem'}}><b>Now let’s make you a jUPETA member.</b></span>
+            <p style={{textAlign:'left',fontSize:'0.9rem'}}>Please enter your email address to create account</p>
             <div className="form-ctrl">
-            <input type="email" id="email" placeholder="Enter email address" required value={sUPEmail} onInput={handlesUPemail}/>
+            <input type="email" id="email" placeholder="Enter email address" required value={sUPEmail} onChange={handlesUPemail} style={inputEC? {border:"1px solid green"}:(!emailValid&&sUPEmail!==''?{border:"1px solid red",boxShadow:'inset 0px 0px 5px red'}:null)}/>
+            {!inputEC&& sUPEmail !==""?<span style={{display:'inline-flex', flexDirection:'row', alignItems:'center',color:'red'}}><PiWarningCircleFill /> <span style={{fontSize:'0.8rem',marginLeft:'5px'}}>Email is invalid</span></span>:""}
             </div>
+            <BsFillArrowRightCircleFill className='validEmail' onClick={checksUPemail}/>
           </>):
             
               !emailVerified?(<>
                               <span>We've sent a verification code to</span>
-                              <p><b>{sUPEmail}</b></p>
+                              <p><b>{sUPEmail}</b><span style={{textDecoration:'underline', marginLeft:'5px', fontWeight:'400', cursor:'pointer'}}>edit</span></p>
                               <div className="form-ctrl">
-                              <input type='text' minLength={6} maxLength={6} value={emailVericode} onInput={handleEVeriCode} required/>
+                              <input type='text' minLength={6} maxLength={6} placeholder='Enter code' value={emailVericode} onInput={handleEVeriCode} required/>
                               </div>
-                              </>):
+                              </>
+                              ):emailVerified && !regCompleted?
             (
               <>
               <span>Email address verified</span>
@@ -204,12 +229,10 @@ const LoginPage = () => {
               <div className='form-ctrl'>
                 <input type='text' placeholder='First Name'  onChange={(e) => setFirstName(e.target.value)} value={firstName} required/>
                 <input type='text' placeholder='Last Name'  onChange={(e) => setLastName(e.target.value)} value={lastName} required/>
-                <input type={!showsUPPass?'password':'text'} placeholder='Password'  onChange={(e) => setPassword(e.target.value)} value={password} required style={{paddingRight:'50px'}}/><span style={{position:'absolute', right:'40px', cursor:'pointer',marginTop:'12px',fontSize:'18px'}}><BsFillEyeSlashFill onClick={handlesUPPASSvis} /></span>
-              <div className='passwordhintcontainer'>
-                  <p style={{fontSize: '0.9rem'}}><FontAwesomeIcon icon={faX} size='sm'></FontAwesomeIcon> Minimum of 8 characters</p>
-              </div>
-              
-                <input type={!showConfPass?'password':'text'} placeholder='Confirm password' onChange={(e) => setconfPassword(e.target.value)} value={confPassword}  required/><span style={{position:'absolute', right:'40px', cursor:'pointer',marginTop:'12px',fontSize:'18px'}}>{!showConfPass?<BsFillEyeSlashFill onClick={handlesUPConfPvis} />:<BsFillEyeFill onClick={handlesUPConfPvis} />}</span>
+                <input type={!showsUPPass?'password':'text'} placeholder='Password'  onChange={(e) => setPassword(e.target.value)} required style={{paddingRight:'50px'}}/><span style={{position:'absolute', right:'40px', cursor:'pointer',marginTop:'12px',fontSize:'18px'}}><BsFillEyeSlashFill onClick={handlesUPPASSvis} /></span>
+                {password.length < 10 && password !== "" ?<span style={{display:'inline-flex', flexDirection:'row', alignItems:'center',color:'red'}}><PiWarningCircleFill /> <span style={{fontSize:'0.7rem'}}>Minimum 10 characters</span></span>:""} 
+                <input type={!showConfPass?'password':'text'} placeholder='Confirm password' onChange={(e) => {setconfPassword(e.target.value); confirmPasswd(confPassword);}} value={confPassword}  required style={{paddingRight:'50px'}}/><span style={{position:'absolute', right:'40px', cursor:'pointer',marginTop:'12px',fontSize:'18px'}}>{!showConfPass?<BsFillEyeSlashFill onClick={handlesUPConfPvis} />:<BsFillEyeFill onClick={handlesUPConfPvis} />}</span>
+                {!confirmPasswd(confPassword)&& confPassword !==""?<p style={{color:'red',fontSize:'0.7rem',padding:'5px 10px 10px', lineHeight:'2px'}}>Password does not match</p>:""}
                 <input type='tel' placeholder='Phone Number' onChange={(e) => setPhoneNumber(e.target.value)} value={phoneNumber} required/>
 
                 <input type='date' placeholder='Date of Birth'  onChange={(e) => setBirthDate(e.target.value)} value={birthDate} required/>
@@ -226,11 +249,17 @@ const LoginPage = () => {
             </form>
             <button type='submit' className='signupbtn' onClick={handleSubmit}>Create account</button>
             </>)
-            
-          }
+            :regCompleted?
+            <>
+            <BsFillCheckCircleFill style={{color:'green', fontSize:'3rem'}} />
+            <h5>You are all set!</h5>
+            <p style={{textAlign:'center'}}>Confirmation email has been sent to <b>{sUPEmail}</b></p>
+            <span style={{textDecoration:'underline', fontWeight:'400', cursor:'pointer'}} onClick={()=>{window.location.reload();}}>Sign-in</span>
+            </>:null
+              }
           
         </>
-      )}
+      ):null}
     </div>
     </div>
     </>

@@ -1,4 +1,4 @@
-import React, { Component, Text, View, useEffect, useState} from 'react';
+import React, { Component, Text, View, useEffect, useState,useRef} from 'react';
 import { AiOutlineShoppingCart,AiOutlineSearch,AiOutlineUser, AiOutlineHeart,AiOutlineEye, AiOutlineLogout,AiOutlineLogin } from 'react-icons/ai';
 import {MdOutlineSell,MdOutlineManageAccounts} from 'react-icons/md';
 import {CiLocationOff,CiReceipt,CiCircleChevDown} from 'react-icons/ci';
@@ -21,6 +21,7 @@ const  JupetaECnavBar = (props) => {
       const [searchKey,setSearchKey] = useState('');
       const [searchCatg,setSearchCatg] = useState('0');
       const [searchActive,setSearchActive] = useState(false);
+      const [srching,setsrching] = useState(false);
       const [isAuth,setisAuth] = useState(false);
       const citems = []; 
       const [cart,setCart] = useState([]);
@@ -32,6 +33,8 @@ const  JupetaECnavBar = (props) => {
       
 
     const nav = useNavigate();
+
+    const srchRef = useRef();
 
     const handleSigninClick = () => {
         !loggedin?setLoggedin(true):setLoggedin(false);
@@ -46,8 +49,10 @@ const  JupetaECnavBar = (props) => {
     }
     const handleSearchInput = (e) =>{
         setSearchKey(e.target.value);
+        //setsrching(true);
     }
     const handelSEO = () => {
+        searchKey == ''?window.location.reload():
         jupetaSEO({
             keyword:searchKey
             //PageNumber:1,
@@ -61,8 +66,26 @@ const  JupetaECnavBar = (props) => {
             //localStorage.setItem("SearchResult",JSON.stringify(responds.data.responseData));
             
         }).then(()=>{}).catch(err => {console.error(err); console.log("Item not found");});
+        
     }
 
+    //Handling of search suggestion div
+    useEffect(()=>{
+        let handler = (e) =>{
+            if(srchRef.current.contains(e.target)){
+                setsrching(true);
+            }else(setsrching(false));
+        
+
+        };
+
+        document.addEventListener("mousedown",handler);
+
+        return()=>{
+            document.removeEventListener("mousedown",handler,true);
+        }
+
+    });
 
     useEffect(()=>{
         console.log('re-rendered');
@@ -101,15 +124,15 @@ const  JupetaECnavBar = (props) => {
                             <option value='2'>Consumer Electronic</option>
                         </select>
                         </div>
-                        <div className="sBarcenter"><input type="text" name="search"  placeholder='Search for product..' onChange={handleSearchInput}/></div>
-                        <div className="sBarright"><Button onClick={()=>{handelSEO(); setSrchUpdt(!srchUpdt);}}>Search</Button></div>
+                        <div className="sBarcenter"><input type="text" name="search" ref={srchRef} placeholder='Search for product..' onChange={handleSearchInput} /></div>
+                        <div className="sBarright"><Button onClick={()=>{handelSEO(); setSrchUpdt(!srchUpdt);setsrching(false) }}>Search</Button></div>
                     </div>
                     
-                    {searchKey !== '' && <div className="searchResult showDiv">
+                    <div className={srching?"searchResult showDiv":"searchResult"}>
                         <ul>
                             {SearchKeyIndexes.map((keyword,index)=>{return  keyword.toLowerCase().includes(searchKey.toLowerCase()) &&<li key={index}>{keyword}</li>})}
                         </ul>
-                    </div>}
+                    </div>
                     
                 </div>
                 <div className="right">
