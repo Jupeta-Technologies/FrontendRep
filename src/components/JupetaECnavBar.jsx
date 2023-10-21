@@ -10,6 +10,7 @@ import { Link } from 'react-router-dom';
 import { Translate } from '@mui/icons-material';
 import { useNavigate } from "react-router-dom";
 import GenCatMenu from './GenCatMenu';
+import './scrollgencat.css'
 
 
 
@@ -163,14 +164,12 @@ const  JupetaECnavBar = (props) => {
                             {isAuth?<li onClick={()=>{localStorage.setItem("AuthStatus",false)}}><Link to={'/login'}><AiOutlineLogout id="uMicon"/><span>Sign out </span></Link></li>:<li><Link to={'/login'}><AiOutlineLogin id="uMicon"/><span>Sign in </span></Link></li>}
                         </ul>
                         </li>
-                    </ul>
-                    
-                   
-                    
-                    
+                    </ul>    
                 </div>
             </div>
-            <GenCatMenu sx={{marginTop:'50px'}}/> {/* logic needed to hide the categories menu with respect to the page the user is currently interacting with */}
+            <div className='sticky-gen-cat-menu'>
+                <GenCatMenu sx={{marginTop:'50px'}}/> {/* logic needed to hide the categories menu with respect to the page the user is currently interacting with */}
+            </div>
             </>
         );
     }

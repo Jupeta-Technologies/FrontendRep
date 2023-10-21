@@ -9,10 +9,9 @@ const HomePage = () => {
     <>
       <Hero/>
       <NewnavBar />
-      
-      
       <Tiles />
       <SellButton />
+      <DailyDeals />
       {/* <div className="bgPrimary paddingX flexStart">
       <div className="boxWidth">
          <DailyDeals />
