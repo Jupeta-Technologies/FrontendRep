@@ -27,6 +27,7 @@ const  JupetaECnavBar = (props) => {
       const citems = []; 
       const [cart,setCart] = useState([]);
       const [srchUpdt,setSrchUpdt] = useState(false);
+      const [isSticky, setIsSticky] = useState(false);
       var cartQty = 0; 
 
       
@@ -106,7 +107,27 @@ const  JupetaECnavBar = (props) => {
         console.log(cartQty);
     },[cartQty]);
     
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 0){
+                setIsSticky(true);
+            }
+            else{
+                setIsSticky(false);
+            }
+        }
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        }
+    },[])
+
+    
+
     const SearchKeyIndexes =['Apple', 'Samsung', 'Macbook', 'Laptop'];
+
+
 
         return (
             <>
@@ -168,7 +189,7 @@ const  JupetaECnavBar = (props) => {
                 </div>
             </div>
             <div className='sticky-gen-cat-menu'>
-                <GenCatMenu sx={{marginTop:'50px'}}/> {/* logic needed to hide the categories menu with respect to the page the user is currently interacting with */}
+                <GenCatMenu sx={{marginTop:'50px'}} isSticky={isSticky} /> {/* logic needed to hide the categories menu with respect to the page the user is currently interacting with */}
             </div>
             </>
         );
