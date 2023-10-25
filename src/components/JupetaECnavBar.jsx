@@ -7,31 +7,25 @@ import { Badge } from '@mui/material';
 import CartListitem from './CartListitem';
 import { jupetaSEO } from './SEOApi';
 import { Link } from 'react-router-dom';
-import { Translate } from '@mui/icons-material';
+import { Refresh, Translate } from '@mui/icons-material';
 import { useNavigate } from "react-router-dom";
 import GenCatMenu from './GenCatMenu';
 
 
 
-const  JupetaECnavBar = (props) => {
+const  JupetaECnavBar = () => {
 
-        
-      const {cartItems, onAdd, onRemove, setCartItems} = props
       const [loggedin,setLoggedin] = useState(false);
       const [searchKey,setSearchKey] = useState('');
       const [searchCatg,setSearchCatg] = useState('0');
       const [searchActive,setSearchActive] = useState(false);
       const [srching,setsrching] = useState(false);
       const [isAuth,setisAuth] = useState(false);
-      const citems = []; 
       const [cart,setCart] = useState([]);
-      const [srchUpdt,setSrchUpdt] = useState(false);
-      var cartQty = 0; 
-
+      const [srchUpdt,setSrchUpdt] = useState(false); 
       
-      
-      
-
+    
+    
     const nav = useNavigate();
 
     const srchRef = useRef();
@@ -63,7 +57,7 @@ const  JupetaECnavBar = (props) => {
         
             responds.status === 200 && nav('/srchResult',{ state: responds.data.responseData});
             
-            //localStorage.setItem("SearchResult",JSON.stringify(responds.data.responseData));
+            localStorage.setItem("SearchResult",JSON.stringify(responds.data.responseData));
             
         }).then(()=>{}).catch(err => {console.error(err); console.log("Item not found");});
         
@@ -79,7 +73,7 @@ const  JupetaECnavBar = (props) => {
 
         };
 
-        document.addEventListener("mousedown",handler);
+        document.addEventListener("mousedown",handler,true);
 
         return()=>{
             document.removeEventListener("mousedown",handler,true);
@@ -89,21 +83,18 @@ const  JupetaECnavBar = (props) => {
 
     useEffect(()=>{
         console.log('re-rendered');
-        const emcart = [];
-        localStorage.setItem("Cart",JSON.stringify(emcart));
         localStorage.setItem("srchUpdt",JSON.stringify(srchUpdt));
-    },[])
+    },[]);
     
     useEffect(()=>{
         setLoggedin(true);
         setisAuth(JSON.parse(localStorage.getItem("AuthStatus")));
     },[loggedin]);
 
-    
-    useEffect(()=>{
+    //Navbar cart update/refresh work around --- optimization needed
+    const updateNavCart = () =>{
         setCart(JSON.parse(localStorage.getItem("Cart")));
-        console.log(cartQty);
-    },[cartQty]);
+    }
     
     const SearchKeyIndexes =['Apple', 'Samsung', 'Macbook', 'Laptop'];
 
@@ -138,10 +129,10 @@ const  JupetaECnavBar = (props) => {
                 <div className="right">
                     <ul>
                         <li style={{cursor:'pointer'}}><AiOutlineSearch onClick={handleSearchicon} id='navSicon'/></li>
-                        <li ><AiOutlineShoppingCart id='navicon'/>
+                        <li onMouseOver={updateNavCart} ><AiOutlineShoppingCart id='navicon'/>
                             <ul className={"cartQview"}>
                             {
-                                cart !== null && cart.length > 0 ? cart.map((cartData,id) =>{ 
+                                cart !== null && cart.length> 0 ? cart.map((cartData,id) =>{ 
                                     return (
                                     <CartListitem  {...cartData} key={id}/>);
                                 }):null

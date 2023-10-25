@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './components/app.css';
 import './jupeta-ec.global.css';
-import { Routes, Route, BrowserRouter } from 'react-router-dom';
+import { Routes, Route} from 'react-router-dom';
 import FavoritesPage from './PAGES/favoritesPage';
 import CartPage from './PAGES/cartPage';
 import ProfilePage from './PAGES/profilePage';
@@ -25,7 +25,9 @@ function App() {
 
 
   const initCart = JSON.parse(localStorage.getItem("Cart"));
-  const [cartItems, setCartItems] = useState([]);
+  const [cartItems, setCartItems] = useState(initCart);
+
+
   
 
   const onAdd = (productdata) => {
@@ -54,14 +56,13 @@ function App() {
 
   useEffect(()=>{
     localStorage.setItem("Cart",JSON.stringify(cartItems));
-    console.log("Item added to cart");
   },[cartItems])
 /* <a>Learn React</a>  this is need to run Jest remove during production*/
   return (
     
     
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route path="/" element={<HomePage/>} />
         <Route path="/favorites" element={<FavoritesPage />} />
         <Route path="/cart" element={<CartPage cartItems={cartItems} onAdd={onAdd} onRemove={onRemove} setCartItems={setCartItems} />} />
         <Route path="/profile" element={<ProfilePage />} />

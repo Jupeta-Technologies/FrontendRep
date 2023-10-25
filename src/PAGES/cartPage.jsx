@@ -9,7 +9,7 @@ import { faCcPaypal } from '@fortawesome/free-brands-svg-icons';
 import { faApplePay } from '@fortawesome/free-brands-svg-icons';
 import { faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import brandicons from '../images/brandicons.png'
-import NewnavBar from '../components/JupetaECnavBar';
+import JupetaECnavBar from '../components/JupetaECnavBar';
 import { Container, Row, Col } from 'react-bootstrap'
 
 const CartPage = (props) => {
@@ -25,7 +25,7 @@ const CartPage = (props) => {
 
   return (
     <>
-      <NewnavBar />
+      <JupetaECnavBar />
       <Container style={{marginTop: '60px'}}>
             <Row>
                 <Col xs={7} style={{ minHeight: '1000px', display: 'flex', flexDirection: 'column'}}>

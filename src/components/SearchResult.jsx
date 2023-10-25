@@ -32,7 +32,7 @@ const SearchResult = (props) => {
 
   useEffect(()=>{
     setApiData(data);
-  },[srchupt,data]) // this checks for state changes to data and srchupt boolean
+  },[data]) // this checks for state changes to data and srchupt boolean
 
   
       

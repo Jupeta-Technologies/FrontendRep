@@ -36,6 +36,7 @@ const LoginPage = () => {
     const [emailVericode,setemalVericode] = useState("");
     const [inputEC,setinputEC] = useState(false);
     const [regCompleted, setregCompleted] = useState(false);
+    const [psdChcked,setpsdChcked] = useState("");
     
     const nav = useNavigate();
 
@@ -78,6 +79,26 @@ const LoginPage = () => {
         /^([a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+(?:[A-Z]{2}|com|org|net|gov|info|edu)\b)$/
       );
     };
+
+    const passwordFrmt = (pswd) =>{
+        var pswdChk = ""
+
+        if( 8 <= pswd.length && pswd.length <= 32  )
+              {
+                  if(!(/(?=.*[0-9])/).test(pswd) )
+                    pswdChk = "Must contain a number";
+                  else if(!(/(?=.*[a-z])/).test(pswd))
+                    pswdChk = "Must contain lower case letter";
+                  else if(!(/^(?=.*[A-Z])/).test(pswd) )
+                    pswdChk = "Must conatin upper case letter";
+                  else if(!(/^(?=.*[#?!@$%^&*-])/).test(pswd))
+                    pswdChk = "Must contain a symbol";
+              }else{pswdChk = "Minimum 8 charaters"}
+        console.log(pswdChk);
+        return pswdChk;
+    }
+
+    
 
     const confirmPasswd = (cpasswd) =>{
       return cpasswd.match(password);
@@ -122,6 +143,12 @@ const LoginPage = () => {
         e.preventDefault();
         setInputPassword(e.target.value);
     };
+
+    const handlesUPPwd=(e)=>{
+      e.preventDefault();
+      setPassword(e.target.value);
+      setpsdChcked(passwordFrmt(e.target.value));
+    }
     const LoginHandler = () => {
 
         UserLogin({
@@ -215,7 +242,7 @@ const LoginPage = () => {
             
               !emailVerified?(<>
                               <span>We've sent a verification code to</span>
-                              <p><b>{sUPEmail}</b><span style={{textDecoration:'underline', marginLeft:'5px', fontWeight:'400', cursor:'pointer'}}>edit</span></p>
+                              <p><b>{sUPEmail}</b><span style={{textDecoration:'underline', marginLeft:'5px', fontWeight:'400', cursor:'pointer'}} onClick={()=>{setemailValid(false)}}>edit</span></p>
                               <div className="form-ctrl">
                               <input type='text' minLength={6} maxLength={6} placeholder='Enter code' value={emailVericode} onInput={handleEVeriCode} required/>
                               </div>
@@ -228,18 +255,22 @@ const LoginPage = () => {
             <form className='formcontainer'>
               <div className='form-ctrl'>
                 <input type='text' placeholder='First Name'  onChange={(e) => setFirstName(e.target.value)} value={firstName} required/>
+                
                 <input type='text' placeholder='Last Name'  onChange={(e) => setLastName(e.target.value)} value={lastName} required/>
-                <input type={!showsUPPass?'password':'text'} placeholder='Password'  onChange={(e) => setPassword(e.target.value)} required style={{paddingRight:'50px'}}/><span style={{position:'absolute', right:'40px', cursor:'pointer',marginTop:'12px',fontSize:'18px'}}><BsFillEyeSlashFill onClick={handlesUPPASSvis} /></span>
-                {password.length < 10 && password !== "" ?<span style={{display:'inline-flex', flexDirection:'row', alignItems:'center',color:'red'}}><PiWarningCircleFill /> <span style={{fontSize:'0.7rem'}}>Minimum 10 characters</span></span>:""} 
+                
+                <input type={!showsUPPass?'password':'text'} placeholder='Password'  onChange={handlesUPPwd} value={password} required style={{paddingRight:'50px'}}/><span style={{position:'absolute', right:'40px', cursor:'pointer',marginTop:'12px',fontSize:'18px'}}><BsFillEyeSlashFill onClick={handlesUPPASSvis} /></span>
+                {password !== "" && psdChcked !== "" ?<span style={{display:'inline-flex', flexDirection:'row', alignItems:'center',color:'red'}}><PiWarningCircleFill /> <span style={{fontSize:'0.7rem'}}>{psdChcked}</span></span>:""} 
+                
                 <input type={!showConfPass?'password':'text'} placeholder='Confirm password' onChange={(e) => {setconfPassword(e.target.value); confirmPasswd(confPassword);}} value={confPassword}  required style={{paddingRight:'50px'}}/><span style={{position:'absolute', right:'40px', cursor:'pointer',marginTop:'12px',fontSize:'18px'}}>{!showConfPass?<BsFillEyeSlashFill onClick={handlesUPConfPvis} />:<BsFillEyeFill onClick={handlesUPConfPvis} />}</span>
                 {!confirmPasswd(confPassword)&& confPassword !==""?<p style={{color:'red',fontSize:'0.7rem',padding:'5px 10px 10px', lineHeight:'2px'}}>Password does not match</p>:""}
+                
                 <input type='tel' placeholder='Phone Number' onChange={(e) => setPhoneNumber(e.target.value)} value={phoneNumber} required/>
 
                 <input type='date' placeholder='Date of Birth'  onChange={(e) => setBirthDate(e.target.value)} value={birthDate} required/>
               </div>
-              <div>
+              {/* <div>
                 <p style={{fontSize: '0.9rem'}}>Get a jUPETA Member Reward on your birthday</p>
-              </div>
+              </div> */}
               <div className='checkboxitems'>
                 <input type='checkbox' required/>
                 <p style={{fontSize: '0.9rem'}}>I agree to jUPETA's Privacy Policy and Terms of Use</p>
@@ -247,7 +278,7 @@ const LoginPage = () => {
               
                 
             </form>
-            <button type='submit' className='signupbtn' onClick={handleSubmit}>Create account</button>
+            <button type='submit' className='signupbtn' onClick={dummyReg}>Create account</button>
             </>)
             :regCompleted?
             <>
