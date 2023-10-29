@@ -16,18 +16,6 @@ const GenCatMenu = (props) =>{
     return (<>
             <div className="GCMenu_Container" style={currLoc.pathname =='/'?{marginTop:"0px"}:props.sx}>
             <ul>
-                <li>{isSticky ? (<span className='CatgName'>Electronic</span>):
-                (<>
-                <div>
-                    <img src={elec} alt='' style={{objectFit: 'cover'}} /><span>Electronics</span>
-                </div>
-                </>)}
-                    <ul>
-                        <li className='text-3xl'>sub 1</li>
-                        <li>sub 2</li>
-                        <li>sub 3</li>
-                    </ul>
-                </li>
                 <li>
                     {isSticky ? (<span className='CatgName'>Home</span>):
                     (<>
@@ -36,18 +24,35 @@ const GenCatMenu = (props) =>{
                     </div>
                     </>)}
                 </li>
-                <li>{isSticky ? (<span className='CatgName'>Automobile</span>):
-                (<>
-                <div>
-                    <img src={automob} alt='' style={{objectFit: 'cover'}} /><span>Automobile</span>
-                </div>
-                </>)}</li>
-                <li>{isSticky ? (<span className='CatgName'>Fashion</span>):
-                (<>
-                <div>
-                    <img src={fashion} alt='' style={{objectFit: 'cover'}} /><span>Fashion</span>
-                </div>
-                </>)}</li>
+                <li>
+                    {isSticky ? (<span className='CatgName'>Automobile</span>):
+                    (<>
+                    <div>
+                        <img src={automob} alt='' style={{objectFit: 'cover'}} /><span>Automobile</span>
+                    </div>
+                    </>)}
+                </li>
+                <li>
+                    {isSticky ? (<span className='CatgName'>Electronics</span>):
+                    (<>
+                    <div>
+                        <img src={elec} alt='' style={{objectFit: 'cover'}} /><span>Electronics</span>
+                    </div>
+                    </>)}
+                    <ul style={{backgroundColor: 'red', width: '400px', height: '200px'}}>
+                        <li className='text-3xl'>sub 1</li>
+                        <li>sub 2</li>
+                        <li>sub 3</li>
+                    </ul>
+                </li>
+                <li>
+                    {isSticky ? (<span className='CatgName'>Fashion</span>):
+                    (<>
+                    <div>
+                        <img src={fashion} alt='' style={{objectFit: 'cover'}} /><span>Fashion</span>
+                    </div>
+                    </>)}
+                </li>
             </ul>
             </div>
     </>);
