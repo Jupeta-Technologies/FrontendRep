@@ -1,6 +1,10 @@
 import React from 'react';
 import {AiFillBook,AiFillCamera, AiFillCar, AiFillHome } from 'react-icons/ai';
 import { useLocation } from 'react-router-dom';
+import home from '../images/home.jpeg'
+import elec from '../images/elec.jpeg'
+import automob from '../images/automobile.jpeg'
+import fashion from '../images/fashion.jpeg'
 
 
 const GenCatMenu = (props) =>{
@@ -12,30 +16,43 @@ const GenCatMenu = (props) =>{
     return (<>
             <div className="GCMenu_Container" style={currLoc.pathname =='/'?{marginTop:"0px"}:props.sx}>
             <ul>
-                <li>{isSticky ? (<span className='CatgName'>Electronic</span>):
-                (<>
-                <AiFillCamera  className='CatgIcon'/><span className='CatgName'>Electronic</span>
-                </>)}
-                    <ul>
+                <li>
+                    {isSticky ? (<span className='CatgName'>Home</span>):
+                    (<>
+                    <div>
+                        <img src={home} alt='' style={{objectFit: 'cover'}} /><span>Home</span>
+                    </div>
+                    </>)}
+                </li>
+                <li>
+                    {isSticky ? (<span className='CatgName'>Automobile</span>):
+                    (<>
+                    <div>
+                        <img src={automob} alt='' style={{objectFit: 'cover'}} /><span>Automobile</span>
+                    </div>
+                    </>)}
+                </li>
+                <li>
+                    {isSticky ? (<span className='CatgName'>Electronics</span>):
+                    (<>
+                    <div>
+                        <img src={elec} alt='' style={{objectFit: 'cover'}} /><span>Electronics</span>
+                    </div>
+                    </>)}
+                    <ul style={{backgroundColor: 'red', width: '400px', height: '200px'}}>
                         <li className='text-3xl'>sub 1</li>
                         <li>sub 2</li>
                         <li>sub 3</li>
                     </ul>
                 </li>
                 <li>
-                    {isSticky ? (<span className='CatgName'>Home</span>):
+                    {isSticky ? (<span className='CatgName'>Fashion</span>):
                     (<>
-                    <AiFillHome className='CatgIcon' /><span className='CatgName'>Home</span>
+                    <div>
+                        <img src={fashion} alt='' style={{objectFit: 'cover'}} /><span>Fashion</span>
+                    </div>
                     </>)}
                 </li>
-                <li>{isSticky ? (<span className='CatgName'>Automobil</span>):
-                (<>
-                <AiFillCar className='CatgIcon' /><span className='CatgName'>Automobile</span>
-                </>)}</li>
-                <li>{isSticky ? (<span className='CatgName'>Books</span>):
-                (<>
-                <AiFillBook className='CatgIcon' /><span className='CatgName'>Books</span>
-                </>)}</li>
             </ul>
             </div>
     </>);

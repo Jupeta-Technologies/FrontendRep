@@ -103,7 +103,7 @@ const  JupetaECnavBar = () => {
     
     useEffect(() => {
         const handleScroll = () => {
-            if (window.scrollY > 0){
+            if (window.scrollY > 550){
                 setIsSticky(true);
             }
             else{
@@ -183,7 +183,7 @@ const  JupetaECnavBar = () => {
                 </div>
             </div>
             <div className='sticky-gen-cat-menu'>
-                <GenCatMenu sx={{marginTop:'50px'}} isSticky={isSticky} /> {/* logic needed to hide the categories menu with respect to the page the user is currently interacting with */}
+                <GenCatMenu sx={{marginTop:'50px'}} isSticky={isSticky} />
             </div>
             </>
         );
