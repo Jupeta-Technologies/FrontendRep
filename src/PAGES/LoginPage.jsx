@@ -1,6 +1,6 @@
 import React,{useState,useEffect} from 'react';
 import '../components/Loginpage.css';
-import { UserLogin } from '../components/UserAPI';
+import { UserLogin, GetRegistration_OTP, VerifyReg_OTP  } from '../components/UserAPI';
 import loginbg from '../images/login_bg.jpg';
 import { useNavigate } from 'react-router-dom';
 import {FcGoogle} from "react-icons/fc";
@@ -119,7 +119,14 @@ const LoginPage = () => {
       validateEmail(email)?setinputEC(true):setinputEC(false);
     }
     const checkEmail = ()=>{
-      setTimeout(()=>{setemailValid(true)},5000)
+      GetRegistration_OTP({
+        email:sUPEmail
+      }).then((res)=>{
+      console.log("Getting OTP :", res);
+      setTimeout(()=>{setemailValid(true)},5000)});
+      
+      //setTimeout(()=>{setemailValid(true)},5000);
+      
     }
 
     ///inputEC&&checkEmail(); automatically move to next step in account creation
@@ -131,8 +138,9 @@ const LoginPage = () => {
       e.preventDefault();
       const veriCode = e.target.value;
       setemalVericode(veriCode);
-      veriCode.length == 6?setemailVerified(true):setemailVerified(false);
-    }
+      veriCode.length == 4?
+      setTimeout(()=>{VerifyReg_OTP({otp:veriCode, email:sUPEmail}).then((res)=>{ console.log(res.data); (res.status == 200 && res.data.code == "0") && setemailVerified(true)})},5000) :setemailVerified(false);
+    };
 
     const handleInputEmail = (e)=>{
         e.preventDefault();
@@ -244,7 +252,7 @@ const LoginPage = () => {
                               <span>We've sent a verification code to</span>
                               <p><b>{sUPEmail}</b><span style={{textDecoration:'underline', marginLeft:'5px', fontWeight:'400', cursor:'pointer'}} onClick={()=>{setemailValid(false)}}>edit</span></p>
                               <div className="form-ctrl">
-                              <input type='text' minLength={6} maxLength={6} placeholder='Enter code' value={emailVericode} onInput={handleEVeriCode} required/>
+                              <input type='text' minLength={4} maxLength={4} placeholder='Enter code' value={emailVericode} onInput={handleEVeriCode} required/>
                               </div>
                               </>
                               ):emailVerified && !regCompleted?

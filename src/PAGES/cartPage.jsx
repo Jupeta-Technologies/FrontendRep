@@ -32,12 +32,12 @@ const CartPage = (props) => {
                     <section>
                         <h3><strong>YOUR BAG</strong></h3>
                         <h4>Total: {'[ '+ cartItems.length +' ]'}</h4>
-                    </section>
+                    
                     {cartItems.length === 0 && <div>Cart is Empty</div>}
                     {cartItems.map((item) => {
                       return(
                         <>
-                          <section style={{marginTop: '40px', display: 'flex', height: '230px', alignItems: 'center', padding: '15px', gap:'10px',borderRadius: '15px', backgroundColor: 'whitesmoke' }}>
+                          <div className='cartCard'>
                             <div className='cartproductimage'>
                               <img src={item.imageFileUrl} style={{width: '100%', height: '100%', objectFit: 'fill', mixBlendMode: 'multiply'}} alt={item.productName}/>
                             </div>
@@ -48,11 +48,6 @@ const CartPage = (props) => {
                               <h6 style={{marginTop: '15px'}}><strong>GHS {item.price}</strong></h6>
                             </div>
                             <div className='cartproductprice'>
-                              <div style={{display:'flex', width: '100%', justifyContent: 'right'}}>
-                                <section style={{backgroundColor: 'lightpink',width: '30px',height:'30px',display: 'flex', justifyContent: 'center',alignItems:'center',borderRadius: '50%'}}>
-                                  <FontAwesomeIcon icon={faTrashCan} color='red'></FontAwesomeIcon>
-                                </section>
-                              </div>
                               <div className='addsubtract'>
                                 <button onClick={() => onRemove(item)}>-</button>
                                 <h5>{item.qty}</h5>
@@ -61,11 +56,16 @@ const CartPage = (props) => {
                               <button>Save to wishlist</button>
                               <button>Save for later</button>
                             </div>
-                          </section>
+                  
+                                
+                                  <FontAwesomeIcon icon={faTrashCan} color='red' className='cartDelitem' style={{fontSize:'1.3rem', position:'absolute', top:'-7px',right:'-7px', backgroundColor:'#F1DCDC',borderRadius:'50px', padding:'25px 25px 20px 20px', cursor:'pointer'}} onClick={() => onRemove(item)}></FontAwesomeIcon>
+                                
+            
+                          </div>
                         </>
                       )
                     })}
-                    
+                   </section> 
                 </Col>
                 <Col xs={5} style={{ minHeight: '1000px', padding: '50px'}}>
                     {cartItems.length !== 0 && (

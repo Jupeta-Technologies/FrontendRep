@@ -1,3 +1,4 @@
+import { data } from "autoprefixer";
 import APIManager from "./APIManager";
 
 
@@ -28,4 +29,35 @@ export const UserSignUp = async (data) =>{
         return error.responseData;
     }
 }
+
+export const GetRegistration_OTP = async (data) =>{
+
+    try{
+        const regOTP = await APIManager('/User/GenerateOTPWithEmail',{
+            method:"GET",
+            headers:{'Content-Type':'application/json'},
+            params:data,
+            withCredentials:false
+        });
+        return regOTP;
+    } catch (error) {
+        return error.responseData;
+    }
+}
+
+export const VerifyReg_OTP = async (data) =>{
+
+    try{
+        const regOTP = await APIManager('/User/ValidateOTP',{
+            method:"GET",
+            headers:{'Content-Type':'application/json'},
+            params:data,
+            withCredentials:false
+        });
+        return regOTP;
+    } catch (error) {
+        return error.responseData;
+    }
+}
+
 
