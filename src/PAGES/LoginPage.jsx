@@ -286,7 +286,7 @@ const LoginPage = () => {
               
                 
             </form>
-            <button type='submit' className='signupbtn' onClick={dummyReg}>Create account</button>
+            <button type='submit' className='signupbtn' onClick={handleSubmit}>Create account</button>
             </>)
             :regCompleted?
             <>
