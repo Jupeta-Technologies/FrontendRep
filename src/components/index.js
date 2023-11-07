@@ -15,8 +15,8 @@ import RecentlyViewed from "./RecentlyViewed";
 import ProductColor from "./ProductColor";
 import ProductDetailsThumb from "./ProductDetailsThumb";
 import Tiles from "./Tiles";
-
-
+import Grid from "./Grid";
+import Grid2 from "./Grid2";
  
  export {
     Navbar,
@@ -36,4 +36,6 @@ import Tiles from "./Tiles";
     ProductColor,
     ProductDetailsThumb,
     Tiles,
+    Grid,
+    Grid2,
  };

@@ -1,5 +1,5 @@
 import React from 'react'
-import {Hero, DailyDeals, ExploreBestSelling, Footer, NewArrival, SignUp, WhatIsTrending, HolidaySale, SubNavbar, Navbar,Tiles } from '../components';
+import {Hero, DailyDeals, ExploreBestSelling, Footer, NewArrival, SignUp, WhatIsTrending, HolidaySale, SubNavbar, Navbar,Tiles,Grid,Grid2 } from '../components';
 import JupetaECnavBar from '../components/JupetaECnavBar';
 import SellButton from '../components/SellButton';
 import AllCategories from '../components/AllCategories';
@@ -12,7 +12,9 @@ const HomePage = () => {
       <JupetaECnavBar/>
       
       
+      <Grid2/>
       <Tiles />
+      <Grid/>
       <SellButton />
       <DailyDeals />
       {/* <div className="bgPrimary paddingX flexStart">
