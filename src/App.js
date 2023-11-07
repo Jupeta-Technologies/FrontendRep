@@ -19,13 +19,12 @@ import Overview from './PAGES/Overview';
 import ProductListing from './PAGES/ProductListing';
 import Tiles from './components/Tiles';
 import SearchResult from './components/SearchResult';
+<<<<<<< HEAD
 import { ThemeProvider } from 'styled-components';
+=======
+import SellListing from './components/SellListing';
+>>>>>>> 820c309e975d74f693aa8bcaae094aa6a6d47ca1
 
-const theme = {
-  media: {
-    mobile: '768px', 
-  },
-};
 
 function App() {
 
@@ -65,33 +64,28 @@ function App() {
   },[cartItems])
 /* <a>Learn React</a>  this is need to run Jest remove during production*/
   return (
-    <>
-    <ThemeProvider theme={theme}>
-  {/* Your application components */}
-</ThemeProvider>
-
-<Routes>
-  <>
-    <Route path="/" element={<HomePage />} />
-    <Route path="/favorites" element={<FavoritesPage />} />
-    <Route path="/cart" element={<CartPage cartItems={cartItems} onAdd={onAdd} onRemove={onRemove} setCartItems={setCartItems} />} />
-    <Route path="/profile" element={<ProfilePage />} />
-    <Route path="/allproducts" element={<AllCategories onAdd={onAdd} />} />
-    <Route path="/sell" element={<SellPage />} />
-    <Route path="/location" element={<Location />} />
-    <Route path="/createanaccount" element={<SignUpPage />} />
-    <Route path="/signup" element={<SignUp />} />
-    <Route exact path="/product-detail" element={<ProductDetailPage />} />
-    <Route path="/compTester" element={<CompTester />} />
-    <Route path="/login" element={<LoginPage />} />
-    <Route path="/welcome" element={<WelcomePage />} />
-    <Route path="/overview" element={<Overview />} />
-    <Route path="/productlisting" element={<ProductListing />} />
-    <Route path="/tiles" element={<Tiles />} />
-    <Route path="/srchResult" element={<SearchResult onAdd={onAdd} />} />
-  </>
-</Routes>
-</>
+    
+    
+      <Routes>
+        <Route path="/" element={<HomePage/>} />
+        <Route path="/favorites" element={<FavoritesPage />} />
+        <Route path="/cart" element={<CartPage cartItems={cartItems} onAdd={onAdd} onRemove={onRemove} setCartItems={setCartItems} />} />
+        <Route path="/profile" element={<ProfilePage />} />
+        <Route path="/allproducts" element={<AllCategories onAdd={onAdd} />} />
+        <Route path="/sell" element={<SellPage />} />
+        <Route path="/location" element={<Location />} />
+        <Route path="/createanaccount" element={<SignUpPage />} />
+        <Route path="/signup" element={<SignUp />} />
+        <Route exact path="/product-detail" element={<ProductDetailPage />} />
+        <Route path="/compTester" element={<CompTester />} />
+        <Route path='/login' element={<LoginPage />} />
+        <Route path='/welcome' element={<WelcomePage />} />
+        <Route path='/overview' element={<Overview />} />
+        <Route path='/productlisting' element={<ProductListing />} />
+        <Route path='/tiles' element={<Tiles />} />
+        <Route path='/srchResult' element={<SearchResult onAdd={onAdd} />} />
+      </Routes>
+      
 
   );
 }
