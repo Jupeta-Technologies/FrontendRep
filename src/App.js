@@ -19,11 +19,7 @@ import Overview from './PAGES/Overview';
 import ProductListing from './PAGES/ProductListing';
 import Tiles from './components/Tiles';
 import SearchResult from './components/SearchResult';
-<<<<<<< HEAD
-import { ThemeProvider } from 'styled-components';
-=======
 import SellListing from './components/SellListing';
->>>>>>> 820c309e975d74f693aa8bcaae094aa6a6d47ca1
 
 
 function App() {
@@ -84,6 +80,7 @@ function App() {
         <Route path='/productlisting' element={<ProductListing />} />
         <Route path='/tiles' element={<Tiles />} />
         <Route path='/srchResult' element={<SearchResult onAdd={onAdd} />} />
+        <Route path='/selllisting' element={<SellListing />} />
       </Routes>
       
 
