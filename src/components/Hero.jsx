@@ -11,7 +11,7 @@ const Hero = () => {
       position: 'relative',
       backgroundImage: `url(${heroImage})`,
       backgroundSize: 'cover',
-      height: '800px',
+      height: '1000px',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
@@ -23,14 +23,15 @@ const Hero = () => {
       sx={{
         position: 'absolute',
         bottom: '16px',
-        left: '16px',
+        left: '90px',
         borderRadius: '50%',
         backgroundColor: 'rgba(255, 255, 255, 0.5)',
-        width: '40px',
-        height: '40px',
+        width: '80px',
+        height: '80px',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
+        marginBottom: '450px'
       }}
     >
       
@@ -40,7 +41,7 @@ const Hero = () => {
             fontSize: '500px',
           }}
         >
-          <AiOutlineShoppingCart style={{fontSize:'20px'}}/>
+          <AiOutlineShoppingCart style={{fontSize:'40px'}}/>
         </IconButton>
     </Box>
   </Box>
