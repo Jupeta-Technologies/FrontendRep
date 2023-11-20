@@ -77,7 +77,7 @@ const GenCatMenu = (props) =>{
                         {isSticky ? (<span className='CatgName'>{category.name}</span>):
                         (<>
                         <div style={{display: 'flex', flexDirection: 'column', width: '100%', height: '100%'}}>
-                            <img src={category.imgSrc} alt='' style={{objectFit: 'cover', height: '80%'}} />
+                            <img src={category.imgSrc} alt='' style={{objectFit: 'cover', height: '80%', borderTopLeftRadius: '10px', borderTopRightRadius: '10px'}} />
                             <span>{category.name}</span>
                         </div>
                         </>)}
