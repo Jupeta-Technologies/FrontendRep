@@ -11,7 +11,7 @@ const Hero = () => {
       position: 'relative',
       backgroundImage: `url(${heroImage})`,
       backgroundSize: 'cover',
-      height: '600px',
+      height: '800px',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
