@@ -13,10 +13,29 @@ const GenCatMenu = (props) =>{
     const currLoc = window.location;
     const {isSticky} = props;
 
+    const categoryList = [
+        {
+            imgSrc : home,
+            name: "Home"
+        },
+        {
+            imgSrc: automob,
+            name: "Automobile"
+        },
+        {
+            imgSrc: elec,
+            name: "Electronics"
+        },
+        {
+            imgSrc: fashion, 
+            name: "Fashion"
+        }
+    ]
+
     return (<>
             <div className="GCMenu_Container" style={currLoc.pathname =='/'?{marginTop:"0px"}:props.sx}>
             <ul>
-                <li>
+                {/* <li>
                     {isSticky ? (<span className='CatgName'>Home</span>):
                     (<>
                     <div>
@@ -52,7 +71,18 @@ const GenCatMenu = (props) =>{
                         <img src={fashion} alt='' style={{objectFit: 'cover'}} /><span>Fashion</span>
                     </div>
                     </>)}
-                </li>
+                </li> */}
+                {categoryList.map((category) => (
+                    <li style={{width: '10%',height: '150px', marginLeft: '20px', marginTop: '80px'}}>
+                        {isSticky ? (<span className='CatgName'>{category.name}</span>):
+                        (<>
+                        <div style={{display: 'flex', flexDirection: 'column', width: '100%', height: '100%'}}>
+                            <img src={category.imgSrc} alt='' style={{objectFit: 'cover', height: '80%'}} />
+                            <span>{category.name}</span>
+                        </div>
+                        </>)}
+                    </li>
+                ))}
             </ul>
             </div>
     </>);
