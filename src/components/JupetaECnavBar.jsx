@@ -103,7 +103,7 @@ const  JupetaECnavBar = () => {
     
     useEffect(() => {
         const handleScroll = () => {
-            if (window.scrollY > 950){
+            if (window.scrollY > 770){
                 setIsSticky(true);
             }
             else{
