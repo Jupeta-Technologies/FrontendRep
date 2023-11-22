@@ -10,6 +10,7 @@ const HomePage = () => {
     <>
       <Hero/>
       <JupetaECnavBar/>
+      <ExploreBestSelling />
       <Tiles />
       <SellButton />
       <DailyDeals />
