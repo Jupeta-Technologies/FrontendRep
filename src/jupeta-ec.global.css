@@ -5,6 +5,13 @@
 body{
 background-color: #FFF;}
 
+.mainContainer{
+    max-width: 1440px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 
 .cardContainer{
     width: 250px; 
@@ -240,3 +247,74 @@ background-color: #FFF;}
 .GCMenu_Container ul li > ul li {width:100%; height: auto; background-color: transparent; cursor: pointer; color: #000; border-radius: 0px;}
 .GCMenu_Container ul li ul li:hover{ background: #D9D9D9;}
 .GCMenu_Container ul li:hover ul{display:inline-flex; z-index: 999;}
+
+/*Item listing style */
+
+:root{
+    --primaryCardColor:#e7e7e759;
+}
+
+.listDetail, .listSpecs, .listDesc, .listPrice, .listPhotos{
+    width: 100%;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    background-color:var(--primaryCardColor) ;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    padding: 30px;
+
+}
+
+.listDetail .ConTyQty{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: 30px;
+
+
+}
+.ConTyQty .Qty > p {
+    width: 100px;
+    height: 50px;
+    border-radius: 10px;
+    text-align: center;
+    background-color: #FFF;
+}
+
+.listDesc > input{
+    width: 100%;
+    height: 100%;
+    align-items: flex-start;
+    outline: none;
+
+}
+
+.listPrice{flex-direction: row; justify-content: space-between; align-content: flex-start;}
+
+.listPhotos{
+    height: 500px;
+    background-color: #FFF;
+}
+.listPhotos ol{
+    display: grid;
+    grid-template-columns:repeat(5, 1fr);
+    gap: 10px;
+    grid-auto-rows: minmax(200px ,auto);
+    border-radius: 20px;
+    overflow: hidden;
+    padding: 10px;
+    justify-content: center;
+}
+
+.listPhotos ol li{ 
+    display: flex;
+    background-color: #e7e7e759;
+    border-radius: 10px;
+    justify-content: center;
+    align-items:center;
+}
+
+.listPhotos ol li:nth-child(1){
+    grid-row:1/3;
+}
