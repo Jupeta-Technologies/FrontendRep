@@ -8,7 +8,7 @@ import BuyBidbutton from './components/cardcomponents/buybidButton';
 const ItemCardglobal = (prodData) => {
     const {price,productName,imageFileUrl,sellingType,condition, onAdd, productdata,id} = prodData;
     const date = new Date();
-    const addcart = <AiOutlineShoppingCart className='shoppingcartIcon' />;
+    const addcart = <AiOutlineShoppingCart className='shoppingcartIcon'  onAdd={onAdd} productdata={prodData}/>;
     const watchlist = <AiOutlineEye className='shoppingcartIcon' />;
     return ( 
             

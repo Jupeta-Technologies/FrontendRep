@@ -8,6 +8,7 @@ const HomePage = () => {
 
   return (
     <>
+
       <Hero/>
       <JupetaECnavBar/>
       <ExploreBestSelling />

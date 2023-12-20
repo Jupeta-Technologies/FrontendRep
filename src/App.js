@@ -49,12 +49,7 @@ function App() {
     }
   };
   
- useEffect(()=>{
-    const data = JSON.parse(localStorage.getItem("Cart"));
-    localStorage.setItem("Cart",JSON.stringify(data));
-    initCart == null && setCartItems(data);
-  },[initCart]);
-
+ 
   useEffect(()=>{
     localStorage.setItem("Cart",JSON.stringify(cartItems));
   },[cartItems])

@@ -1,19 +1,33 @@
-import {React} from 'react';
+import {React,useState} from 'react';
 import {lenovo} from '../images/lenovo.jpg';
 import { IoToggleSharp, IoAddCircle } from "react-icons/io5";
+import Specs from './ItemSpecs.json';
 
 
 function SellListingSpecs(){
+ const data = Specs.Electronics
+ const [prodSpecs,setprodSpecs] = useState({Brand:"Apple",Model:"iPhone 15 Pro Max"});
 
-    
 
     return (
         <>
+
+        {
+            //Create edit pop-up window/modal to change default values base on user prefs
+
+            //data.entries(data.Electronics)
+            // this is getting just the keys from a JSON object
+            //Object.keys(data.Brand).map((x)=>{return console.log(x +" : "+data.Brand[x])})
+            /* <select onChange={(e)=>{setBrand(e.target.value)}}>{
+            data.Brands.map((x)=>{return <option value={x}>{x}</option>})
+            }
+            </select> */
+        }
         <table>
             <tbody>
             <tr>
             <td style={{width:'200px'}}>Brand</td>
-            <td>Lenovo</td>
+            <td>{prodSpecs.Brand}</td>
             </tr>
             <tr>
             <td>Screen size</td>
@@ -26,14 +40,15 @@ function SellListingSpecs(){
     );
 }
 
-function SelllistPrice(){
+function SelllistPrice(props){
+
 
     return (
         <>
         <div className="listPrice">
                     <div className="setPrice">
                         <p>Recommended</p>
-                        <p style={{fontSize:'40px', color:'#2E6F94'}}>Ghc 1299.99</p>
+                        <p style={{fontSize:'40px', color:'#2E6F94'}}>Ghc {props.price}</p>
 
                         <p>Accepting Offer</p>
 

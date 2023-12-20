@@ -51,7 +51,7 @@ const  JupetaECnavBar = () => {
         //setsrching(true);
     }
     const handelSEO = () => {
-        searchKey == ''?window.location.reload():
+        searchKey === ''?window.location.reload():
         jupetaSEO({
             keyword:searchKey
             //PageNumber:1,
@@ -89,6 +89,7 @@ const  JupetaECnavBar = () => {
     useEffect(()=>{
         console.log('re-rendered');
         localStorage.setItem("srchUpdt",JSON.stringify(srchUpdt));
+        localStorage.setItem("Cart",'[]');
     },[]);
     
     useEffect(()=>{
