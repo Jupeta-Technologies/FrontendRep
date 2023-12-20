@@ -16,17 +16,14 @@ const SellListing = () =>{
     //Some data fields will have default values
     const [listData,setlistData] = useState({Title:'', Condition:'', Price:1299.99, Description:"", Quantity:1,Specification:{}, sellType:'' });
 
-    let [edtext,setedText] = useState('');
-
     const handelDataChange = (e) =>{
         
-        setlistData({...listData,[e.target.name]:e.target.value})
+        setlistData({...listData,[e.target.name]:e.target.value});
        
     }
 
     const setImg = (e) => {
-        let imgsrc = URL.createObjectURL(e.target.files[0])
-
+        let imgsrc = URL.createObjectURL(e.target.files[0]);
         setdefaultImg(imgsrc);
 
     }
