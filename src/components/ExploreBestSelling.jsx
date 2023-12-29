@@ -42,7 +42,7 @@ const ExploreBestSelling = () => {
   };
 
   return (
-    <div style={{marginTop: '100px'}}>
+    <div style={{marginTop: '150px'}}>
       <h1 style={{ marginBottom: '16px', textAlign: 'center' }}>EXPLORE BEST SELLING</h1>
       <div className='productscontainer'>
         <Carousel responsive={responsive}>
