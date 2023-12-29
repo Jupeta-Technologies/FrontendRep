@@ -35,50 +35,13 @@ const GenCatMenu = (props) =>{
     return (<>
             <div className="GCMenu_Container" style={currLoc.pathname =='/'?{marginTop:"0px"}:props.sx}>
             <ul>
-                {/* <li>
-                    {isSticky ? (<span className='CatgName'>Home</span>):
-                    (<>
-                    <div>
-                        <img src={home} alt='' style={{objectFit: 'cover'}} /><span>Home</span>
-                    </div>
-                    </>)}
-                </li>
-                <li>
-                    {isSticky ? (<span className='CatgName'>Automobile</span>):
-                    (<>
-                    <div>
-                        <img src={automob} alt='' style={{objectFit: 'cover'}} /><span>Automobile</span>
-                    </div>
-                    </>)}
-                </li>
-                <li>
-                    {isSticky ? (<span className='CatgName'>Electronics</span>):
-                    (<>
-                    <div>
-                        <img src={elec} alt='' style={{objectFit: 'cover'}} /><span>Electronics</span>
-                    </div>
-                    </>)}
-                    <ul style={{backgroundColor: 'red', width: '400px', height: '200px'}}>
-                        <li className='text-3xl'>sub 1</li>
-                        <li>sub 2</li>
-                        <li>sub 3</li>
-                    </ul>
-                </li>
-                <li>
-                    {isSticky ? (<span className='CatgName'>Fashion</span>):
-                    (<>
-                    <div>
-                        <img src={fashion} alt='' style={{objectFit: 'cover'}} /><span>Fashion</span>
-                    </div>
-                    </>)}
-                </li> */}
                 {categoryList.map((category) => (
-                    <li style={{width: '10%',height: '150px', marginLeft: '20px', marginTop: '80px'}}>
-                        {isSticky ? (<span className='CatgName'>{category.name}</span>):
+                    <li style={{width: '20%',height: '190px', marginLeft: '20px', marginTop: '120px'}}>
+                        {isSticky ? (<span className='CatgName'><b>{category.name}</b></span>):
                         (<>
                         <div style={{display: 'flex', flexDirection: 'column', width: '100%', height: '100%'}}>
                             <img src={category.imgSrc} alt='' style={{objectFit: 'cover', height: '80%', borderTopLeftRadius: '10px', borderTopRightRadius: '10px'}} />
-                            <span>{category.name}</span>
+                            <span><b>{category.name}</b></span>
                         </div>
                         </>)}
                     </li>
