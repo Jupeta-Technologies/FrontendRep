@@ -25,6 +25,10 @@ import SellListing from './components/SellListing';
 function App() {
 
 
+  useEffect(()=>{
+    localStorage.setItem("Cart",JSON.stringify());
+});
+
   const initCart = JSON.parse(localStorage.getItem("Cart"));
   const [cartItems, setCartItems] = useState(initCart);
 

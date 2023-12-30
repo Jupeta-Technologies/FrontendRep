@@ -86,11 +86,7 @@ const  JupetaECnavBar = () => {
 
     });
 
-    useEffect(()=>{
-        console.log('re-rendered');
-        localStorage.setItem("srchUpdt",JSON.stringify(srchUpdt));
-        localStorage.setItem("Cart",'[]');
-    },[]);
+    
     
     useEffect(()=>{
         setLoggedin(true);

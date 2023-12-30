@@ -70,7 +70,7 @@ const Footer = () => {
       display="flex"
       justifyContent="space-between"
       marginTop="1.5rem"
-      style={{ color: '#FFF', background: '#696663' }}
+      style={{ color: '#000', background: '#e7e7e7' }}
     >
       {footerLinks.map((footerLink) => (
         <div key={footerLink.title}>

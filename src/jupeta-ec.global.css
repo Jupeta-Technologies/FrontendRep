@@ -251,7 +251,7 @@ background-color: #FFF;}
 /*Item listing style */
 
 :root{
-    --primaryCardColor:#e7e7e759;
+    --primaryCardColor:#F9F9F9;
 }
 
 .listDetail, .listSpecs, .listDesc, .listPrice, .listPhotos{
@@ -314,6 +314,7 @@ background-color: #FFF;}
     border-radius: 10px;
     justify-content: center;
     align-items:center;
+    cursor: pointer;
 }
 
 .listPhotos ol li:nth-child(1){
