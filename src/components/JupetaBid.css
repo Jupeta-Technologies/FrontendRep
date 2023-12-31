@@ -1,0 +1,13 @@
+.j-bidContainer{
+    margin-top: 100px; 
+    width: 350px;
+    height: 250px;
+    background-color: #F9F9F9;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.j-bidContainer input{
+    height: 30px;
+}

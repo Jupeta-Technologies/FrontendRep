@@ -245,7 +245,7 @@ const LoginPage = () => {
             <input type="email" id="email" placeholder="Enter email address" required value={sUPEmail} onChange={handlesUPemail} style={inputEC? {border:"1px solid green"}:(!emailValid&&sUPEmail!==''?{border:"1px solid red",boxShadow:'inset 0px 0px 5px red'}:null)}/>
             {!inputEC&& sUPEmail !==""?<span style={{display:'inline-flex', flexDirection:'row', alignItems:'center',color:'red'}}><PiWarningCircleFill /> <span style={{fontSize:'0.8rem',marginLeft:'5px'}}>Email is invalid</span></span>:""}
             </div>
-            <BsFillArrowRightCircleFill className='validEmail' onClick={checksUPemail}/>
+            <BsFillArrowRightCircleFill className='validEmail' onClick={checksUPemail} type='submit'/>
           </>):
             
               !emailVerified?(<>
