@@ -22,12 +22,23 @@ import SearchResult from './components/SearchResult';
 import SellListing from './components/SellListing';
 
 
+
 function App() {
 
+  const [searchResults, setSearchResults] = useState([]);
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  // ... Other state and functions ...
 
-  useEffect(()=>{
-    localStorage.setItem("Cart",JSON.stringify());
-});
+  const handleSearch = (searchTerm) => {
+    // Implement search and filter logic here.
+    // Update the searchResults state with the filtered results.
+    // Example: You can use the searchTerm to filter products.
+    const data = []; // Define your data source here.
+    const filteredResults = data.filter(item => item.name.includes(searchTerm));
+    
+    setSearchResults(filteredResults);
+  };
 
   const initCart = JSON.parse(localStorage.getItem("Cart"));
   const [cartItems, setCartItems] = useState(initCart);
@@ -53,14 +64,38 @@ function App() {
     }
   };
   
- 
+ useEffect(()=>{
+    const data = JSON.parse(localStorage.getItem("Cart"));
+    localStorage.setItem("Cart",JSON.stringify(data));
+    initCart == null && setCartItems(data);
+  },[initCart]);
+
   useEffect(()=>{
     localStorage.setItem("Cart",JSON.stringify(cartItems));
   },[cartItems])
 /* <a>Learn React</a>  this is need to run Jest remove during production*/
+useEffect(() => {
+  const fetchData = async () => {
+    try {
+      const response = await fetch('https://ec2-44-197-193-3.compute-1.amazonaws.com/api/User/GetAllProducts'); 
+      if (!response.ok) {
+        throw new Error('Failed to fetch data');
+      }
+      const data = await response.json();
+      setProducts(data);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  fetchData();
+}, []);
+
   return (
     
-    
+    <div>
       <Routes>
         <Route path="/" element={<HomePage/>} />
         <Route path="/favorites" element={<FavoritesPage />} />
@@ -80,9 +115,9 @@ function App() {
         <Route path='/tiles' element={<Tiles />} />
         <Route path='/srchResult' element={<SearchResult onAdd={onAdd} />} />
         <Route path='/selllisting' element={<SellListing />} />
+        <Route path="/product-detail/:productId" element={<ProductDetailPage products={products} />} />
       </Routes>
-      
-
+    </div>
   );
 }
 
