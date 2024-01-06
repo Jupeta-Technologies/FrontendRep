@@ -51,7 +51,7 @@ const  JupetaECnavBar = () => {
         //setsrching(true);
     }
     const handelSEO = () => {
-        searchKey === ''?window.location.reload():
+        searchKey == ''?window.location.reload():
         jupetaSEO({
             keyword:searchKey
             //PageNumber:1,
@@ -83,10 +83,30 @@ const  JupetaECnavBar = () => {
         return()=>{
             document.removeEventListener("mousedown",handler,true);
         }
+      })
+      
+    //Handling of search suggestion div
+    useEffect(() => {
+        let handler = (e) => {
+          if (srchRef.current && srchRef.current.contains(e.target)) {
+            setsrching(true);
+          } else {
+            setsrching(false);
+          }
+        };
+      
+        document.addEventListener("mousedown", handler);
+      
+        return () => {
+          document.removeEventListener("mousedown", handler, true);
+        };
+      }, [srchRef]);
+      
 
-    });
-
-    
+    useEffect(()=>{
+        console.log('re-rendered');
+        localStorage.setItem("srchUpdt",JSON.stringify(srchUpdt));
+    },[]);
     
     useEffect(()=>{
         setLoggedin(true);
@@ -100,7 +120,7 @@ const  JupetaECnavBar = () => {
     
     useEffect(() => {
         const handleScroll = () => {
-            if (window.scrollY > 770){
+            if (window.scrollY > 550){
                 setIsSticky(true);
             }
             else{
@@ -122,6 +142,7 @@ const  JupetaECnavBar = () => {
 
         return (
             <>
+
             <div className={searchActive?'navBarv0 sBarColor':'navBarv0'} >
                 <div className="left">
                     
