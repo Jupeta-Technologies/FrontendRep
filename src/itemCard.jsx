@@ -6,7 +6,7 @@ import BuyBidbutton from './components/cardcomponents/buybidButton';
 
 
 const ItemCardglobal = (prodData) => {
-    const {price,productName,imageFileUrl,sellingType,condition, onAdd, productdata,id} = prodData;
+    const {price,productName,imageFileUrl,sellingType,condition, onAdd, productdata,id,summary} = prodData;
     const date = new Date();
     const addcart = <AiOutlineShoppingCart className='shoppingcartIcon'  onAdd={onAdd} productdata={prodData}/>;
     const watchlist = <AiOutlineEye className='shoppingcartIcon' />;
@@ -18,7 +18,7 @@ const ItemCardglobal = (prodData) => {
                 <AiFillHeart  className='favoriteIcon'/>
                 <ItemIMG src={imageFileUrl}/>
                 <p className='itemName'>{productName}</p>
-                <p className='itemBriefDscr'>True Wireless Noise Cancelling Earbuds</p>
+                <p className='itemBriefDscr'>{summary}</p>
                 <p className='itemPrice'>¢{price}</p>
                 
                 <BuyBidbutton tag={sellingType === 'BuyNow'?'Buy Now': 'Bid Now'} onAdd={onAdd}  productdata={prodData}/>
