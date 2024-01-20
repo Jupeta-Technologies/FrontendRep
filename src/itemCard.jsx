@@ -24,7 +24,7 @@ const ItemCardglobal = (prodData) => {
                 <p className='itemPrice'>¢{price}</p>
                 
                 <Link to={`/product-detail/${id}`}>
-        <BuyBidbutton tag={sellingType === 'BuyNow' ? 'Buy Now' : 'Bid Now'} onAdd={onAddToCart} />
+        <BuyBidbutton tag={sellingType === 'BuyNow' ? 'Buy Now' : 'Bid Now'} onAdd={onAdd} />
       </Link>
 
       {sellingType === 'BuyNow' ? addcart : watchlist}
