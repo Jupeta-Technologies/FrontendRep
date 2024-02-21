@@ -1,0 +1,44 @@
+.container-details{
+    height: 400px;
+    width: 600px;
+    display: flex;
+    
+    }
+    
+    .deschead-label{
+        display: flex;
+        width:100%;
+        align-items: left;
+        font-weight: 400;
+        font-size: larger;
+        position:absolute;
+        cursor: pointer;
+        text-align:left;
+        margin-left: 200px;
+    
+    }
+    .toggle-space {
+        margin-right: 100px;
+      }
+    
+      .desc-rev-ven-pad {
+        width: 1000px;
+        display: flex;
+        flex-direction: column; /* Display children elements in a column */
+        margin-top: 50px;
+        margin-left: 200px;
+        background-color: #F9F9F9;
+        padding: 20px; /* Add padding to provide space around the content */
+    }
+   .toggle-space .active{
+        background-color: #000;
+        color: #FFF;
+        padding: 5px 5px;
+        width:20%;
+        cursor: pointer;
+        font-size:medium;
+        font-weight:400;
+        border-radius: 15px 15px 0 0;
+        text-align:center;
+    
+    }
