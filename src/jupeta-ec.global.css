@@ -31,7 +31,7 @@ background-color: #FFF;}
 .cardContainer:hover .buybidButton{opacity: 1;}
 .cardContainer p{text-align: center;}
 .cardContainer .itemName{font-weight: 500;margin-top: 15px; font-size: 13px;}
-.cardContainer .itemBriefDscr{font-size:x-small;color: #696663;}
+.cardContainer .itemBriefDscr{font-size:x-small;color: #696663;text-align: center;}
 
 .gShadow{
     border-radius: 10px;
@@ -52,7 +52,7 @@ background-color: #FFF;}
 .cardContainer .itemPrice{
     width:100%; 
     position: absolute; 
-    bottom: 60px; 
+    bottom: 30px; 
     font-size: 16px; 
     font-weight: 600; 
 }
@@ -320,3 +320,5 @@ background-color: #FFF;}
 .listPhotos ol li:nth-child(1){
     grid-row:1/3;
 }
+/* product details */
+
