@@ -69,12 +69,12 @@ const Footer = () => {
     <Box
       display="flex"
       justifyContent="space-between"
-      marginTop="1.5rem"
-      style={{ color: '#000', background: '#e7e7e7' }}
+      marginTop="10px"
+      style={{ color: '#fff', background: '#000' }}
     >
       {footerLinks.map((footerLink) => (
         <div key={footerLink.title}>
-          <Typography variant="h4" fontWeight="medium" marginBottom="0.8rem" fontSize="1.2rem">
+          <Typography variant="h4" fontWeight="medium" marginBottom="0.8rem" fontSize="1.2rem" marginTop="30px"   marginLeft="10px">
             {footerLink.title}
           </Typography>
           <List>

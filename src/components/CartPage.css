@@ -139,4 +139,235 @@
     visibility: hidden;
 }
 
+.bag{
+    padding: 5px 5px;
+    width:60%;
+    background-color: #FFF;
+    color: #000;
+    cursor: pointer;
+    font-size:small;
+    font-weight:400;
+    text-align:center;
+    border-radius:10px;
+  }
+  .delivery{
+    padding: 5px 5px;
+    width:60%;
+    background-color: #FFF;
+    color: #000;
+    cursor: pointer;
+    font-size:small;
+    font-weight:400;
+    text-align:center;
+    border-radius:10px;
+  }
+  .payment{
+    padding: 5px 5px;
+    width:60%;
+    background-color: #FFF;
+    color: #000;
+    cursor: pointer;
+    font-size:small;
+    font-weight:400;
+    text-align:center;
+    border-radius:10px;
+  }
+  .complete{
+    padding: 5px 5px;
+    width:60%;
+    background-color: #FFF;
+    color: #000;
+    cursor: pointer;
+    font-size:small;
+    font-weight:400;
+    text-align:center;
+    border-radius:10px;
+  }
+  .head-label {
+    display: flex;
+    width:100%;
+    align-items: center;
+    font-weight: bold;
+    font-size: large;
+    position:absolute;
+    top: 20px;
+    left: calc(25%);
+    margin-top: 20px;
 
+  }
+  .container-Checkout{
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .circle-badge {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    border-radius: 50%;
+    background-color:  dimgray;
+    color: white; 
+    margin-right: 5px; 
+  }
+  .active{
+    cursor: pointer;
+   
+}
+  .circle-badge.active {
+    background-color: #000; 
+    font-weight: bold; 
+  }
+
+  .formcontainer{
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    align-items: center;
+    width:500px;
+     height:700px; 
+    padding: 30px;
+    padding-bottom: 15px;
+    border-radius: 20px;
+    background-color:#FFF;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    border-radius: 20px;
+    margin-top: 20px;
+  }
+  
+  .form-ctrl {
+    width: 100%;
+    margin-bottom: 1rem;
+    border: none;
+    padding: 0px;
+    gap: 10px;
+    }
+
+
+  .form-ctrl-firstName,
+  .form-ctrl-lastName {
+    display: flex;
+  flex-direction: row; 
+  gap: 10px;
+  }
+  
+  .form-ctrl label {
+    display: block;
+    margin-bottom: 3px;
+    font-size: 15px;
+    position: absolute;
+    line-height: 46px;
+    z-index:1;
+    color: #959292;
+    transition:all ease 0.5s;
+    padding-left: 10px;
+  }
+  
+  .form-ctrl input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #d5d2d2d3;
+    font-size: 1rem;
+    margin-bottom: 5px;
+    background-color: transparent;
+  }
+  .form-ctrl input:focus{outline: none;}
+
+ 
+  /** @format */
+.cart {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding: 128px;
+}
+.cart .card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.cart .card img {
+  width: 40px;
+  height: 40px;
+}
+.cart .card p {
+  width: 200px;
+}
+.cart .card .quantity {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.cart .card .quantity p {
+  width: 50px;
+  text-align: center;
+}
+.cart .card .quantity button {
+  width: 50px;
+}
+.cart .total {
+  text-align: right;
+  border-top: 1px solid black;
+}
+
+.form-box{
+  display: flex;
+  position: absolute;
+  flex-direction: column;
+  align-items: center;
+  width:500px;
+   height:950px; 
+  padding: 30px;
+  padding-bottom: 15px;
+  border-radius: 20px;
+  background-color:#FFF;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.summaryform{
+  display: flex;
+  position: absolute;
+  flex-direction: column;
+  align-items: center;
+  width:450px;
+   height:250px; 
+  padding: 30px;
+  padding-bottom: 15px;
+  border-radius: 20px;
+  background-color:#FFF;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.paymentForm{
+  display: flex;
+  position: absolute;
+  flex-direction: column;
+  align-items: center;
+  width:450px;
+   height:550px; 
+  padding: 30px;
+  padding-bottom: 15px;
+  border-radius: 20px;
+  background-color:#FFF;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  margin-top: 350px;
+}
+
+.spacer{
+  margin-top: 300px;
+}
