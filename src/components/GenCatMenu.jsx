@@ -33,16 +33,14 @@ const GenCatMenu = (props) =>{
     ]
 
     return (<>
-            <div className="GCMenu_Container" style={currLoc.pathname =='/'?{marginTop:"0px"}:props.sx}>
+            <div className="GCMenu_Container" style={currLoc.pathname ==='/'?{marginTop:"0px"}:props.sx}>
             <ul>
                 {categoryList.map((category) => (
-                    <li style={{width: '20%',height: '190px', marginLeft: '20px', marginTop: '120px'}}>
+                    <li>
                         {isSticky ? (<span className='CatgName'><b>{category.name}</b></span>):
                         (<>
-                        <div style={{display: 'flex', flexDirection: 'column', width: '100%', height: '100%'}}>
-                            <img src={category.imgSrc} alt='' style={{objectFit: 'cover', height: '80%', borderTopLeftRadius: '10px', borderTopRightRadius: '10px'}} />
-                            <span><b>{category.name}</b></span>
-                        </div>
+                            <img src={category.imgSrc} alt=''/>
+                            <h6>{category.name}</h6>
                         </>)}
                     </li>
                 ))}

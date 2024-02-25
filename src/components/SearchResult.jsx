@@ -97,7 +97,7 @@ const SearchResult = (props) => {
               <div className="productspagetitle"></div>
               <div className="productssection">
                 {apiData.map((prodData) => (
-                  <ItemCardglobal {...prodData} key={prodData.id} onAdd={onAdd} />
+                  <ItemCardglobal {...prodData} key={prodData.id} /> // Removed onAdd={onAdd} 
                 ))}
               </div>
             </div>

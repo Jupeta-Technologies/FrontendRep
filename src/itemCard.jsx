@@ -7,11 +7,15 @@ import { Link } from 'react-router-dom';
 
 
 
+
 const ItemCardglobal = (prodData) => {
+  
     const {price,productName,imageFileUrl,sellingType,condition, onAdd, productdata,id,summary} = prodData;
     const date = new Date();
-    const addcart = <AiOutlineShoppingCart className='shoppingcartIcon'  onAdd={onAdd} productdata={prodData}/>;
+    const addcart = <AiOutlineShoppingCart className='shoppingcartIcon' onAdd={onAdd} productdata={prodData}/>;
     const watchlist = <AiOutlineEye className='shoppingcartIcon' />;
+
+    
     return ( 
             
             <div className='cardContainer' key={id}>
@@ -23,9 +27,9 @@ const ItemCardglobal = (prodData) => {
                 <p className='itemBriefDscr'>{summary}</p>
                 <p className='itemPrice'>¢{price}</p>
                 
-                <Link to={`/product-detail/${id}`}>
-        <BuyBidbutton tag={sellingType === 'BuyNow' ? 'Buy Now' : 'Bid Now'} onAdd={onAdd} />
-      </Link>
+                
+        <BuyBidbutton tag={sellingType === 'BuyNow' ? 'Buy Now' : 'Bid Now'} productdata={prodData}/>
+      
 
       {sellingType === 'BuyNow' ? addcart : watchlist}
 

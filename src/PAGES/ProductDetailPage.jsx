@@ -7,21 +7,24 @@ import { AiOutlineShoppingCart } from 'react-icons/ai';
 
 
 
-const ProductDetailPage = ({ products }) => {
+const ProductDetailPage = (products) => {
   console.log(products);
   const { productId } = useParams();
 
-  const productList = Array.isArray(products.responseData) ? products.responseData : [];
+  //const productList = Array.isArray(products.responseData) ? products.responseData : [];
   const addcart = <AiOutlineShoppingCart className='shoppingcartIcon' />;
 
   
   // Find the product based on productId using productList
-  const product = productList.find((product) => product.id === productId);
+  //const product = productList.find((product) => product.id === productId);
+  const product = products;
+
+
 
   // Check if product is defined before accessing its properties
-  if (!product) {
+ /*  if (!product) {
     return <p>Product not found</p>;
-  }
+  } */
 
   // Render product details
   return (

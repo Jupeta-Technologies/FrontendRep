@@ -28,7 +28,7 @@ const JupetaBidder = () =>{
                 !BidNow ? <Button onClick={()=>{setBidNow(!BidNow)}} variant="soft">Bid Now</Button>:
                 
                 <>
-                <input type="text" name="userID" id="" value={customer_ID} onChange={(e)=>{customer_ID = e.target.value;}} />
+                
                 <input type="text" name="bidamount" id="" value={bidamount} required onChange={(e)=>{bidamount = e.target.value;}}/>
                 <Button onClick={()=>{placeBid(bidamount,customer_ID)}}>Place bid</Button>
                 </>
