@@ -1,5 +1,6 @@
 import { Box, IconButton } from '@mui/material';
 import heroImage from '../images/led-speaker.jpg';
+import visionpro from '../images/visionpro.jpg';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
 
@@ -9,7 +10,7 @@ const Hero = () => {
     <Box
     sx={{
       position: 'relative',
-      backgroundImage: `url(${heroImage})`,
+      backgroundImage: `url(${visionpro})`,
       backgroundSize: 'cover',
       height: '100vh',
       width: '100vw',

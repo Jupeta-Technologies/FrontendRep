@@ -4,7 +4,7 @@ import { useLocation } from 'react-router-dom';
 import home from '../images/home.jpeg'
 import elec from '../images/elec.jpeg'
 import automob from '../images/automobile.jpeg'
-import fashion from '../images/fashion.jpeg'
+import fashion from '../images/fashion-1.jpg'
 
 
 const GenCatMenu = (props) =>{
@@ -37,7 +37,10 @@ const GenCatMenu = (props) =>{
             <ul>
                 {categoryList.map((category) => (
                     <li>
-                        {isSticky ? (<span className='CatgName'><b>{category.name}</b></span>):
+                        {isSticky ? (<>
+                            <img src={category.imgSrc} alt=''/>
+                            <h6>{category.name}</h6>
+                        </>):
                         (<>
                             <img src={category.imgSrc} alt=''/>
                             <h6>{category.name}</h6>

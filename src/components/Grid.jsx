@@ -24,7 +24,7 @@ const Grid = () => {
   const watchlist = <AiOutlineEye className='shoppingcartIcon' />;
 
   return (
-    <Container style={{ width: '100vw',height:'425px',backgroundColor: 'whitesmoke' }}>
+    <Container style={{ width: '100vw',height:'425px',}}>
       <Row>
         <Col style={{ height: '430px', display: 'flex', justifyContent: 'center' }} xs={4}>
           <section style={{ width: '100%', height: '100%', padding: '10px' }}>
@@ -146,58 +146,6 @@ const Grid = () => {
   <p className='itemPrice' style={{ marginLeft: 'auto' }}>¢{price}</p>
 </CardContent>
               </Card>
-            </div>
-          </section>
-        </Col>
-        <Col style={{ height: '400px', display: 'flex', flexDirection: 'column' }} xs={2}>
-        <section style={{ height: '50%', display: 'flex', gap: '20px',marginBottom: '10px', marginTop: '10px' }}>
-          <div>
-            <Card sx={{ maxWidth: '100%', height: '100%',transition: 'transform 0.3s', flexGrow: 1,'&:hover': { transform: 'scale(1.02)'} }}>
-              <CardMedia
-                sx={{ height: '150px',    backgroundSize: 'cover',  }}
-                image={require('../images/con.jpg')} 
-                title=""
-              />
-               <CardContent style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-  <div>
-    <BuyBidbutton tag={sellingType === 'BuyNow' ? 'Buy Now' : 'Bid Now'} />
-  </div>
-  <div>
-    {sellingType === 'BuyNow' ? addcart : watchlist}
-  </div>
-  <p className='itemPrice' style={{ marginLeft: 'auto' }}>¢{price}</p>
-              </CardContent>
-              <CardActions>
-                <Button size="small">Share</Button>
-                <Button size="small">Learn More</Button>
-              </CardActions>
-             
-            </Card>
-            </div>
-          </section>
-          <section style={{ height: '50%', display: 'flex', gap: '20px',width:'100%' }}>
-          <div>
-            <Card sx={{ maxWidth: '100%', height: '100%',boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',transition: 'transform 0.3s', flexGrow: 1,'&:hover': { transform: 'scale(1.02)'} }}>
-              <CardMedia
-                sx={{ height: '150px',    backgroundSize: 'cover',  }}
-                image={require('../images/kids.jpg')} 
-                title=""
-              />
-              <CardContent style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-  <div>
-    <BuyBidbutton tag={sellingType === 'BuyNow' ? 'Buy Now' : 'Bid Now'} />
-  </div>
-  <div>
-    {sellingType === 'BuyNow' ? addcart : watchlist}
-  </div>
-  <p className='itemPrice' style={{ marginLeft: 'auto' }}>¢{price}</p>
-</CardContent>
-                <CardActions>
-                <Button size="small">Share</Button>
-                <Button size="small">Learn More</Button>
-              </CardActions>
-             
-            </Card>
             </div>
           </section>
         </Col>
