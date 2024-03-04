@@ -1,0 +1,126 @@
+{
+    "code": "0",
+    "message": "Success",
+    "responseData": [
+        {
+            "id": "646a400a057dffc61ac74623",
+            "productName": "Macbook Pro 13inch",
+            "description": "Supercharged by M2 Pro or M2 Max, MacBook Pro takes its power and efficiency further than ever. It delivers exceptional performance whether it’s plugged in or not, and now has even longer battery life. Combined with a stunning Liquid Retina XDR display and all the ports you need — this is a pro laptop without equal.",
+            "summary": "Mint condition always in a case",
+            "price": 1299.99,
+            "isAvailable": true,
+            "quantity": 1,
+            "addedAt": "2023-05-21T15:59:57.191Z",
+            "productImage": "",
+            "imageFileUrl": "images/ProductIMGS/4a6f3b63-b7e8-4223-9a16-cea715d4f57e.png"
+        },
+        {
+            "id": "646d96225d7a3bedfd275b7a",
+            "productName": "Hp Envy 360",
+            "description": "personal computer ",
+            "summary": "2 in 1 ultra book",
+            "price": 599.99,
+            "isAvailable": false,
+            "quantity": 0,
+            "addedAt": "2023-05-24T04:44:18.025Z",
+            "productImage": "9ff0b851-f8ce-43d8-947c-1ed2bab6f929.png",
+            "imageFileUrl":"images/ProductIMGS/5f526641-4f01-4783-96eb-9d6b1e4c717d.png"
+        },
+        {
+            "id": "646d965d5d7a3bedfd275b7b",
+            "productName": "Mens Jacket",
+            "description": "Men's winter jacket",
+            "summary": "Large brown winter jacket",
+            "price": 60,
+            "isAvailable": false,
+            "quantity": 0,
+            "addedAt": "2023-05-24T04:44:36.168Z",
+            "productImage": "9951567f-18b3-4935-8e1a-cd3acd12429b.png",
+            "imageFileUrl":"images/ProductIMGS/6b5e3186-bfc6-4473-b015-39d1c736bb99.png"
+        },
+        {
+            "id": "646d9e275847b7bdd68e55e7",
+            "productName": "PC thunders ",
+            "description": "personal computer white ",
+            "summary": "pc white",
+            "price": 75.99,
+            "isAvailable": true,
+            "quantity": 0,
+            "addedAt": "2023-05-24T05:18:31.03Z",
+            "productImage": "7a71bdef-d31e-4f9d-9199-b640ea2ca184.jpg",
+            "imageFileUrl": "images/ProductIMGS/9ab0dc05-54a5-4d9d-98b2-ebc04bbf44d9.png"
+        },
+        {
+            "id": "646d9fd19f18fa9c55f87083",
+            "productName": "PC thunders ",
+            "description": "personal computer white ",
+            "summary": "pc white",
+            "price": 234,
+            "isAvailable": true,
+            "quantity": 100,
+            "addedAt": "2023-05-24T05:25:37.036Z",
+            "productImage": "fafa479d-baca-4d66-9a30-b84e9748d64a.jpg",
+            "imageFileUrl": "images/ProductIMGS/13e08a01-3404-49fa-bd00-eb3981a3a419.png"
+        },
+        {
+            "id": "646da073f2653dd1869d3f17",
+            "productName": "PC thunders ",
+            "description": "personal computer white ",
+            "summary": "pc white",
+            "price": 234,
+            "isAvailable": true,
+            "quantity": 100,
+            "addedAt": "2023-05-24T05:28:19.469Z",
+            "productImage": "0757a94d-459d-4875-b9c1-2f38cf34ad65.jpg",
+            "imageFileUrl": "images/ProductIMGS/202da1ac-05e4-4365-9bd2-20bab16e57db.png"
+        },
+        {
+            "id": "646da1a90b377abbbf62998e",
+            "productName": "Eren thunders ",
+            "description": "Desktop computer white ",
+            "summary": "pc brown ",
+            "price": 23432,
+            "isAvailable": false,
+            "quantity": 105,
+            "addedAt": "2023-05-24T05:33:29.883Z",
+            "productImage": "acab2e4c-edc1-4289-a36b-c9ccb65c3b79.png",
+            "imageFileUrl": "images/ProductIMGS/74eb9bd1-2a57-4bb9-b0c7-455d1acc6a1d.png"
+        },
+        {
+            "id": "647804b377434997b7fea94c",
+            "productName": "Rock n Roll",
+            "description": "Vintage Stuff",
+            "summary": "Rock n roll vintage ",
+            "price": 456,
+            "isAvailable": true,
+            "quantity": 23,
+            "addedAt": "2023-06-01T02:38:43.858Z",
+            "productImage": "0ae88356-17fa-4e85-a965-a3c03bb89cb4.png",
+            "imageFileUrl": "images/ProductIMGS/91e970ef-8cfd-4049-8032-539c230d23a4.png"
+        },
+        {
+            "id": "647804e377434997b7fea94d",
+            "productName": "Rock n Roll",
+            "description": "Vintage Stuff",
+            "summary": "Rock n roll vintage ",
+            "price": 456,
+            "isAvailable": true,
+            "quantity": 23,
+            "addedAt": "2023-06-01T02:39:31.697Z",
+            "productImage": "8e4fa980-8b05-4f0b-a382-1fa16b4f5979.png",
+            "imageFileUrl": "images/ProductIMGS/95a8a531-55c4-4215-8362-304b6e83f481.png"
+        },
+        {
+            "id": "647804e377434997b7fea94d",
+            "productName": "Sony DSLR",
+            "description": "Vintage Stuff",
+            "summary": "Rock n roll vintage ",
+            "price": 456,
+            "isAvailable": true,
+            "quantity": 23,
+            "addedAt": "2023-06-01T02:39:31.697Z",
+            "productImage": "8e4fa980-8b05-4f0b-a382-1fa16b4f5979.png",
+            "imageFileUrl": "images/ProductIMGS/048722fb-0da2-4827-bac0-d6e205921ed9.png"
+        }
+    ]
+}

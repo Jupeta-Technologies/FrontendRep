@@ -51,7 +51,7 @@ const  JupetaECnavBar = () => {
         //setsrching(true);
     }
     const handelSEO = () => {
-        searchKey == ''?window.location.reload():
+        searchKey === ''?window.location.reload():
         jupetaSEO({
             keyword:searchKey
             //PageNumber:1,
@@ -59,10 +59,10 @@ const  JupetaECnavBar = () => {
             //isDescending:true
 
         }).then((responds) => {
-        
-            responds.status === 200 && nav('/srchResult',{ state: responds.data.responseData});
-            
-            localStorage.setItem("SearchResult",JSON.stringify(responds.data.responseData));
+            console.log(responds)
+            //responds.status === 200 && nav('/srchResult',{ state: responds.data.responseData});
+            responds.message === "Success" && nav('/srchResult',{ state: responds.responseData});
+            localStorage.setItem("SearchResult",JSON.stringify(responds.responseData));
             
         }).then(()=>{}).catch(err => {console.error(err); console.log("Item not found");});
         
@@ -148,6 +148,7 @@ const  JupetaECnavBar = () => {
                     
                     <Link to={'/'} style={{textDecoration:'none', color:'#000'}}><Typography fontSize={'xl'} color='#000'>jUPETA</Typography></Link>
                     <CiLocationOff />
+                    <div style={{width:'100px', background:'linear-gradient(to right,#FFF,transparent)', padding:'5px',borderRadius:'25px', marginLeft:'50px'}}><AiOutlineSearch onClick={handleSearchicon} id='navSicon'/></div>
                 </div>
                 <div className="center">
                     <div className={searchActive?"navSearchBar showOpacity":"navSearchBar"}>
@@ -171,7 +172,6 @@ const  JupetaECnavBar = () => {
                 </div>
                 <div className="right">
                     <ul>
-                        <li style={{cursor:'pointer'}}><AiOutlineSearch onClick={handleSearchicon} id='navSicon'/></li>
                         <li onMouseOver={updateNavCart} ><AiOutlineShoppingCart id='navicon'/>
                             <ul className={"cartQview"}>
                             {

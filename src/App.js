@@ -21,6 +21,7 @@ import Tiles from './components/Tiles';
 import SearchResult from './components/SearchResult';
 import SellListing from './components/SellListing';
 import { Cartcontext } from "./context/context";
+import { GetAllProdAPI } from './components/GetAllProdAPI';
 
 function App() {
 
@@ -72,19 +73,20 @@ function App() {
 /* <a>Learn React</a>  this is need to run Jest remove during production*/
 
 useEffect(() => {
-  const fetchData = async () => {
-    try {
-      const response = await fetch('https://ec2-44-197-193-3.compute-1.amazonaws.com/api/User/GetAllProducts'); 
-      if (!response.ok) {
-        throw new Error('Failed to fetch data');
-      }
-      const data = await response.json();
-      setProducts(data);
-    } catch (error) {
-      console.error('Error fetching data:', error);
-    } finally {
-      setLoading(false);
-    }
+  const fetchData = () => {
+    
+
+      GetAllProdAPI().then((res)=>{
+        console.log(res);
+        if (res.code !== "0") {
+          throw new Error('Failed to fetch data');
+        }
+        const data = res;
+        setProducts(data);
+      }).catch( (error) => {
+        console.error('Error fetching data:', error);
+      } ).finally(setLoading(false)); 
+      
   };
 
   fetchData();

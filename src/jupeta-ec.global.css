@@ -127,7 +127,7 @@ background-color: #FFF;}
     top: 0;
     z-index: 999;
 }
-.navBarv0 .left{height: 50px;width:350px; line-height:50px; padding-left: 40px;font-weight: bolder; font-size: x-large; font-family:sans-serif;display:flex; align-items: center;}
+.navBarv0 .left{height: 50px;width:350px; line-height:50px; padding-left: 40px;font-weight: bolder; font-size: x-large; font-family:sans-serif;display:flex; align-items: center; gap: 50px; }
 .navBarv0 .center{width: 40%; position: relative; align-self: center; margin: 0 auto;}
 .navBarv0 .right{width: 350px; display: flex;flex-direction: row; align-items: center;}
 .navBarv0 .right > ul{display: flex;column-gap: 10px;align-items:center; margin-bottom: 0; font-size: 1.5rem;position:absolute;right:10px;}
