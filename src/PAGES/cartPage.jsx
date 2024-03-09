@@ -202,7 +202,7 @@ const CartPage = () => {
             style={{ minHeight: '1000px', display: 'flex', flexDirection: 'column' }}
           >
             <section>
-              <div className="head-label">
+              <div className="heads-label">
                 <span onClick={handleBagToggle} className={`bag${isBag ? ' active' : ''}`}>
                   <span className={`circle-badge${isBag ? ' active' : ''}`}>1</span> BAG
                 </span>

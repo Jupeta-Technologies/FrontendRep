@@ -9,7 +9,6 @@ const CheckOutPage = () => {
 
     <Favorites />
     <Recommendation />
-   <SignUp />
    <Footer />
  </div>  )
 }
