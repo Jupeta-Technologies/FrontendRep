@@ -20,6 +20,7 @@ import ProductListing from './PAGES/ProductListing';
 import Tiles from './components/Tiles';
 import SearchResult from './components/SearchResult';
 import SellListing from './components/SellListing';
+import CatHomePage from './PAGES/CatHomePage';
 import { Cartcontext } from "./context/context";
 import { GetAllProdAPI } from './components/GetAllProdAPI';
 
@@ -115,6 +116,7 @@ useEffect(() => {
         <Route path='/srchResult' element={<SearchResult />} />
         <Route path='/selllisting' element={<SellListing />} />
         <Route path="/product-detail/:productId" element={<ProductDetailPage products={products} />} />
+        <Route path="/catHome" element={<CatHomePage/>} />
       </Routes>
     </div>
     
