@@ -1,0 +1,17 @@
+.submenu {
+    background-color: #fff;
+    padding: 10px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    z-index: 999;
+    position: relative; /* Ensure submenu is relatively positioned */
+  }
+  
+  .submenu.sticky {
+    position: absolute;
+    top: 20px; /* Adjust as necessary */
+    left: 0;
+    right: 0;
+    z-index: 1000;
+  }
+  

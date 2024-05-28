@@ -323,5 +323,20 @@ background-color: #FFF;}
 .listPhotos ol li:nth-child(1){
     grid-row:1/3;
 }
-/* product details */
+/*  */
 
+.submenu ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.submenu li {
+    display: inline-block;
+    margin-right: 20px; 
+}
+
+.submenu {
+    display: flex;
+    justify-content: center;
+}
