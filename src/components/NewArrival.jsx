@@ -1,40 +1,65 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { Box, Button } from '@mui/material';
-import ArrivalImage from '../images/sneaker.jpg';
+import React, { useEffect, useState } from 'react';
+import Carousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
+import axios from 'axios';
+import './DailyDeals.css';
+import ItemCardglobal from '../itemCard';
+import { GetAllProdAPI } from './GetAllProdAPI';
 
 const NewArrival = () => {
+  useEffect(() => {
+    getData();
+  }, []);
+
+  const [apiData, setApiData] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  const getData = async () => {
+    /* try {
+      const res = await axios.get('https://ec2-44-197-193-3.compute-1.amazonaws.com/api/User/GetAllProducts');
+      setApiData(res.data);
+      setLoading(true);
+    } catch (err) {
+      alert(err.message);
+    } */
+
+    GetAllProdAPI().then((res)=>{
+      setApiData(res);
+      setLoading(true);
+    })
+  };
+
+  const responsive = {
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 5,
+      slidesToSlide: 1,
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 768 },
+      items: 3,
+      slidesToSlide: 1,
+    },
+    mobile: {
+      breakpoint: { max: 736, min: 320 },
+      items: 2,
+      slidesToSlide: 1,
+    },
+  };
+
   return (
-    <Box
-      sx={{
-        position: 'relative',
-        backgroundImage: `url(${ArrivalImage})`,
-        backgroundSize: 'cover',
-        height: '400px',
-        width: '100%',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-      }}
-    >
-<Link to="/product-detail">
-        <Button
-          variant="outlined"
-          sx={{
-            backgroundColor: 'transparent',
-            color: 'black',
-            border: '1px solid white',
-            position: 'absolute',
-            left: '16px',
-            bottom: '50px',
-            borderColor: 'black'
-          }}
-          size="medium"
-        >
-          Shop Now
-        </Button>
-      </Link>
-    </Box>
+    <div style={{marginTop: '150px'}}>
+      <h1 style={{ marginBottom: '16px', textAlign: 'left' }}>new arrivals</h1>
+      <div className='productscontainer'>
+        <Carousel responsive={responsive}>
+        {loading &&
+  apiData.responseData.map((data) => (
+    <ItemCardglobal {...data} key={data.id} />
+  ))}
+
+        </Carousel>
+      </div>
+    </div>
   );
 };
 
