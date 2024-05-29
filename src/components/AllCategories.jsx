@@ -3,7 +3,7 @@ import '../components/Allcategories.css'
 import { Link } from 'react-router-dom';
 import ItemCardglobal from '../itemCard';
 import NewnavBar from './JupetaECnavBar';
-import { GetAllProdAPI } from './GetAllProdAPI';
+import { GetAllProdAPI } from '../APIs/GetAllProdAPI';
 import { responsivePropType } from 'react-bootstrap/esm/createUtilityClasses';
 
 const AllCategories = (props) => {

@@ -1,6 +1,6 @@
 import React,{useState,useEffect} from 'react';
 import '../components/Loginpage.css';
-import { UserLogin, GetRegistration_OTP, VerifyReg_OTP  } from '../components/UserAPI';
+import { UserLogin, GetRegistration_OTP, VerifyReg_OTP  } from '../APIs/UserAPI';
 import loginbg from '../images/login_bg.jpg';
 import { useNavigate } from 'react-router-dom';
 import {FcGoogle} from "react-icons/fc";
@@ -54,7 +54,7 @@ const LoginPage = () => {
     const handleSubmit = (e) => {
       e.preventDefault();
       //let userInfo = {firstName, lastName, password, phoneNumber, userEmail, birthDate};
-      axios.post("https://ec2-44-197-193-3.compute-1.amazonaws.com/api/User/AddUser", {
+      axios.post("https://jupeta-project.onrender.com/api/User/AddUser", {
         firstName:firstName,
         lastName:lastName,
         email: userEmail,

@@ -16,7 +16,7 @@ const DailyDeals = () => {
 
   const getData = async () => {
     try {
-      const res = await axios.get('https://ec2-44-197-193-3.compute-1.amazonaws.com/api/User/GetAllProducts');
+      const res = await axios.get('https://jupeta-project.onrender.com/api/User/GetAllProducts');
       setApiData(res.data);
       setLoading(true);
     } catch (err) {

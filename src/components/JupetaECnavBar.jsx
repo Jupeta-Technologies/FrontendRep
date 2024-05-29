@@ -5,7 +5,7 @@ import {CiLocationOff,CiReceipt,CiCircleChevDown} from 'react-icons/ci';
 import {Typography,Avatar,Input,Button,Option,IconButton } from '@mui/joy';
 import { Badge } from '@mui/material';
 import CartListitem from './CartListitem';
-import { jupetaSEO } from './SEOApi';
+import { jupetaSE } from '../APIs/SearchEngineApi';
 import { Link } from 'react-router-dom';
 import { Refresh, Translate } from '@mui/icons-material';
 import { useNavigate } from "react-router-dom";
@@ -52,17 +52,18 @@ const  JupetaECnavBar = () => {
     }
     const handelSEO = () => {
         searchKey === ''?window.location.reload():
-        jupetaSEO({
+        jupetaSE({
             keyword:searchKey
             //PageNumber:1,
             //PageSize:10,
             //isDescending:true
 
         }).then((responds) => {
-            console.log(responds)
-            //responds.status === 200 && nav('/srchResult',{ state: responds.data.responseData});
-            responds.message === "Success" && nav('/srchResult',{ state: responds.responseData});
-            localStorage.setItem("SearchResult",JSON.stringify(responds.responseData));
+            console.log(responds);
+            responds.status === 200 && nav('/srchResult',{ state: responds.data.responseData});
+            
+            localStorage.setItem("SearchResult",JSON.stringify(responds.data.responseData));
+            
             
         }).then(()=>{}).catch(err => {console.error(err); console.log("Item not found");});
         

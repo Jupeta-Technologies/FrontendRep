@@ -16,12 +16,11 @@ import CompTester from './componentPreview';
 import LoginPage from './PAGES/LoginPage';
 import WelcomePage from './PAGES/WelcomePage';
 import Overview from './PAGES/Overview';
-import ProductListing from './PAGES/ProductListing';
 import Tiles from './components/Tiles';
 import SearchResult from './components/SearchResult';
 import SellListing from './components/SellListing';
 import { Cartcontext } from "./context/context";
-import { GetAllProdAPI } from './components/GetAllProdAPI';
+import { GetAllProdAPI } from './APIs/GetAllProdAPI';
 
 function App() {
 
@@ -48,6 +47,15 @@ function App() {
     // Dispatch an action to add the product to the cart
     dispatch({ type: 'ADD', payload: product });
     console.log('Item added to cart:', product);
+  };
+
+  const onAdd = (productdata) => {
+    const exist = cartItems.find(x => x.id === productdata.id);
+    if (exist) {
+      setCartItems(cartItems.map(x => x.id === productdata.id ? { ...exist, qty: exist.qty + 1 } : x));
+    } else {
+      setCartItems([...cartItems, { ...productdata, qty: 1 }]);
+    }
   };
 
 
@@ -78,10 +86,10 @@ useEffect(() => {
 
       GetAllProdAPI().then((res)=>{
         console.log(res);
-        if (res.code !== "0") {
+        if (res.data.code !== "0") {
           throw new Error('Failed to fetch data');
         }
-        const data = res;
+        const data = res.data.responseData;
         setProducts(data);
       }).catch( (error) => {
         console.error('Error fetching data:', error);
@@ -98,7 +106,7 @@ useEffect(() => {
       <Routes>
         <Route path="/" element={<HomePage/>} />
         <Route path="/favorites" element={<FavoritesPage />} />
-        <Route path="/cart" element={<CartPage cartItems={cartItems} setCartItems={setCartItems} />} />
+        <Route path="/cart" element={<CartPage cartItems={cartItems} setCartItems={setCartItems} onAdd={onAdd} onRemove={onRemove}/>} />
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/allproducts" element={<AllCategories handleAddToCart={handleAddToCart} />} />
         <Route path="/sell" element={<SellPage />} />
@@ -110,11 +118,10 @@ useEffect(() => {
         <Route path='/login' element={<LoginPage />} />
         <Route path='/welcome' element={<WelcomePage />} />
         <Route path='/overview' element={<Overview />} />
-        <Route path="/productlisting" element={<ProductListing products={products} />} />
         <Route path='/tiles' element={<Tiles />} />
-        <Route path='/srchResult' element={<SearchResult />} />
+        <Route path='/srchResult' element={<SearchResult onAdd={onAdd} onRemove={onRemove} />} />
         <Route path='/selllisting' element={<SellListing />} />
-        <Route path="/product-detail/:productId" element={<ProductDetailPage products={products} />} />
+        <Route path="/product-detail/:productId" element={<ProductDetailPage />} />
       </Routes>
     </div>
     

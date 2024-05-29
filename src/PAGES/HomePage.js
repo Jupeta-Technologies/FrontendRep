@@ -12,10 +12,8 @@ const HomePage = () => {
       <Hero/>
       <JupetaECnavBar/>
       <Grid/>
-      <ExploreBestSelling />
       <Tiles />
       <SellButton />
-      <DailyDeals />
       {/* <div className="bgPrimary paddingX flexStart">
       <div className="boxWidth">
          <DailyDeals />

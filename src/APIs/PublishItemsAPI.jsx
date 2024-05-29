@@ -1,5 +1,5 @@
 import React from "react";
-import APIManager from "../components/APIManager";
+import APIManager from "./APIManager";
 
 
 

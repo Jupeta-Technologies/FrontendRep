@@ -9,12 +9,14 @@ import '../components/productDetails.css';
 
 
 
-const ProductDetailPage = ({ products }) => {
+const ProductDetailPage = () => {
+  
+  const products = JSON.parse(localStorage.getItem("SearchResult"));
   console.log(products);
   const { productId } = useParams();
   console.log('ProductId:', productId);
   const navigate = useNavigate(); // Using useNavigate for navigation
-    const productList = Array.isArray(products.responseData) ? products.responseData : [];
+    const productList = Array.isArray(products) ? products : [];
   console.log('ProductList:', productList);
   const addcart = <AiOutlineShoppingCart className='shoppingcartIcon' />;
   const { addItem } = useCart();
@@ -112,7 +114,7 @@ const ProductDetailPage = ({ products }) => {
               <div className="spacer"></div>
                 <h2>{product.productName}</h2>
                 <div className="spacer"></div>
-                <span>${product.price}</span>
+                <span>¢{product.price}</span>
                 <div className="spacer"></div>
                 <div className="spacer"></div>
 
