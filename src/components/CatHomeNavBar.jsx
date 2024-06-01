@@ -5,7 +5,7 @@ import {CiLocationOff,CiReceipt,CiCircleChevDown} from 'react-icons/ci';
 import {Typography,Avatar,Input,Button,Option,IconButton } from '@mui/joy';
 import { Badge } from '@mui/material';
 import CartListitem from './CartListitem';
-import { jupetaSEO } from './SEOApi';
+import { jupetaSE } from '/APIs/SearchEngineApi';
 import { Link } from 'react-router-dom';
 import { Refresh, Translate } from '@mui/icons-material';
 import { useNavigate } from "react-router-dom";
@@ -51,7 +51,7 @@ const  CatHomeNavbar = () => {
     }
     const handelSEO = () => {
         searchKey == ''?window.location.reload():
-        jupetaSEO({
+        jupetaSE({
             keyword:searchKey
             //PageNumber:1,
             //PageSize:10,

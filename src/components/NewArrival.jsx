@@ -4,7 +4,7 @@ import 'react-multi-carousel/lib/styles.css';
 import axios from 'axios';
 import './DailyDeals.css';
 import ItemCardglobal from '../itemCard';
-import { GetAllProdAPI } from './GetAllProdAPI';
+import GetAllProdAPI from '/APIs/GetAllProdAPI';
 
 const NewArrival = () => {
   useEffect(() => {
