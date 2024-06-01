@@ -62,7 +62,7 @@ const CatFurnitureHomepage = ({ sx }) => {
   <h2>Auction</h2>
 </div>
 
-<div className="FurnCategory"
+<div className="GCMenu_Container"
 style={{
         marginTop: currLoc.pathname === '/' ? "0px" : "20px",
         ...sx

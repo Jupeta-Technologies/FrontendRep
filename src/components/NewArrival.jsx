@@ -4,7 +4,7 @@ import 'react-multi-carousel/lib/styles.css';
 import axios from 'axios';
 import './DailyDeals.css';
 import ItemCardglobal from '../itemCard';
-import GetAllProdAPI from '/APIs/GetAllProdAPI';
+import {GetAllProdAPI} from '../APIs/GetAllProdAPI';
 
 const NewArrival = () => {
   useEffect(() => {
@@ -24,7 +24,7 @@ const NewArrival = () => {
     } */
 
     GetAllProdAPI().then((res)=>{
-      setApiData(res);
+      setApiData(res.data.responseData);
       setLoading(true);
     })
   };
@@ -53,7 +53,7 @@ const NewArrival = () => {
       <div className='productscontainer'>
         <Carousel responsive={responsive}>
         {loading &&
-  apiData.responseData.map((data) => (
+  apiData.map((data) => (
     <ItemCardglobal {...data} key={data.id} />
   ))}
 

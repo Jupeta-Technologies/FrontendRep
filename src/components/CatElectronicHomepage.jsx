@@ -63,7 +63,7 @@ const CatElectronicHomepage = ({ sx }) => {
   <h2>Auction</h2>
 </div>
 
-<div className="ElecCategory"
+<div className="GCMenu_Container"
 style={{
         marginTop: currLoc.pathname === '/' ? "0px" : "20px",
         ...sx

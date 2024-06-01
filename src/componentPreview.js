@@ -9,7 +9,7 @@ import JupetaBidder from './components/JupetaBid';
 const CompTester = () => {
     return (<>
 
-            <GenCatMenu />
+            <JupetaBidder />
 
             </>
     );

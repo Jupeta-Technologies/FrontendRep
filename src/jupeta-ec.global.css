@@ -246,7 +246,7 @@ background-color: #FFF;}
 .GCMenu_Container ul li:hover{transform: scale(1.02);}
 .GCMenu_Container ul li .CatgName{position: relative; top: 10px; font-size: small; }
 .GCMenu_Container ul li .CatgIcon{font-size: 50px;}
-.GCMenu_Container ul li img{height: 80%; border-radius:10px;object-fit: cover;}
+.GCMenu_Container ul li img{height:110px; width: 100%; border-radius:10px;object-fit: cover;}
 .GCMenu_Container ul li h6{margin-top: 8px; font-weight: 300;}
 
 /* Categories submenu */

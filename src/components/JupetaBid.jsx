@@ -1,6 +1,8 @@
 import {React, useEffect, useState } from "react";
 import './JupetaBid.css';
 import { Button } from "@mui/joy";
+import { AiOutlineCloseCircle, AiOutlineEye } from "react-icons/ai";
+import { PiWarningCircleLight } from "react-icons/pi";
 
 
 const JupetaBidder = () =>{
@@ -23,18 +25,24 @@ const JupetaBidder = () =>{
     return (
 
             <>
-                <div className="j-bidContainer">
+            
+                
                 {
                 !BidNow ? <Button onClick={()=>{setBidNow(!BidNow)}} variant="soft">Bid Now</Button>:
-                
-                <>
-                
+                <div className="j-bidContainer">
+                <div className="bidrecomm"><span>Ghc 40</span><span>Ghc 50</span></div>    
+                <AiOutlineCloseCircle style={{fontSize:"24px", cursor:"pointer", position:"absolute", top:"10px", right:"10px"}} onClick={()=>{setBidNow(false)}}/>
+                <div className="bidinput">
                 <input type="text" name="bidamount" id="" value={bidamount} required onChange={(e)=>{bidamount = e.target.value;}}/>
-                <Button onClick={()=>{placeBid(bidamount,customer_ID)}}>Place bid</Button>
-                </>
-                
-                }
+                <Button onClick={()=>{placeBid(bidamount,customer_ID)}} className="placebid">Bid</Button>
+                <AiOutlineEye style={{backgroundColor:"#FFF", padding:"8px", borderRadius:"50%", fontSize:"2rem"}}/>
+
                 </div>
+                <p><PiWarningCircleLight style={{color:"#F10E0E", fontSize:"24px"}}/>By selecting Bid, you are committing to buy this item if you are the winning bidder.</p>
+                
+                </div>
+                }
+                
 
                 <p>
                    Bid ID: {Bids.bidID}

@@ -24,7 +24,7 @@ const ExploreBestSelling = () => {
     } */
 
     GetAllProdAPI().then((res)=>{
-      setApiData(res);
+      setApiData(res.data.responseData);
       setLoading(true);
     })
   };
@@ -53,7 +53,7 @@ const ExploreBestSelling = () => {
       <div className='productscontainer'>
         <Carousel responsive={responsive}>
         {loading &&
-  apiData.responseData.map((data) => (
+  apiData.map((data) => (
     <ItemCardglobal {...data} key={data.id} />
   ))}
 

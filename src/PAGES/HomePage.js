@@ -8,19 +8,11 @@ const HomePage = () => {
 
   return (
     <>
-
       <Hero/>
       <JupetaECnavBar/>
       <Grid/>
       <Tiles />
       <SellButton />
-      {/* <div className="bgPrimary paddingX flexStart">
-      <div className="boxWidth">
-         <DailyDeals />
-      </div>
-      </div> 
-      <div className="bgPrimary flexStart">
-      <div className="boxWidth">*/}
         <Footer />
     </>
   )
