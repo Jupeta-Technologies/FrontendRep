@@ -36,6 +36,7 @@
     "slick-carousel": "^1.8.1",
     "sort-by": "^0.0.2",
     "styled-components": "^6.1.6",
+    "update": "^0.4.2",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

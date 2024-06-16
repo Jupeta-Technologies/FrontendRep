@@ -5,12 +5,13 @@ import NewnavBar from './components/JupetaECnavBar';
 import CartListitem from './components/CartListitem';
 import GenCatMenu from './components/GenCatMenu';
 import JupetaBidder from './components/JupetaBid';
+import CheckoutModal from './Transaction/CheckoutModal';
 
 const CompTester = () => {
     return (<>
-
-            <JupetaBidder />
-
+            <div style={{padding:'100px'}}>
+            <CheckoutModal />
+            </div>
             </>
     );
 }

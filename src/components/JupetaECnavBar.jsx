@@ -149,7 +149,7 @@ const  JupetaECnavBar = () => {
                     
                     <Link to={'/'} style={{textDecoration:'none', color:'#000'}}><Typography fontSize={'xl'} color='#000'>jUPETA</Typography></Link>
                     <CiLocationOff />
-                    <div style={{width:'100px', background:'linear-gradient(to right,#FFF,transparent)', padding:'5px',borderRadius:'25px', marginLeft:'50px'}}><AiOutlineSearch onClick={handleSearchicon} id='navSicon'/></div>
+                    <div style={{width:'100px', background:'linear-gradient(to right,#0E3212,transparent)', padding:'5px',borderRadius:'25px', marginLeft:'50px', color:"#FFF", cursor:"pointer"}}><AiOutlineSearch onClick={handleSearchicon} id='navSicon'/></div>
                 </div>
                 <div className="center">
                     <div className={searchActive?"navSearchBar showOpacity":"navSearchBar"}>

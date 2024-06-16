@@ -25,7 +25,7 @@ const ItemCardglobal = (prodData) => {
             <AiFillHeart  className='favoriteIcon'/>
             <ItemIMG src={imageFileUrl}/>
             <Link to={`/product-detail/${id}`} className='itemNameLink'>
-                <p className='itemName'>{productName}</p>
+                <p className='itemName' onClick={()=>{localStorage.setItem("setQuickbuy",null)}}>{productName}</p>
             </Link>
             <div className='itemBriefDscr'>{summary}</div>
             <p className='itemPrice'>¢{price}</p>

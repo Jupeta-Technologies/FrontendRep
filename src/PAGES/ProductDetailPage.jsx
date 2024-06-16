@@ -1,11 +1,15 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import {Footer, Recommendation, RecentlyViewed, SignUp,} from '../components';
 import NewnavBar from '../components/JupetaECnavBar';
 import { Box, Button } from '@mui/material';
-import { AiOutlineShoppingCart } from 'react-icons/ai';
+import { AiOutlineShoppingCart, AiFillEye, AiOutlineClockCircle} from 'react-icons/ai';
+import { LiaShippingFastSolid} from "react-icons/lia";
+import { CiLocationOn,CiLock } from "react-icons/ci";
 import { useCart } from 'react-use-cart';
 import '../components/productDetails.css';
+import CheckoutModal from '../Transaction/CheckoutModal';
+import JupetaBidder from '../components/JupetaBid';
 
 
 
@@ -28,6 +32,17 @@ const ProductDetailPage = () => {
     isVendors: false,
   });
 
+  //check if buy button is click then show checkout modal
+  var closeMod = JSON.parse(localStorage.getItem("setQuickbuy"));
+  const [quickBuy,setQuickbuy] = useState(false);
+  const [openBid,setOpenbid] = useState(false);
+  
+
+  useEffect(()=>{
+    setQuickbuy(closeMod);
+    console.log(closeMod);
+  },[closeMod])
+
   // Find the product based on productId using productList
   const product = productList.find((product) => product.id.toLowerCase() === productId.toLowerCase());
 
@@ -43,6 +58,9 @@ const ProductDetailPage = () => {
           navigate('/cart'); // Navigate to the cart page after adding the product
         };
        
+      const handBidBuy = (x) =>{
+        x == "Auction"?setOpenbid(true):setQuickbuy(true);
+      }
       
        
         const { isDescription, isReviews, isVendors } = state;
@@ -81,12 +99,12 @@ const ProductDetailPage = () => {
       <Box
         sx={{
           display: 'flex',
-          height: '800px',
+          height: '600px',
         }}
       >
         <Box
           sx={{
-            flexBasis: '60%',
+            flexBasis: '70%',
             backgroundSize: 'cover',
           }}
         >
@@ -100,7 +118,7 @@ const ProductDetailPage = () => {
                   </Box>
         <Box
           sx={{
-            flexBasis: '40%',
+            flexBasis: '30%',
             backgroundSize: 'cover',
             display: 'flex',
             flexDirection: 'column',
@@ -108,136 +126,79 @@ const ProductDetailPage = () => {
             paddingLeft: '20px',
           }}
         >
+          {quickBuy?<CheckoutModal data={product.productName}/>:
           <div className="box">
             <div>
               <div className="row">
-              <div className="spacer"></div>
                 <h2>{product.productName}</h2>
-                <div className="spacer"></div>
-                <span>¢{product.price}</span>
-                <div className="spacer"></div>
-                <div className="spacer"></div>
-
+                <span style={{marginTop:'16px',marginBottom:'32px',fontSize:'1.5rem'}}>¢{product.price}</span>
+                {product.sellingType !== "BuyNow"&&<span style={{display:'inline-flex', lineHeight:'2.25rem', backgroundColor:'#F4F4F7', width:'320px', padding:'0px 16px', borderRadius:'24px',marginBottom:'16px'}}>10000 bids <AiOutlineClockCircle style={{fontSize:'2.25rem', margin:'0 2px'}}/> 1 day 3 Hours 5 Min</span>}
+                {/* <div className="spacer"></div> never inlcude this use margin, padding or absolute position
+                <div className="spacer"></div> */}
+                  <p><LiaShippingFastSolid style={{float:'left',paddingRight:'4px', fontSize:'2rem'}} /> Free Shipping</p>
+                  <p><CiLocationOn style={{float:'left',paddingRight:'4px', fontSize:'2rem'}} /> Accra</p>
+                  <p><CiLock style={{float:'left',paddingRight:'4px', fontSize:'2rem'}} /> Secure pick-up</p>
               </div>
               <Box sx={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                 {/* Container for Buy Now and Shopping Cart buttons */}
-                <Box sx={{ display: 'flex', gap: '16px' }}>
-                <Link
-  to={{
-    pathname: "/cart",
-    state: {
-      product: {
-        id: product.id,
-        productName: product.productName,
-        price: product.price,
-        // Add other properties as needed
-      },
-    },
-  }}
-  onClick={()=>addItem(product)}>
+  {
+    !openBid?
+                <Box sx={{ display: 'flex', gap: '16px', alignItems:'center'}}>
+                  
+  
   <Button
-  variant="outlined"
+  variant="solid"
   sx={{
-    backgroundColor: 'black',
+    backgroundColor: '#032C0A',
     color: 'white',
-    borderColor: 'black',
-    width: '200px',
-    textTransform: 'lowercase',
     borderRadius: '20px',
+    padding:'4px 24px',
     '&:hover': {
-      backgroundColor: 'darkred',
-      borderColor: 'darkred',
+      backgroundColor: '#073c10',
     },
   }}
   size="large"
-  onClick={handleBuyNow} // Call handleBuyNow when the button is clicked
+  onClick={()=>{handBidBuy(product.sellingType);}} // Call handleBuyNow when the button is clicked
 >
-  Buy Now
+  {product.sellingType !== "BuyNow"?"BID":"BUY"}
 </Button>
 
-</Link>
+                  
 
                   {/* Shopping cart icon button */}
-                  <Button
                   
-                    variant="outlined"
-                    sx={{
-                      backgroundColor: 'whitesmoke',
-                      color: 'black',
-                      borderColor: 'black',
-                      borderRadius: '70px',
-                      width: '40px',
-                      height: '40px',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      fontSize: '50px',
-                    }}
-                    size="large"
-                  >
-          <AiOutlineShoppingCart/>
-                  </Button>
-                </Box>
+                  <AiOutlineShoppingCart style={{background:"#F4F4F7", padding:"8px", borderRadius:"50%", fontSize:"3rem", cursor:"pointer"}}/>
+                  <AiFillEye style={{background:"#F4F4F7", padding:"6px", borderRadius:"50%", fontSize:"2rem",cursor:"pointer"}}/>
                 
-                <Button
-                  variant="outlined"
-                  sx={{ backgroundColor: 'rgba(255, 255, 255, 0.5)', color: 'black', borderColor: 'black', width: '200px', textTransform: 'lowercase',borderRadius: '20px', }}
-                  size="large"
-                >
-                  Favorite
-                </Button>
+                  </Box>:
+                  <JupetaBidder />
+                
+                  
+}               
               </Box>
+
             </div>
           </div>
+}
         </Box>
       </Box>
       
-      <div className="container-details">
-  <div className="deschead-label">
-    <span onClick={handleDescriptionToggle} className={`description${isDescription ? ' active' : ''}`}>
-      Description
-    </span>
+      
+<div className='descSpecs-box'>
+  <div className="itemspecs">
+    <h4>Item Specifications</h4>
+    <div className="specs">
 
-    <span className="toggle-space"></span> 
-
-<span onClick={handleReviewsToggle} className={`reviews${isReviews ? ' active' : ''}`}>
-  Reviews
-</span>
-
-
-<span className="toggle-space"></span> 
-
-<span onClick={handleVendorsToggle} className={`vendors${isVendors ? ' active' : ''}`}>
-  Vendor info
-</span>         
+    </div>
   </div>
-
-  {isDescription && (
-    <section>
-      {              
-      <div className="desc-rev-ven-pad">
-      <h2>{product.productName}</h2>
-      <p>{product.description}</p>
-      </div>
-}
-    </section>
-  )}
-
-  {isReviews && (
-    <section>
-      {      <div className="desc-rev-ven-pad">
-      </div>
-}
-    </section>
-  )}
-
-  {isVendors && (
-    <section>
-      {      <div className="desc-rev-ven-pad">
-      </div>}
-    </section>
-  )}
+  <div className="itemdesc">
+    <h4>Description</h4>
+    <div className="desc">
+    <p>{product.description}</p>
+    </div>
+  </div>
 </div>
+
 
 
 
