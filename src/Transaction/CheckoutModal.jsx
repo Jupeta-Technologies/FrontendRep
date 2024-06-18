@@ -4,15 +4,20 @@ import { AiOutlineCloseCircle } from 'react-icons/ai';
 import BuyBidbutton from '../components/cardcomponents/buybidButton';
 
 
-const CheckoutModal = (props) => {
+const CheckoutModal = ({prodData, sendData}) => {
 
     let [Price,Shipping,Tax]=[1599.99,9.50,3.46];
     let Total = (Price + Shipping + Tax).toFixed(2);
 
+    const sendDataToParent = () =>{
+        const data = 'C'; //this is for checkout modal on product detail page
+        sendData(data);
+    }
+
     return (
             <>
             <div className="checkoutModal">
-                <AiOutlineCloseCircle style={{alignSelf:'flex-end',cursor:'pointer',fontSize:'1.5rem'}} onClick={()=>{localStorage.setItem("setQuickbuy","false")}}/>
+                <AiOutlineCloseCircle style={{alignSelf:'flex-end',cursor:'pointer',fontSize:'1.5rem'}} onClick={sendDataToParent}/>
                     <h4 style={{alignSelf:'center'}}>Checkout</h4>
                     <h6>Payment</h6>
                     <label className='paymnt'>Jupeta Cash
@@ -28,7 +33,7 @@ const CheckoutModal = (props) => {
                     <h6>Shipping</h6>
                         <div className="checkoutSummary">
                             <div className="chkutItemlist">
-                                <span className='itemCount'>1</span>{props.data}<span></span>
+                                <span className='itemCount'>1</span>{prodData}<span></span>
                             </div>
                             <div className="subTotal">
                             <p><span>Items</span><span>{Price}</span></p>

@@ -33,15 +33,18 @@ const ProductDetailPage = () => {
   });
 
   //check if buy button is click then show checkout modal
-  var closeMod = JSON.parse(localStorage.getItem("setQuickbuy"));
   const [quickBuy,setQuickbuy] = useState(false);
   const [openBid,setOpenbid] = useState(false);
   
+  const handleChildData = (data) =>{
+      console.log("This is from child",data);
+      data == 'C' && setQuickbuy(false);
+      data == 'B' && setOpenbid(false);
+  }
+  
+  
 
-  useEffect(()=>{
-    setQuickbuy(closeMod);
-    console.log(closeMod);
-  },[closeMod])
+  
 
   // Find the product based on productId using productList
   const product = productList.find((product) => product.id.toLowerCase() === productId.toLowerCase());
@@ -126,7 +129,7 @@ const ProductDetailPage = () => {
             paddingLeft: '20px',
           }}
         >
-          {quickBuy?<CheckoutModal data={product.productName}/>:
+          {quickBuy?<CheckoutModal prodData={product.productName} sendData={handleChildData}/>:
           <div className="box">
             <div>
               <div className="row">
@@ -171,7 +174,7 @@ const ProductDetailPage = () => {
                   <AiFillEye style={{background:"#F4F4F7", padding:"6px", borderRadius:"50%", fontSize:"2rem",cursor:"pointer"}}/>
                 
                   </Box>:
-                  <JupetaBidder />
+                  <JupetaBidder sendData={handleChildData}/>
                 
                   
 }               
