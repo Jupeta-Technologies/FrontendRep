@@ -129,7 +129,7 @@ const ProductDetailPage = () => {
             paddingLeft: '20px',
           }}
         >
-          {quickBuy?<CheckoutModal prodData={product.productName} sendData={handleChildData}/>:
+          {quickBuy && product.sellingType === "BuyNow"?<CheckoutModal prodData={product.productName} sendData={handleChildData}/>:
           <div className="box">
             <div>
               <div className="row">
@@ -144,8 +144,9 @@ const ProductDetailPage = () => {
               </div>
               <Box sx={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                 {/* Container for Buy Now and Shopping Cart buttons */}
-  {
-    !openBid?
+
+                {(openBid && product.sellingType === "Auction")?<JupetaBidder sendData={handleChildData}/>:
+  
                 <Box sx={{ display: 'flex', gap: '16px', alignItems:'center'}}>
                   
   
@@ -170,14 +171,13 @@ const ProductDetailPage = () => {
 
                   {/* Shopping cart icon button */}
                   
-                  <AiOutlineShoppingCart style={{background:"#F4F4F7", padding:"8px", borderRadius:"50%", fontSize:"3rem", cursor:"pointer"}}/>
+                  {product.sellingType === "BuyNow" && <AiOutlineShoppingCart style={{background:"#F4F4F7", padding:"8px", borderRadius:"50%", fontSize:"3rem", cursor:"pointer"}}/>}
                   <AiFillEye style={{background:"#F4F4F7", padding:"6px", borderRadius:"50%", fontSize:"2rem",cursor:"pointer"}}/>
                 
-                  </Box>:
-                  <JupetaBidder sendData={handleChildData}/>
-                
+                  </Box>
                   
-}               
+                  
+          }           
               </Box>
 
             </div>

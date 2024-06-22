@@ -1,0 +1,28 @@
+.srchFltr-Con{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    top: 60px;  /* remove if content container is modified */
+    margin-bottom: 48px;
+    
+}
+.searchfilter-box{
+    width: 80%;
+    height: 140px;
+    background-color: #FFF;
+    box-shadow: var(--primaryShadow);
+    border-radius: var(--primaryBRadius);
+    padding: 8px;
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+    align-self: center;
+    
+}
+.fltr-col{
+    display: flex;
+    flex-direction: column;
+    font-size: 12px;
+}
+.fltr-col h6{align-self: center;}

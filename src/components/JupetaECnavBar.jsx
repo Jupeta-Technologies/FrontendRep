@@ -14,7 +14,7 @@ import './scrollgencat.css'
 
 
 
-const  JupetaECnavBar = () => {
+const  JupetaECnavBar = (props) => {
 
       const [loggedin,setLoggedin] = useState(false);
       const [searchKey,setSearchKey] = useState('');
@@ -25,12 +25,13 @@ const  JupetaECnavBar = () => {
       const [cart,setCart] = useState([]);
       const [srchUpdt,setSrchUpdt] = useState(false);
       const [isSticky, setIsSticky] = useState(false);
+      const currPage = props.page;
      
 
       
       
     
-    
+
     const nav = useNavigate();
 
     const srchRef = useRef();
@@ -202,7 +203,7 @@ const  JupetaECnavBar = () => {
                 </div>
             </div>
             <div className='sticky-gen-cat-menu'>
-                <GenCatMenu sx={{marginTop:'50px'}} isSticky={isSticky} />
+                <GenCatMenu sx={currPage === "Search"?{display:'none'}:{marginTop:'50px'}} isSticky={isSticky} />
             </div>
             </>
         );

@@ -3,6 +3,7 @@ import '../components/Allcategories.css';
 import ItemCardglobal from '../itemCard';
 import NewnavBar from './JupetaECnavBar';
 import FilterBar from './FilterBar';
+import SearchFilter from '../Search/searchFilterH';
 import styled from 'styled-components';
 import { useLocation } from 'react-router-dom';
 
@@ -54,12 +55,13 @@ const SearchResult = (props) => {
 
   return (
     <>
-      <NewnavBar />
+      <NewnavBar page={"Search"}/>
+      <SearchFilter />
       <Wrapper>
         <div className="container grid grid-filter-column">
-          <div>
+          {/* <div>
             <FilterBar selectedCondition={filters.condition} onFilterChange={handleFilterChange} />
-          </div>
+          </div> */}
 
           <section className="product-view--sort">
             <div className="productscontainer">
@@ -79,7 +81,7 @@ const SearchResult = (props) => {
 
 const Wrapper = styled.section`
   .grid-filter-column {
-    grid-template-columns: 0.2fr 1fr;
+    grid-template-columns:repeat(250px 1fr);
   }
 `;
 
