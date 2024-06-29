@@ -63,9 +63,8 @@ const SearchResult = (props) => {
             <FilterBar selectedCondition={filters.condition} onFilterChange={handleFilterChange} />
           </div> */}
 
-          <section className="product-view--sort">
+          <section className="product-view--sort" style={{marginTop:'48px'}}> 
             <div className="productscontainer">
-              <div className="productspagetitle"></div>
               <div className="productssection">
                 {apiData.map((prodData) => (
                   <ItemCardglobal {...prodData} key={prodData.id} onAdd={onAdd} /> // Removed onAdd={onAdd} 
@@ -82,7 +81,10 @@ const SearchResult = (props) => {
 const Wrapper = styled.section`
   .grid-filter-column {
     grid-template-columns:repeat(250px 1fr);
+    margin-top:48px;
+    position:relative;
   }
+  
 `;
 
 export default SearchResult;

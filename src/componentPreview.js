@@ -7,11 +7,12 @@ import GenCatMenu from './components/GenCatMenu';
 import JupetaBidder from './components/JupetaBid';
 import CheckoutModal from './Transaction/CheckoutModal';
 import SearchFilter from './Search/searchFilterH';
+import MemberCard from './UserManagment/MemberCard';
 
 const CompTester = () => {
     return (<>
             <div style={{padding:'100px'}}>
-            <SearchFilter />
+            <MemberCard />
             </div>
             </>
     );

@@ -1,0 +1,19 @@
+.memCard-con{
+    width: 348px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--primaryCardColor);
+    border-radius: 20px;
+    padding: 8px;
+    position: relative;
+
+    
+}
+.memCard-con .memCard-Img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #FFF;
+    margin-right: 8px;
+}

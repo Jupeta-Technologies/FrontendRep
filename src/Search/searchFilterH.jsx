@@ -18,6 +18,7 @@ function SearchFilter() {
                     <span>Under 49.99</span>
                     <span>49.99 to 99.99</span>
                     <span>Over 99.99</span>
+                    <span><span style={{width:'40px',padding:'4px 16px',boxShadow:'var(--primaryShadow)',backgroundColor:'#FFF',borderRadius:'16px'}}>20</span>to<span style={{width:'40px',padding:'4px 16px',boxShadow:'var(--primaryShadow)',backgroundColor:'#FFF',borderRadius:'16px'}}>40</span></span>
 
                 </div>
                 <div className="fltr-col">

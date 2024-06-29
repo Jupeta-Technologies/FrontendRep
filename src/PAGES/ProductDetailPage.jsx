@@ -10,6 +10,7 @@ import { useCart } from 'react-use-cart';
 import '../components/productDetails.css';
 import CheckoutModal from '../Transaction/CheckoutModal';
 import JupetaBidder from '../components/JupetaBid';
+import MemberCard from '../UserManagment/MemberCard';
 
 
 
@@ -201,14 +202,16 @@ const ProductDetailPage = () => {
     </div>
   </div>
 </div>
+<MemberCard />
 
 
 
 
 
-      <Recommendation />
+
+      {/* <Recommendation />
       <RecentlyViewed/>
-      <SignUp />
+      <SignUp /> */}
       <Footer />
     </div>
   );
