@@ -11,6 +11,7 @@ import '../components/productDetails.css';
 import CheckoutModal from '../Transaction/CheckoutModal';
 import JupetaBidder from '../components/JupetaBid';
 import MemberCard from '../UserManagment/MemberCard';
+import SellersItems from '../product/SellersItems';
 
 
 
@@ -100,6 +101,7 @@ const ProductDetailPage = () => {
   return (
     <div>
       <NewnavBar />
+      <div className="mainContainer">
       <Box
         sx={{
           display: 'flex',
@@ -203,15 +205,16 @@ const ProductDetailPage = () => {
   </div>
 </div>
 <MemberCard />
+<SellersItems />
 
 
 
 
 
-
-      {/* <Recommendation />
+      {/* 
       <RecentlyViewed/>
       <SignUp /> */}
+</div>
       <Footer />
     </div>
   );

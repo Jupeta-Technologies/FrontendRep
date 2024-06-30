@@ -26,7 +26,7 @@ const Recommendation = () => {
   const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
-      items: 5,
+      items: 4,
       slidesToSlide: 1,
     },
     tablet: {
@@ -43,7 +43,6 @@ const Recommendation = () => {
 
   return (
     <div>
-      <h1 style={{ marginBottom: '16px' }}>RECOMMENDATIONS</h1>
       <div className='productscontainer'>
         <Carousel responsive={responsive}>
         {loading &&

@@ -9,13 +9,27 @@ import { Cartcontext } from "./context/context";
 
 
 const ItemCardglobal = (prodData) => {
-    const {price,productName,imageFileUrl,sellingType,condition,id,summary,onAdd} = prodData;
+    const {price,productName,imageFileUrl,sellingType,condition,id,summary} = prodData;
     const date = new Date();
     const addcart = <AiOutlineShoppingCart className='shoppingcartIcon' onClick={() => onAdd(prodData)} />;
     const watchlist = <AiOutlineEye className='shoppingcartIcon' />;
     const Globalstate = useContext(Cartcontext);
     const dispatch = Globalstate.dispatch;
     //console.log(Globalstate);
+
+    const initCart = JSON.parse(localStorage.getItem("Cart"));
+    const [cartItems, setCartItems] = useState([]);
+    
+    const onAdd = (prodData) => {
+        console.log(prodData);
+        const exist = cartItems.find(x => x.id === prodData.id);
+        if (exist) {
+          setCartItems(cartItems.map(x => x.id === prodData.id ? { ...exist, qty: exist.qty + 1 } : x));
+        } else {
+          setCartItems([...cartItems, { ...prodData, qty: 1 }]);
+        }
+      };
+    
 
 
     return ( 
