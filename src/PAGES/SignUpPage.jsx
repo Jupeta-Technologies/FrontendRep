@@ -20,7 +20,7 @@ const SignUpPage = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     //let userInfo = {firstName, lastName, password, phoneNumber, userEmail, birthDate};
-    axios.post("https://ec2-44-197-193-3.compute-1.amazonaws.com/api/User/AddUser", {
+    axios.post("https://jupeta-project.onrender.com/api/User/AddUser", {
       firstName:firstName,
       lastName:lastName,
       email: userEmail,

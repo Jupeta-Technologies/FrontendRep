@@ -4,7 +4,7 @@ import 'react-multi-carousel/lib/styles.css';
 import axios from 'axios';
 import './DailyDeals.css';
 import ItemCardglobal from '../itemCard';
-import { GetAllProdAPI } from './GetAllProdAPI';
+import { GetAllProdAPI } from '../APIs/GetAllProdAPI';
 
 const ExploreBestSelling = () => {
   useEffect(() => {
@@ -16,7 +16,7 @@ const ExploreBestSelling = () => {
 
   const getData = async () => {
     /* try {
-      const res = await axios.get('https://ec2-44-197-193-3.compute-1.amazonaws.com/api/User/GetAllProducts');
+      const res = await axios.get('https://jupeta-project.onrender.com/api/User/GetAllProducts');
       setApiData(res.data);
       setLoading(true);
     } catch (err) {
@@ -24,7 +24,7 @@ const ExploreBestSelling = () => {
     } */
 
     GetAllProdAPI().then((res)=>{
-      setApiData(res);
+      setApiData(res.data.responseData);
       setLoading(true);
     })
   };
@@ -53,7 +53,7 @@ const ExploreBestSelling = () => {
       <div className='productscontainer'>
         <Carousel responsive={responsive}>
         {loading &&
-  apiData.responseData.map((data) => (
+  apiData.map((data) => (
     <ItemCardglobal {...data} key={data.id} />
   ))}
 

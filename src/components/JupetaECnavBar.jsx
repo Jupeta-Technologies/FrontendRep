@@ -5,7 +5,7 @@ import {CiLocationOff,CiReceipt,CiCircleChevDown} from 'react-icons/ci';
 import {Typography,Avatar,Input,Button,Option,IconButton } from '@mui/joy';
 import { Badge } from '@mui/material';
 import CartListitem from './CartListitem';
-import { jupetaSEO } from './SEOApi';
+import { jupetaSE } from '../APIs/SearchEngineApi';
 import { Link } from 'react-router-dom';
 import { Refresh, Translate } from '@mui/icons-material';
 import { useNavigate } from "react-router-dom";
@@ -14,7 +14,7 @@ import './scrollgencat.css'
 
 
 
-const  JupetaECnavBar = () => {
+const  JupetaECnavBar = (props) => {
 
       const [loggedin,setLoggedin] = useState(false);
       const [searchKey,setSearchKey] = useState('');
@@ -25,12 +25,13 @@ const  JupetaECnavBar = () => {
       const [cart,setCart] = useState([]);
       const [srchUpdt,setSrchUpdt] = useState(false);
       const [isSticky, setIsSticky] = useState(false);
+      const currPage = props.page;
      
 
       
       
     
-    
+
     const nav = useNavigate();
 
     const srchRef = useRef();
@@ -52,17 +53,18 @@ const  JupetaECnavBar = () => {
     }
     const handelSEO = () => {
         searchKey === ''?window.location.reload():
-        jupetaSEO({
+        jupetaSE({
             keyword:searchKey
             //PageNumber:1,
             //PageSize:10,
             //isDescending:true
 
         }).then((responds) => {
-            console.log(responds)
-            //responds.status === 200 && nav('/srchResult',{ state: responds.data.responseData});
-            responds.message === "Success" && nav('/srchResult',{ state: responds.responseData});
-            localStorage.setItem("SearchResult",JSON.stringify(responds.responseData));
+            console.log(responds);
+            responds.status === 200 && nav('/srchResult',{ state: responds.data.responseData});
+            
+            localStorage.setItem("SearchResult",JSON.stringify(responds.data.responseData));
+            
             
         }).then(()=>{}).catch(err => {console.error(err); console.log("Item not found");});
         
@@ -148,7 +150,7 @@ const  JupetaECnavBar = () => {
                     
                     <Link to={'/'} style={{textDecoration:'none', color:'#000'}}><Typography fontSize={'xl'} color='#000'>jUPETA</Typography></Link>
                     <CiLocationOff />
-                    <div style={{width:'100px', background:'linear-gradient(to right,#FFF,transparent)', padding:'5px',borderRadius:'25px', marginLeft:'50px'}}><AiOutlineSearch onClick={handleSearchicon} id='navSicon'/></div>
+                    <div style={{width:'100px', background:'linear-gradient(to right,#0E3212,transparent)', padding:'5px',borderRadius:'25px', marginLeft:'50px', color:"#FFF", cursor:"pointer"}}><AiOutlineSearch onClick={handleSearchicon} id='navSicon'/></div>
                 </div>
                 <div className="center">
                     <div className={searchActive?"navSearchBar showOpacity":"navSearchBar"}>
@@ -201,7 +203,7 @@ const  JupetaECnavBar = () => {
                 </div>
             </div>
             <div className='sticky-gen-cat-menu'>
-                <GenCatMenu sx={{marginTop:'50px'}} isSticky={isSticky} />
+                <GenCatMenu sx={currPage === "Search"?{display:'none'}:{marginTop:'50px'}} isSticky={isSticky} />
             </div>
             </>
         );

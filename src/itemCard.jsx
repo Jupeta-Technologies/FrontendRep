@@ -11,11 +11,25 @@ import { Cartcontext } from "./context/context";
 const ItemCardglobal = (prodData) => {
     const {price,productName,imageFileUrl,sellingType,condition,id,summary} = prodData;
     const date = new Date();
-    const addcart = <AiOutlineShoppingCart className='shoppingcartIcon'  />;
+    const addcart = <AiOutlineShoppingCart className='shoppingcartIcon' onClick={() => onAdd(prodData)} />;
     const watchlist = <AiOutlineEye className='shoppingcartIcon' />;
     const Globalstate = useContext(Cartcontext);
     const dispatch = Globalstate.dispatch;
-    console.log(Globalstate);
+    //console.log(Globalstate);
+
+    const initCart = JSON.parse(localStorage.getItem("Cart"));
+    const [cartItems, setCartItems] = useState([]);
+    
+    const onAdd = (prodData) => {
+        console.log(prodData);
+        const exist = cartItems.find(x => x.id === prodData.id);
+        if (exist) {
+          setCartItems(cartItems.map(x => x.id === prodData.id ? { ...exist, qty: exist.qty + 1 } : x));
+        } else {
+          setCartItems([...cartItems, { ...prodData, qty: 1 }]);
+        }
+      };
+    
 
 
     return ( 
@@ -25,10 +39,12 @@ const ItemCardglobal = (prodData) => {
             <AiFillHeart  className='favoriteIcon'/>
             <ItemIMG src={imageFileUrl}/>
             <Link to={`/product-detail/${id}`} className='itemNameLink'>
-                <p className='itemName'>{productName}</p>
+                <p className='itemName' onClick={()=>{localStorage.setItem("setQuickbuy",null)}}>{productName}</p>
             </Link>
             <div className='itemBriefDscr'>{summary}</div>
             <p className='itemPrice'>¢{price}</p>
+            <BuyBidbutton tag={sellingType === 'BuyNow'?'Buy Now': 'Bid Now'} onAdd={onAdd}  productdata={prodData}/>
+                {sellingType === 'BuyNow'?addcart:watchlist}
 
             {sellingType === 'BuyNow' ? addcart : watchlist}
         </div>

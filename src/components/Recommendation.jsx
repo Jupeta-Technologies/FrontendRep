@@ -15,7 +15,7 @@ const Recommendation = () => {
 
   const getData = async () => {
     try {
-      const res = await axios.get('https://ec2-44-197-193-3.compute-1.amazonaws.com/api/User/GetAllProducts');
+      const res = await axios.get('https://jupeta-project.onrender.com/api/User/GetAllProducts');
       setApiData(res.data);
       setLoading(true);
     } catch (err) {
@@ -26,7 +26,7 @@ const Recommendation = () => {
   const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
-      items: 5,
+      items: 4,
       slidesToSlide: 1,
     },
     tablet: {
@@ -43,7 +43,6 @@ const Recommendation = () => {
 
   return (
     <div>
-      <h1 style={{ marginBottom: '16px' }}>RECOMMENDATIONS</h1>
       <div className='productscontainer'>
         <Carousel responsive={responsive}>
         {loading &&
