@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import {Footer, Recommendation, RecentlyViewed, SignUp,} from '../components';
@@ -23,10 +24,12 @@ const ProductDetailPage = () => {
   console.log('ProductId:', productId);
   const navigate = useNavigate(); // Using useNavigate for navigation
     const productList = Array.isArray(products) ? products : [];
+
   console.log('ProductList:', productList);
   const addcart = <AiOutlineShoppingCart className='shoppingcartIcon' />;
   const { addItem } = useCart();
   console.log(addItem); // Check the console to see if addItem is a function
+
   
   const [state, setState] = useState({
     isDescription: true,
@@ -44,8 +47,6 @@ const ProductDetailPage = () => {
       data == 'B' && setOpenbid(false);
   }
   
-  
-
   
 
   // Find the product based on productId using productList
@@ -136,7 +137,9 @@ const ProductDetailPage = () => {
           <div className="box">
             <div>
               <div className="row">
+              <div className="spacer"></div>
                 <h2>{product.productName}</h2>
+
                 <span style={{marginTop:'16px',marginBottom:'32px',fontSize:'1.5rem'}}>¢{product.price}</span>
                 {product.sellingType !== "BuyNow"&&<span style={{display:'inline-flex', lineHeight:'2.25rem', backgroundColor:'#F4F4F7', width:'320px', padding:'0px 16px', borderRadius:'24px',marginBottom:'16px'}}>10000 bids <AiOutlineClockCircle style={{fontSize:'2.25rem', margin:'0 2px'}}/> 1 day 3 Hours 5 Min</span>}
                 {/* <div className="spacer"></div> never inlcude this use margin, padding or absolute position
@@ -176,7 +179,7 @@ const ProductDetailPage = () => {
                   
                   {product.sellingType === "BuyNow" && <AiOutlineShoppingCart style={{background:"#F4F4F7", padding:"8px", borderRadius:"50%", fontSize:"3rem", cursor:"pointer"}}/>}
                   <AiFillEye style={{background:"#F4F4F7", padding:"6px", borderRadius:"50%", fontSize:"2rem",cursor:"pointer"}}/>
-                
+
                   </Box>
                   
                   
@@ -188,8 +191,7 @@ const ProductDetailPage = () => {
 }
         </Box>
       </Box>
-      
-      
+            
 <div className='descSpecs-box'>
   <div className="itemspecs">
     <h4>Item Specifications</h4>
