@@ -40,7 +40,7 @@ function App() {
     setSearchResults(filteredResults);
   };
 
-  const initCart = JSON.parse(localStorage.getItem("Cart"));
+  //const initCart = JSON.parse(localStorage.getItem("Cart"));
   const [cartItems, setCartItems] = useState([]);
   const { dispatch } = useContext(Cartcontext);
 
@@ -70,10 +70,10 @@ function App() {
   };
   
  useEffect(()=>{
-    const data = JSON.parse(localStorage.getItem("Cart"));
-    localStorage.setItem("Cart",JSON.stringify(data));
-    initCart == null && setCartItems(data);
-  },[initCart]);
+    //const data = JSON.parse(localStorage.getItem("Cart"));
+    localStorage.setItem("Cart",JSON.stringify([]));
+    //initCart == null && setCartItems(data);
+  },[]);
 
   useEffect(()=>{
     localStorage.setItem("Cart",JSON.stringify(cartItems));
