@@ -9,7 +9,7 @@ import { Cartcontext } from "./context/context";
 
 
 const ItemCardglobal = (prodData) => {
-    const {price,productName,imageFileUrl,sellingType,condition,id,summary} = prodData;
+    const {price,productName,imageFileUrl,sellingType,condition,id,summary,onAdd} = prodData;
     const date = new Date();
     const addcart = <AiOutlineShoppingCart className='shoppingcartIcon' onClick={() => onAdd(prodData)} />;
     const watchlist = <AiOutlineEye className='shoppingcartIcon' />;
@@ -20,7 +20,7 @@ const ItemCardglobal = (prodData) => {
     const initCart = JSON.parse(localStorage.getItem("Cart"));
     const [cartItems, setCartItems] = useState([]);
     
-    const onAdd = (prodData) => {
+    const onAdd1 = (prodData) => {
         console.log(prodData);
         const exist = cartItems.find(x => x.id === prodData.id);
         if (exist) {

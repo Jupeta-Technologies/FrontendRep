@@ -117,7 +117,8 @@ const  JupetaECnavBar = (props) => {
 
     //Navbar cart update/refresh work around --- optimization needed
     const updateNavCart = () =>{
-        setCart(JSON.parse(localStorage.getItem("Cart")));
+        let getCart = JSON.parse(localStorage.getItem("Cart"));
+        getCart === null?setCart([]):setCart(getCart);
     };
     
     useEffect(() => {
@@ -203,7 +204,7 @@ const  JupetaECnavBar = (props) => {
                 </div>
             </div>
             <div className='sticky-gen-cat-menu'>
-                <GenCatMenu sx={currPage === "Search"?{display:'none'}:{marginTop:'50px'}} isSticky={isSticky} />
+                <GenCatMenu sx={currPage === "Search" || "Cart"?{display:'none'}:{marginTop:'50px'}} isSticky={isSticky} />
             </div>
             </>
         );

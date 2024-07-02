@@ -25,7 +25,7 @@ const CartPage = (props) => {
 
   return (
     <>
-      <JupetaECnavBar />
+      <JupetaECnavBar page={"Cart"}/>
       <Container style={{marginTop: '60px'}}>
             <Row>
                 <Col xs={7} style={{ minHeight: '1000px', display: 'flex', flexDirection: 'column'}}>
