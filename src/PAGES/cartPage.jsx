@@ -10,17 +10,20 @@ import { faApplePay } from '@fortawesome/free-brands-svg-icons';
 import { faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import brandicons from '../images/brandicons.png'
 import JupetaECnavBar from '../components/JupetaECnavBar';
-import { Container, Row, Col } from 'react-bootstrap'
+import { Container, Row, Col } from 'react-bootstrap';
+import { useCart } from '../context/CartContext';
 
 const CartPage = (props) => {
-  const {cartItems, onAdd, onRemove, setCartItems} = props
-  const itemsPrice = cartItems.reduce((a,c) => a + c.price * c.qty, 0);
+  const {cartItems0, onAdd, onRemove, setCartItems} = props
+  //const itemsPrice = cartItems0.reduce((a,c) => a + c.price * c.qty, 0);
   //const taxPrice = itemsPrice * 0.17;
   //const deliveryPrice = itemsPrice > 200 ? 0 : 15;
   //const totalPrice = itemsPrice + taxPrice + deliveryPrice;
-  const totalPrice = itemsPrice;
+  //const totalPrice = itemsPrice;
 
-  const paymentMethods = [faCcVisa,faCcMastercard,faCcDiscover,faCcPaypal,faApplePay]
+  const paymentMethods = [faCcVisa,faCcMastercard,faCcDiscover,faCcPaypal,faApplePay];
+
+  const {products, total} = useCart();
 
 
   return (
@@ -31,10 +34,10 @@ const CartPage = (props) => {
                 <Col xs={7} style={{ minHeight: '1000px', display: 'flex', flexDirection: 'column'}}>
                     <section>
                         <h3><strong>YOUR BAG</strong></h3>
-                        <h4>Total: {'[ '+ cartItems.length +' ]'}</h4>
+                        <h4>Total: {'[ '+ products.length +' ]'}</h4>
                     
-                    {cartItems.length === 0 && <div>Cart is Empty</div>}
-                    {cartItems.map((item) => {
+                    {products.length === 0 && <div>Cart is Empty</div>}
+                    {products.map((item) => {
                       return(
                         <>
                           <div className='cartCard'>
@@ -68,13 +71,13 @@ const CartPage = (props) => {
                    </section> 
                 </Col>
                 <Col xs={5} style={{ minHeight: '1000px', padding: '50px'}}>
-                    {cartItems.length !== 0 && (
+                    {products.length !== 0 && (
                       <div className='cartinfo'>
                         <h3 style={{marginTop: '100px'}}><strong>Order Summary</strong></h3>
                         <h4>Do you have a promo code?</h4>
                         <section style={{display: 'flex', justifyContent: 'space-between', marginTop: '20px', marginRight: '30px'}}>
                           <h5>Subtotal [ ]</h5>
-                          <h5>GHS {itemsPrice.toFixed(2)}</h5>
+                          <h5>GHS {total.toFixed(2)}</h5>
                         </section>
                         <section style={{display: 'flex', justifyContent: 'space-between', marginTop: '5px', marginRight: '30px'}}>
                           <h5>Estimated Shipping/Delivery</h5>
@@ -87,7 +90,7 @@ const CartPage = (props) => {
                         <hr style={{marginTop: '30px'}} />
                         <section style={{display: 'flex', justifyContent: 'space-between', marginTop: '10px', marginRight: '30px'}}>
                           <h5>Order Total</h5>
-                          <h5>GHS {totalPrice.toFixed(2)}</h5>
+                          <h5>GHS {total.toFixed(2)}</h5>
                         </section>
                         <button style={{border: "1px solid", padding:"15px", width:"100%", borderRadius: "50px", background:"black", color:"white", marginTop:"20px"}}>Checkout</button>
                         <section style={{marginTop: '60px', display: 'flex', flexDirection: 'column'}}>

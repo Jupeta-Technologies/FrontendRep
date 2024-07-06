@@ -23,7 +23,7 @@ const ProductDetailPage = () => {
   console.log('ProductId:', productId);
   const navigate = useNavigate(); // Using useNavigate for navigation
     const productList = Array.isArray(products) ? products : [];
-  console.log('ProductList:', productList);
+  //console.log('ProductList:', productList);
   const addcart = <AiOutlineShoppingCart className='shoppingcartIcon' />;
   const { addItem } = useCart();
   console.log(addItem); // Check the console to see if addItem is a function
@@ -101,7 +101,7 @@ const ProductDetailPage = () => {
   return (
     <div>
       <NewnavBar />
-      <div className="mainContainer">
+      <div className="mainContainer" style={{marginTop:'86px'}}>
       <Box
         sx={{
           display: 'flex',

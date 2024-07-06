@@ -22,7 +22,7 @@ import SellListing from './components/SellListing';
 import CatHomePage from './PAGES/CatHomePage';
 import { Cartcontext } from "./context/context";
 import { GetAllProdAPI } from './APIs/GetAllProdAPI';
-
+import { CartProvider } from './context/CartContext';
 function App() {
 
   const [searchResults, setSearchResults] = useState([]);
@@ -40,8 +40,10 @@ function App() {
     setSearchResults(filteredResults);
   };
 
-  //const initCart = JSON.parse(localStorage.getItem("Cart"));
-  const [cartItems, setCartItems] = useState([]);
+ 
+  
+ /*  const initCart = JSON.parse(localStorage.getItem("Cart"));
+  const [cartItems, setCartItems] = useState(initCart == null?[]:initCart);
   const { dispatch } = useContext(Cartcontext);
 
   const handleAddToCart = (product) => {
@@ -57,8 +59,20 @@ function App() {
     } else {
       setCartItems([...cartItems, { ...productdata, qty: 1 }]);
     }
+    
   };
 
+  //DO NOT TOUCH THIS CODE ==>
+  useEffect(()=>{
+    const data = JSON.parse(localStorage.getItem("Cart"));
+    localStorage.setItem("Cart",JSON.stringify(data));
+    initCart === null && setCartItems(data);
+  },[initCart]);
+
+  useEffect(()=>{
+    localStorage.setItem("Cart",JSON.stringify(cartItems));
+  },[cartItems])
+// <==
 
   const onRemove = (productdata) => {
     const exist = cartItems.find(x => x.id === productdata.id);
@@ -68,17 +82,8 @@ function App() {
       setCartItems(cartItems.map(x => x.id === productdata.id ? { ...exist, qty: exist.qty - 1 } : x));
     }
   };
-  
- useEffect(()=>{
-    //const data = JSON.parse(localStorage.getItem("Cart"));
-    localStorage.setItem("Cart",JSON.stringify([]));
-    //initCart == null && setCartItems(data);
-  },[]);
+  */  
 
-  useEffect(()=>{
-    localStorage.setItem("Cart",JSON.stringify(cartItems));
-    console.log("Item added to cart");
-  },[cartItems])
 /* <a>Learn React</a>  this is need to run Jest remove during production*/
 
 useEffect(() => {
@@ -104,12 +109,13 @@ useEffect(() => {
   return (
     
     <div>
+      <CartProvider>
       <Routes>
         <Route path="/" element={<HomePage/>} />
         <Route path="/favorites" element={<FavoritesPage />} />
-        <Route path="/cart" element={<CartPage cartItems={cartItems} setCartItems={setCartItems} onAdd={onAdd} onRemove={onRemove}/>} />
+        <Route path="/cart" element={<CartPage/>} />
         <Route path="/profile" element={<ProfilePage />} />
-        <Route path="/allproducts" element={<AllCategories handleAddToCart={handleAddToCart} />} />
+        <Route path="/allproducts" element={<AllCategories/>} />
         <Route path="/sell" element={<SellPage />} />
         <Route path="/location" element={<Location />} />
         <Route path="/createanaccount" element={<SignUpPage />} />
@@ -120,11 +126,12 @@ useEffect(() => {
         <Route path='/welcome' element={<WelcomePage />} />
         <Route path='/overview' element={<Overview />} />
         <Route path='/tiles' element={<Tiles />} />
-        <Route path='/srchResult' element={<SearchResult onAdd={onAdd} onRemove={onRemove} />} />
+        <Route path='/srchResult' element={<SearchResult/>} />
         <Route path='/selllisting' element={<SellListing />} />
         <Route path="/product-detail/:productId" element={<ProductDetailPage />} />
         <Route path="/catHome" element={<CatHomePage/>} />
       </Routes>
+      </CartProvider>
     </div>
     
   );

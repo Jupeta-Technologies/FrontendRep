@@ -1,11 +1,19 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { useCart } from '../../context/CartContext';
 
 
-function BuyBidbutton({tag,onAdd,productdata}) {
-    //const tag = props.tag;
+function BuyBidbutton({tag,productdata}) {
+
+    const {addToCart} = useCart();
+
+    const handleAddtoCart = () =>{
+        addToCart(productdata);
+
+    }
+
     return ( 
-        <div className="buybidButton" onClick={() => onAdd(productdata)}>{tag}</div>
+        <div className="buybidButton" onClick={handleAddtoCart}>{tag}</div>
     );
 }
 

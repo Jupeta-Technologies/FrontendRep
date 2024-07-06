@@ -1,4 +1,4 @@
-import React, { Component, Text, View, useEffect, useState,useRef} from 'react';
+import React, { Component, Text, View, useEffect, useState,useRef, useContext} from 'react';
 import { AiOutlineShoppingCart,AiOutlineSearch,AiOutlineUser, AiOutlineHeart,AiOutlineEye, AiOutlineLogout,AiOutlineLogin } from 'react-icons/ai';
 import {MdOutlineSell,MdOutlineManageAccounts} from 'react-icons/md';
 import {CiLocationOff,CiReceipt,CiCircleChevDown} from 'react-icons/ci';
@@ -10,7 +10,8 @@ import { Link } from 'react-router-dom';
 import { Refresh, Translate } from '@mui/icons-material';
 import { useNavigate } from "react-router-dom";
 import GenCatMenu from './GenCatMenu';
-import './scrollgencat.css'
+import './scrollgencat.css';
+import { useCart } from '../context/CartContext';
 
 
 
@@ -26,6 +27,7 @@ const  JupetaECnavBar = (props) => {
       const [srchUpdt,setSrchUpdt] = useState(false);
       const [isSticky, setIsSticky] = useState(false);
       const currPage = props.page;
+      const {products} = useCart();
      
 
       
@@ -117,8 +119,8 @@ const  JupetaECnavBar = (props) => {
 
     //Navbar cart update/refresh work around --- optimization needed
     const updateNavCart = () =>{
-        let getCart = JSON.parse(localStorage.getItem("Cart"));
-        getCart === null?setCart([]):setCart(getCart);
+        //const getCart = localStorage.getItem("Cart");
+        products === null?setCart([]):setCart(products);
     };
     
     useEffect(() => {
