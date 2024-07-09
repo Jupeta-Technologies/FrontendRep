@@ -81,14 +81,17 @@
 } */
 
 .cartproductimage{
-    width: 25%;
-    height: 80%;
+    width: 200px;
+    height: 168px;
+    
+
+    & img{border-radius: 12px;}
 }
 
 .cartproductname{
     width: 40%;
     height: 80%;
-    padding-left: 15px;
+    padding-left: 16px;
     display: flex;
     flex-direction: column;
 }
@@ -122,9 +125,9 @@
 
     margin-top: 40px; 
     display: flex;
-    height: 230px; 
+    height: 180px; 
     align-items: center; 
-    padding:15px; 
+    padding:8px; 
     gap:10px;
     border-radius:20px; 
     background-color:whitesmoke; 

@@ -23,7 +23,7 @@ const CartPage = (props) => {
 
   const paymentMethods = [faCcVisa,faCcMastercard,faCcDiscover,faCcPaypal,faApplePay];
 
-  const {products, total} = useCart();
+  const {products, total, removeFromcart, addToCart} = useCart();
 
 
   return (
@@ -31,7 +31,7 @@ const CartPage = (props) => {
       <JupetaECnavBar page={"Cart"}/>
       <Container style={{marginTop: '60px'}}>
             <Row>
-                <Col xs={7} style={{ minHeight: '1000px', display: 'flex', flexDirection: 'column'}}>
+                <Col xs={8} style={{ minHeight: '1000px', display: 'flex', flexDirection: 'column'}}>
                     <section>
                         <h3><strong>YOUR BAG</strong></h3>
                         <h4>Total: {'[ '+ products.length +' ]'}</h4>
@@ -42,26 +42,26 @@ const CartPage = (props) => {
                         <>
                           <div className='cartCard'>
                             <div className='cartproductimage'>
-                              <img src={item.imageFileUrl} style={{width: '100%', height: '100%', objectFit: 'fill', mixBlendMode: 'multiply'}} alt={item.productName}/>
+                              <img src={item.imageFileUrl} style={{width: '100%', height: '100%', objectFit: 'cover', mixBlendMode: 'multiply'}} alt={item.productName}/>
                             </div>
                             <div className='cartproductname'>
-                              <h6>Item number: 31450</h6>
+                              <p>Item number: 31450</p>
                               <h5>{item.productName}</h5>
-                              <h6>Color: Red</h6>
-                              <h6 style={{marginTop: '15px'}}><strong>GHS {item.price}</strong></h6>
+                              <p>Color: Red</p>
+                              <p style={{marginTop: '15px'}}><strong>GHS {item.price}</strong></p>
                             </div>
                             <div className='cartproductprice'>
                               <div className='addsubtract'>
-                                <button onClick={() => onRemove(item)}>-</button>
+                                <button onClick={() => removeFromcart(item)}>-</button>
                                 <h5>{item.qty}</h5>
-                                <button onClick={() => onAdd(item)}>+</button>
+                                <button onClick={() => addToCart(item)}>+</button>
                               </div>
                               <button>Save to wishlist</button>
                               <button>Save for later</button>
                             </div>
                   
                                 
-                                  <FontAwesomeIcon icon={faTrashCan} color='red' className='cartDelitem' style={{fontSize:'1.3rem', position:'absolute', top:'-7px',right:'-7px', backgroundColor:'#F1DCDC',borderRadius:'50px', padding:'25px 25px 20px 20px', cursor:'pointer'}} onClick={() => onRemove(item)}></FontAwesomeIcon>
+                                  <FontAwesomeIcon icon={faTrashCan} color='red' className='cartDelitem' style={{fontSize:'1.3rem', position:'absolute', top:'-7px',right:'-7px', backgroundColor:'#F1DCDC',borderRadius:'50px', padding:'25px 25px 20px 20px', cursor:'pointer'}} onClick={() => removeFromcart(item)}></FontAwesomeIcon>
                                 
             
                           </div>
@@ -70,21 +70,21 @@ const CartPage = (props) => {
                     })}
                    </section> 
                 </Col>
-                <Col xs={5} style={{ minHeight: '1000px', padding: '50px'}}>
+                <Col xs={4} style={{ minHeight: '1000px', padding: '50px'}}>
                     {products.length !== 0 && (
                       <div className='cartinfo'>
                         <h3 style={{marginTop: '100px'}}><strong>Order Summary</strong></h3>
                         <h4>Do you have a promo code?</h4>
                         <section style={{display: 'flex', justifyContent: 'space-between', marginTop: '20px', marginRight: '30px'}}>
-                          <h5>Subtotal [ ]</h5>
-                          <h5>GHS {total.toFixed(2)}</h5>
+                          <p>Subtotal [{products.length} ]</p>
+                          <p>GHS {total.toFixed(2)}</p>
                         </section>
                         <section style={{display: 'flex', justifyContent: 'space-between', marginTop: '5px', marginRight: '30px'}}>
-                          <h5>Estimated Shipping/Delivery</h5>
-                          <h5>FREE</h5>
+                          <p>Estimated Shipping/Delivery</p>
+                          <p>FREE</p>
                         </section>
                         <section style={{display: 'flex', justifyContent: 'space-between', marginTop: '5px', marginRight: '30px'}}>
-                          <h5>Estimated Tax</h5>
+                          <p>Estimated Tax</p>
                           <h5>-</h5>
                         </section>
                         <hr style={{marginTop: '30px'}} />

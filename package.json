@@ -1,5 +1,5 @@
 {
-  "name": "my-app",
+  "name": "jupeta",
   "version": "0.1.0",
   "private": true,
   "proxy": "https://jupeta-project.onrender.com/api/User",
