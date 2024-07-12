@@ -10,7 +10,7 @@ const Hero = () => {
     <Box
     sx={{
       position: 'relative',
-      backgroundImage: `url(${visionpro})`,
+      backgroundImage: `url(${heroImage})`,
       backgroundSize: 'cover',
       height: '60vh',
       minHeight:348,

@@ -153,9 +153,10 @@ const  JupetaECnavBar = (props) => {
                     
                     <Link to={'/'} style={{textDecoration:'none', color:'#000'}}><Typography fontSize={'xl'} color='#000'>jUPETA</Typography></Link>
                     <CiLocationOff />
-                    <div style={{width:'100px', background:'linear-gradient(to right,#0E3212,transparent)', padding:'5px',borderRadius:'25px', marginLeft:'50px', color:"#FFF", cursor:"pointer"}}><AiOutlineSearch onClick={handleSearchicon} id='navSicon'/></div>
+                    
                 </div>
                 <div className="center">
+                <div style={{display:searchActive && "none",width:'100px',height:'40px', background:'linear-gradient(to right,#44423f,transparent)', padding:'5px',borderRadius:'25px', color:"#FFF", cursor:"pointer",position:'absolute',left:'-30%'}}><AiOutlineSearch onClick={handleSearchicon} id='navSicon'/></div>
                     <div className={searchActive?"navSearchBar showOpacity":"navSearchBar"}>
                         <div className="sBarleft">
                         <select placeholder="Select a Category"  value={searchCatg} onChange={handleSearchCat}>
@@ -165,7 +166,7 @@ const  JupetaECnavBar = (props) => {
                         </select>
                         </div>
                         <div className="sBarcenter"><input type="text" name="search" ref={srchRef} placeholder='Search for product..' onChange={handleSearchInput} /></div>
-                        <div className="sBarright"><Button onClick={()=>{handelSEO(); setSrchUpdt(!srchUpdt);setsrching(false) }}>Search</Button></div>
+                        <div className="sBarright"><AiOutlineSearch onClick={()=>{handelSEO(); setSrchUpdt(!srchUpdt);setsrching(false) }} /></div>
                     </div>
                     
                     <div className={srching?"searchResult showDiv":"searchResult"}>

@@ -26,7 +26,7 @@ const CartPage = () => {
             <Row>
                 <Col xs={8} style={{ minHeight: '1000px', display: 'flex', flexDirection: 'column'}}>
                     <section>
-                        <h3><strong>YOUR BAG</strong></h3>
+                        <h3><strong>Your Cart</strong></h3>
                         <h4>Total: {'[ '+ products.length +' ]'}</h4>
                     
                     {products.length === 0 && <div>Cart is Empty</div>}
