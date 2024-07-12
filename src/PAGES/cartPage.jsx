@@ -1,29 +1,22 @@
 import React from 'react'
 import '../components/CartPage.css'
 import { Navbar,Footer } from '../components';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCcVisa } from '@fortawesome/free-brands-svg-icons';
 import { faCcMastercard } from '@fortawesome/free-brands-svg-icons';
 import { faCcDiscover } from '@fortawesome/free-brands-svg-icons';
 import { faCcPaypal } from '@fortawesome/free-brands-svg-icons';
 import { faApplePay } from '@fortawesome/free-brands-svg-icons';
-import { faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import brandicons from '../images/brandicons.png'
 import JupetaECnavBar from '../components/JupetaECnavBar';
 import { Container, Row, Col } from 'react-bootstrap';
 import { useCart } from '../context/CartContext';
+import CartItemcard from '../product/CartItemCard';
 
-const CartPage = (props) => {
-  const {cartItems0, onAdd, onRemove, setCartItems} = props
-  //const itemsPrice = cartItems0.reduce((a,c) => a + c.price * c.qty, 0);
-  //const taxPrice = itemsPrice * 0.17;
-  //const deliveryPrice = itemsPrice > 200 ? 0 : 15;
-  //const totalPrice = itemsPrice + taxPrice + deliveryPrice;
-  //const totalPrice = itemsPrice;
+const CartPage = () => {
 
   const paymentMethods = [faCcVisa,faCcMastercard,faCcDiscover,faCcPaypal,faApplePay];
 
-  const {products, total, removeFromcart, addToCart} = useCart();
+  const {products, total} = useCart();
 
 
   return (
@@ -37,37 +30,7 @@ const CartPage = (props) => {
                         <h4>Total: {'[ '+ products.length +' ]'}</h4>
                     
                     {products.length === 0 && <div>Cart is Empty</div>}
-                    {products.map((item) => {
-                      return(
-                        <>
-                          <div className='cartCard'>
-                            <div className='cartproductimage'>
-                              <img src={item.imageFileUrl} style={{width: '100%', height: '100%', objectFit: 'cover', mixBlendMode: 'multiply'}} alt={item.productName}/>
-                            </div>
-                            <div className='cartproductname'>
-                              <p>Item number: 31450</p>
-                              <h5>{item.productName}</h5>
-                              <p>Color: Red</p>
-                              <p style={{marginTop: '15px'}}><strong>GHS {item.price}</strong></p>
-                            </div>
-                            <div className='cartproductprice'>
-                              <div className='addsubtract'>
-                                <button onClick={() => removeFromcart(item)}>-</button>
-                                <h5>{item.qty}</h5>
-                                <button onClick={() => addToCart(item)}>+</button>
-                              </div>
-                              <button>Save to wishlist</button>
-                              <button>Save for later</button>
-                            </div>
-                  
-                                
-                                  <FontAwesomeIcon icon={faTrashCan} color='red' className='cartDelitem' style={{fontSize:'1.3rem', position:'absolute', top:'-7px',right:'-7px', backgroundColor:'#F1DCDC',borderRadius:'50px', padding:'25px 25px 20px 20px', cursor:'pointer'}} onClick={() => removeFromcart(item)}></FontAwesomeIcon>
-                                
-            
-                          </div>
-                        </>
-                      )
-                    })}
+                    {products.map((product,i) => {return <CartItemcard item={product} key={i}/>})}
                    </section> 
                 </Col>
                 <Col xs={4} style={{ minHeight: '1000px', padding: '50px'}}>
