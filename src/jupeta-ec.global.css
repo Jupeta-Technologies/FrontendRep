@@ -161,6 +161,7 @@ background-color: #FFF;}
 .cartQview, .favQview{width:300px; min-height: 100px; position:absolute;right:5px;top:51px;background-color: #F9F9F9;display: none;border-radius: 20px;}
 
 /* Search bar styling */
+.center .searchBtn{width:120px; height:40px; background:linear-gradient(to right,#e7e7ecc6,transparent); padding:5px; border-radius:25px; cursor:pointer; position:absolute; left:-30%; display:flex; flex-direction: row; align-items: center;gap: 4px; font-size: smaller; color: #c9c9c9;}
 .navSearchBar{ width:100%;height: 40px; padding: 3px 10px; font-size: medium; border-radius:20px; background-color: #e7e7ecc6; display: flex; flex-direction: row; overflow: hidden;visibility: hidden;}
 .navSearchBar .sBarleft{position:relative; align-self: center; & select {padding:4px; height:32px; background: transparent; width: auto;}}
 .navSearchBar .sBarcenter{width: calc(100% - 225px); position: relative;align-self: center; padding-left: 20px;}

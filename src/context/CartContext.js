@@ -28,24 +28,27 @@ export function CartProvider({children}) {
     }
 
     const removeFromcart = (product) =>{
-      const checkQty = cartItems.products.find(x => x.qty > 1);
-      console.log(checkQty);
-      var updateCart = [];
-      if(checkQty){
-        updateCart = cartItems.products.map(x => x.id === product.id?{...checkQty,qty: checkQty.qty -1}:x);
+      const checkQty = cartItems.products.find(x => product.id);
+      
+      const updateCart = cartItems.products.filter((currItems)=> currItems.id !== product.id );
 
+      var upItemQTY = [];
+      if(checkQty.qty === 1){
         cartTotal(updateCart);
       }
       else{
-        updateCart = cartItems.products.filter((currItems)=> currItems.id !== product.id );
-        cartTotal(updateCart);
+        console.log(checkQty);
+        upItemQTY = cartItems.products.map(x => x.id === product.id?{...checkQty,qty: checkQty.qty -1}:x);
+
+        cartTotal(upItemQTY);
+        
       }
 
       
 
       dispatch({
         type:"removeItem",
-        payload: updateCart
+        payload: checkQty.qty === 1?updateCart:upItemQTY
       });
     }
 

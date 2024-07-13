@@ -1,5 +1,5 @@
 import React, { Component, Text, View, useEffect, useState,useRef, useContext} from 'react';
-import { AiOutlineShoppingCart,AiOutlineSearch,AiOutlineUser, AiOutlineHeart,AiOutlineEye, AiOutlineLogout,AiOutlineLogin } from 'react-icons/ai';
+import { AiOutlineShoppingCart,AiOutlineSearch,AiOutlineUser, AiOutlineHeart,AiOutlineEye, AiOutlineLogout,AiOutlineLogin,AiOutlineClose } from 'react-icons/ai';
 import {MdOutlineSell,MdOutlineManageAccounts} from 'react-icons/md';
 import {CiLocationOff,CiReceipt,CiCircleChevDown} from 'react-icons/ci';
 import {Typography,Avatar,Input,Button,Option,IconButton } from '@mui/joy';
@@ -156,7 +156,9 @@ const  JupetaECnavBar = (props) => {
                     
                 </div>
                 <div className="center">
-                <div style={{display:searchActive && "none",width:'100px',height:'40px', background:'linear-gradient(to right,#44423f,transparent)', padding:'5px',borderRadius:'25px', color:"#FFF", cursor:"pointer",position:'absolute',left:'-30%'}}><AiOutlineSearch onClick={handleSearchicon} id='navSicon'/></div>
+                <div className='searchBtn' style={{display:searchActive && "none"}} onClick={handleSearchicon} >
+                    <AiOutlineSearch id='navSicon' style={{borderRadius:'100%',padding:'8px',fontSize:'2rem',background:'#44423f', color:'#FFF'}}/><span>Search...</span>
+                </div>
                     <div className={searchActive?"navSearchBar showOpacity":"navSearchBar"}>
                         <div className="sBarleft">
                         <select placeholder="Select a Category"  value={searchCatg} onChange={handleSearchCat}>
@@ -166,7 +168,10 @@ const  JupetaECnavBar = (props) => {
                         </select>
                         </div>
                         <div className="sBarcenter"><input type="text" name="search" ref={srchRef} placeholder='Search for product..' onChange={handleSearchInput} /></div>
-                        <div className="sBarright"><AiOutlineSearch onClick={()=>{handelSEO(); setSrchUpdt(!srchUpdt);setsrching(false) }} /></div>
+                        <div className="sBarright">
+                            {searchKey === ''?<AiOutlineClose onClick={()=>setSearchActive(false)}/> :<AiOutlineSearch onClick={()=>{handelSEO(); setSrchUpdt(!srchUpdt);setsrching(false) }} />}
+
+                        </div>
                     </div>
                     
                     <div className={srching?"searchResult showDiv":"searchResult"}>
@@ -207,7 +212,7 @@ const  JupetaECnavBar = (props) => {
                 </div>
             </div>
             <div className='sticky-gen-cat-menu'>
-                <GenCatMenu sx={currPage === "Search" || "Cart"?{display:'none'}:{marginTop:'50px'}} isSticky={isSticky} />
+                <GenCatMenu sx={currPage === "Search" || currPage === "Cart"?{display:'none'}:{marginTop:'50px'}} isSticky={isSticky} />
             </div>
             </>
         );
