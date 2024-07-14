@@ -9,6 +9,7 @@ import accessories from '../images/techass.jpg';
 
 import './elec.css';
 import { useLocation, Link } from 'react-router-dom';
+import JupetaECnavBar from './JupetaECnavBar';
 
 
 const CatElectronicHomepage = ({ sx }) => {
@@ -38,7 +39,7 @@ const CatElectronicHomepage = ({ sx }) => {
 
   return (
     <div>
-      <CatHomeNavBar />
+      <JupetaECnavBar page={"nctgm"}/>
       <Box
         sx={{
           position: 'relative',

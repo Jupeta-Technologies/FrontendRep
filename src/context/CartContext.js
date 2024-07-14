@@ -30,10 +30,11 @@ export function CartProvider({children}) {
     const removeFromcart = (product) =>{
       const checkQty = cartItems.products.find(x => product.id);
       
-      const updateCart = cartItems.products.filter((currItems)=> currItems.id !== product.id );
+      var updateCart = [];
 
       var upItemQTY = [];
-      if(checkQty.qty === 1){
+      if(checkQty.qty <= 1){
+        updateCart = cartItems.products.filter((currItems)=> currItems.id !== product.id );
         cartTotal(updateCart);
       }
       else{
@@ -45,10 +46,21 @@ export function CartProvider({children}) {
       }
 
       
-
       dispatch({
         type:"removeItem",
         payload: checkQty.qty === 1?updateCart:upItemQTY
+      });
+    }
+
+    const clearFromcart = (product) => {
+      const updateCart = cartItems.products.filter((currItems)=> currItems.id !== product.id );
+
+      cartTotal(updateCart);
+
+      dispatch({
+        type: "removeItem",
+        payload: updateCart
+
       });
     }
 
@@ -64,11 +76,14 @@ export function CartProvider({children}) {
 
     }
 
+
+
     const value = {
       total: cartItems.total,
       products: cartItems.products,
       addToCart,
-      removeFromcart
+      removeFromcart,
+      clearFromcart
     }
     /*/DO NOT TOUCH THIS CODE ==>
         useEffect(()=>{

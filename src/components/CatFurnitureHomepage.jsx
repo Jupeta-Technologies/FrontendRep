@@ -8,6 +8,7 @@ import Bed from '../images/bed.jpg'
 import shelving from '../images/shelving.jpg'
 import './furniture.css';
 import { useLocation, Link } from 'react-router-dom';
+import JupetaECnavBar from './JupetaECnavBar';
 
 
 const CatFurnitureHomepage = ({ sx }) => {
@@ -37,7 +38,7 @@ const CatFurnitureHomepage = ({ sx }) => {
 
   return (
     <div>
-      <CatHomeNavBar />
+      <JupetaECnavBar page={"nctgm"}/>
       <Box
         sx={{
           position: 'relative',

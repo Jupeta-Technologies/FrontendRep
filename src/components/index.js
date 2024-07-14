@@ -16,7 +16,6 @@ import ProductColor from "./ProductColor";
 import ProductDetailsThumb from "./ProductDetailsThumb";
 import Tiles from "./Tiles";
 import Grid from "./Grid";
-import CatHomeNavBar from "./CatHomeNavBar";
 import CatHomeHero from "./CatHomeHero";
 import CatAutomobileHomepage from "./CatAutomobileHomepage";
 import CatElectronicHomepage from "./CatElectronicHomepage";
@@ -43,7 +42,6 @@ import CatFurnitureHomepage from "./CatFurnitureHomepage";
     ProductDetailsThumb,
     Tiles,
     Grid,
-    CatHomeNavBar,
     CatHomeHero,
     CatAutomobileHomepage,
     CatFashionHomepage,

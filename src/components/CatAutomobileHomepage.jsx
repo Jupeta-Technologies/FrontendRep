@@ -10,6 +10,7 @@ import tyres from '../images/tyres .jpg';
 import tools from '../images/tools .jpg';
 import { useLocation, Link } from 'react-router-dom';
 import './auto.css';
+import JupetaECnavBar from './JupetaECnavBar';
 
 
 const CatAutomobileHomepage = ({sx}) => {
@@ -49,7 +50,7 @@ const CatAutomobileHomepage = ({sx}) => {
 
   return (
     <div>
-      <CatHomeNavBar />
+      <JupetaECnavBar page={"nctgm"}/>
       <Box
         sx={{
           position: 'relative',

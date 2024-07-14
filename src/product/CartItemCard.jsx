@@ -4,15 +4,19 @@ import { faTrashCan } from '@fortawesome/free-solid-svg-icons';
 
 export default function CartItemcard({item}){
 
-    const {addToCart, removeFromcart} = useCart();
+    const {addToCart, removeFromcart,clearFromcart} = useCart();
 
-    const handleRemove = () =>{
+    const handleRemove = () => {
         removeFromcart(item);
     }
 
     const handleAdd = () => {
         addToCart(item);
 
+    }
+
+    const handleClear = () => {
+      clearFromcart(item);
     }
 
     return (
@@ -38,7 +42,7 @@ export default function CartItemcard({item}){
                             </div>
                   
                                 
-                                  <FontAwesomeIcon icon={faTrashCan} color='red' className='cartDelitem' style={{fontSize:'1.3rem', position:'absolute', top:'-7px',right:'-7px', backgroundColor:'#F1DCDC',borderRadius:'50px', padding:'25px 25px 20px 20px', cursor:'pointer'}} onClick={handleRemove}></FontAwesomeIcon>
+                                  <FontAwesomeIcon icon={faTrashCan} color='red' className='cartDelitem' style={{fontSize:'1.3rem', position:'absolute', top:'-7px',right:'-7px', backgroundColor:'#F1DCDC',borderRadius:'50px', padding:'25px 25px 20px 20px', cursor:'pointer'}} onClick={handleClear}></FontAwesomeIcon>
                                 
             
                           </div>

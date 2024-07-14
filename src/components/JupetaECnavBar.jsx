@@ -212,7 +212,7 @@ const  JupetaECnavBar = (props) => {
                 </div>
             </div>
             <div className='sticky-gen-cat-menu'>
-                <GenCatMenu sx={currPage === "Search" || currPage === "Cart"?{display:'none'}:{marginTop:'50px'}} isSticky={isSticky} />
+                <GenCatMenu sx={currPage === "Search" || currPage === "nctgm"?{display:'none'}:{marginTop:'50px'}} isSticky={isSticky} />
             </div>
             </>
         );

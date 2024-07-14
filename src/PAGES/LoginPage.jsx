@@ -8,6 +8,7 @@ import {FaFacebookF,FaApple} from "react-icons/fa";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {BsCheck2Circle,BsFillEyeFill,BsFillEyeSlashFill,BsFillArrowRightCircleFill,BsFillCheckCircleFill} from "react-icons/bs";
 import {PiWarningCircleFill} from 'react-icons/pi';
+import { AiOutlineClose } from "react-icons/ai";
 
 import { faX } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
@@ -186,6 +187,7 @@ const LoginPage = () => {
   return (
     <>
     <div className="login-body" style={{backgroundImage:`url(${loginbg})`}}>
+      <AiOutlineClose style={{padding:'4px', borderRadius:'50%', background:'#FFF',color:'#000',position:'absolute', right:'16px', top:'16px', fontSize:'2rem', cursor:'pointer'}} onClick={()=>window.history.back()}/>
      <div className="container-login" >
       <div className="head-label">
         <span onClick={handleLoginToggle} className={isLogin ? 'sIN-active' : 'LS-sIN'} >Sign in</span>
@@ -225,9 +227,11 @@ const LoginPage = () => {
           <div className="hr">
             <p>OR</p>
           </div><br/>
-          <button type="submit" className="btns"><span><FcGoogle /></span>Sign in with Google</button>
-          <button type="submit" className="btns"><span style={{color:'#3B5998'}}><FaFacebookF /></span> Sign in with Facebook</button>
-          <button type="submit" className="btns"><span><FaApple /></span>Sign in with Apple</button>
+          <div className="socialAuth">
+          <div><button type="submit" className="btns"><span><FcGoogle /></span></button><span>Google</span></div>
+          <div><button type="submit" className="btns"><span style={{color:'#3B5998'}}><FaFacebookF /></span></button><span>Facebook</span></div>
+          <div><button type="submit" className="btns"><span><FaApple /></span></button><span>Apple</span></div>
+          </div>
           <p className="terms">
             By clicking the submit button, I hereby agree to and accept the
             following <a href="#">terms and conditions</a> governing my use of the

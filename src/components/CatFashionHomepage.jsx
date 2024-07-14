@@ -9,6 +9,7 @@ import unisex from '../images/unisex.jpg';
 
 import './fashion.css';
 import { useLocation, Link } from 'react-router-dom';
+import JupetaECnavBar from './JupetaECnavBar';
 
 
 
@@ -40,7 +41,7 @@ const CatFashionHomepage = ({ sx })  => {
 
   return (
     <div>
-      <CatHomeNavBar />
+      <JupetaECnavBar page={"nctgm"}/>
       <Box
         sx={{
           position: 'relative',

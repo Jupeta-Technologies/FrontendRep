@@ -21,12 +21,12 @@ const CartPage = () => {
 
   return (
     <>
-      <JupetaECnavBar page={"Cart"}/>
+      <JupetaECnavBar page={"nctgm"}/>
       <Container style={{marginTop: '60px'}}>
             <Row>
                 <Col xs={8} style={{ minHeight: '1000px', display: 'flex', flexDirection: 'column'}}>
                     <section>
-                        <h3><strong>Your Cart</strong></h3>
+                        <h3><strong>Your cart</strong></h3>
                         <h4>Total: {'[ '+ products.length +' ]'}</h4>
                     
                     {products.length === 0 && <div>Cart is Empty</div>}
