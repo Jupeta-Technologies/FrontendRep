@@ -28,28 +28,31 @@ export function CartProvider({children}) {
     }
 
     const removeFromcart = (product) =>{
-      const checkQty = cartItems.products.find(x => product.id);
       
-      var updateCart = [];
-
-      var upItemQTY = [];
-      if(checkQty.qty <= 1){
-        updateCart = cartItems.products.filter((currItems)=> currItems.id !== product.id );
-        cartTotal(updateCart);
-      }
-      else{
-        console.log(checkQty);
-        upItemQTY = cartItems.products.map(x => x.id === product.id?{...checkQty,qty: checkQty.qty -1}:x);
+      
+      if (product.qty > 1){
+        const upItemQTY = cartItems.products.map(x => x.id === product.id?{...product,qty: product.qty -1}:x);
 
         cartTotal(upItemQTY);
         
+        dispatch({
+          type:"removeItem",
+          payload: upItemQTY
+        });
+        
+      }
+      else{
+        
+        const updateCart = cartItems.products.filter((currItems)=> currItems.id !== product.id );
+        cartTotal(updateCart);
+
+        dispatch({
+          type:"removeItem",
+          payload:updateCart
+        });
       }
 
       
-      dispatch({
-        type:"removeItem",
-        payload: checkQty.qty === 1?updateCart:upItemQTY
-      });
     }
 
     const clearFromcart = (product) => {
