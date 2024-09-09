@@ -100,7 +100,7 @@ const ProductDetailPage = () => {
   // Render product details
   return (
     <div>
-      <NewnavBar />
+      <NewnavBar page={"nctgm"}/>
       <div className="mainContainer" style={{marginTop:'86px'}}>
       <Box
         sx={{

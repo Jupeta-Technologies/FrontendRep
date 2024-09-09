@@ -42,47 +42,7 @@ function App() {
 
  
   
- /*  const initCart = JSON.parse(localStorage.getItem("Cart"));
-  const [cartItems, setCartItems] = useState(initCart == null?[]:initCart);
-  const { dispatch } = useContext(Cartcontext);
-
-  const handleAddToCart = (product) => {
-    // Dispatch an action to add the product to the cart
-    dispatch({ type: 'ADD', payload: product });
-    console.log('Item added to cart:', product);
-  };
-
-  const onAdd = (productdata) => {
-    const exist = cartItems.find(x => x.id === productdata.id);
-    if (exist) {
-      setCartItems(cartItems.map(x => x.id === productdata.id ? { ...exist, qty: exist.qty + 1 } : x));
-    } else {
-      setCartItems([...cartItems, { ...productdata, qty: 1 }]);
-    }
-    
-  };
-
-  //DO NOT TOUCH THIS CODE ==>
-  useEffect(()=>{
-    const data = JSON.parse(localStorage.getItem("Cart"));
-    localStorage.setItem("Cart",JSON.stringify(data));
-    initCart === null && setCartItems(data);
-  },[initCart]);
-
-  useEffect(()=>{
-    localStorage.setItem("Cart",JSON.stringify(cartItems));
-  },[cartItems])
-// <==
-
-  const onRemove = (productdata) => {
-    const exist = cartItems.find(x => x.id === productdata.id);
-    if (exist.qty === 1) {
-      setCartItems(cartItems.filter((x) => x.id !== productdata.id));
-    } else {
-      setCartItems(cartItems.map(x => x.id === productdata.id ? { ...exist, qty: exist.qty - 1 } : x));
-    }
-  };
-  */  
+  
 
 /* <a>Learn React</a>  this is need to run Jest remove during production*/
 
@@ -111,12 +71,11 @@ useEffect(() => {
     <div>
       <CartProvider>
       <Routes>
-        <Route path="/" element={<HomePage/>} />
+        <Route path="/" element={<HomePage />} />
         <Route path="/favorites" element={<FavoritesPage />} />
         <Route path="/cart" element={<CartPage/>} />
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/allproducts" element={<AllCategories/>} />
-        <Route path="/sell" element={<SellPage />} />
         <Route path="/location" element={<Location />} />
         <Route path="/createanaccount" element={<SignUpPage />} />
         <Route path="/signup" element={<SignUp />} />
@@ -127,7 +86,7 @@ useEffect(() => {
         <Route path='/overview' element={<Overview />} />
         <Route path='/tiles' element={<Tiles />} />
         <Route path='/srchResult' element={<SearchResult/>} />
-        <Route path='/selllisting' element={<SellListing />} />
+        <Route path='/sell' element={<SellListing />} />
         <Route path="/product-detail/:productId" element={<ProductDetailPage />} />
         <Route path="/catHome" element={<CatHomePage/>} />
       </Routes>

@@ -83,8 +83,8 @@ const SellListing = () =>{
     
     return (
         <>
-            <JupetaECnavBar />
-            <div className="mainContainer">
+            <JupetaECnavBar page={"nctgm"}/>
+            <div className="mainContainer" style={{marginTop:'100px'}}>
             <h1 style={{textAlign:'center', marginBottom:'48px'}}>List. Sell. Cash</h1>
             <section>
 

@@ -6,6 +6,7 @@ import FilterBar from './FilterBar';
 import SearchFilter from '../Search/searchFilterH';
 import styled from 'styled-components';
 import { useLocation } from 'react-router-dom';
+import Pagination from '../Search/Pagination';
 
 const SearchResult = (props) => {
 
@@ -18,6 +19,19 @@ const SearchResult = (props) => {
   const [loading, setLoading] = useState(false);
   var srchResultData = JSON.parse(localStorage.getItem("SearchResult"));
   var srchupt = JSON.parse(localStorage.getItem("srchUpdt"));
+  
+
+
+  //Pagination
+  const [page,setPage] = useState(1);
+  const [itemsPpg,setItemppg] = useState(2);
+  const pagesCount = Array(Math.ceil(data.length/itemsPpg)).fill().map((_,index) => index + 1);
+  const lastItem = page * itemsPpg;
+  const firstItem = lastItem - itemsPpg;
+  const currPageitems = apiData.slice(firstItem,lastItem);
+  
+  const currPage = page;
+  console.log(page,"L",lastItem,"F",firstItem,"C",currPageitems);
   
 
 
@@ -66,12 +80,13 @@ const SearchResult = (props) => {
           <section className="product-view--sort" style={{marginTop:'48px'}}> 
             <div className="productscontainer">
               <div className="productssection">
-                {apiData.map((prodData) => (
+                {currPageitems.map((prodData) => (
                   <ItemCardglobal {...prodData} key={prodData.id} onAdd={onAdd} /> // Removed onAdd={onAdd} 
                 ))}
               </div>
             </div>
           </section>
+          <Pagination pages={pagesCount} setPage={setPage}/>
         </div>
       </Wrapper>
     </>

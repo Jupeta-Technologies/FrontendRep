@@ -201,7 +201,7 @@ const  JupetaECnavBar = (props) => {
                         </li>
                         <li>{isAuth?<Avatar id='userIcon'>E</Avatar>:<AiOutlineUser id='navicon'/>}
                         <ul className={"userMenu showMenu"}>
-                            <li><MdOutlineSell id='uMicon'/> <span>Sell</span></li>
+                            <li onClick={()=>{nav('/sell')}}><MdOutlineSell id='uMicon'/> <span>Sell</span></li>
                             <li><AiOutlineEye id='uMicon'/> <span>Watch List</span></li>
                             <li><CiReceipt id='uMicon'/> <span>Orders</span></li>
                             <li><MdOutlineManageAccounts id='uMicon'/> <span>My account</span></li>

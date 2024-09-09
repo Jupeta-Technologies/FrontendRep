@@ -17,7 +17,6 @@ const Footer = () => {
       links: [
         { name: 'Start selling' },
         { name: 'Learn to sell' },
-        { name: 'Affiliates' },
         { name: 'Stores' },
       ],
     },
@@ -41,8 +40,6 @@ const Footer = () => {
       title: 'About Us',
       links: [
         { name: 'Company info' },
-        { name: 'News' },
-        { name: 'Investors' },
         { name: 'Careers' },
         { name: 'Advertise with us' },
         { name: 'Policies' },
@@ -55,14 +52,7 @@ const Footer = () => {
         { name: 'Contact us' },
       ],
     },
-    {
-      title: 'Community',
-      links: [
-        { name: 'Announcement' },
-        { name: 'Discussion boards' },
-        { name: 'Giving works' },
-      ],
-    },
+    
   ];
 
   return (
@@ -70,11 +60,11 @@ const Footer = () => {
       display="flex"
       justifyContent="space-between"
       marginTop="10px"
-      style={{ color: '#fff', background: '#000' }}
+      style={{ color: '#000', background: '#F4F4F7' }}
     >
       {footerLinks.map((footerLink) => (
         <div key={footerLink.title}>
-          <Typography variant="h4" fontWeight="medium" marginBottom="0.8rem" fontSize="1.2rem" marginTop="30px"   marginLeft="10px">
+          <Typography variant="h4" fontWeight="medium" marginBottom="0.8rem" fontSize=".8rem" marginTop="30px"   marginLeft="10px">
             {footerLink.title}
           </Typography>
           <List>

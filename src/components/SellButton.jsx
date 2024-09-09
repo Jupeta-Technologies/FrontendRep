@@ -1,13 +1,12 @@
-import React, { Component } from 'react';
+import React, { Component, } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-class SellButton extends Component {
-    constructor(props) {
-        super(props);
-    }
-    state = {  }
-    render() { 
-        return (<p className='sellButton'>SELL</p>  );
-    }
+const SellButton = () => {
+    const nav = useNavigate();
+    
+
+    return (<p className='sellButton' onClick={()=>nav('/sell')}>SELL</p>  );
+
 }
  
 export default SellButton;
