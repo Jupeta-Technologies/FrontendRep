@@ -11,11 +11,11 @@ const Pagination= ({pages,setPage})=> {
   <div className='pagination__search'>
     
     <ul>
-    <span onClick={()=>{currPage != 1 && setCurrpage(currPage - 1);setPage(currPage) }}><AiOutlineArrowLeft /></span>
+    <span onClick={()=>{currPage !== 1 && setCurrpage(currPage - 1);setPage(currPage) }}><AiOutlineArrowLeft /></span>
       
-      {pagecount.map((pg,index) =>{return <li key={index} onClick={()=>{setPage(pg); setCurrpage(pg);}}>{pg}</li>})}
+      {pagecount.map((pg,index) =>{return <li className={currPage === pg ?'active_page':''} key={index} onClick={()=>{setPage(pg); setCurrpage(pg);}}>{pg}</li>})}
       
-    <span onClick={()=>{currPage != pagecount.length && setCurrpage(currPage + 1); setPage(currPage)}}><AiOutlineArrowRight /></span>
+    <span onClick={()=>{currPage !== pagecount.length && setCurrpage(currPage + 1); setPage(currPage)}}><AiOutlineArrowRight /></span>
     </ul>
     
   </div>
