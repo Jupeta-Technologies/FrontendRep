@@ -24,5 +24,14 @@
     display: flex;
     flex-direction: column;
     font-size: 12px;
+    overflow-y: scroll;
 }
 .fltr-col h6{align-self: center;}
+.fltr-col span{cursor: pointer;}
+.fltr_items{
+    display: flex;
+    flex-direction: column;
+    font-size: 12px;
+    overflow-y: scroll;
+}
+.fltr_items span:hover{background-color:#c9f4f3;}
