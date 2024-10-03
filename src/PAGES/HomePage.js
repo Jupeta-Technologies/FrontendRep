@@ -44,10 +44,14 @@ const HomePage = () => {
           <div style={{width:'248px', height:'148px', backgroundColor:'#F5F5F7', borderRadius:'20px'}}></div>
         </div>
         <h6>Technology</h6>
-          <div className='techHighlight' style={{display:'flex', flexDirection:'row', gap:'16px'}}>
-          <div style={{width:'348px', height:'448px', backgroundColor:'#F5F5F7', borderRadius:'20px'}}>
-            <img src={''} width='100%' height='100%'/>
-          </div>
+        
+          <div className='techHighlight' style={{display:'inline-flex',flexDirection:'row', gap:'16px', overflowX:'auto'}}>
+          {
+          products.map((x,index)=>{return(<div style={{width:'348px', height:'448px', backgroundColor:'#F5F5F7', borderRadius:'20px',overflow:'clip', flexShrink:0}} key={index}>
+            <img src={x.imageFileUrl} style={{width:'100%',height:'100%',objectFit:'cover'}}/>
+          </div>)})
+        }
+          
           <div style={{width:'348px', height:'448px', backgroundColor:'#F5F5F7', borderRadius:'20px'}}></div>
           </div>
         <h6>Aution</h6>
