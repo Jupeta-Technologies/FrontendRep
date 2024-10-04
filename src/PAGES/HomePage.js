@@ -5,6 +5,7 @@ import SellButton from '../components/SellButton';
 import AllCategories from '../components/AllCategories';
 import { GetAllProdAPI } from '../APIs/GetAllProdAPI';
 import Pagenation from '../Search/Pagination';
+import Carousel from 'react-multi-carousel';
 
 const HomePage = () => {
 
@@ -32,6 +33,23 @@ const HomePage = () => {
     fetchData();
   }, []);
 
+  const responsive = {
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 3,
+      slidesToSlide: 1,
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 768 },
+      items: 3,
+      slidesToSlide: 1,
+    },
+    mobile: {
+      breakpoint: { max: 736, min: 320 },
+      items: 2,
+      slidesToSlide: 1,
+    },
+  };
   
 
   return (
@@ -45,15 +63,17 @@ const HomePage = () => {
         </div>
         <h6>Technology</h6>
         
-          <div className='techHighlight' style={{display:'inline-flex',flexDirection:'row', gap:'16px', overflowX:'auto'}}>
-          {
+          
+        
+            <Carousel responsive={responsive}>
+              {
           products.map((x,index)=>{return(<div style={{width:'348px', height:'448px', backgroundColor:'#F5F5F7', borderRadius:'20px',overflow:'clip', flexShrink:0}} key={index}>
             <img src={x.imageFileUrl} style={{width:'100%',height:'100%',objectFit:'cover'}}/>
           </div>)})
-        }
+              }
+          </Carousel>
           
-          <div style={{width:'348px', height:'448px', backgroundColor:'#F5F5F7', borderRadius:'20px'}}></div>
-          </div>
+         
         <h6>Aution</h6>
           <div className='autionHighlight' style={{display:'flex', flexDirection:'row', gap:'16px'}}>
           <div style={{width:'348px', height:'448px', backgroundColor:'#F5F5F7', borderRadius:'20px'}}></div>
