@@ -30,7 +30,7 @@ const ItemCardglobal = (prodData) => {
                 <p className='itemName' onClick={()=>{localStorage.setItem("setQuickbuy",null)}}>{productName}</p>
             </Link>
             <span className='itemPrice'>¢{price}</span>
-            <BuyBidbutton tag={sellingType === 'BuyNow'?'Buy Now': 'Bid Now'} productdata={prodData} />
+            <BuyBidbutton tag={sellingType === 'BuyNow'?'Buy': 'Bid'} productdata={prodData} />
                 {sellingType === 'BuyNow'?addcart:watchlist}
 
             {sellingType === 'BuyNow' ? addcart : watchlist}

@@ -24,7 +24,7 @@ const SearchResult = (props) => {
 
   //Pagination
   const [page,setPage] = useState(1);
-  const [itemsPpg,setItemppg] = useState(4);
+  const [itemsPpg,setItemppg] = useState(6);
   const pagesCount = Array(Math.ceil(data.length/itemsPpg)).fill().map((_,index) => index + 1);
   const lastItem = page * itemsPpg;
   const firstItem = lastItem - itemsPpg;
