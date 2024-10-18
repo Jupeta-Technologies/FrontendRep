@@ -23,14 +23,13 @@ const ItemCardglobal = (prodData) => {
     return ( 
         <div className='cardContainer' key={id}>
             <p className='itemConditionTag'>{condition}</p>
-            <p className='auctionTime'>{date.toLocaleString()}</p>
+            {/* <p className='auctionTime'>{date.toLocaleString()}</p> */}
             <AiFillHeart  className='favoriteIcon'/>
             <ItemIMG src={imageFileUrl}/>
-            <Link to={`/product-detail/${id}`} className='itemNameLink'>
+            <Link to={`/product-detail/${id}`} className='itemNameLink' style={{textDecoration:'none'}}>
                 <p className='itemName' onClick={()=>{localStorage.setItem("setQuickbuy",null)}}>{productName}</p>
             </Link>
-            <div className='itemBriefDscr'>{summary}</div>
-            <p className='itemPrice'>¢{price}</p>
+            <span className='itemPrice'>¢{price}</span>
             <BuyBidbutton tag={sellingType === 'BuyNow'?'Buy Now': 'Bid Now'} productdata={prodData} />
                 {sellingType === 'BuyNow'?addcart:watchlist}
 
