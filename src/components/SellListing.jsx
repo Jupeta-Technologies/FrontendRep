@@ -19,7 +19,7 @@ const SellListing = () =>{
     
 
     //Some data fields will have default values
-    const [listData,setlistData] = useState({Title:'', Condition:'',Summary:'This is a short test', Price:1299.99, Description:"", Quantity:1,Specification:{}, sellType:'',prevImg:[] });
+    const [listData,setlistData] = useState({Title:'', Condition:'',Summary:'This is a short test', Price:'', Description:"", Quantity:1,Specification:{}, sellType:'',prevImg:[] });
 
     const handelDataChange = (e) =>{
         
@@ -145,6 +145,8 @@ const SellListing = () =>{
                     <div className="setPrice">
                         <p>Recommended</p>
                         <p style={{fontSize:'40px', color:'#2E6F94'}}>Ghc {listData.Price}</p>
+                        <label htmlFor="Price"><h5>Price : </h5></label>
+                        <input type="text" value={listData.Price} name='Price' onInput={(e) =>{handelDataChange(e);} } />
 
                         <p>Accepting Offer</p>
 
