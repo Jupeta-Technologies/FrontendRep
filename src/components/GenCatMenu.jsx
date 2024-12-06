@@ -34,7 +34,7 @@ const GenCatMenu = ({ isSticky, sx }) => {
 
   return (
     <div
-      className="GCMenu_Container"
+      className={!isSticky?"GCMenu_Container":"GCMenu_Container hidegcm_img"}
       style={{
         marginTop: currLoc.pathname === '/' ? "0px" : "20px",
         ...sx
@@ -42,12 +42,12 @@ const GenCatMenu = ({ isSticky, sx }) => {
     >
       <ul>
         {categoryList.map((category, index) => (
-          <li key={index}>
+          !isSticky?<li key={index}>
             <Link to={category.linkTo} state={{ selectedCategory: category.name }}>
               <img src={category.imgSrc} alt='' />
             </Link>
             <h6>{category.name}</h6>
-          </li>
+          </li>:<li>{category.name}</li>
         ))}
       </ul>
     </div>

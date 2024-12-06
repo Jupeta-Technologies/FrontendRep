@@ -7,7 +7,6 @@ import CartPage from './PAGES/cartPage';
 import ProfilePage from './PAGES/profilePage';
 import AllCategories from './components/AllCategories';
 import { SignUp } from './components';
-import SellPage from './PAGES/SellPage';
 import SignUpPage from './PAGES/SignUpPage';
 import Location from './PAGES/Location';
 import HomePage from './PAGES/HomePage';

@@ -144,16 +144,16 @@ const SellListing = () =>{
                 <div className="listPrice">
                     <div className="setPrice">
                         <p>Recommended</p>
-                        <p style={{fontSize:'40px', color:'#2E6F94'}}>Ghc {listData.Price}</p>
-                        <label htmlFor="Price"><h5>Price : </h5></label>
-                        <input type="text" value={listData.Price} name='Price' onInput={(e) =>{handelDataChange(e);} } />
+                        <p>Enter a competitive price to sell faster</p>
+                        <label htmlFor="Price"><h5>Price</h5></label>
+                        <input type="text" value={listData.Price} name='Price' onInput={(e) =>{handelDataChange(e);} }  style={{marginLeft:'8px',fontSize:'20px', color:'#2E6F94'}}/>
 
                         <p>Accepting Offer</p>
 
                     </div>
                     <div className='setSmartPrice'>
-                        <p>Smart Pricing <span><IoToggleSharp  style={{color:'green', fontSize:'2.5rem'}}/></span></p>
-                        <p style={{width:'300px'}}>Smart Pricing automatically drops the price of your listing by 10% at the best time every week until it hits your floor price.</p>
+                        <p>Smart Pricing <span><IoToggleSharp  style={{color:'green', fontSize:'1.5rem'}}/></span></p>
+                        <p style={{width:'350px', fontSize:'small'}}>Smart Pricing automatically drops the price of your listing by 10% at the best time every week until it hits your floor price.</p>
                         <p>Floor Price <span style={{color:'green', fontSize:'1.5rem'}}>GHc 999.99</span></p>
                     </div>
     
