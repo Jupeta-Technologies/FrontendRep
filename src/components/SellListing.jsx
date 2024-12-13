@@ -86,6 +86,10 @@ const SellListing = () =>{
             <JupetaECnavBar page={"nctgm"}/>
             <div className="mainContainer" style={{marginTop:'100px'}}>
             <h1 style={{textAlign:'center', marginBottom:'48px'}}>List. Sell. Cash</h1>
+
+            <input type="text" placeholder='What do you want sell?' style={{width:'90%',height:'48px',fontSize:'1.5rem',fontWeight:'400', padding:'8px 16px', margin:'0 auto',boxShadow:'var(--primaryShadow)',borderRadius:'24px'}}/>
+
+            <div style={{display:'none'}}>
             <section>
 
                 <h5>Listing Details</h5>
@@ -178,6 +182,7 @@ const SellListing = () =>{
             </section>
 
             <Button onClick={()=>{handlePublish()}}>Publish</Button>
+            </div>
             </div>
         </>
 

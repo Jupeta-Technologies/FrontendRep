@@ -123,21 +123,25 @@ const  JupetaECnavBar = (props) => {
         products === null?setCart([]):setCart(products);
     };
     
-    useEffect(() => {
+   
         const handleScroll = () => {
-            if (window.scrollY > 550){
+            if (window.scrollY >= 550){
                 setIsSticky(true);
+                console.log(isSticky, window.scrollY);
+                
             }
             else{
                 setIsSticky(false);
+                console.log(isSticky,window.scrollY);
+                window.removeEventListener('scroll', handleScroll);
             }
         }
-        window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll);
 
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        }
-    },[])
+
+
+        
+  
 
     
 

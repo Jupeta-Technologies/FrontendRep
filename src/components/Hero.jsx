@@ -12,7 +12,7 @@ const Hero = () => {
       position: 'relative',
       backgroundImage: `url(${heroImage})`,
       backgroundSize: 'cover',
-      height: '60vh',
+      height: '348px',
       minHeight:348,
       width: '100vw',
       display: 'flex',

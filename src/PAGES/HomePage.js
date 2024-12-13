@@ -69,26 +69,16 @@ const HomePage = () => {
         
           
         
-            <Carousel responsive={responsive}>
+           <div style={{display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(300px,1fr)',gap:'14px'}}>
               {
-          products.map((x,index)=>{return(<div style={{width:'348px', height:'448px', backgroundColor:'#F5F5F7', borderRadius:'20px',overflow:'clip', flexShrink:0,cursor:'pointer'}} key={index}>
+          products.map((x,index)=>{return(<div style={{width:'288px', height:'388px', backgroundColor:'#F5F5F7', borderRadius:'20px',overflow:'clip', flexShrink:0,cursor:'pointer'}} key={index}>
             <img src={x.imageFileUrl} style={{width:'100%',height:'100%',objectFit:'cover'}}/>
-            <span style={{position:'absolute', bottom:'10px',left:'10px', padding:'2px 14px',borderRadius:'14px', backgroundColor:'#FFF'}}>{x.price}</span>
+            <span style={{position:'relative', bottom:'30px',left:'10px', padding:'2px 14px',borderRadius:'14px', backgroundColor:'#FFF'}}>{x.price}</span>
           </div>)})
               }
-          </Carousel>
+          </div>
           
          
-        <h4 style={{margin:'14px 0'}}>Aution</h4>
-          <div className='autionHighlight' style={{display:'flex', flexDirection:'row', gap:'16px'}}>
-          <div style={{width:'348px', height:'448px', backgroundColor:'#F5F5F7', borderRadius:'20px'}}></div>
-          <div style={{width:'348px', height:'448px', backgroundColor:'#F5F5F7', borderRadius:'20px'}}></div>
-          </div>
-        <h6>Fashion</h6>
-          <div className='fashionHighlight' style={{display:'flex', flexDirection:'row', gap:'16px'}}>
-          <div style={{width:'348px', height:'448px', backgroundColor:'#F5F5F7', borderRadius:'20px'}}></div>
-          <div style={{width:'348px', height:'448px', backgroundColor:'#F5F5F7', borderRadius:'20px'}}></div>
-          </div>
 
           
       </div>
