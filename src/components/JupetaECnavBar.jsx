@@ -161,12 +161,12 @@ const  JupetaECnavBar = (props) => {
                 </div>
                 <div className="center">
                 <div className='searchBtn' style={{display:searchActive && "none"}} onClick={handleSearchicon} >
-                    <AiOutlineSearch id='navSicon' style={{borderRadius:'100%',padding:'8px',fontSize:'2rem',background:'#44423f', color:'#FFF'}}/><span>Search...</span>
+                    <AiOutlineSearch id='navSicon' style={{borderRadius:'100%',padding:'8px',fontSize:'2rem',background:'#44423f', color:'#FFF'}}/><span style={{color:'#44423f'}}>Search...</span>
                 </div>
                     <div className={searchActive?"navSearchBar showOpacity":"navSearchBar"}>
                         <div className="sBarleft">
                         <select placeholder="Select a Category"  value={searchCatg} onChange={handleSearchCat}>
-                            <option value="0">Select a Category</option>
+                            <option value="0">Category</option>
                             <option value='1'>All Categories</option>
                             <option value='2'>Consumer Electronic</option>
                         </select>

@@ -169,8 +169,8 @@ background-color: #FFF;}
 /* Search bar styling */
 .center .searchBtn{width:120px; height:40px; background:linear-gradient(to right,#e7e7ecc6,transparent); padding:5px; border-radius:25px; cursor:pointer; position:absolute; left:-30%; display:flex; flex-direction: row; align-items: center;gap: 4px; font-size: smaller; color: #c9c9c9;}
 .navSearchBar{ width:100%;height: 40px; padding: 3px 10px; font-size: medium; border-radius:20px; background-color: #e7e7ecc6; display: flex; flex-direction: row; overflow: hidden;visibility: hidden;}
-.navSearchBar .sBarleft{position:relative; align-self: center; & select {padding:4px; height:32px; background: transparent; width: auto;}}
-.navSearchBar .sBarcenter{width: calc(100% - 225px); position: relative;align-self: center; padding-left: 20px;}
+.navSearchBar .sBarleft{position:relative; align-self: center; & select {padding:4px; height:32px; background: transparent; width:100px;}}
+.navSearchBar .sBarcenter{width: calc(100% - 148px); position: relative;align-self: center; padding-left: 20px;}
 .navSearchBar .sBarright{align-self:center;position: absolute; right: 4px; background:#44423f; color: #FFF; padding: 8px; border-radius: 50%; cursor: pointer;}
 .navSearchBar .sBarright .MuiButton-root{background-color:#44423f; height: 20px; border-radius: 20px;font-weight: 300; min-height: 28px;}
 .navSearchBar .sBarright .MuiButton-root:hover{background-color: #696663;}

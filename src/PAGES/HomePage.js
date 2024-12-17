@@ -65,13 +65,12 @@ const HomePage = () => {
           <div style={{width:'248px', height:'148px', backgroundColor:'#F5F5F7', borderRadius:'20px'}}></div>
         </div>
       }
-        <h4 style={{margin:'14px 0'}}>Technology</h4>
         
           
         
            <div style={{display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(300px,1fr)',gap:'14px'}}>
               {
-          products.map((x,index)=>{return(<div style={{width:'288px', height:'388px', backgroundColor:'#F5F5F7', borderRadius:'20px',overflow:'clip', flexShrink:0,cursor:'pointer'}} key={index}>
+          products.slice(0,8).map((x,index)=>{return(<div style={{width:'288px', height:'388px', backgroundColor:'#F5F5F7', borderRadius:'20px',overflow:'clip', flexShrink:0,cursor:'pointer'}} key={index}>
             <img src={x.imageFileUrl} style={{width:'100%',height:'100%',objectFit:'cover'}}/>
             <span style={{position:'relative', bottom:'30px',left:'10px', padding:'2px 14px',borderRadius:'14px', backgroundColor:'#FFF'}}>{x.price}</span>
           </div>)})
