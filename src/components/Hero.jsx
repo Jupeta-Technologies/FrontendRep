@@ -19,6 +19,7 @@ const Hero = () => {
       alignItems: 'center',
       justifyContent: 'center',
       top:'0',
+      margin:'0'
     }}
   >
 
@@ -34,7 +35,6 @@ const Hero = () => {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        marginBottom: '250px'
       }}
     >
       
