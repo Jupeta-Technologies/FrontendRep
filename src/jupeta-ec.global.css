@@ -393,5 +393,35 @@ background-color: #FFF;}
     &:hover{background:#f1f1f7;}
 }
 
+/*Featured items grid */
+
+.featuredItemgrid{
+    display:grid; 
+    grid-template-columns:288px 228px repeat(3,148px);
+    gap:14px;
+    justify-content: center;
+}
+.ftgridItems{
+    width:148px;
+    height:188px;
+    background-color:#F5F5F7;
+    border-radius:20px;
+    overflow:clip;
+    flex-shrink:0;
+    cursor: pointer;
+}
+.ftgridItems:nth-child(1){
+    width: 288px;
+    height: 388px;
+    grid-row:span 2;
+
+}
+.ftgridItems:nth-child(2){
+    width: 228px;
+    height: 388px;
+    grid-row:span 2;
+
+}
+
 
 
