@@ -14,7 +14,6 @@ const Hero = () => {
       backgroundSize: 'cover',
       height: '348px',
       minHeight:348,
-      width: '100vw',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
@@ -30,8 +29,8 @@ const Hero = () => {
         left: '90px',
         borderRadius: '50%',
         backgroundColor: 'rgba(255, 255, 255, 0.5)',
-        width: '80px',
-        height: '80px',
+        width: '40px',
+        height: '40px',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
@@ -44,7 +43,7 @@ const Hero = () => {
             fontSize: '500px',
           }}
         >
-          <AiOutlineShoppingCart style={{fontSize:'40px'}}/>
+          <AiOutlineShoppingCart style={{fontSize:'20px'}}/>
         </IconButton>
     </Box>
   </Box>

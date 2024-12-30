@@ -16,6 +16,7 @@ const SellListing = () =>{
     
     const [defaultImg, setdefaultImg] = useState("");
     const [imgF,setimgF] = useState('');
+    const [matchedItem,setmatchedItem] = useState("");
     
 
     //Some data fields will have default values
@@ -85,11 +86,11 @@ const SellListing = () =>{
         <>
             <JupetaECnavBar page={"nctgm"}/>
             <div className="mainContainer" style={{marginTop:'100px'}}>
-            <h1 style={{textAlign:'center', marginBottom:'48px'}}>List. Sell. Cash</h1>
+            <h1 style={{textAlign:'center', marginBottom:'48px'}}>Buy. Sell. Trade</h1>
 
-            <input type="text" placeholder='What do you want sell?' style={{width:'90%',height:'48px',fontSize:'1.5rem',fontWeight:'400', padding:'8px 16px', margin:'0 auto',boxShadow:'var(--primaryShadow)',borderRadius:'24px'}}/>
-
-            <div style={{display:'none'}}>
+            <input type="text" placeholder='What do you want sell or trade?' value={matchedItem} style={{width:'90%',height:'48px',fontSize:'1.5rem',fontWeight:'400', padding:'8px 16px', margin:'0 auto',boxShadow:'var(--primaryShadow)',borderRadius:'24px'}} onChange={(e)=>{setmatchedItem(e.target.value)}}/>
+            <div style={{margin:'24px auto'}}><span>No match found</span><button style={{background:'#2E6F94',color:'#FFF', width:'100px', padding:'8px', borderRadius:'24px', marginLeft:'24px'}} value={matchedItem} name='Title' onClick={(e)=>{handelDataChange(e);console.log(listData.Title)}}>Continue</button></div>
+            <div style={{display:'block'}}>
             <section>
 
                 <h5>Listing Details</h5>
