@@ -138,7 +138,7 @@ const SellListing = () =>{
             <section>
                 <h5>Description</h5>
                 <div className="listDesc">
-                    <textarea name='Description' value={listData.Description} placeholder='Please enter a good description of your item, to help it sell better' onChange={(e)=>{handelDataChange(e);}} />
+                    <textarea name='Description' value={listData.Description} placeholder='Please enter a good description of your item, to help it sell better' onChange={(e)=>{handelDataChange(e);}} style={{borderRadius:'10px'}}/>
 
                 </div>
             </section>
