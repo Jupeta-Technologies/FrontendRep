@@ -39,7 +39,7 @@ background-color: #FFF;}
 .cardContainer:hover{box-shadow: 0px -2px 14px rgba(0, 0, 0, 0.10); transform: scale(1.02); transition: all 0.3s;}
 .cardContainer:hover .buybidButton{opacity: 1;}
 .cardContainer p{text-align: center;}
-.cardContainer .itemName{display: -webkit-box; font-weight:500;margin-top: 15px; font-size:small; color: #000;text-align: left;padding: 4px 8px; text-overflow: ellipsis;overflow: hidden; white-space: initial;-webkit-line-clamp: 2; -webkit-box-orient: vertical;}
+.cardContainer .itemName{display: -webkit-box; font-weight:500;margin-top: 15px; font-size:small; color: #000;text-align: left;padding: 4px 8px; text-overflow: ellipsis;overflow: hidden; white-space: initial;line-clamp: 2; -webkit-line-clamp: 2; -webkit-box-orient: vertical;}
 .cardContainer .itemBriefDscr{font-size:x-small;color: #696663;text-align: center;}
 
 .gShadow{
