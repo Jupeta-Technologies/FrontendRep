@@ -293,3 +293,8 @@
   .inputNotV{
     border:1px solid red;
   }
+
+  .validEmail{
+    cursor:pointer;
+}
+.validEmail:hover{color: darkgray;}

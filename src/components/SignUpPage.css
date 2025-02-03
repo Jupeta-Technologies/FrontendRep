@@ -103,8 +103,3 @@
     font-size: small;
 }
 
-.validEmail{
-    cursor:pointer;
-    font-size:2rem;
-}
-.validEmail:hover{color: darkgray;}

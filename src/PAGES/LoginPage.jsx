@@ -6,7 +6,8 @@ import { useNavigate } from 'react-router-dom';
 import {FcGoogle} from "react-icons/fc";
 import {FaFacebookF,FaApple} from "react-icons/fa";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {BsCheck2Circle,BsFillEyeFill,BsFillEyeSlashFill,BsFillArrowRightCircleFill,BsFillCheckCircleFill} from "react-icons/bs";
+import { SlArrowRight } from "react-icons/sl";
+import {BsCheck2Circle,BsFillEyeFill,BsFillEyeSlashFill,BsFillArrowRightCircleFill,BsFillCheckCircleFill, BsArrowRightShort} from "react-icons/bs";
 import {PiWarningCircleFill} from 'react-icons/pi';
 import { AiOutlineClose } from "react-icons/ai";
 
@@ -249,7 +250,12 @@ const LoginPage = () => {
             <input type="email" id="email" placeholder="Enter email address" required value={sUPEmail} onChange={handlesUPemail} style={inputEC? {border:"1px solid green"}:(!emailValid&&sUPEmail!==''?{border:"1px solid red",boxShadow:'inset 0px 0px 5px red'}:null)}/>
             {!inputEC&& sUPEmail !==""?<span style={{display:'inline-flex', flexDirection:'row', alignItems:'center',color:'red'}}><PiWarningCircleFill /> <span style={{fontSize:'0.8rem',marginLeft:'5px'}}>Email is invalid</span></span>:""}
             </div>
-            <BsFillArrowRightCircleFill className='validEmail' onClick={checksUPemail} type='submit'/>
+            <span style={{display:'inline-flex', flexDirection:'row',gap:'4px', alignItems:'center', background:'#000', color:'#FFF', padding:'8px 16px', borderRadius:'32px', marginBottom:'24px'}}  onClick={checksUPemail} className='validEmail'>submit <span><SlArrowRight   type='submit'/></span></span>
+          <div className="socialAuth">
+          <div><button type="submit" className="btns"><span><FcGoogle /></span></button><span>Google</span></div>
+          <div><button type="submit" className="btns"><span style={{color:'#3B5998'}}><FaFacebookF /></span></button><span>Facebook</span></div>
+          <div><button type="submit" className="btns"><span><FaApple /></span></button><span>Apple</span></div>
+          </div>
           </>):
             
               !emailVerified?(<>
