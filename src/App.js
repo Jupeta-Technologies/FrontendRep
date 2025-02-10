@@ -1,4 +1,4 @@
-import React, { useEffect, useState,useContext } from 'react';
+import React, { useEffect, useState} from 'react';
 import './components/app.css';
 import './jupeta-ec.global.css';
 import { Routes, Route} from 'react-router-dom';
@@ -19,7 +19,6 @@ import Tiles from './components/Tiles';
 import SearchResult from './components/SearchResult';
 import SellListing from './components/SellListing';
 import CatHomePage from './PAGES/CatHomePage';
-import { Cartcontext } from "./context/context";
 import { GetAllProdAPI } from './APIs/GetAllProdAPI';
 import { CartProvider } from './context/CartContext';
 function App() {
